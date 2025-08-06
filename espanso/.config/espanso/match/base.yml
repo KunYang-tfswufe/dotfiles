@@ -3,8 +3,7 @@ matches:
   - trigger: "`0"
     replace: |-
       open-url:
-        https://drive.proton.me/urls/6X7EX5P730#TGgVTUOlDMXu
-        https://drive.proton.me/urls/1MNQAG4ADG#Pk4xAJSLnY5w
+        https://drive.proton.me/urls/BJTF8EAFBC#tDQhN9WuHScv
 
   - trigger: "`1"
     replace: |-
