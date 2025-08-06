@@ -1,0 +1,20 @@
+/* 全局样式 */
+* {
+    border: none;
+    border-radius: 0;
+    font-family: sans-serif; /* 使用一个通用字体族即可 */
+    font-size: 14px;
+    min-height: 0;
+}
+
+/* 主栏 */
+window#waybar {
+    background: #000000; /* 纯黑色背景 */
+    color: #ffffff;      /* 图标使用白色，以保证对比度 */
+}
+
+/* 托盘模块 */
+#tray {
+    padding: 0 6px; /* 控制宽度：上下无内边距，左右各6px */
+    margin: 5px 0;  /* 提供一个微小的上下外边距，使其不完全贴住屏幕角落 */
+}

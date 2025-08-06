@@ -1,0 +1,12 @@
+{
+    "layer": "top",
+    "position": "right",
+
+    "modules-right": [
+        "tray"
+    ],
+
+    "tray": {
+        "spacing": 10
+    }
+}
