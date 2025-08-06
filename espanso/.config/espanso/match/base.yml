@@ -7,7 +7,7 @@ matches:
 
   - trigger: "`1"
     replace: |-
-      系统提词:我的操作系统是archlinux+hyprland+fish,我的年龄是23岁,是物联网工程的偏远农村刚毕业大学生,期望工作是java web开发,或者linux系统管理员或者LLM ai开发.
+      系统提词:我的操作系统是archlinux+hyprland+fish,我的年龄是23岁,是物联网工程的偏远农村刚毕业贫穷大学生,期望工作是java web开发,或者linux系统管理员或者LLM ai开发.
 
   - trigger: "`2"
     replace: |-
