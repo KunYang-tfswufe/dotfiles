@@ -87,3 +87,7 @@ matches:
   - trigger: "`a"
     replace: |-
       请上网帮我搜索资料并完整的整理一份xxx的资料 | 请帮我上网搜索xxx(需要Gemini AIStudio右侧Run Settings面板启用Google Search功能)
+
+  - trigger: "`s"
+    replace: |-
+      fish ~/.local/bin/make_snapshot.fish
