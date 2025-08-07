@@ -11,6 +11,7 @@ set ignored_dirs \
     .git \
     .vscode \
     .idea \
+    .obsidian \
     node_modules \
     target \
     build \
