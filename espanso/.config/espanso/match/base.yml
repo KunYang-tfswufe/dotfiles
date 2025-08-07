@@ -27,59 +27,63 @@ matches:
 
   - trigger: "`6"
     replace: |-
-      为什么要取这个名字,请给我分别讲取这几个字的中文和英文内涵
+      我没有理解到,请直接给我太长不看 (TL;DR) 版本
 
   - trigger: "`7"
+    replace: |-
+      为什么要取这个名字,请给我分别讲取这几个字的中文和英文内涵
+
+  - trigger: "`8"
     replace: |-
       translate to Chinese：{{clipb}}
     vars:
       - name: "clipb"
         type: "clipboard"
 
-  - trigger: "`8"
+  - trigger: "`9"
     replace: |-
       这英文单词是什么意思?为什么要这么取名,翻译成中文是什么?
 
-  - trigger: "`9"
+  - trigger: "`q"
     replace: |-
       请教我且从电脑开机开始,逐步教我这个项目的开发(采用快速原型开发)先搭建基本的骨架实现最基础的功能,我使用arch linux
 
-  - trigger: "`q"
+  - trigger: "`w"
     replace: |-
       给每个xxx进行投入产出比和通用性评分,满分100,写成一个键值对.
 
-  - trigger: "`w"
+  - trigger: "`e"
     replace: |-
       为一本关于<<minecraft redstone深入浅出>>的书设计一个详细的章节大纲。------[粘贴前面生成的目录].这是LLM给我的学习目录,我已经学完前面的章节了,现在请教我第xxx章：你好，红石！—— 红石系统导论 1.1 什么是红石信号？—— 能量的开与关.
 
-  - trigger: "`e"
+  - trigger: "`r"
     replace: |-
       请用代码(例如python | html | mermaidjs | svg)画出xxx图像.我什么都不会只会用arduino uno点led灯,上课也没有听请快速教我需要解答这道题的前置知识:
 
-  - trigger: "`r"
+  - trigger: "`t"
     replace: |-
       救赎之路["专业知识","数学","物理","计算机","生物", "英语(从初中水平的阅读开始,其次是初中水平的刷题)","化学","哲学","逻辑学","经济学","心理学","历史"];先从投入产出比最高的初中知识开始学,然后是高中,学有余力或者兴趣使然再了解更深,而不是把他当作代办事项,当达到投入产出比的边际效应后我就认为完成了学习
 
-  - trigger: "`t"
+  - trigger: "`y"
     replace: |-
       你必须要主观回答,拿出你最真实的想法不用跟我拐弯抹角,对于xxx和xxx选择哪个才是最佳实践.(就算答案有点刺耳,甚至有点残酷);
 
-  - trigger: "`y"
+  - trigger: "`u"
     replace: |-
       我什么都不会只会用arduino uno点led灯,上课也没有听请快速教我需要解答这道题的前置知识: 你必须要主观回答,对于文学和理学选择哪个才是最佳实践.(就算答案有点刺耳);
 
-  - trigger: "`u"
+  - trigger: "`i"
     replace: |-
       我没有上过课,请给我做这道题的最短前置知识
 
-  - trigger: "`i"
+  - trigger: "`o"
     replace: |-
       以下是项目的每个源文件,每个文件我用注释分开,请帮我分析整个项目:#main.py 文件内容  #head.py  文件内容
 
-  - trigger: "`o"
+  - trigger: "`p"
     replace: |-
       这里-Y,-f,-n参数分别是哪些单词的缩写,我需要知道它们的原型（完整单词）才能更好的帮助记忆和理解.
 
-  - trigger: "`p"
+  - trigger: "`a"
     replace: |-
       请上网帮我搜索资料并完整的整理一份xxx的资料 | 请帮我上网搜索xxx(需要Gemini AIStudio右侧Run Settings面板启用Google Search功能)
