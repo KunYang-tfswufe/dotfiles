@@ -13,6 +13,7 @@ set ignored_dirs \
     .idea \
     .obsidian \
     .metadata \
+    STM32CubeIDE \
     node_modules \
     target \
     build \
