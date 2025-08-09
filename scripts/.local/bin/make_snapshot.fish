@@ -12,6 +12,7 @@ set ignored_dirs \
     .vscode \
     .idea \
     .obsidian \
+    .metadata \
     node_modules \
     target \
     build \
