@@ -23,51 +23,47 @@ matches:
 
   - trigger: "`5"
     replace: |-
-      我没有理解到,请帮我浓缩成极致简短的精华摘要
+      我没有理解到,请帮我浓缩成极致简短的精华摘要 or 我没有理解到,请直接给我太长不看 (TL;DR) 版本
 
   - trigger: "`6"
     replace: |-
-      我没有理解到,请直接给我太长不看 (TL;DR) 版本
-
-  - trigger: "`7"
-    replace: |-
       为什么要取这个名字,请给我分别讲取这几个字的中文和英文内涵
 
-  - trigger: "`8"
+  - trigger: "`7"
     replace: |-
       translate to Chinese：{{clipb}}
     vars:
       - name: "clipb"
         type: "clipboard"
 
-  - trigger: "`9"
+  - trigger: "`8"
     replace: |-
       这英文单词是什么意思?为什么要这么取名,翻译成中文是什么?
 
-  - trigger: "`q"
+  - trigger: "`9"
     replace: |-
       请教我且从电脑开机开始,逐步教我这个项目的开发(采用快速原型开发)先搭建基本的骨架实现最基础的功能,我使用arch linux
 
-  - trigger: "`w"
+  - trigger: "`q"
     replace: |-
       给每个xxx进行投入产出比和通用性评分,满分100,写成一个键值对.
 
-  - trigger: "`e"
+  - trigger: "`w"
     replace: |-
       为一本关于<<minecraft redstone深入浅出>>的书设计一个详细的章节大纲。------[粘贴前面生成的目录].这是LLM给我的学习目录,我已经学完前面的章节了,现在请教我第xxx章：你好，红石！—— 红石系统导论 1.1 什么是红石信号？—— 能量的开与关.
 
-  - trigger: "`r"
+  - trigger: "`e"
     replace: |-
       请使用html画一个参考布线.
 
-  - trigger: "`y"
+  - trigger: "`r"
     replace: |-
       你必须要主观回答,拿出你最真实的想法不用跟我拐弯抹角,对于xxx和xxx选择哪个才是最佳实践.(就算答案有点刺耳,甚至有点残酷);
 
-  - trigger: "`p"
+  - trigger: "`t"
     replace: |-
       这里-Y,-f,-n参数分别是哪些单词的缩写,我需要知道它们的原型（完整单词）才能更好的帮助记忆和理解.
 
-  - trigger: "`s"
+  - trigger: "`y"
     replace: |-
       fish ~/.local/bin/make_snapshot.fish
