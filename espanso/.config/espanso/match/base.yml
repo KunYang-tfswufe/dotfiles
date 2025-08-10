@@ -64,7 +64,6 @@ matches:
     replace: |-
       请详细讲解这个Youtube视频: https://www.youtube.com/watch?v=xxxxxx(Gemini能够直接观看youtube视频,不需要字幕,但是消耗是普通聊天的100倍)
 
-
   - trigger: "`y"
     replace: |-
       fish ~/.local/bin/make_snapshot.fish
