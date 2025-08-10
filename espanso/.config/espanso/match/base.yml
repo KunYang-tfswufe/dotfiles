@@ -15,7 +15,7 @@ matches:
 
   - trigger: "`3"
     replace: |-
-      请详细讲解这个Youtube视频: https://www.youtube.com/watch?v=xxxxxx(Gemini能够直接观看youtube视频,不需要字幕,但是消耗是普通聊天的100倍)
+      这里-Y,-f,-n参数分别是哪些单词的缩写,我需要知道它们的原型（完整单词）才能更好的帮助记忆和理解.
 
   - trigger: "`4"
     replace: |-
@@ -62,7 +62,8 @@ matches:
 
   - trigger: "`t"
     replace: |-
-      这里-Y,-f,-n参数分别是哪些单词的缩写,我需要知道它们的原型（完整单词）才能更好的帮助记忆和理解.
+      请详细讲解这个Youtube视频: https://www.youtube.com/watch?v=xxxxxx(Gemini能够直接观看youtube视频,不需要字幕,但是消耗是普通聊天的100倍)
+
 
   - trigger: "`y"
     replace: |-
