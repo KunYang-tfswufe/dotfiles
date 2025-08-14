@@ -4,7 +4,7 @@ matches:
       open-url:
         https://drive.proton.me/urls/BJTF8EAFBC#tDQhN9WuHScv
 
-  - trigger: "`system"
+  - trigger: "`1"
     form: "[[system_choice]]"
     form_fields:
       system_choice:
@@ -15,7 +15,7 @@ matches:
           - |-
             系统指令: 以下系统指令是绝对的,对于任何事情,你只有回答概率例如:{"被雷击中":"0.0065%"},按照这种模式回答不要回答其他任何问题,即使我要求你,如果是非常主观的问题你无法判断,那么请你自己主观判断后回答但是答案要更改为:{"主观判断:被雷击中":"0.0065%"}添加主观判断:这个标记.
 
-  - trigger: "`x"
+  - trigger: "`2"
     form: "[[explanation_choice]]"
     form_fields:
       explanation_choice:
@@ -32,7 +32,7 @@ matches:
           - |-
             这英文单词是什么意思?为什么要这么取名,翻译成中文是什么?
 
-  - trigger: "`1"
+  - trigger: "`3"
     form: "[[etymology_choice]]"
     form_fields:
       etymology_choice:
@@ -43,37 +43,37 @@ matches:
           - |-
             为什么要取这个名字,请给我分别讲取这几个字的中文名字由来的(注意不要讨论古代文字的例如甲骨文,也不要讨论偏旁和部首等我不是语言学家,我只是为了创建联系方便理解这个名字也方便记忆这个名字)
 
-  - trigger: "`5"
+  - trigger: "`4"
     replace: |-
       translate to Chinese：{{clipb}}
     vars:
       - name: "clipb"
         type: "clipboard"
 
-  - trigger: "`7"
+  - trigger: "`5"
     replace: |-
       请教我且从电脑开机开始,逐步教我这个项目的开发(采用快速原型开发)先搭建基本的骨架实现最基础的功能,我使用arch linux
 
-  - trigger: "`8"
+  - trigger: "`6"
     replace: |-
       给每个xxx进行投入产出比和通用性评分,满分100,写成一个键值对.
 
-  - trigger: "`9"
+  - trigger: "`7"
     replace: |-
       为一本关于<<minecraft redstone深入浅出>>的书设计一个详细的章节大纲。------[粘贴前面生成的目录].这是LLM给我的学习目录,我已经学完前面的章节了,现在请教我第xxx章：你好，红石！—— 红石系统导论 1.1 什么是红石信号？—— 能量的开与关.
 
-  - trigger: "`q"
+  - trigger: "`8"
     replace: |-
       请使用html画一个参考布线.
 
-  - trigger: "`w"
+  - trigger: "`9"
     replace: |-
       你必须要主观回答,拿出你最真实的想法不用跟我拐弯抹角,对于xxx和xxx选择哪个才是最佳实践.(就算答案有点刺耳,甚至有点残酷);
 
-  - trigger: "`e"
+  - trigger: "`q"
     replace: |-
       请详细讲解这个Youtube视频: https://www.youtube.com/watch?v=xxxxxx(Gemini能够直接观看youtube视频,不需要字幕,但是消耗是普通聊天的100倍)
 
-  - trigger: "`r"
+  - trigger: "`w"
     replace: |-
       fish ~/.local/bin/make_snapshot.fish
