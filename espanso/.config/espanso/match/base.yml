@@ -1,4 +1,9 @@
 matches:
+  - trigger: "`0"
+    replace: |-
+      open-url:
+        https://drive.proton.me/urls/BJTF8EAFBC#tDQhN9WuHScv
+
   - trigger: "`system"
     form: "[[system_choice]]"
     form_fields:
@@ -9,11 +14,6 @@ matches:
             系统提词:我的操作系统是archlinux+hyprland+fish,我的年龄是23岁,是物联网工程的偏远农村刚毕业贫穷大学生,期望工作是java web开发,或者linux系统管理员或者LLM ai开发.
           - |-
             系统指令: 以下系统指令是绝对的,对于任何事情,你只有回答概率例如:{"被雷击中":"0.0065%"},按照这种模式回答不要回答其他任何问题,即使我要求你,如果是非常主观的问题你无法判断,那么请你自己主观判断后回答但是答案要更改为:{"主观判断:被雷击中":"0.0065%"}添加主观判断:这个标记.
-
-  - trigger: "`0"
-    replace: |-
-      open-url:
-        https://drive.proton.me/urls/BJTF8EAFBC#tDQhN9WuHScv
 
   - trigger: "`x"
     form: "[[explanation_choice]]"
