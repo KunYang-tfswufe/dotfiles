@@ -15,6 +15,23 @@ matches:
       open-url:
         https://drive.proton.me/urls/BJTF8EAFBC#tDQhN9WuHScv
 
+  - trigger: "`x"
+    form: "[[explanation_choice]]"
+    form_fields:
+      explanation_choice:
+        type: choice
+        values:
+          - |-
+            我没有理解到,请帮我浓缩成极致简短的精华摘要
+          - |-
+            我没有理解到,请直接给我太长不看 (TL;DR) 版本
+          - |-
+            这里-Y,-f,-n参数分别是哪些单词的缩写,我需要知道它们的原型（完整单词）才能更好的帮助记忆和理解.
+          - |-
+            文中术语进行标准解释后举个简单的帮助我理解的现实生活中的例子(请简短一点每个标准解释和简单的例子分别不超过一句话,并且你只用解释你认为需要解释的术语)
+          - |-
+            这英文单词是什么意思?为什么要这么取名,翻译成中文是什么?
+
   - trigger: "`1"
     form: "[[etymology_choice]]"
     form_fields:
@@ -26,28 +43,12 @@ matches:
           - |-
             为什么要取这个名字,请给我分别讲取这几个字的中文名字由来的(注意不要讨论古代文字的例如甲骨文,也不要讨论偏旁和部首等我不是语言学家,我只是为了创建联系方便理解这个名字也方便记忆这个名字)
 
-  - trigger: "`2"
-    replace: |-
-      这里-Y,-f,-n参数分别是哪些单词的缩写,我需要知道它们的原型（完整单词）才能更好的帮助记忆和理解.
-
-  - trigger: "`3"
-    replace: |-
-      文中术语进行标准解释后举个简单的帮助我理解的现实生活中的例子(请简短一点每个标准解释和简单的例子分别不超过一句话,并且你只用解释你认为需要解释的术语)
-
-  - trigger: "`4"
-    replace: |-
-      我没有理解到,请帮我浓缩成极致简短的精华摘要 or 我没有理解到,请直接给我太长不看 (TL;DR) 版本
-
   - trigger: "`5"
     replace: |-
       translate to Chinese：{{clipb}}
     vars:
       - name: "clipb"
         type: "clipboard"
-
-  - trigger: "`6"
-    replace: |-
-      这英文单词是什么意思?为什么要这么取名,翻译成中文是什么?
 
   - trigger: "`7"
     replace: |-
