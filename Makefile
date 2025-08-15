@@ -6,7 +6,7 @@
 USERNAME := $(shell whoami)
 STOW_PACKAGES := hypr kitty nvim scripts waybar espanso configs
 # Define scripts by their final path in the system after stowing
-SCRIPTS_IN_SYSTEM := $(HOME)/.local/bin/change-wallpaper.sh $(HOME)/.local/bin/make_snapshot.sh
+SCRIPTS_IN_SYSTEM := $(HOME)/.local/bin/change-wallpaper.sh $(HOME)/.local/bin/make_snapshot.sh $(HOME)/.local/bin/clip-history.sh
 
 # --- Targets ---
 .PHONY: all install permissions stow systemd clean help
