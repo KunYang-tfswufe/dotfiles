@@ -32,7 +32,7 @@ permissions:
 systemd:
 	@echo "--> Generating and enabling systemd units..."
 	@mkdir -p $(HOME)/.config/systemd/user
-	@printf "[Unit]\nDescription=Change Touhou Wallpaper\n\n[Service]\nType=oneshot\nExecStart=change-wallpaper.sh\n" > $(HOME)/.config/systemd/user/change-wallpaper.service
+	@printf "[Unit]\nDescription=Change Touhou Wallpaper\n\n[Service]\nType=oneshot\nExecStart=$(HOME)/.local/bin/change-wallpaper.sh\n" > $(HOME)/.config/systemd/user/change-wallpaper.service
 	@printf "[Unit]\nDescription=Run wallpaper changer on a Pomodoro schedule\n\n[Timer]\nOnBootSec=5min\nOnUnitActiveSec=30min\n\n[Install]\nWantedBy=timers.target\n" > $(HOME)/.config/systemd/user/change-wallpaper.timer
 	@echo "--> Reloading and enabling Systemd timer..."
 	@systemctl --user daemon-reload
