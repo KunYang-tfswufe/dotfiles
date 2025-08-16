@@ -2,7 +2,8 @@ matches:
   - trigger: "`url"
     replace: |-
       open-url:
-        https://drive.proton.me/urls/BJTF8EAFBC#tDQhN9WuHScv
+        https://drive.proton.me/urls/MRG350BRFR#pblt3K2eEkWq
+        https://drive.proton.me/urls/FT8N5G4DNR#17iNxIvBEDpK
 
   - trigger: "`0"
     form: "[[system_choice]]"
