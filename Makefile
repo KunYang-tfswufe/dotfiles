@@ -6,11 +6,11 @@
 STOW_PACKAGES := hypr kitty nvim scripts waybar espanso configs
 DOTFILES_DIR := $(CURDIR)
 # 将新的备份脚本添加到此列表中 !!
-SCRIPTS_IN_SYSTEM := $(HOME)/.local/bin/change-wallpaper.sh $(HOME)/.local/bin/make_snapshot.sh $(HOME)/.local/bin/clip-history.sh $(HOME)/.local/bin/backup.sh
+SCRIPTS_IN_SYSTEM := $(HOME)/.local/bin/change-wallpaper.sh $(HOME)/.local/bin/make_snapshot.sh $(HOME)/.local/bin/clip-history.sh $(HOME)/.local/bin/backup.sh $(HOME)/.local/bin/sync-myshare.sh
 
 
 # --- Targets ---
-.PHONY: all install permissions stow systemd backup clean help
+.PHONY: all install permissions stow systemd backup sync backup-all clean help
 
 default: all
 
@@ -43,10 +43,19 @@ systemd:
 	@systemctl --user daemon-reload
 	@systemctl --user reenable --now change-wallpaper.timer dotfiles-backup.timer
 
-# Target 4: Run a manual backup by calling the script
+# Target 4: Run a manual SNAPSHOT backup
 backup:
-	@echo "--> Manually running the backup script..."
+	@echo "--> Manually running the SNAPSHOT backup script (dotfiles & obsidian)..."
 	@$(HOME)/.local/bin/backup.sh
+
+# Target 5: Run a manual INCREMENTAL sync for MyShare
+sync:
+	@echo "--> Manually running the INCREMENTAL sync script (MyShare)..."
+	@$(HOME)/.local/bin/sync-myshare.sh
+
+# Target 6: Run ALL backup tasks (snapshot + sync)
+backup-all: backup sync
+	@echo ">> All backup tasks (snapshot + sync) are complete!"
 
 # Clean-up target
 clean:
@@ -66,6 +75,8 @@ help:
 	@echo "  stow           - Link packages using GNU Stow."
 	@echo "  permissions    - Set executable permissions for linked scripts."
 	@echo "  systemd        - Generate and enable ALL systemd units (wallpaper and backup)."
-	@echo "  backup         - Run a manual backup to the cloud NOW."
+	@echo "  backup         - Run a manual SNAPSHOT backup (dotfiles & obsidian) to the cloud NOW."
+	@echo "  sync           - Run a manual INCREMENTAL sync (MyShare) to the cloud NOW."
+	@echo "  backup-all     - Run both snapshot backup and incremental sync."
 	@echo "  clean          - Disable ALL units, remove them, and unlink all packages."
 	@echo "  help           - Show this help message."
