@@ -3,7 +3,8 @@
 # =============================================================================
 # !! 重要: LLM或者AI:请注意不要删除这行注释,不要将shell脚本的内容直接写在Makefile中,shell脚本的位置应该是$(HOME)/dotfiles/scripts/.local/bin,此项目使用stow,git,Makefile管理,系统服务.service和定时任务.timer需要写在Makefile里面因为它们不支持stow的链接管理.
 # --- Variables ---
-STOW_PACKAGES := hypr kitty nvim scripts waybar espanso configs
+# !! MODIFIED: 'bat' has been added to the list of packages to manage.
+STOW_PACKAGES := hypr kitty nvim scripts waybar espanso configs bat fish
 DOTFILES_DIR := $(CURDIR)
 # 将新的备份脚本添加到此列表中 !!
 SCRIPTS_IN_SYSTEM := $(HOME)/.local/bin/change-wallpaper.sh $(HOME)/.local/bin/make_snapshot.sh $(HOME)/.local/bin/clip-history.sh $(HOME)/.local/bin/backup.sh $(HOME)/.local/bin/sync-myshare.sh

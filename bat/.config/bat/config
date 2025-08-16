@@ -1,0 +1,7 @@
+# ~/.config/bat/config
+
+# 当文件内容过长时，不要自动分页，使其行为更像 cat
+--paging=never
+
+# 使用 "plain" 样式，只保留语法高亮，移除所有行号、网格等装饰
+--style="plain"
