@@ -84,10 +84,10 @@ for file in "${file_list[@]}"; do
         echo "--- END OF FILE: $file ---" >> "$output_file"
         echo -e "\n\n" >> "$output_file" # 用两个换行符分隔不同的文件
 
-        echo "  - 已处理: $file"
+        echo "  ✨ - 已处理: $file"
     else
         # 是二进制文件，跳过
-        echo "  - (二进制文件，已忽略): $file"
+        echo "  🙈 - (二进制文件，已忽略): $file"
     fi
 done
 

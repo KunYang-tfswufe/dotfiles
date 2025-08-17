@@ -37,8 +37,8 @@ process_item() {
     # --- 格式化部分 ---
     # 创建 "--- [YYYY-MM-DD HH:MM:SS] ---" 格式的时间戳分隔符
     local timestamp
-    timestamp=$(date +"%Y-%m-%d %H:M:S")
-    local separator="--- [${timestamp}] ---"
+    timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+    local separator="--- 📋 [${timestamp}] ---"
     
     # 使用 printf 来精确构建要写入的块，包含分隔符、内容和末尾的空行
     local new_block

@@ -21,11 +21,11 @@ DEST_DIR="${RCLONE_REMOTE_ROOT}MyShare_sync"
 
 export TZ='Asia/Shanghai'
 
-echo ">> Starting incremental sync for ${SOURCE_DIR}..."
+echo "🔄 >> 开始增量同步目录: ${SOURCE_DIR}..."
 
 # 检查源目录是否存在
 if [ ! -d "$SOURCE_DIR" ]; then
-  echo "错误: 源目录 ${SOURCE_DIR} 不存在！"
+  echo "❌ 错误: 源目录 ${SOURCE_DIR} 不存在！"
   exit 1
 fi
 
@@ -39,11 +39,11 @@ rclone sync "${SOURCE_DIR}" "${DEST_DIR}" \
 # ========================= END OF MODIFIED SECTION =========================
 
 if [ $? -ne 0 ]; then
-  echo "错误: rclone sync 失败！"
+  echo "❌ 错误: rclone sync 失败！"
   exit 1
 fi
 
-echo "--> Sync complete!"
-echo ">> Sync process finished!"
+echo "✅ --> 同步完成！"
+echo "🏁 >> 同步流程结束！"
 
 exit 0

@@ -20,11 +20,11 @@ DAYS_TO_KEEP=7
 
 export TZ='Asia/Shanghai'
 
-echo ">> Starting backup process..."
+echo "🚀 >> 开始备份流程..."
 
 # 检查源目录是否存在
 if [ ! -d "$DOTFILES_DIR" ] || [ ! -d "$OBSIDIAN_DIR" ]; then
-  echo "错误: Dotfiles 或 Obsidian 目录不存在！请检查脚本中的路径配置。"
+  echo "❌ 错误: Dotfiles 或 Obsidian 目录不存在！请检查脚本中的路径配置。"
   exit 1
 fi
 
@@ -33,7 +33,7 @@ TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
 BACKUP_FILENAME="backup-${TIMESTAMP}.tar.gz"
 LOCAL_ARCHIVE_PATH="/tmp/${BACKUP_FILENAME}"
 
-echo "--> Creating archive: ${BACKUP_FILENAME}"
+echo "📦 --> 正在创建压缩包: ${BACKUP_FILENAME}"
 # ======================== START OF MODIFIED SECTION ========================
 # 新的打包方式：
 # 1. 我们站在 $HOME 目录 (-C "$HOME")
@@ -47,22 +47,22 @@ tar -I 'gzip --best' -cf "${LOCAL_ARCHIVE_PATH}" \
 # ========================= END OF MODIFIED SECTION =========================
 
 if [ $? -ne 0 ]; then
-  echo "错误: 创建压缩包失败！"
+  echo "❌ 错误: 创建压缩包失败！"
   exit 1
 fi
 
-echo "--> Uploading archive to ${RCLONE_REMOTE}..."
+echo "☁️ --> 正在上传压缩包至 ${RCLONE_REMOTE}..."
 rclone copyto "${LOCAL_ARCHIVE_PATH}" "${RCLONE_REMOTE}/${BACKUP_FILENAME}" --progress
 
 if [ $? -ne 0 ]; then
-  echo "错误: rclone 上传失败！"
+  echo "❌ 错误: rclone 上传失败！"
   # 保留临时文件以供调试
   exit 1
 fi
 
 rm "${LOCAL_ARCHIVE_PATH}"
-echo "--> Cleaning up old backups older than ${DAYS_TO_KEEP} days..."
+echo "🧹 --> 正在清理 ${DAYS_TO_KEEP} 天前的旧备份..."
 rclone delete "${RCLONE_REMOTE}" --min-age "${DAYS_TO_KEEP}d"
-echo ">> Backup complete!"
+echo "✅ >> 备份完成！"
 
 exit 0
