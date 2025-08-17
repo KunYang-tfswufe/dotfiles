@@ -22,19 +22,30 @@ vim.opt.rtp:prepend(lazypath)
 
 -- 使用 lazy.nvim 设置和加载插件
 require("lazy").setup({
-  -- ########## START: MODIFIED SECTION (STEP 1) ##########
   -- 模糊查找插件 Telescope
-  -- 我们将其简化为最基本的插件声明，不再使用 keys 或 config 设置快捷键
   {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' }
-    -- 为了确保万无一失，我们可以给它也加上一个 cmd 触发器
-    -- cmd = "Telescope" 
-    -- 经测试，Telescope 的加载机制通常不需要显式 cmd，所以可以省略
   },
-  -- ########## END: MODIFIED SECTION (STEP 1) ##########
 
-  -- GitHub Copilot 插件 (按您的要求保留)
+  -- ================================================ --
+  -- ============ 新增: which-key.nvim ============ --
+  -- ================================================ --
+  -- 这个插件可以在你按下 leader 键后，弹窗提示所有可用快捷键
+  {
+    'folke/which-key.nvim',
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+      -- 可以在这里进行自定义配置，留空则使用默认值
+    }
+  },
+  -- ================================================ --
+
+  -- GitHub Copilot 插件
   {
     'github/copilot.vim',
   },
@@ -149,17 +160,14 @@ vim.keymap.set({'n', 'v', 'i'}, '<Down>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Left>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Right>', '<Nop>')
 
--- Lazygit 快捷键 (这是我们参照的模板)
+-- Lazygit 快捷键
 vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = '🐙 打开 Lazygit' })
 
--- ########## START: MODIFIED SECTION (STEP 2) ##########
--- Telescope 快捷键 (采用与 LazyGit 完全相同的全局设置方式)
--- 使用 `<cmd>lua ...<cr>` 来执行 Lua 函数
+-- Telescope 快捷键
 vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>",  { desc = '🔭 查找文件' })
 vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>",   { desc = '🔭 全文搜索' })
 vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",     { desc = '🔭 查找缓冲区' })
 vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",   { desc = '🔭 查找帮助文档' })
--- ########## END: MODIFIED SECTION (STEP 2) ##########
 
 
 -- 诊断信息导航 (LSP Diagnostics)
