@@ -114,7 +114,8 @@ require("lazy").setup({
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = {
-                'clangd', 'jdtls', 'rust_analyzer', 'tsserver', 'html', 'cssls', 'jsonls',
+                -- 已删除 jdtls, tsserver, html, cssls
+                'clangd', 'rust_analyzer', 'jsonls',
                 'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright'
             },
             handlers = { lsp_zero.default_setup },
