@@ -18,21 +18,21 @@ default: all
 all: install
 
 install: stow permissions systemd
-	@echo ">> Dotfiles installation complete! All services are up and running."
+	@echo "🎉 >> Dotfiles 安装完成！所有服务已启动并运行。"
 
 # Target 1: Link all config packages using Stow
 stow:
-	@echo "--> Stowing packages: $(STOW_PACKAGES)..."
+	@echo "🔗 --> 正在链接软件包: $(STOW_PACKAGES)..."
 	@stow -t ~ -v $(STOW_PACKAGES)
 
 # Target 2: Set executable permissions for all linked scripts
 permissions:
-	@echo "--> Setting executable permissions for scripts..."
+	@echo "🔑 --> 正在为脚本设置可执行权限..."
 	@chmod +x $(SCRIPTS_IN_SYSTEM)
 
 # Target 3: Generate and enable ALL systemd units
 systemd:
-	@echo "--> Generating and enabling ALL systemd units..."
+	@echo "⚙️ --> 正在生成并启用所有 systemd 服务单元..."
 	@mkdir -p $(HOME)/.config/systemd/user
 	@# --- Wallpaper Units ---
 	@printf "[Unit]\nDescription=Change Touhou Wallpaper\n\n[Service]\nType=oneshot\nExecStart=$(HOME)/.local/bin/change-wallpaper.sh\n" > $(HOME)/.config/systemd/user/change-wallpaper.service
@@ -40,27 +40,27 @@ systemd:
 	@# --- Backup Units (现在调用外部脚本) ---
 	@printf "[Unit]\nDescription=Backup dotfiles and Obsidian\n\n[Service]\nType=oneshot\nExecStart=$(HOME)/.local/bin/backup.sh\n" > $(HOME)/.config/systemd/user/dotfiles-backup.service
 	@printf "[Unit]\nDescription=Run dotfiles backup daily\n\n[Timer]\nOnCalendar=*-*-* 02:30:00\nPersistent=true\n\n[Install]\nWantedBy=timers.target\n" > $(HOME)/.config/systemd/user/dotfiles-backup.timer
-	@echo "--> Reloading and enabling ALL Systemd timers..."
+	@echo "⏳ --> 正在重载并启用所有 Systemd 定时器..."
 	@systemctl --user daemon-reload
 	@systemctl --user reenable --now change-wallpaper.timer dotfiles-backup.timer
 
 # Target 4: Run a manual SNAPSHOT backup
 backup:
-	@echo "--> Manually running the SNAPSHOT backup script (dotfiles & obsidian)..."
+	@echo "💾 --> 正在手动执行快照备份 (dotfiles & obsidian)..."
 	@$(HOME)/.local/bin/backup.sh
 
 # Target 5: Run a manual INCREMENTAL sync for MyShare
 sync:
-	@echo "--> Manually running the INCREMENTAL sync script (MyShare)..."
+	@echo "🔄 --> 正在手动执行增量同步 (MyShare)..."
 	@$(HOME)/.local/bin/sync-myshare.sh
 
 # Target 6: Run ALL backup tasks (snapshot + sync)
 backup-all: backup sync
-	@echo ">> All backup tasks (snapshot + sync) are complete!"
+	@echo "🏆 >> 所有备份任务 (快照 + 同步) 已完成！"
 
 # Clean-up target
 clean:
-	@echo "--> Cleaning ALL systemd units and unstowing packages..."
+	@echo "🧹 --> 正在清理所有 systemd 服务单元并取消链接软件包..."
 	@# --- Disable and remove ALL units ---
 	@systemctl --user disable --now change-wallpaper.timer dotfiles-backup.timer || true
 	@rm -f $(HOME)/.config/systemd/user/change-wallpaper.*
@@ -70,14 +70,14 @@ clean:
 
 # Help target
 help:
-	@echo "Usage: make [target]"
-	@echo "Targets:"
-	@echo "  all/install    - Run the full installation process (stow, permissions, systemd)."
-	@echo "  stow           - Link packages using GNU Stow."
-	@echo "  permissions    - Set executable permissions for linked scripts."
-	@echo "  systemd        - Generate and enable ALL systemd units (wallpaper and backup)."
-	@echo "  backup         - Run a manual SNAPSHOT backup (dotfiles & obsidian) to the cloud NOW."
-	@echo "  sync           - Run a manual INCREMENTAL sync (MyShare) to the cloud NOW."
-	@echo "  backup-all     - Run both snapshot backup and incremental sync."
-	@echo "  clean          - Disable ALL units, remove them, and unlink all packages."
-	@echo "  help           - Show this help message."
+	@echo "用法: make [target]"
+	@echo "可用目标:"
+	@echo "  all/install    - 🚀 运行完整安装流程 (链接, 权限, 系统服务)。"
+	@echo "  stow           - 🔗 使用 GNU Stow 链接所有软件包。"
+	@echo "  permissions    - 🔑 为所有已链接的脚本设置可执行权限。"
+	@echo "  systemd        - ⚙️  生成并启用所有 systemd 服务单元 (壁纸和备份)。"
+	@echo "  backup         - 💾 立即手动执行一次快照备份 (dotfiles & obsidian) 到云端。"
+	@echo "  sync           - 🔄 立即手动执行一次增量同步 (MyShare) 到云端。"
+	@echo "  backup-all     - 🏆 运行所有备份任务 (快照备份 + 增量同步)。"
+	@echo "  clean          - 🧹 禁用并移除所有服务单元，并取消所有软件包的链接。"
+	@echo "  help           - ℹ️  显示此帮助信息。"
