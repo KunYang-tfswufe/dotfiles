@@ -29,7 +29,7 @@ require("lazy").setup({
   },
 
   -- ================================================ --
-  -- =========== which-key.nvim (已安装) =========== --
+  -- ============ which-key.nvim ============ --
   -- ================================================ --
   -- 这个插件可以在你按下 leader 键后，弹窗提示所有可用快捷键
   {
@@ -44,22 +44,6 @@ require("lazy").setup({
     }
   },
   -- ================================================ --
-
-
-  -- ======================================================================= --
-  -- ============ 新增: cheatsheet.nvim (快捷键帮助表) ============ --
-  -- ======================================================================= --
-  -- 这个插件提供一个可搜索的快捷键速查表，帮助你学习和记忆按键。
-  -- 按下 <leader>hk 启动
-  {
-    'sudormrfbin/cheatsheet.nvim',
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-      'nvim-lua/plenary.nvim',
-    },
-  },
-  -- ======================================================================= --
-
 
   -- GitHub Copilot 插件
   {
@@ -185,8 +169,6 @@ vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_gr
 vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",     { desc = '🔭 查找缓冲区' })
 vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",   { desc = '🔭 查找帮助文档' })
 
--- Cheatsheet (快捷键帮助表) 快捷键
-vim.keymap.set('n', '<leader>hk', "<cmd>Cheatsheet<cr>", { desc = '⌨️ 打开快捷键帮助表' })
 
 -- 诊断信息导航 (LSP Diagnostics)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "🩺 跳转到上一个诊断信息" })
