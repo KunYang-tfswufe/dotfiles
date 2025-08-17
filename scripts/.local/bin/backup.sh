@@ -12,15 +12,15 @@ DOTFILES_DIR="$HOME/dotfiles"
 # 2. Obsidian 知识库的绝对路径
 OBSIDIAN_DIR="$HOME/SecondBrain"
 
-# 3. Rclone 配置
-RCLONE_REMOTE="ProtonDrive:Backups/ArchPC"
+# 3. Rclone 配置 (!! 已更新为 Google Drive !!)
+RCLONE_REMOTE="GoogleDrive:Backups/ArchPC"
 DAYS_TO_KEEP=7
 
 # --- 脚本主体 ---
 
 export TZ='Asia/Shanghai'
 
-echo "🚀 >> 开始备份流程..."
+echo "🚀 >> 开始备份流程 (目标: Google Drive)..."
 
 # 检查源目录是否存在
 if [ ! -d "$DOTFILES_DIR" ] || [ ! -d "$OBSIDIAN_DIR" ]; then
