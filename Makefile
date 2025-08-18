@@ -31,9 +31,6 @@ permissions:
 systemd:
 	@echo "⚙️ --> 正在生成并启用所有 systemd 服务单元..."
 	@mkdir -p $(HOME)/.config/systemd/user
-	@# --- Wallpaper Units ---
-	@printf "[Unit]\nDescription=Change Touhou Wallpaper\n\n[Service]\nType=oneshot\nExecStart=$(HOME)/.local/bin/change-wallpaper.sh\n" > $(HOME)/.config/systemd/user/change-wallpaper.service
-	@printf "[Unit]\nDescription=Run wallpaper changer on a Pomodoro schedule\n\n[Timer]\nOnBootSec=5min\nOnUnitActiveSec=30min\n\n[Install]\nWantedBy=timers.target\n" > $(HOME)/.config/systemd/user/change-wallpaper.timer
 	@# --- Backup Units (现在调用外部脚本) ---
 	@printf "[Unit]\nDescription=Backup dotfiles and Obsidian\n\n[Service]\nType=oneshot\nExecStart=$(HOME)/.local/bin/backup.sh\n" > $(HOME)/.config/systemd/user/dotfiles-backup.service
 	@printf "[Unit]\nDescription=Run dotfiles backup daily\n\n[Timer]\nOnCalendar=*-*-* 02:30:00\nPersistent=true\n\n[Install]\nWantedBy=timers.target\n" > $(HOME)/.config/systemd/user/dotfiles-backup.timer
@@ -42,7 +39,7 @@ systemd:
 	@printf "[Unit]\nDescription=Run MyShare sync daily\n\n[Timer]\nOnCalendar=*-*-* 03:30:00\nPersistent=true\n\n[Install]\nWantedBy=timers.target\n" > $(HOME)/.config/systemd/user/sync-myshare.timer
 	@echo "⏳ --> 正在重载并启用所有 Systemd 定时器..."
 	@systemctl --user daemon-reload
-	@systemctl --user enable --now change-wallpaper.timer dotfiles-backup.timer sync-myshare.timer
+	@systemctl --user enable --now dotfiles-backup.timer sync-myshare.timer
 
 # Target 4: Run a manual SNAPSHOT backup
 backup:
@@ -62,8 +59,7 @@ backup-all: backup sync
 clean:
 	@echo "🧹 --> 正在清理所有 systemd 服务单元并取消链接软件包..."
 	@# --- Disable and remove ALL units ---
-	@systemctl --user disable --now change-wallpaper.timer dotfiles-backup.timer sync-myshare.timer || true
-	@rm -f $(HOME)/.config/systemd/user/change-wallpaper.*
+	@systemctl --user disable --now dotfiles-backup.timer sync-myshare.timer || true
 	@rm -f $(HOME)/.config/systemd/user/dotfiles-backup.*
 	@rm -f $(HOME)/.config/systemd/user/sync-myshare.*
 	@systemctl --user daemon-reload
