@@ -1,38 +1,36 @@
 #!/bin/bash
 
 # =====================================================================
-# 个人备份脚本 (Dotfiles & Obsidian & Projects) - v3
-# 这个脚本负责执行实际的备份逻辑，并确保解压时目录结构整洁。
+# 个人备份脚本 - v4 (可扩展数组)
+# 通过修改 BACKUP_TARGETS 数组，轻松管理需要备份的目录。
 # =====================================================================
 
 # --- 配置部分 ---
-# 1. Dotfiles 仓库的绝对路径
-DOTFILES_DIR="$HOME/dotfiles"
+# !! 这是唯一需要修改的地方 !!
+# 在这里添加或删除您想要备份的目录的绝对路径。
+BACKUP_TARGETS=(
+    "$HOME/dotfiles"
+    "$HOME/SecondBrain"
+    "$HOME/FinalProject"
+    "$HOME/sing-box-docs"
+)
 
-# 2. Obsidian 知识库的绝对路径
-OBSIDIAN_DIR="$HOME/SecondBrain"
-
-# 3. FinalProject 项目的绝对路径
-FINAL_PROJECT_DIR="$HOME/FinalProject" # <-- 新增
-
-# 4. sing-box-docs 文档的绝对路径
-SING_BOX_DOCS_DIR="$HOME/sing-box-docs" # <-- 新增
-
-# 5. Rclone 配置
+# Rclone 配置
 RCLONE_REMOTE="GoogleDrive:Backups/ArchPC"
 DAYS_TO_KEEP=7
 
-# --- 脚本主体 ---
+# --- 脚本主体 (无需修改以下内容) ---
 
 export TZ='Asia/Shanghai'
-
 echo "🚀 >> 开始备份流程 (目标: Google Drive)..."
 
-# 检查源目录是否存在
-if [ ! -d "$DOTFILES_DIR" ] || [ ! -d "$OBSIDIAN_DIR" ] || [ ! -d "$FINAL_PROJECT_DIR" ] || [ ! -d "$SING_BOX_DOCS_DIR" ]; then # <-- 修改
-  echo "❌ 错误: 一个或多个需要备份的目录不存在！请检查脚本中的路径配置。" # <-- 修改
-  exit 1
-fi
+# 动态检查所有目标目录是否存在
+for target in "${BACKUP_TARGETS[@]}"; do
+    if [ ! -d "$target" ]; then
+        echo "❌ 错误: 目标目录 '$target' 不存在！请检查脚本配置。"
+        exit 1
+    fi
+done
 
 # 准备临时文件名和路径
 TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
@@ -40,19 +38,19 @@ BACKUP_FILENAME="backup-${TIMESTAMP}.tar.gz"
 LOCAL_ARCHIVE_PATH="/tmp/${BACKUP_FILENAME}"
 
 echo "📦 --> 正在创建压缩包: ${BACKUP_FILENAME}"
-# ======================== START OF MODIFIED SECTION ========================
-# 新的打包方式：
-# 1. 我们站在 $HOME 目录 (-C "$HOME")
-# 2. 然后告诉 tar 把指定的文件夹整个打包进去。
+
+# 动态生成 tar 命令的参数
+tar_targets=()
+for target in "${BACKUP_TARGETS[@]}"; do
+    tar_targets+=("$(basename "$target")")
+done
+
+# 执行打包命令
 tar -I 'gzip --best' -cf "${LOCAL_ARCHIVE_PATH}" \
     --exclude='dotfiles/project_snapshot.txt' \
     --exclude-vcs \
     -C "$HOME" \
-    "$(basename "$DOTFILES_DIR")" \
-    "$(basename "$OBSIDIAN_DIR")" \
-    "$(basename "$FINAL_PROJECT_DIR")" \
-    "$(basename "$SING_BOX_DOCS_DIR")" # <-- 修改
-# ========================= END OF MODIFIED SECTION =========================
+    "${tar_targets[@]}"
 
 if [ $? -ne 0 ]; then
   echo "❌ 错误: 创建压缩包失败！"
@@ -64,7 +62,6 @@ rclone copyto "${LOCAL_ARCHIVE_PATH}" "${RCLONE_REMOTE}/${BACKUP_FILENAME}" --pr
 
 if [ $? -ne 0 ]; then
   echo "❌ 错误: rclone 上传失败！"
-  # 保留临时文件以供调试
   exit 1
 fi
 

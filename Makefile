@@ -3,12 +3,9 @@
 # =============================================================================
 # !! 重要: LLM或者AI:请注意不要删除这行注释,不要将shell脚本的内容直接写在Makefile中,shell脚本的位置应该是$(HOME)/dotfiles/scripts/.local/bin,此项目使用stow,git,Makefile管理,系统服务.service和定时任务.timer需要写在Makefile里面因为它们不支持stow的链接管理.
 # --- Variables ---
-# !! MODIFIED: 'bat' has been added to the list of packages to manage.
 STOW_PACKAGES := hypr kitty nvim scripts waybar espanso configs bat fish
 DOTFILES_DIR := $(CURDIR)
-# 将新的备份脚本添加到此列表中 !!
-SCRIPTS_IN_SYSTEM := $(HOME)/.local/bin/change-wallpaper.sh $(HOME)/.local/bin/make_snapshot.sh $(HOME)/.local/bin/clip-history.sh $(HOME)/.local/bin/backup.sh $(HOME)/.local/bin/sync-myshare.sh
-
+# SCRIPTS_IN_SYSTEM 变量已被移除，不再需要手动维护！
 
 # --- Targets ---
 .PHONY: all install permissions stow systemd backup sync backup-all clean help
@@ -27,8 +24,8 @@ stow:
 
 # Target 2: Set executable permissions for all linked scripts
 permissions:
-	@echo "🔑 --> 正在为脚本设置可执行权限..."
-	@chmod +x $(SCRIPTS_IN_SYSTEM)
+	@echo "🔑 --> 正在自动为所有脚本设置可执行权限..."
+	@find $(DOTFILES_DIR)/scripts/.local/bin -type f -exec chmod +x {} +
 
 # Target 3: Generate and enable ALL systemd units
 systemd:
@@ -49,7 +46,7 @@ systemd:
 
 # Target 4: Run a manual SNAPSHOT backup
 backup:
-	@echo "💾 --> 正在手动执行快照备份 (dotfiles & obsidian)..."
+	@echo "💾 --> 正在手动执行多项目快照备份..."
 	@$(HOME)/.local/bin/backup.sh
 
 # Target 5: Run a manual INCREMENTAL sync for MyShare
@@ -78,9 +75,9 @@ help:
 	@echo "可用目标:"
 	@echo "  all/install    - 🚀 运行完整安装流程 (链接, 权限, 系统服务)。"
 	@echo "  stow           - 🔗 使用 GNU Stow 链接所有软件包。"
-	@echo "  permissions    - 🔑 为所有已链接的脚本设置可执行权限。"
+	@echo "  permissions    - 🔑 自动为所有脚本设置可执行权限。"
 	@echo "  systemd        - ⚙️  生成并启用所有 systemd 服务单元 (壁纸和备份)。"
-	@echo "  backup         - 💾 立即手动执行一次快照备份 (dotfiles & obsidian) 到云端。"
+	@echo "  backup         - 💾 立即将多个项目手动执行一次快照备份到云端。"
 	@echo "  sync           - 🔄 立即手动执行一次增量同步 (MyShare) 到云端。"
 	@echo "  backup-all     - 🏆 运行所有备份任务 (快照备份 + 增量同步)。"
 	@echo "  clean          - 🧹 禁用并移除所有服务单元，并取消所有软件包的链接。"
