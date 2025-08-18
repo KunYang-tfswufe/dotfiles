@@ -3,15 +3,15 @@ if status is-interactive
 end
 
 alias cat 'bat --paging=never'
-# ---- 温柔提醒使用 zoxide 的函数 ----
+# ---- A function to gently remind about using zoxide ----
 function cd
-    # 首先，执行真正的、内置的 cd 命令，并传递所有参数
+    # First, execute the real, built-in cd command with all arguments
     builtin cd $argv
 
-    # 然后，检查 cd 命令是否执行成功
+    # Then, check if the cd command was successful
     if test $status -eq 0
-        # 如果成功了，就打印一个小提示
-        echo -e "\e[34m💡 提示：下次可以试试用 'z' 来快速跳转哦！\e[0m"
+        # If successful, print a small tip
+        echo -e "\e[34mTip: Next time, try using 'z' for a faster jump!\e[0m"
     end
 end
 # ------------------------------------
