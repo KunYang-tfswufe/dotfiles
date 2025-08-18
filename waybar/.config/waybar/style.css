@@ -1,20 +1,20 @@
-/* 全局样式 */
+/* Global styles */
 * {
     border: none;
     border-radius: 0;
-    font-family: sans-serif; /* 使用一个通用字体族即可 */
+    font-family: sans-serif; /* Use a generic font family */
     font-size: 14px;
     min-height: 0;
 }
 
-/* 主栏 */
+/* Main bar */
 window#waybar {
-    background: #000000; /* 纯黑色背景 */
-    color: #ffffff;      /* 图标使用白色，以保证对比度 */
+    background: #000000; /* Pure black background */
+    color: #ffffff;      /* Use white for icons to ensure contrast */
 }
 
-/* 托盘模块 */
+/* Tray module */
 #tray {
-    padding: 0 6px; /* 控制宽度：上下无内边距，左右各6px */
-    margin: 5px 0;  /* 提供一个微小的上下外边距，使其不完全贴住屏幕角落 */
+    padding: 0 6px; /* Control width: no top/bottom padding, 6px left/right */
+    margin: 5px 0;  /* Provide a small top/bottom margin to avoid sticking to the screen edge */
 }

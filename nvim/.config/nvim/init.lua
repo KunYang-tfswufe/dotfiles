@@ -1,28 +1,28 @@
 -- init.lua
--- Neovim 配置入口文件
+-- Neovim configuration entry point
 
 -- =============================================================================
--- 1. lazy.nvim 插件管理器设置
+-- 1. lazy.nvim Plugin Manager Setup
 -- =============================================================================
--- 定义 lazy.nvim 的安装路径
+-- Define the installation path for lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- 如果 lazy.nvim 未安装，则从 GitHub 克隆
+-- If lazy.nvim is not installed, clone it from GitHub
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- 使用稳定分支
+    "--branch=stable", -- Use the stable branch
     lazypath,
   })
 end
--- 将 lazy.nvim 添加到运行时路径中
+-- Prepend lazy.nvim to the runtime path
 vim.opt.rtp:prepend(lazypath)
 
--- 使用 lazy.nvim 设置和加载插件
+-- Setup and load plugins using lazy.nvim
 require("lazy").setup({
-  -- 模糊查找插件 Telescope
+  -- Fuzzy finder plugin: Telescope
   {
     'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' }
@@ -31,7 +31,7 @@ require("lazy").setup({
   -- ================================================ --
   -- ============ which-key.nvim ============ --
   -- ================================================ --
-  -- 这个插件可以在你按下 leader 键后，弹窗提示所有可用快捷键
+  -- This plugin displays a popup with available keybindings after pressing the leader key
   {
     'folke/which-key.nvim',
     event = "VeryLazy",
@@ -40,17 +40,17 @@ require("lazy").setup({
       vim.o.timeoutlen = 300
     end,
     opts = {
-      -- 可以在这里进行自定义配置，留空则使用默认值
+      -- Custom options can be configured here; leave empty for defaults
     }
   },
   -- ================================================ --
 
-  -- GitHub Copilot 插件
+  -- GitHub Copilot plugin
   {
     'github/copilot.vim',
   },
 
-  -- Git 状态行提示插件 Gitsigns
+  -- Git status indicators plugin: Gitsigns
   {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -62,26 +62,26 @@ require("lazy").setup({
             opts.buffer = bufnr
             vim.keymap.set(mode, l, r, opts)
           end
-          map('n', ']c', function() if vim.wo.diff then return ']c' end vim.schedule(function() gs.next_hunk() end) return '<Ignore>' end, { expr = true, desc = '🐙 跳转到下一个 Git Hunk' })
-          map('n', '[c', function() if vim.wo.diff then return '[c' end vim.schedule(function() gs.prev_hunk() end) return '<Ignore>' end, { expr = true, desc = '🐙 跳转到上一个 Git Hunk' })
-          map('n', '<leader>hs', gs.stage_hunk, { desc = '🐙 Git: 暂存当前 Hunk' })
-          map('n', '<leader>hr', gs.reset_hunk, { desc = '🐙 Git: 重置当前 Hunk' })
-          map('v', '<leader>hs', function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = '🐙 Git: 暂存选中区域' })
-          map('v', '<leader>hr', function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = '🐙 Git: 重置选中区域' })
-          map('n', '<leader>hp', gs.preview_hunk, { desc = '🐙 Git: 预览 Hunk 内容' })
-          map('n', '<leader>hb', function() gs.blame_line({ full = true }) end, { desc = '🐙 Git: 显示当前行 Blame' })
+          map('n', ']c', function() if vim.wo.diff then return ']c' end vim.schedule(function() gs.next_hunk() end) return '<Ignore>' end, { expr = true, desc = 'Git: Jump to next hunk' })
+          map('n', '[c', function() if vim.wo.diff then return '[c' end vim.schedule(function() gs.prev_hunk() end) return '<Ignore>' end, { expr = true, desc = 'Git: Jump to previous hunk' })
+          map('n', '<leader>hs', gs.stage_hunk, { desc = 'Git: Stage current hunk' })
+          map('n', '<leader>hr', gs.reset_hunk, { desc = 'Git: Reset current hunk' })
+          map('v', '<leader>hs', function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = 'Git: Stage selected region' })
+          map('v', '<leader>hr', function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = 'Git: Reset selected region' })
+          map('n', '<leader>hp', gs.preview_hunk, { desc = 'Git: Preview hunk content' })
+          map('n', '<leader>hb', function() gs.blame_line({ full = true }) end, { desc = 'Git: Blame current line' })
         end
       })
     end
   },
 
-  -- Lazygit 终端界面集成
+  -- Lazygit terminal UI integration
   {
     'kdheepak/lazygit.nvim',
     cmd = { "LazyGit" },
   },
 
-  -- LSP (语言服务器协议) 快速配置方案 lsp-zero
+  -- LSP (Language Server Protocol) quick setup: lsp-zero
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
@@ -100,21 +100,21 @@ require("lazy").setup({
         local lsp_zero = require('lsp-zero')
         lsp_zero.on_attach(function(client, bufnr)
             local map = function(mode, lhs, rhs, desc)
-                vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true, desc = '💡 LSP: ' .. desc })
+                vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true, desc = 'LSP: ' .. desc })
             end
-            map('n', 'gd', vim.lsp.buf.definition, '跳转到定义')
-            map('n', 'gD', vim.lsp.buf.declaration, '跳转到声明')
-            map('n', 'K', vim.lsp.buf.hover, '悬浮提示')
-            map('n', 'gi', vim.lsp.buf.implementation, '跳转到实现')
-            map('n', 'gr', vim.lsp.buf.references, '查找引用')
-            map('n', '<leader>ca', vim.lsp.buf.code_action, '代码操作')
-            map('n', '<leader>rn', vim.lsp.buf.rename, '重命名')
-            map({ 'n', 'v' }, '<leader>df', vim.diagnostic.open_float, '🩺 显示诊断信息')
+            map('n', 'gd', vim.lsp.buf.definition, 'Go to definition')
+            map('n', 'gD', vim.lsp.buf.declaration, 'Go to declaration')
+            map('n', 'K', vim.lsp.buf.hover, 'Hover documentation')
+            map('n', 'gi', vim.lsp.buf.implementation, 'Go to implementation')
+            map('n', 'gr', vim.lsp.buf.references, 'Find references')
+            map('n', '<leader>ca', vim.lsp.buf.code_action, 'Code actions')
+            map('n', '<leader>rn', vim.lsp.buf.rename, 'Rename symbol')
+            map({ 'n', 'v' }, '<leader>df', vim.diagnostic.open_float, 'Show diagnostics')
         end)
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = {
-                -- 已删除 jdtls, tsserver, html, cssls
+                -- Removed jdtls, tsserver, html, cssls
                 'clangd', 'rust_analyzer', 'jsonls',
                 'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright'
             },
@@ -134,7 +134,7 @@ require("lazy").setup({
 })
 
 -- =============================================================================
--- 2. 通用编辑器选项
+-- 2. General Editor Options
 -- =============================================================================
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -151,7 +151,7 @@ vim.opt.undofile = true
 vim.o.termguicolors = true
 
 -- =============================================================================
--- 3. 全局变量和快捷键
+-- 3. Global Variables and Keymaps
 -- =============================================================================
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -161,21 +161,21 @@ vim.keymap.set({'n', 'v', 'i'}, '<Down>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Left>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Right>', '<Nop>')
 
--- Lazygit 快捷键
-vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = '🐙 打开 Lazygit' })
+-- Lazygit keymap
+vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = 'Open Lazygit' })
 
--- Telescope 快捷键
-vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>",  { desc = '🔭 查找文件' })
-vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>",   { desc = '🔭 全文搜索' })
-vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",     { desc = '🔭 查找缓冲区' })
-vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",   { desc = '🔭 查找帮助文档' })
+-- Telescope keymaps
+vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>",  { desc = 'Find files' })
+vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>",   { desc = 'Live grep' })
+vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",     { desc = 'Find buffers' })
+vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",   { desc = 'Find help tags' })
 
 
--- 诊断信息导航 (LSP Diagnostics)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "🩺 跳转到上一个诊断信息" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "🩺 跳转到下一个诊断信息" })
+-- Diagnostics Navigation (LSP)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
 
 -- =============================================================================
--- 4. 配色方案
+-- 4. Colorscheme
 -- =============================================================================
 vim.cmd('colorscheme vim')
