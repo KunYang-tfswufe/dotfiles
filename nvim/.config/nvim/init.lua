@@ -165,6 +165,9 @@ vim.opt.incsearch = true
 vim.opt.undofile = true
 vim.o.termguicolors = true
 
+-- 【修改点】打通系统剪贴板
+vim.opt.clipboard = "unnamedplus"
+
 -- =============================================================================
 -- 3. Global Variables and Keymaps
 -- =============================================================================
