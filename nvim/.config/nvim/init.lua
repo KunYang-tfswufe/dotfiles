@@ -196,7 +196,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 
 -- Minimalist save and quit/close
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = 'Write (Save) file' })
-vim.keymap.set('n', '<leader>q', '<cmd>bdelete<cr>', { desc = 'Close current buffer' })
+-- 【修改点】将 bdelete (关闭缓冲区) 改为 q (退出)
+vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit' })
 
 -- Fast window (split) navigation
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Move to left window' })
