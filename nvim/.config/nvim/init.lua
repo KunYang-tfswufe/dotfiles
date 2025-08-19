@@ -114,7 +114,6 @@ require("lazy").setup({
         require('mason').setup({})
         require('mason-lspconfig').setup({
             ensure_installed = {
-                -- Removed jdtls, tsserver, html, cssls
                 'clangd', 'rust_analyzer', 'jsonls',
                 'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright'
             },
@@ -156,24 +155,43 @@ vim.o.termguicolors = true
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- Disable arrow keys for a more disciplined hjkl navigation
 vim.keymap.set({'n', 'v', 'i'}, '<Up>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Down>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Left>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Right>', '<Nop>')
 
--- Lazygit keymap
+-- Lazygit
 vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = 'Open Lazygit' })
 
--- Telescope keymaps
+-- Telescope
 vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>",  { desc = 'Find files' })
 vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>",   { desc = 'Live grep' })
 vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",     { desc = 'Find buffers' })
 vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",   { desc = 'Find help tags' })
 
-
--- Diagnostics Navigation (LSP)
+-- Diagnostics (LSP)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+
+-- -----------------------------------------------------------------------------
+-- Pragmatic Keybinding Enhancements
+-- -----------------------------------------------------------------------------
+
+-- Minimalist save and quit/close
+vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = 'Write (Save) file' })
+vim.keymap.set('n', '<leader>q', '<cmd>bdelete<cr>', { desc = 'Close current buffer' })
+
+-- Fast window (split) navigation
+vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Move to left window' })
+vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = 'Move to right window' })
+vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = 'Move to upper window' })
+vim.keymap.set('n', '<leader>j', '<C-w>j', { desc = 'Move to lower window' })
+
+-- Intuitive split creation
+vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
+vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
+
 
 -- =============================================================================
 -- 4. Colorscheme
