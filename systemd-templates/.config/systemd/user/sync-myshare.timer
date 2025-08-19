@@ -1,8 +1,8 @@
 [Unit]
-Description=Run MyShare sync daily
+Description=Run MyShare sync every 4 hours
 
 [Timer]
-OnCalendar=*-*-* 03:30:00
+OnUnitInactiveSec=4h
 Persistent=true
 
 [Install]

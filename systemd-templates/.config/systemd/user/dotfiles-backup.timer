@@ -1,8 +1,8 @@
 [Unit]
-Description=Run dotfiles backup daily
+Description=Run dotfiles backup every 4 hours
 
 [Timer]
-OnCalendar=*-*-* 02:30:00
+OnUnitInactiveSec=4h
 Persistent=true
 
 [Install]
