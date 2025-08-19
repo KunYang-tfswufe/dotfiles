@@ -22,6 +22,22 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Setup and load plugins using lazy.nvim
 require("lazy").setup({
+  -- ================================================ --
+  -- =================== Colorscheme ================== --
+  -- ================================================ --
+  -- Using Tokyo Night and forcing a pure black (#000000) background
+  {
+    'folke/tokyonight.nvim',
+    priority = 1000, -- Ensure it loads first
+    opts = {
+      -- This is the key part to force a pure black background
+      on_colors = function(colors)
+        colors.bg = "#000000"
+      end,
+    },
+  },
+  -- ================================================ --
+
   -- Fuzzy finder plugin: Telescope
   {
     'nvim-telescope/telescope.nvim',
@@ -196,4 +212,5 @@ vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally'
 -- =============================================================================
 -- 4. Colorscheme
 -- =============================================================================
-vim.cmd('colorscheme vim')
+-- Load the tokyonight colorscheme after setup
+vim.cmd('colorscheme tokyonight')
