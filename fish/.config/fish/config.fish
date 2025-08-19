@@ -16,3 +16,4 @@ function cd
 end
 # ------------------------------------
 zoxide init fish | source
+set -gx VISUAL nvim
