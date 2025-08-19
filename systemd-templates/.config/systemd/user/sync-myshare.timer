@@ -2,7 +2,7 @@
 Description=Run MyShare sync every 4 hours
 
 [Timer]
-OnUnitInactiveSec=4h
+OnCalendar=*-*-* 0/4:00:00
 Persistent=true
 
 [Install]
