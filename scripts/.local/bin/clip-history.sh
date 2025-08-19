@@ -58,6 +58,14 @@ process_item() {
     # Update the "last item" record file for the next comparison.
     echo -n "$item" > "$LAST_ITEM_FILE"
 
+    # =======================================================
+    #  SEND GLOBAL NOTIFICATION ON ANY SUCCESSFUL COPY
+    # =======================================================
+    # This command executes for ANY new clipboard entry,
+    # regardless of its origin (browser, terminal, etc.).
+    notify-send -a "Clipboard" -i "edit-copy" "内容已复制" "新的内容已保存到剪贴板"
+    # =======================================================
+
     # Clean up history: use the approximate total line count to remove the oldest records from the end of the file.
     sed -i -e "$((${MAX_LINES_APPROX}+1)),\$d" "$HISTORY_FILE"
 }
