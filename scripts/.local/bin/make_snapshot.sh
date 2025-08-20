@@ -18,6 +18,11 @@ ignored_dirs=(
     build
     dist
     __pycache__
+
+    # --- STM32CubeIDE specific folders to ignore ---
+    "Debug"      # Contains compiled binaries and object files (.o, .elf)
+    "Drivers"    # Contains ST's standard HAL/CMSIS library files
+    ".settings"  # Contains local IDE workspace settings
 )
 
 # 3. List of files to ignore by default (full filenames or wildcards)
@@ -26,6 +31,11 @@ ignored_files=(
     "*.swp"
     "*.bak"
     "$output_file" # Ensure the output file itself is not included
+
+    # --- STM32CubeIDE specific files to ignore ---
+    "*.launch"     # IDE debug launch configurations
+    "*.map"        # Linker map files
+    "*.list"       # Assembly listing files
 )
 
 # --- Script Main Body ---
@@ -69,7 +79,7 @@ echo "Found ${#file_list[@]} files. Processing..."
 for file in "${file_list[@]}"; do
     # Filter out binary files
     mime_type=$(file -b --mime-type "$file")
-    if [[ "$mime_type" == "text/"* || "$mime_type" == "application/json" || "$mime_type" == "application/xml" || "$mime_type" == "application/javascript" ]]; then
+    if [[ "$mime_type" == "text/"* || "$mime_type" == "application/json" || "$mime_type" == "application/xml" || "$mime_type" == "application/javascript" || "$mime_type" == "application/x-sh" || "$mime_type" == "application/x-c" || "$mime_type" == "application/x-c++" ]]; then
         # It's a text file, process it
 
         # 1. Write the file path header to the output file
