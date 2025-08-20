@@ -38,6 +38,35 @@ require("lazy").setup({
   },
   -- ================================================ --
 
+  -- ================================================ --
+  -- =========== nvim-treesitter (新添加的) =========== --
+  -- ================================================ --
+  -- For better syntax highlighting and more
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate', -- 在安装或更新时自动运行 :TSUpdate 命令
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        -- 你常用的语言解析器列表
+        ensure_installed = { 
+            "c", "lua", "vim", "vimdoc", "query", 
+            "rust", "python", "go", "json", "bash", "yaml", "toml" 
+        },
+
+        -- 同步安装 (仅对 `ensure_installed` 生效)
+        sync_install = false,
+
+        -- 当进入文件时，如果缺少解析器则自动安装
+        auto_install = true,
+
+        highlight = {
+          -- 启用基于 treesitter 的语法高亮
+          enable = true,
+        },
+      })
+    end
+  },
+
   -- Fuzzy finder plugin: Telescope
   {
     'nvim-telescope/telescope.nvim',
