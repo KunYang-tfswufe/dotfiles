@@ -226,11 +226,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnos
 -- Pragmatic Keybinding Enhancements
 -- -----------------------------------------------------------------------------
 
--- Minimalist save and quit/close
-vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = 'Write (Save) file' })
--- 【修改点】将 bdelete (关闭缓冲区) 改为 q (退出)
-vim.keymap.set('n', '<leader>q', '<cmd>q<cr>', { desc = 'Quit' })
-
 -- Fast window (split) navigation
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = 'Move to left window' })
 vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = 'Move to right window' })
