@@ -32,12 +32,20 @@ ignored_files=(
     "*.bak"
     "$output_file" # Ensure the output file itself is not included
 
+    # --- Add these lines to ignore license files ---
+    "LICENSE"       # Ignores the exact file "LICENSE"
+    "LICENSE.*"     # Ignores files like "LICENSE.md", "LICENSE.txt"
+    "COPYING"       # Ignores the GNU-style license file "COPYING"
+    "COPYING.*"     # Ignores files like "COPYING.LESSER"
+    "NOTICE"        # Ignores the "NOTICE" file, often with Apache License
+    "NOTICE.*"
+    "UNLICENSE"     # Ignores the "UNLICENSE" file
+
     # --- STM32CubeIDE specific files to ignore ---
     "*.launch"     # IDE debug launch configurations
     "*.map"        # Linker map files
     "*.list"       # Assembly listing files
 )
-
 # --- Script Main Body ---
 
 echo "Starting project snapshot generation..."
