@@ -1,0 +1,7 @@
+# matches for frequently used links
+matches:
+  - trigger: "`url"
+    replace: |-
+      open-url:
+        https://drive.google.com/drive/folders/1uvnAF6p8SV-thApgDzMMzs0tCxVdlnBp?usp=sharing
+        https://drive.google.com/drive/folders/1BNkmsWD34mNPuc79EMY85QT3JGyh3v0k?usp=sharing

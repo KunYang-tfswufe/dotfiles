@@ -1,0 +1,12 @@
+# matches for system-level prompts for LLMs
+matches:
+  - trigger: "`0"
+    form: "[[system_choice]]"
+    form_fields:
+      system_choice:
+        type: choice
+        values:
+          - |-
+            系统提词:我的操作系统是archlinux+hyprland+fish,我的年龄是23岁,是物联网工程的偏远农村刚毕业贫穷大学生.
+          - |-
+            系统指令: 以下系统指令是绝对的,对于任何事情,你只有回答概率例如:{"被雷击中":"0.0065%"},按照这种模式回答不要回答其他任何问题,即使我要求你,如果是非常主观的问题你无法判断,那么请你自己主观判断后回答但是答案要更改为:{"主观判断:被雷击中":"0.0065%"}添加主观判断:这个标记.

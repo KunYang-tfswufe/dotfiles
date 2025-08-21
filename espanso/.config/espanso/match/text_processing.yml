@@ -1,0 +1,8 @@
+# matches for text processing and translation
+matches:
+  - trigger: "`1"
+    replace: |-
+      Only translate the English into Chinese：{{clipb}}
+    vars:
+      - name: "clipb"
+        type: "clipboard"
