@@ -49,7 +49,7 @@ require("lazy").setup({
       require('nvim-treesitter.configs').setup({
         -- 你常用的语言解析器列表
         ensure_installed = {
-            "c", "lua", "vim", "vimdoc", "query",
+            "c", "cpp", "lua", "vim", "vimdoc", "query", -- 【已添加 c++】
             "rust", "python", "go", "json", "bash", "yaml", "toml"
         },
 
@@ -162,6 +162,7 @@ require("lazy").setup({
         end)
         require('mason').setup({})
         require('mason-lspconfig').setup({
+            -- clangd 已存在，无需修改
             ensure_installed = {
                 'clangd', 'rust_analyzer', 'jsonls',
                 'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright'
