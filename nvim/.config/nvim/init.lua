@@ -48,9 +48,9 @@ require("lazy").setup({
     config = function()
       require('nvim-treesitter.configs').setup({
         -- 你常用的语言解析器列表
-        ensure_installed = { 
-            "c", "lua", "vim", "vimdoc", "query", 
-            "rust", "python", "go", "json", "bash", "yaml", "toml" 
+        ensure_installed = {
+            "c", "lua", "vim", "vimdoc", "query",
+            "rust", "python", "go", "json", "bash", "yaml", "toml"
         },
 
         -- 同步安装 (仅对 `ensure_installed` 生效)
@@ -93,6 +93,10 @@ require("lazy").setup({
   -- GitHub Copilot plugin
   {
     'github/copilot.vim',
+    init = function()
+      -- 设置为 1 表示默认启用
+      vim.g.copilot_enabled = 1
+    end,
   },
 
   -- Git status indicators plugin: Gitsigns
@@ -194,7 +198,7 @@ vim.opt.incsearch = true
 vim.opt.undofile = true
 vim.o.termguicolors = true
 
--- 【修改点】打通系统剪贴板
+-- 打通系统剪贴板
 vim.opt.clipboard = "unnamedplus"
 
 -- =============================================================================
@@ -202,6 +206,18 @@ vim.opt.clipboard = "unnamedplus"
 -- =============================================================================
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+-- 【新添加】Copilot 切换函数
+-- 定义一个全局函数用于切换 Copilot 状态
+function _G.toggle_copilot()
+  if vim.g.copilot_enabled == 1 then
+    vim.cmd('Copilot disable')
+    print('Copilot disabled.')
+  else
+    vim.cmd('Copilot enable')
+    print('Copilot enabled.')
+  end
+end
 
 -- Disable arrow keys for a more disciplined hjkl navigation
 vim.keymap.set({'n', 'v', 'i'}, '<Up>', '<Nop>')
@@ -217,6 +233,9 @@ vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_fi
 vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>",   { desc = 'Live grep' })
 vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",     { desc = 'Find buffers' })
 vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",   { desc = 'Find help tags' })
+
+-- 【已修正】Copilot 开关
+vim.keymap.set('n', '<leader>ct', '<cmd>lua _G.toggle_copilot()<cr>', { desc = 'Toggle Copilot (启用/禁用)' })
 
 -- Diagnostics (LSP)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
