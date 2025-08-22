@@ -88,13 +88,17 @@ echo "Found ${#file_list[@]} files. Processing..."
 
 # Loop through and process each found file
 for file in "${file_list[@]}"; do
+    # --- CHANGE START: Convert relative path to absolute path ---
+    absolute_path=$(realpath "$file")
+    # --- CHANGE END ---
+
     # Filter out binary files
     mime_type=$(file -b --mime-type "$file")
     if [[ "$mime_type" == "text/"* || "$mime_type" == "application/json" || "$mime_type" == "application/xml" || "$mime_type" == "application/javascript" || "$mime_type" == "application/x-sh" || "$mime_type" == "application/x-c" || "$mime_type" == "application/x-c++" ]]; then
         # It's a text file, process it
 
-        # 1. Write the file path header to the output file
-        echo "--- START OF FILE: $file ---" >> "$output_file"
+        # 1. Write the file path header to the output file using the absolute path
+        echo "--- START OF FILE: $absolute_path ---" >> "$output_file"
         echo "" >> "$output_file" # Add a blank line
 
         # 2. Append the file content to the output file
@@ -102,13 +106,13 @@ for file in "${file_list[@]}"; do
 
         # 3. Write the end marker and separator after the content
         echo "" >> "$output_file" # Add a blank line
-        echo "--- END OF FILE: $file ---" >> "$output_file"
+        echo "--- END OF FILE: $absolute_path ---" >> "$output_file"
         echo -e "\n\n" >> "$output_file" # Use two newlines to separate files
 
-        echo "  - Processed: $file"
+        echo "  - Processed: $absolute_path"
     else
         # It's a binary file, skip it
-        echo "  - (Binary file, ignored): $file"
+        echo "  - (Binary file, ignored): $absolute_path"
     fi
 done
 
