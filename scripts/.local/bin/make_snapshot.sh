@@ -45,6 +45,9 @@ ignored_files=(
     "*.launch"     # IDE debug launch configurations
     "*.map"        # Linker map files
     "*.list"       # Assembly listing files
+
+    # --- other files to ignore ---
+    "ca-certificates.crt"
 )
 # --- Script Main Body ---
 
