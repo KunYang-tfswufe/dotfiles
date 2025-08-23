@@ -28,3 +28,5 @@ function copy --wraps wl-copy --description "Pipe content to wl-copy and send a 
         notify-send -a "Terminal" -i "utilities-terminal" "复制成功 (来自终端)" "内容已通过管道命令保存"
     end
 end
+
+starship init fish | source
