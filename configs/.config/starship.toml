@@ -6,7 +6,7 @@ add_newline = false
 # [核心格式] - 将 FishNvimHyprland 的颜色改为紫色
 format = """
 $username@$hostname \
-[FishNvimHyprland](purple bold)\
+[FishNeovimHyprland](purple bold)\
 [($git_branch$git_status)](yellow)\
 $rust\
 $golang\
