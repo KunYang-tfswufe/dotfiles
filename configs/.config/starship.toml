@@ -3,10 +3,10 @@
 # 不在命令前添加空行，保持紧凑
 add_newline = false
 
-# [核心格式] - 将 FishNvimHyprland 的颜色改为紫色
+# [核心格式] - 将 FishNvimHyprland 的颜色改为紫色，并与主机名用+连接
 format = """
-$username@$hostname \
-[FishNeovimHyprland](purple bold)\
+$username@$hostname\
++[Fish+Nvim+Hyprland](purple bold)\
 [($git_branch$git_status)](yellow)\
 $rust\
 $golang\
