@@ -3,7 +3,7 @@
 # =============================================================================
 
 # --- Variables ---
-STOW_PACKAGES := hypr kitty nvim scripts waybar espanso configs bat fish
+STOW_PACKAGES := hypr kitty nvim scripts waybar espanso configs bat fish lazygit
 DOTFILES_DIR := $(CURDIR)
 # NEW: Define the source directory for our systemd templates
 SYSTEMD_UNITS_SRC := $(DOTFILES_DIR)/systemd-templates/.config/systemd/user
