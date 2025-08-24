@@ -8,7 +8,7 @@
 
 # --- Configuration ---
 # 1. Absolute path to the large folder you want to sync.
-SOURCE_DIR="$HOME/MyShare"
+SOURCE_DIR="$HOME/MyShare_sync"
 
 # 2. Rclone Configuration (!! Updated for Google Drive !!)
 # Define the root of the rclone remote configuration.
