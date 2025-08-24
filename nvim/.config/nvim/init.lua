@@ -49,8 +49,8 @@ require("lazy").setup({
       require('nvim-treesitter.configs').setup({
         -- 你常用的语言解析器列表
         ensure_installed = {
-            "c", "cpp", "lua", "vim", "vimdoc", "query", -- 【已添加 c++】
-            "rust", "python", "go", "json", "bash", "yaml", "toml"
+            "c","lua", "vim", "vimdoc", "query",
+            "rust", "python","json", "bash", "yaml", "toml"
         },
 
         -- 同步安装 (仅对 `ensure_installed` 生效)
