@@ -30,3 +30,13 @@ function copy --wraps wl-copy --description "Pipe content to wl-copy and send a 
 end
 
 starship init fish | source
+
+
+
+# Android SDK
+set -x ANDROID_HOME /opt/android-sdk
+set -x ANDROID_SDK_ROOT $ANDROID_HOME
+
+set -x PATH $PATH $ANDROID_HOME/cmdline-tools/latest/bin
+set -x PATH $PATH $ANDROID_HOME/emulator
+set -x PATH $PATH $ANDROID_HOME/platform-tools
