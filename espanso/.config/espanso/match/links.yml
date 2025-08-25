@@ -12,3 +12,15 @@ matches:
   - trigger: "`AN"
     replace: |-
       http://localhost:8080/web/viewer.html?file=../bookshelf/AttentionIsAllYouNeed.pdf
+
+  - trigger: "`Math"
+    replace: |-
+      http://localhost:8080/web/viewer.html?file=../bookshelf/CalculusEarlyTranscendentals.pdf
+
+  - trigger: "`git"
+    replace: |-
+      http://localhost:8080/web/viewer.html?file=../bookshelf/progit.pdf
+
+  - trigger: "`spring"
+    replace: |-
+      http://localhost:8080/web/viewer.html?file=../bookshelf/SpringinAction5thEdition.pdf
