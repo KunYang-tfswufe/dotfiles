@@ -26,7 +26,7 @@ permissions:
 	@echo "--> Setting executable permissions for all scripts..."
 	@find $(DOTFILES_DIR)/scripts/.local/bin -type f -exec chmod +x {} +
 
-# MODIFIED: This target is now much cleaner
+# MODIFIED: This target is now much cleaner and includes the new service
 systemd:
 	@echo "--> Installing systemd service units from templates..."
 	@mkdir -p $(HOME)/.config/systemd/user
@@ -38,9 +38,9 @@ systemd:
 			sed "s|__HOME_DIR__|$(HOME)|g" "$$template" > "$(HOME)/.config/systemd/user/$$target_name"; \
 		fi \
 	done
-	@echo "--> Reloading and enabling all Systemd timers..."
+	@echo "--> Reloading and enabling all Systemd units..."
 	@systemctl --user daemon-reload
-	@systemctl --user enable --now dotfiles-backup.timer sync-myshare.timer
+	@systemctl --user enable --now dotfiles-backup.timer sync-myshare.timer python-http.service
 
 backup:
 	@echo "--> Manually running snapshot backup..."
@@ -53,10 +53,10 @@ sync:
 backup-all: backup sync
 	@echo ">> All backup tasks (snapshot + sync) completed!"
 
-# MODIFIED: This target is now smarter
+# MODIFIED: This target is now smarter and includes the new service
 clean:
 	@echo "--> Cleaning up systemd units and unstowing packages..."
-	@systemctl --user disable --now dotfiles-backup.timer sync-myshare.timer || true
+	@systemctl --user disable --now dotfiles-backup.timer sync-myshare.timer python-http.service || true
 	@# Remove files based on the source templates, which is more robust
 	@for template in $(SYSTEMD_UNITS_SRC)/*; do \
 		if [ -f "$$template" ]; then \
