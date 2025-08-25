@@ -40,3 +40,4 @@ set -x ANDROID_SDK_ROOT $ANDROID_HOME
 set -x PATH $PATH $ANDROID_HOME/cmdline-tools/latest/bin
 set -x PATH $PATH $ANDROID_HOME/emulator
 set -x PATH $PATH $ANDROID_HOME/platform-tools
+fish_add_path $HOME/.local/bin
