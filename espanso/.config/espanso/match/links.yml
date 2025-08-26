@@ -9,6 +9,10 @@ matches:
     replace: |-
       http://localhost:9090/system/terminal
 
+  - trigger: "`proxy"
+    replace: |-
+      http://localhost:9999/ui
+
   - trigger: "`docker"
     replace: |-
       http://localhost:8080/web/viewer.html?file=../bookshelf/DockerDeepDive.pdf
