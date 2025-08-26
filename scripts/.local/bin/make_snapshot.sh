@@ -40,7 +40,7 @@ ignored_files=(
     "NOTICE"        # Ignores the "NOTICE" file, often with Apache License
     "NOTICE.*"
     "UNLICENSE"     # Ignores the "UNLICENSE" file
-
+    "project_snapshot.txt"
     # --- STM32CubeIDE specific files to ignore ---
     "*.launch"     # IDE debug launch configurations
     "*.map"        # Linker map files
