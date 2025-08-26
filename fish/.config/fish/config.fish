@@ -31,13 +31,11 @@ end
 
 starship init fish | source
 
-
-
-# Android SDK
-set -x ANDROID_HOME /opt/android-sdk
-set -x ANDROID_SDK_ROOT $ANDROID_HOME
-
-set -x PATH $PATH $ANDROID_HOME/cmdline-tools/latest/bin
-set -x PATH $PATH $ANDROID_HOME/emulator
-set -x PATH $PATH $ANDROID_HOME/platform-tools
 fish_add_path $HOME/.local/bin
+
+# 设置 Android SDK 的根目录
+set -x ANDROID_SDK_ROOT "/opt/android-sdk"
+set -x ANDROID_AVD_HOME "$HOME/.android/avd"
+fish_add_path $ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+fish_add_path $ANDROID_SDK_ROOT/platform-tools
+fish_add_path $ANDROID_SDK_ROOT/emulator
