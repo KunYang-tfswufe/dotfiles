@@ -1,6 +1,5 @@
 -- init.lua
 -- Neovim configuration entry point
-
 -- =============================================================================
 -- 1. lazy.nvim Plugin Manager Setup
 -- =============================================================================
@@ -19,7 +18,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 -- Prepend lazy.nvim to the runtime path
 vim.opt.rtp:prepend(lazypath)
-
 -- Setup and load plugins using lazy.nvim
 require("lazy").setup({
   -- ================================================ --
@@ -30,7 +28,6 @@ require("lazy").setup({
     'folke/tokyonight.nvim',
     priority = 1000, -- Ensure it loads first
     opts = {
-      -- This is the key part to force a pure black background
       on_colors = function(colors)
         colors.bg = "#000000"
       end,
@@ -103,31 +100,9 @@ require("lazy").setup({
   {
     'lewis6991/gitsigns.nvim',
     config = function()
-      require('gitsigns').setup({
-        on_attach = function(bufnr)
-          local gs = package.loaded.gitsigns
-          local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-          end
-          map('n', ']c', function() if vim.wo.diff then return ']c' end vim.schedule(function() gs.next_hunk() end) return '<Ignore>' end, { expr = true, desc = 'Git: Jump to next hunk' })
-          map('n', '[c', function() if vim.wo.diff then return '[c' end vim.schedule(function() gs.prev_hunk() end) return '<Ignore>' end, { expr = true, desc = 'Git: Jump to previous hunk' })
-          map('n', '<leader>hs', gs.stage_hunk, { desc = 'Git: Stage current hunk' })
-          map('n', '<leader>hr', gs.reset_hunk, { desc = 'Git: Reset current hunk' })
-          map('v', '<leader>hs', function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = 'Git: Stage selected region' })
-          map('v', '<leader>hr', function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, { desc = 'Git: Reset selected region' })
-          map('n', '<leader>hp', gs.preview_hunk, { desc = 'Git: Preview hunk content' })
-          map('n', '<leader>hb', function() gs.blame_line({ full = true }) end, { desc = 'Git: Blame current line' })
-        end
-      })
+      -- 只需调用 setup() 即可启用左侧的 Git 状态标记，无需任何额外参数
+      require('gitsigns').setup()
     end
-  },
-
-  -- Lazygit terminal UI integration
-  {
-    'kdheepak/lazygit.nvim',
-    cmd = { "LazyGit" },
   },
 
   -- LSP (Language Server Protocol) quick setup: lsp-zero
@@ -224,9 +199,6 @@ vim.keymap.set({'n', 'v', 'i'}, '<Up>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Down>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Left>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Right>', '<Nop>')
-
--- Lazygit
-vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<cr>', { desc = 'Open Lazygit' })
 
 -- Telescope
 vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>",  { desc = 'Find files' })
