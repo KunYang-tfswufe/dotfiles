@@ -50,8 +50,7 @@ require("lazy").setup({
         -- 你常用的语言解析器列表
         ensure_installed = {
             "c","lua", "vim", "vimdoc", "query",
-            "rust", "python","json", "bash", "yaml", "toml",
-            "java" -- (新添加)
+            "rust", "python","json", "bash", "yaml", "toml"
         },
 
         -- 同步安装 (仅对 `ensure_installed` 生效)
@@ -165,8 +164,7 @@ require("lazy").setup({
         require('mason-lspconfig').setup({
             ensure_installed = {
                 'clangd', 'rust_analyzer', 'jsonls',
-                'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright',
-                'jdtls' -- (新添加)
+                'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright'
             },
             handlers = { lsp_zero.default_setup },
         })
@@ -181,102 +179,6 @@ require("lazy").setup({
         })
     end
   },
-
-  -- ================================================ --
-  -- =================== Java (新添加的) ============== --
-  -- ================================================ --
-  {
-    'mfussenegger/nvim-jdtls',
-    -- 仅在打开 java 文件时加载，提升启动速度
-    ft = { 'java' },
-    dependencies = {
-      -- nvim-jdtls 需要 nvim-dap 来提供调试功能
-      'mfussenegger/nvim-dap',
-    },
-    config = function()
-      -- jdtls 需要知道你的 Java 安装路径。
-      -- 以下代码会自动探测常见的安装位置。
-      -- 如果探测失败，你需要手动指定 JAVA_HOME, 例如:
-      -- local java_home = '/usr/lib/jvm/java-17-openjdk'
-      local java_home = vim.fn.environ().JAVA_HOME or (vim.fn.has('mac') and '/usr/libexec/java_home' or nil)
-      if java_home == nil and vim.fn.executable('java') == 1 then
-        -- 尝试从 'java' 命令的符号链接中解析
-        local java_path = vim.fn.resolve(vim.fn.exepath('java'))
-        if java_path then
-          -- 典型的路径是 /path/to/jdk/bin/java, 我们需要 /path/to/jdk
-          java_home = vim.fn.fnamemodify(java_path, ':h:h')
-        end
-      end
-      if java_home == nil then
-        print("JAVA_HOME not found. jdtls might not start.")
-        return
-      end
-
-      -- jdtls 的启动配置
-      -- mason 会将 jdtls 安装在 stdpath('data')/mason/packages/jdtls
-      local jdtls_path = vim.fn.stdpath('data') .. '/mason/packages/jdtls'
-
-      -- 获取项目的根目录 (例如，包含 pom.xml 或 build.gradle 的目录)
-      local root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'})
-      if root_dir == nil then return end
-
-      -- 项目特定的数据目录，用于存放 jdtls 生成的工作区数据
-      local project_name = vim.fn.fnamemodify(root_dir, ':p:h:t')
-      local workspace_dir = vim.fn.stdpath('data') .. '/jdtls-workspace/' .. project_name
-
-      local config = {
-        -- 指定 jdtls 的启动命令
-        cmd = {
-          java_home .. '/bin/java',
-          '-Declipse.application=org.eclipse.jdt.ls.core.id1.application',
-          '-Dosgi.bundles.defaultStartLevel=4',
-          '-Declipse.product=org.eclipse.jdt.ls.core.product',
-          '-Dlog.protocol=true',
-          '-Dlog.level=ALL',
-          '-Xms1g',
-          '--add-modules=ALL-SYSTEM',
-          '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-          '--add-opens', 'java.base/java.io=ALL-UNNAMED',
-          '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-          '-jar', vim.fn.glob(jdtls_path .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
-          '-configuration', jdtls_path .. '/config_linux', -- 对于 Archlinux, 这里是 'config_linux'
-          '-data', workspace_dir,
-        },
-        root_dir = root_dir,
-
-        -- 在 LSP 服务器 attach 到 buffer 时运行的回调函数
-        on_attach = function(client, bufnr)
-          -- 启用 lsp-zero 提供的默认 keymaps
-          require('lsp-zero').on_attach(client, bufnr)
-
-          -- 添加 Java 特有的 keymaps
-          local map = function(mode, lhs, rhs, desc)
-            vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = 'Java: ' .. desc })
-          end
-          map('n', '<leader>jo', '<Cmd>JavaOrganizeImports<CR>', 'Organize Imports')
-          map('n', '<leader>jt', '<Cmd>JavaTestNearestMethod<CR>', 'Test Nearest Method')
-          map('n', '<leader>jT', '<Cmd>JavaTestFile<CR>', 'Test File')
-          map('v', '<leader>je', ":'<,'>JavaExtractMethod<CR>", 'Extract Method')
-          map('n', '<leader>jc', '<Cmd>JavaCleanUp<CR>', 'Clean Up')
-        end,
-      }
-
-      -- 启动 jdtls
-      require('jdtls').start_or_attach(config)
-
-      -- 调试器 (DAP) 的快捷键
-      local dap_map = function(lhs, rhs, desc)
-        vim.keymap.set('n', lhs, rhs, { silent = true, desc = 'DAP: ' .. desc })
-      end
-      dap_map('<F5>', require('dap').continue, 'Continue')
-      dap_map('<F10>', require('dap').step_over, 'Step Over')
-      dap_map('<F11>', require('dap').step_into, 'Step Into')
-      dap_map('<F12>', require('dap').step_out, 'Step Out')
-      dap_map('<leader>b', require('dap').toggle_breakpoint, 'Toggle Breakpoint')
-      dap_map('<leader>B', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, 'Set Conditional Breakpoint')
-    end
-  },
-  -- ================================================ --
 
 })
 
