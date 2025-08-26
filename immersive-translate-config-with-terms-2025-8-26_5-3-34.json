@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2025-08-26T05:01:21.707Z",
+  "updatedAt": "2025-08-26T05:03:26.991Z",
   "isChangedAlwaysTranslatedUrls": false,
   "aiAssistantIds": [
     "paraphrase",
@@ -25,7 +25,7 @@
     "web3"
   ],
   "interfaceLanguage": "en",
-  "localUpdatedAt": "2025-08-26T05:01:21.707Z",
+  "localUpdatedAt": "2025-08-26T05:03:26.991Z",
   "generalRule": {
     "selectionTranslation.add": {
       "enable": true,
@@ -104,6 +104,9 @@
     },
     "bing": {
       "visible": false
+    },
+    "ollama": {
+      "visible": true
     }
   },
   "translationService": "zhipu",
@@ -112,7 +115,7 @@
   "isShowInputTranslationConsent": false,
   "terms": {
     "version": 1,
-    "exportedAt": "2025-08-26T05:01:35.563Z",
+    "exportedAt": "2025-08-26T05:03:34.815Z",
     "data": [
       {
         "id": "default",
