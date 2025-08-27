@@ -50,7 +50,7 @@ require("lazy").setup({
         -- 需要确保安装的语言解析器列表
         ensure_installed = {
             "lua", "vim", "vimdoc", "query",
-            "rust", "python","json", "bash", "yaml", "toml", "markdown", "markdown_inline" -- 为表格插件添加 markdown 解析器
+            "rust", "python","json", "bash", "yaml", "toml", "markdown", "markdown_inline"
         },
         -- 同步安装解析器 (仅对 `ensure_installed` 列表中的解析器生效)
         sync_install = false,
@@ -107,18 +107,33 @@ require("lazy").setup({
   },
 
   -- ================================================ --
-  -- ============ [新添加] 表格编辑增强 ============ --
+  -- =========== [新增] 通用格式化插件 =========== --
   -- ================================================ --
-  -- 插件: vim-table-mode
-  -- 功能: 提供类似 Excel 的 Markdown 表格编辑体验，自动对齐、单元格跳转等
+  -- 插件: conform.nvim
+  -- 功能: 一个轻量、高效的格式化插件，通过外部工具格式化代码
   {
-    'dhruvasagar/vim-table-mode',
-    config = function()
-      -- 启用插件，让它在 Markdown 文件中自动激活
-      vim.g.table_mode_enabled = 1
-      -- 禁用默认的快捷键，因为我们稍后会自定义更符合习惯的快捷键
-      vim.g.table_mode_map_prefix = ''
-    end,
+    'stevearc/conform.nvim',
+    event = { "BufWritePre" }, -- 在写入文件前触发
+    cmd = { "ConformInfo" },
+    opts = {
+      -- 定义不同文件类型的格式化工具
+      -- 提示: 你需要确保这些工具已经在你的系统上安装
+      -- 例如: sudo pacman -S stylua, sudo npm install -g prettier
+      formatters_by_ft = {
+        lua = { "stylua" },
+        markdown = { "prettier" },
+        -- 你可以在这里为其他语言添加格式化工具
+        -- python = { "black" },
+        -- rust = { "rustfmt" },
+      },
+      -- 设置保存时自动格式化
+      format_on_save = {
+        -- 等待 500 毫秒，避免过于频繁的格式化
+        timeout_ms = 500,
+        -- 使用 LSP 客户端的格式化能力作为备选
+        lsp_fallback = true,
+      },
+    },
   },
   -- ================================================ --
 
@@ -127,27 +142,19 @@ require("lazy").setup({
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
     dependencies = {
-      -- LSP 核心配置
       {'neovim/nvim-lspconfig'},
-      -- LSP 安装和管理工具
       {'williamboman/mason.nvim'},
       {'williamboman/mason-lspconfig.nvim'},
-      -- 自动补全引擎
       {'hrsh7th/nvim-cmp'},
-      -- 补全源
-      {'hrsh7th/cmp-nvim-lsp'},   -- LSP 补全源
-      {'hrsh7th/cmp-buffer'},   -- 缓冲区文本补全源
-      {'hrsh7th/cmp-path'},     -- 文件路径补全源
-      {'saadparwaiz1/cmp_luasnip'}, -- 代码片段补全源
-      -- 代码片段引擎
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
       {'L3MON4D3/LuaSnip'},
     },
     config = function()
-        -- 初始化 lsp-zero
         local lsp_zero = require('lsp-zero')
-        -- 在 LSP 客户端附加到缓冲区时触发的回调函数
         lsp_zero.on_attach(function(client, bufnr)
-            -- 封装一个快捷键设置函数，简化后续映射，并自动添加描述
             local map = function(mode, lhs, rhs, desc)
                 vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, noremap = true, silent = true, desc = 'LSP: ' .. desc })
             end
@@ -160,29 +167,21 @@ require("lazy").setup({
             map('n', '<leader>rn', vim.lsp.buf.rename, '重命名符号')
             map({ 'n', 'v' }, '<leader>df', vim.diagnostic.open_float, '显示诊断信息')
         end)
-        -- Mason 设置，用于管理 LSP 服务器、Linter、Formatter 等
         require('mason').setup({})
-        -- Mason-lspconfig 设置，桥接 mason 和 lspconfig
         require('mason-lspconfig').setup({
-            -- 确保这些 LSP 服务器已安装
             ensure_installed = {
                 'rust_analyzer', 'jsonls',
                 'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright'
             },
-            -- 指定 lsp-zero 作为默认的 LSP 配置处理器
             handlers = { lsp_zero.default_setup },
         })
-        -- nvim-cmp (自动补全) 设置
         local cmp = require('cmp')
         cmp.setup({
-            -- 配置补全来源: LSP、代码片段、缓冲区、文件路径
             sources = {{name = 'nvim_lsp'}, {name = 'luasnip'}, {name = 'buffer'}, {name = 'path'}},
-            -- 配置代码片段引擎
             snippet = { expand = function(args) require('luasnip').lsp_expand(args.body) end },
-            -- 配置补全菜单的快捷键
             mapping = cmp.mapping.preset.insert({
-                ['<CR>'] = cmp.mapping.confirm({ select = true }), -- 回车键确认选择
-                ['<C-Space>'] = cmp.mapping.complete(),             -- Ctrl+空格触发补全
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<C-Space>'] = cmp.mapping.complete(),
             }),
         })
     end
@@ -193,31 +192,27 @@ require("lazy").setup({
 -- =============================================================================
 -- 2. 通用编辑器选项
 -- =============================================================================
-vim.opt.number = true              -- 显示行号
-vim.opt.relativenumber = true      -- 显示相对行号
-vim.opt.tabstop = 4                -- Tab 宽度为 4 个空格
-vim.opt.shiftwidth = 4             -- 缩进宽度为 4 个空格
-vim.opt.expandtab = true           -- 将 Tab 转换为空格
-vim.opt.smartindent = true         -- 启用智能缩进
-vim.opt.autoindent = true          -- 启用自动缩进
-vim.opt.wrap = false               -- 禁用自动换行
-vim.opt.mouse = 'a'                -- 在所有模式下启用鼠标
-vim.opt.hlsearch = true            -- 高亮搜索结果
-vim.opt.incsearch = true           -- 启用增量搜索（边输入边搜索）
-vim.opt.undofile = true            -- 启用撤销文件，以便在关闭并重新打开后仍可撤销
-vim.o.termguicolors = true         -- 启用真彩色支持
-
--- 与系统剪贴板共享 (复制粘贴)
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.autoindent = true
+vim.opt.wrap = false
+vim.opt.mouse = 'a'
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.undofile = true
+vim.o.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
 -- =============================================================================
 -- 3. 全局变量与快捷键映射
 -- =============================================================================
--- 设置 <leader> 键为空格键
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Copilot 切换函数
 function _G.toggle_copilot()
   if vim.g.copilot_enabled == 1 then
     vim.cmd('Copilot disable')
@@ -228,7 +223,6 @@ function _G.toggle_copilot()
   end
 end
 
--- 禁用方向键，强制使用 hjkl 进行导航，以养成良好习惯
 vim.keymap.set({'n', 'v', 'i'}, '<Up>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Down>', '<Nop>')
 vim.keymap.set({'n', 'v', 'i'}, '<Left>', '<Nop>')
@@ -248,33 +242,20 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "跳转到上一个
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "跳转到下一个诊断" })
 
 -- -----------------------------------------------------------------------------
--- [新添加] Table Mode 快捷键 (表格编辑)
+-- [新增] 手动格式化快捷键
 -- -----------------------------------------------------------------------------
--- 只有在文件类型为 markdown 时才启用这些快捷键
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    -- <leader>tm: 切换表格模式 (Toggle Table Mode)
-    vim.keymap.set('n', '<leader>tm', ':TableModeToggle<CR>', { desc = '表格: 切换编辑模式', buffer = true, noremap = true, silent = true })
-    -- 在表格模式下，用 Tab 和 Shift-Tab 在单元格间移动
-    -- 注意: 这是在 Normal 模式下的映射，插件自身会处理 Insert 模式下的 Tab
-    vim.keymap.set('n', '<Tab>', ':TableModeNextCell<CR>', { desc = '表格: 下一个单元格', buffer = true, noremap = true, silent = true })
-    vim.keymap.set('n', '<S-Tab>', ':TableModePrevCell<CR>', { desc = '表格: 上一个单元格', buffer = true, noremap = true, silent = true })
-  end,
-})
+vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+    require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "格式化文件" })
 -- -----------------------------------------------------------------------------
 
 -- -----------------------------------------------------------------------------
 -- 实用的快捷键增强
 -- -----------------------------------------------------------------------------
-
--- 窗口（分屏）快速导航
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = '移动到左侧窗口' })
 vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = '移动到右侧窗口' })
 vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = '移动到上方窗口' })
 vim.keymap.set('n', '<leader>j', '<C-w>j', { desc = '移动到下方窗口' })
-
--- 直观的窗口分割
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = '垂直分割窗口' })
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = '水平分割窗口' })
 
@@ -282,5 +263,4 @@ vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = '水平分割窗口' })
 -- =============================================================================
 -- 4. 应用主题方案
 -- =============================================================================
--- 加载 tokyonight 主题方案
 vim.cmd('colorscheme tokyonight')
