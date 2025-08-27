@@ -23,9 +23,9 @@ safe_sync_download() {
   local remote_name="$1"    # 远端配置名, e.g., g_00000000yangkun
   local local_dir_name="$2" # 本地文件夹名, e.g., th_00000000yangkun
   local local_full_path="$BASE_DIR/$local_dir_name/"
-  local remote_full_path="${remote_name}:${local_dir_name}"
+  local remote_full_path="${remote_name}:${local_dir_name##*/}" # 使用 ##*/ 获取云端目录名
 
-  echo "--- [准备恢复] 云端: '$remote_name/$local_dir_name' -> 本地: '$local_full_path' ---"
+  echo "--- [准备恢复] 云端: '$remote_full_path' -> 本地: '$local_full_path' ---"
 
   # 安全检查: 要求用户手动确认
   echo "⚠️  警告：此操作将使本地文件夹 '$local_full_path' 与云端完全同步。"
@@ -51,8 +51,8 @@ safe_sync_download() {
 echo "====== 开始从 Google Drive 恢复音乐文件夹 ======"
 echo ""
 
-safe_sync_download "g_00000000yangkun" "th_00000000yangkun"
-safe_sync_download "g_daisukimarisadaze" "th_daisukimarisadaze"
-safe_sync_download "g_kirisamefreeman" "th_kirisamefreeman"
+safe_sync_download "g_00000000yangkun" "Music/th_00000000yangkun"
+safe_sync_download "g_daisukimarisadaze" "Music/th_daisukimarisadaze"
+safe_sync_download "g_kirisamefreeman" "Music/th_kirisamefreeman"
 
 echo "====== 所有文件夹均已成功从云端恢复！ ======"

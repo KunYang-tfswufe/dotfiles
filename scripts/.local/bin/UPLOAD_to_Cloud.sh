@@ -54,7 +54,7 @@ safe_sync_upload() {
     --progress \
     --backup-dir "$backup_path" \
     "$local_full_path" \
-    "${remote_name}:${local_dir_name}"
+    "${remote_name}:${local_dir_name##*/}" # 使用 ##*/ 来获取路径的最后一部分作为云端目录名
 
   echo "✅ '$local_dir_name' 同步完成。"
   echo ""
@@ -63,8 +63,8 @@ safe_sync_upload() {
 echo "====== 开始安全同步音乐文件夹到 Google Drive ======"
 echo ""
 
-safe_sync_upload "th_00000000yangkun" "g_00000000yangkun"
-safe_sync_upload "th_daisukimarisadaze" "g_daisukimarisadaze"
-safe_sync_upload "th_kirisamefreeman" "g_kirisamefreeman"
+safe_sync_upload "Music/th_00000000yangkun" "g_00000000yangkun"
+safe_sync_upload "Music/th_daisukimarisadaze" "g_daisukimarisadaze"
+safe_sync_upload "Music/th_kirisamefreeman" "g_kirisamefreeman"
 
 echo "====== 所有文件夹均已成功同步到云端！ ======"

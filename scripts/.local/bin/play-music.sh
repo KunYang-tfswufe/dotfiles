@@ -15,9 +15,9 @@ killall mpv &> /dev/null || true
 # The '&' at the end is CRUCIAL. It runs the mpv process in the background,
 # allowing the script to immediately continue to the next command (notify-send).
 mpv --shuffle \
-    "$HOME/th_00000000yangkun" \
-    "$HOME/th_daisukimarisadaze" \
-    "$HOME/th_kirisamefreeman" &
+    "$HOME/Music/th_00000000yangkun" \
+    "$HOME/Music/th_daisukimarisadaze" \
+    "$HOME/Music/th_kirisamefreeman" &
 
 # Immediately after starting music, send a notification with the current date and time.
 # The date format is consistent with your other scripts.
