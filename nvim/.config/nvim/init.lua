@@ -24,11 +24,14 @@ require("lazy").setup({
     -- ================================================ --
     -- =================== 主题方案 =================== --
     -- ================================================ --
+    -- 使用 Tokyo Night 主题，并强制设置纯黑 (#000000) 背景
     {
         'folke/tokyonight.nvim',
-        priority = 1000,
+        priority = 1000, -- 确保它最先加载
         opts = {
+            -- on_colors 是一个回调函数，在主题加载颜色时执行
             on_colors = function(colors)
+                -- 将背景色强制设置为纯黑色
                 colors.bg = "#000000"
             end,
         },
@@ -38,18 +41,24 @@ require("lazy").setup({
     -- ================================================ --
     -- ================ nvim-treesitter =============== --
     -- ================================================ --
+    -- 提供更优秀、更精准的语法高亮
     {
         'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',
+        build = ':TSUpdate', -- 在安装或更新时自动运行 :TSUpdate 命令
         config = function()
             require('nvim-treesitter.configs').setup({
+                -- 需要确保安装的语言解析器列表
                 ensure_installed = {
                     "lua", "vim", "vimdoc", "query",
                     "rust", "python", "json", "bash", "yaml", "toml", "markdown", "markdown_inline"
                 },
+                -- 同步安装解析器 (仅对 `ensure_installed` 列表中的解析器生效)
                 sync_install = false,
+                -- 当打开文件时，如果对应的解析器未安装，则自动安装
                 auto_install = true,
+                -- 语法高亮模块
                 highlight = {
+                    -- 启用基于 treesitter 的语法高亮
                     enable = true,
                 },
             })
@@ -62,21 +71,28 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
-    -- 快捷键提示插件: which-key.nvim
+    -- ================================================ --
+    -- ================= which-key.nvim ================ --
+    -- ================================================ --
+    -- 按下 <leader> 键后，显示一个包含可用快捷键的弹出窗口
     {
         'folke/which-key.nvim',
-        event = "VeryLazy",
+        event = "VeryLazy", -- 延迟加载
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 300
         end,
-        opts = {},
+        opts = {
+            -- 在此配置自定义选项；留空则使用默认值
+        }
     },
+    -- ================================================ --
 
     -- GitHub Copilot 插件
     {
         'github/copilot.vim',
         init = function()
+            -- 设置为 1 表示默认启用 Copilot
             vim.g.copilot_enabled = 1
         end,
     },
@@ -85,40 +101,39 @@ require("lazy").setup({
     {
         'lewis6991/gitsigns.nvim',
         config = function()
+            -- 只需调用 setup() 即可启用左侧的 Git 状态标记，无需任何额外参数
             require('gitsigns').setup()
         end
     },
 
-    -- 通用格式化插件: conform.nvim
+    -- ================================================ --
+    -- =========== [新增] 通用格式化插件 =========== --
+    -- ================================================ --
+    -- 插件: conform.nvim
+    -- 功能: 一个轻量、高效的格式化插件，通过外部工具格式化代码
     {
         'stevearc/conform.nvim',
-        event = { "BufWritePre" },
+        event = { "BufWritePre" }, -- 在写入文件前触发
         cmd = { "ConformInfo" },
         opts = {
+            -- 定义不同文件类型的格式化工具
+            -- 提示: 你需要确保这些工具已经在你的系统上安装
+            -- 例如: sudo pacman -S stylua, sudo npm install -g prettier
             formatters_by_ft = {
                 lua = { "stylua" },
                 markdown = { "prettier" },
+                -- 你可以在这里为其他语言添加格式化工具
+                -- python = { "black" },
+                -- rust = { "rustfmt" },
             },
+            -- 设置保存时自动格式化
             format_on_save = {
+                -- 等待 500 毫秒，避免过于频繁的格式化
                 timeout_ms = 500,
+                -- 使用 LSP 客户端的格式化能力作为备选
                 lsp_fallback = true,
             },
         },
-    },
-
-    -- ================================================ --
-    -- =========== [新增] 终端管理插件 =========== --
-    -- ================================================ --
-    -- 插件: toggleterm.nvim
-    -- 功能: 优雅地管理终端窗口，用于实现 Glow 浮动预览
-    {
-        'akinsho/toggleterm.nvim',
-        version = "*",
-        opts = {
-            -- 在这里可以配置 toggleterm 的默认行为
-            direction = 'float',      -- 默认打开浮动窗口
-            open_mapping = [[<c-\>]], -- 设置一个全局的终端切换键
-        }
     },
     -- ================================================ --
 
@@ -199,36 +214,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- =============================================================================
--- [新增] Glow 预览功能函数
--- =============================================================================
--- 定义一个全局函数，用于在浮动终端中用 Glow 预览当前文件
-function _G.GlowPreview()
-    -- 检查 toggleterm 是否已加载
-    if not pcall(require, 'toggleterm') then
-        print("Toggleterm not loaded")
-        return
-    end
-
-    -- 构建 glow 命令，使用 %:p 来获取当前文件的完整路径
-    local command = 'glow ' .. vim.fn.expand('%:p')
-
-    -- 创建一个新的 toggleterm 终端实例
-    local term = require('toggleterm.terminal').Terminal:new({
-        cmd = command,
-        direction = 'float', -- 确保是浮动窗口
-        hidden = true,       -- 创建时不显示
-        on_close = function(t)
-            -- 当终端关闭时，删除其对应的 Neovim 缓冲区
-            vim.cmd('bdelete! ' .. t.bufnr)
-        end
-    })
-
-    -- 打开或切换该终端
-    term:toggle()
-end
-
--- Copilot 切换函数
 function _G.toggle_copilot()
     if vim.g.copilot_enabled == 1 then
         vim.cmd('Copilot disable')
@@ -240,7 +225,7 @@ function _G.toggle_copilot()
 end
 
 vim.keymap.set({ 'n', 'v', 'i' }, '<Up>', '<Nop>')
-vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', 'nop')
+vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Left>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Right>', '<Nop>')
 
@@ -251,24 +236,23 @@ vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers
 vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = '查找帮助文档' })
 
 -- Copilot 开关快捷键
-vim.keymap.set('n', '<leader>ct', '<cmd>lua _G.toggle_copilot()<cr>', { desc = '切换 Copilot' })
+vim.keymap.set('n', '<leader>ct', '<cmd>lua _G.toggle_copilot()<cr>', { desc = '切换 Copilot (启用/禁用)' })
 
 -- LSP 诊断功能快捷键
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "上一个诊断" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "下一个诊断" })
-
--- 手动格式化快捷键
-vim.keymap.set({ "n", "v" }, "<leader>fm",
-    function() require("conform").format({ async = true, lsp_fallback = true }) end, { desc = "格式化文件" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "跳转到上一个诊断" })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "跳转到下一个诊断" })
 
 -- -----------------------------------------------------------------------------
--- [新增] Glow 预览快捷键
+-- [新增] 手动格式化快捷键
 -- -----------------------------------------------------------------------------
--- 在 Normal 模式下，按下 <leader>pv (Preview View) 来调用 Glow 预览函数
-vim.keymap.set("n", "<leader>pv", "<cmd>lua _G.GlowPreview()<CR>", { desc = "预览 Markdown (Glow)" })
+vim.keymap.set({ "n", "v" }, "<leader>fm", function()
+    require("conform").format({ async = true, lsp_fallback = true })
+end, { desc = "格式化文件" })
 -- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- 实用的快捷键增强
+-- -----------------------------------------------------------------------------
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = '移动到左侧窗口' })
 vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = '移动到右侧窗口' })
 vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = '移动到上方窗口' })
