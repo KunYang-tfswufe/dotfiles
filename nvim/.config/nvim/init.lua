@@ -116,7 +116,7 @@ require("lazy").setup({
         version = "*",
         opts = {
             -- 在这里可以配置 toggleterm 的默认行为
-            direction = 'float',  -- 默认打开浮动窗口
+            direction = 'float',      -- 默认打开浮动窗口
             open_mapping = [[<c-\>]], -- 设置一个全局的终端切换键
         }
     },
@@ -217,7 +217,7 @@ function _G.GlowPreview()
     local term = require('toggleterm.terminal').Terminal:new({
         cmd = command,
         direction = 'float', -- 确保是浮动窗口
-        hidden = true,   -- 创建时不显示
+        hidden = true,       -- 创建时不显示
         on_close = function(t)
             -- 当终端关闭时，删除其对应的 Neovim 缓冲区
             vim.cmd('bdelete! ' .. t.bufnr)
