@@ -1,7 +1,0 @@
-# matches related to my personal projects, like dotfiles
-matches:
-  - trigger: "`9"
-    replace: |-
-      imak@archlinux ~/dotfiles (main)> ls
-      bat/  configs/  espanso/  fish/  hypr/  kitty/  Makefile  nvim/  project_snapshot.txt  README.md  scripts/  systemd-templates/  waybar/
-      imak@archlinux ~/dotfiles (main)> 这是我的使用stow管理的dotfiles仓库的扁平化快照请阅读它
