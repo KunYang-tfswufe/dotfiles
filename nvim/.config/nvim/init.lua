@@ -50,7 +50,7 @@ require("lazy").setup({
         -- 需要确保安装的语言解析器列表
         ensure_installed = {
             "lua", "vim", "vimdoc", "query",
-            "rust", "python","json", "bash", "yaml", "toml"
+            "rust", "python","json", "bash", "yaml", "toml", "markdown", "markdown_inline" -- 为表格插件添加 markdown 解析器
         },
         -- 同步安装解析器 (仅对 `ensure_installed` 列表中的解析器生效)
         sync_install = false,
@@ -105,6 +105,22 @@ require("lazy").setup({
       require('gitsigns').setup()
     end
   },
+
+  -- ================================================ --
+  -- ============ [新添加] 表格编辑增强 ============ --
+  -- ================================================ --
+  -- 插件: vim-table-mode
+  -- 功能: 提供类似 Excel 的 Markdown 表格编辑体验，自动对齐、单元格跳转等
+  {
+    'dhruvasagar/vim-table-mode',
+    config = function()
+      -- 启用插件，让它在 Markdown 文件中自动激活
+      vim.g.table_mode_enabled = 1
+      -- 禁用默认的快捷键，因为我们稍后会自定义更符合习惯的快捷键
+      vim.g.table_mode_map_prefix = ''
+    end,
+  },
+  -- ================================================ --
 
   -- LSP (语言服务器协议) 快速配置: lsp-zero
   {
@@ -230,6 +246,23 @@ vim.keymap.set('n', '<leader>ct', '<cmd>lua _G.toggle_copilot()<cr>', { desc = '
 -- LSP 诊断功能快捷键
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "跳转到上一个诊断" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "跳转到下一个诊断" })
+
+-- -----------------------------------------------------------------------------
+-- [新添加] Table Mode 快捷键 (表格编辑)
+-- -----------------------------------------------------------------------------
+-- 只有在文件类型为 markdown 时才启用这些快捷键
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    -- <leader>tm: 切换表格模式 (Toggle Table Mode)
+    vim.keymap.set('n', '<leader>tm', ':TableModeToggle<CR>', { desc = '表格: 切换编辑模式', buffer = true, noremap = true, silent = true })
+    -- 在表格模式下，用 Tab 和 Shift-Tab 在单元格间移动
+    -- 注意: 这是在 Normal 模式下的映射，插件自身会处理 Insert 模式下的 Tab
+    vim.keymap.set('n', '<Tab>', ':TableModeNextCell<CR>', { desc = '表格: 下一个单元格', buffer = true, noremap = true, silent = true })
+    vim.keymap.set('n', '<S-Tab>', ':TableModePrevCell<CR>', { desc = '表格: 上一个单元格', buffer = true, noremap = true, silent = true })
+  end,
+})
+-- -----------------------------------------------------------------------------
 
 -- -----------------------------------------------------------------------------
 -- 实用的快捷键增强
