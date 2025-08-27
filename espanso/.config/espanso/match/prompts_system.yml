@@ -1,6 +1,6 @@
 # matches for system-level prompts for LLMs
 matches:
-  - trigger: "`0"
+  - trigger: "`sysprompt"
     form: "[[system_choice]]"
     form_fields:
       system_choice:

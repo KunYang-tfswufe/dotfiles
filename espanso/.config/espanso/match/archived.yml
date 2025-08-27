@@ -1,4 +1,4 @@
 matches:
-  - trigger: ":e"
+  - trigger: "`hi"
     replace: "Hi  there!"
 
