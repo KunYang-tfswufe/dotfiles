@@ -5,8 +5,9 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-# 【关键修改】工作目录直接指向您 MyShare_sync 中的 pdf-reader 目录
-WorkingDirectory=__HOME_DIR__/MyShare_sync/my-pdf-reader
+# 【关键修改】工作目录必须是你的主目录，这样才能同时访问到
+# ~/.local/share/pdfjs-dist 和 ~/MyShare_sync/bookshelf
+WorkingDirectory=__HOME_DIR__
 ExecStart=/usr/bin/python3 -m http.server 8080
 Restart=always
 

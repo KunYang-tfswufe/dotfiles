@@ -16,19 +16,20 @@ matches:
 
   - trigger: "`docker"
     replace: |-
-      http://localhost:8080/web/viewer.html?file=../bookshelf/DockerDeepDive.pdf
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/DockerDeepDive.pdf
 
   - trigger: "`AN"
     replace: |-
-      http://localhost:8080/web/viewer.html?file=../bookshelf/AttentionIsAllYouNeed.pdf
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/AttentionIsAllYouNeed.pdf
 
   - trigger: "`math"
     replace: |-
-      http://localhost:8080/web/viewer.html?file=../bookshelf/CalculusEarlyTranscendentals.pdf
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/CalculusEarlyTranscendentals.pdf
 
   - trigger: "`git"
     replace: |-
       http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/progit.pdf
+
   - trigger: "`spring"
     replace: |-
-      http://localhost:8080/web/viewer.html?file=../bookshelf/SpringinAction5thEdition.pdf
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/SpringinAction5thEdition.pdf
