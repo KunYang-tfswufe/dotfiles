@@ -28,8 +28,7 @@ matches:
 
   - trigger: "`git"
     replace: |-
-      http://localhost:8080/web/viewer.html?file=../bookshelf/progit.pdf
-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/progit.pdf
   - trigger: "`spring"
     replace: |-
       http://localhost:8080/web/viewer.html?file=../bookshelf/SpringinAction5thEdition.pdf
