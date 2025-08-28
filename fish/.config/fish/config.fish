@@ -39,3 +39,4 @@ set -x ANDROID_AVD_HOME "$HOME/.android/avd"
 fish_add_path $ANDROID_SDK_ROOT/cmdline-tools/latest/bin
 fish_add_path $ANDROID_SDK_ROOT/platform-tools
 fish_add_path $ANDROID_SDK_ROOT/emulator
+fish_add_path ~/.npm-global/bin
