@@ -1,3 +1,13 @@
+# =============================================================================
+#  LOAD SENSITIVE ENVIRONMENT VARIABLES (e.g., API Keys)
+# =============================================================================
+# This block checks for a 'secrets.fish' file and sources it if it exists.
+# This file is intended for API keys and other secrets and should be in .gitignore.
+# =============================================================================
+if test -f ~/.config/fish/secrets.fish
+    source ~/.config/fish/secrets.fish
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
