@@ -1,6 +1,6 @@
 # matches for text processing and translation
 matches:
-  - trigger: "`en2zh"
+  - trigger: "`1"
     replace: |-
       Only translate the English into Chinese：{{clipb}}
     vars:
