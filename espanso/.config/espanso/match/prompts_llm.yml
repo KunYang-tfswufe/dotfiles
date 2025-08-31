@@ -1,6 +1,3 @@
-# espanso match configuration for Large Language Model prompts
-# Trigger Design: ` + (1-3 letter abbreviation)
-
 matches:
   # ===============================================
   # 解释与总结 (Explain & Summarize)
