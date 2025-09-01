@@ -62,12 +62,17 @@ require("lazy").setup({
 
     -- 基础插件 (保持不变)
     { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
-    { 'folke/which-key.nvim',          event = "VeryLazy",                                 init = function()
-        vim.o.timeout = true; vim.o.timeoutlen = 300
-    end,                                                                                                                                                       opts = {} },
+    {
+        'folke/which-key.nvim',
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true; vim.o.timeoutlen = 300
+        end,
+        opts = {}
+    },
     { 'github/copilot.vim',            init = function() vim.g.copilot_enabled = 1 end },
     { 'lewis6991/gitsigns.nvim',       config = function() require('gitsigns').setup() end },
-    { 'stevearc/conform.nvim',         event = { "BufWritePre" },                          cmd = { "ConformInfo" },                                            opts = { formatters_by_ft = { lua = { "stylua" }, markdown = { "prettier" } }, format_on_save = { timeout_ms = 500, lsp_fallback = true } } },
+    { 'stevearc/conform.nvim',         event = { "BufWritePre" },                          cmd = { "ConformInfo" }, opts = { formatters_by_ft = { lua = { "stylua" }, markdown = { "prettier" } }, format_on_save = { timeout_ms = 500, lsp_fallback = true } } },
 
     -- [新增] 添加 nvim-jdtls 插件以更好地支持 jdtls
     { 'mfussenegger/nvim-jdtls' },
@@ -162,13 +167,15 @@ vim.opt.clipboard = "unnamedplus"
 -- =============================================================================
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-function _G.toggle_copilot() if vim.g.copilot_enabled == 1 then
+function _G.toggle_copilot()
+    if vim.g.copilot_enabled == 1 then
         vim.cmd('Copilot disable')
         print('Copilot 已禁用。')
     else
         vim.cmd('Copilot enable')
         print('Copilot 已启用。')
-    end end
+    end
+end
 
 vim.keymap.set({ 'n', 'v', 'i' }, '<Up>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', '<Nop>')
