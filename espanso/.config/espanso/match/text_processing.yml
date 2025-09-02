@@ -3,7 +3,7 @@
 # ===============================================
 matches:
   # 英译中 (English to Chinese)
-  - trigger: "`e2c"
+  - trigger: "`1"
     replace: |-
       Only translate the English into Chinese：{{clipb}}
     vars:

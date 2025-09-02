@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2025-08-26T05:03:26.991Z",
+  "updatedAt": "2025-09-02T05:27:08.956Z",
   "isChangedAlwaysTranslatedUrls": false,
   "aiAssistantIds": [
     "paraphrase",
@@ -24,8 +24,8 @@
     "bilingual-mix",
     "web3"
   ],
-  "interfaceLanguage": "en",
-  "localUpdatedAt": "2025-08-26T05:03:26.991Z",
+  "interfaceLanguage": "zh-CN",
+  "localUpdatedAt": "2025-09-02T05:27:08.956Z",
   "generalRule": {
     "selectionTranslation.add": {
       "enable": true,
@@ -106,16 +106,85 @@
       "visible": false
     },
     "ollama": {
-      "visible": true
+      "visible": true,
+      "APIKEY": "ollama",
+      "model": "gemma3:4b"
+    },
+    "google-free": {
+      "visible": false,
+      "migrateFrom": "google"
+    },
+    "zhipu-free": {
+      "visible": true,
+      "migrateFrom": "zhipu"
+    },
+    "deepl-pro": {
+      "visible": false,
+      "migrateFrom": "deepl"
+    },
+    "deepseek-pro": {
+      "visible": false,
+      "migrateFrom": "deepseek"
+    },
+    "openai-pro": {
+      "visible": false,
+      "migrateFrom": "openai"
+    },
+    "gemini-pro": {
+      "visible": false,
+      "migrateFrom": "gemini"
+    },
+    "claude-pro": {
+      "visible": false,
+      "migrateFrom": "claude"
+    },
+    "siliconcloud-free": {
+      "visible": true,
+      "migrateFrom": "siliconcloud"
+    },
+    "yandex-free": {
+      "visible": false,
+      "migrateFrom": "yandex"
+    },
+    "transmart-free": {
+      "visible": false,
+      "migrateFrom": "transmart"
+    },
+    "bing-free": {
+      "visible": false,
+      "migrateFrom": "bing"
+    },
+    "ollama-custom": {
+      "visible": true,
+      "migrateFrom": "ollama",
+      "extends": "ollama",
+      "group": "custom",
+      "type": "ollama",
+      "APIKEY": "ollama",
+      "model": "gemma3:4b"
+    },
+    "claude-max": {
+      "visible": false
+    },
+    "openai-max": {
+      "visible": false
+    },
+    "gemini-max": {
+      "visible": false
     }
   },
-  "translationService": "zhipu",
-  "translationServiceChangedbyUserAt": "2025-08-26T04:53:41.748Z",
+  "translationService": "ollama",
+  "translationServiceChangedbyUserAt": "2025-09-02T05:17:29.221Z",
   "enableInputTranslation": true,
   "isShowInputTranslationConsent": false,
+  "pcFloatBallMainBtnTooltipShownCount": 7,
+  "userTranslationServices": {
+    "translationService": "ollama-custom"
+  },
+  "targetLanguage": "zh-CN",
   "terms": {
     "version": 1,
-    "exportedAt": "2025-08-26T05:03:34.815Z",
+    "exportedAt": "2025-09-02T05:27:36.908Z",
     "data": [
       {
         "id": "default",
