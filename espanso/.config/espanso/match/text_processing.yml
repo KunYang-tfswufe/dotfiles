@@ -17,3 +17,7 @@ matches:
     vars:
       - name: "clipb"
         type: "clipboard"
+
+  - trigger: "`pi"
+    replace: |-
+      kitten ssh pi@10.126.247.14
