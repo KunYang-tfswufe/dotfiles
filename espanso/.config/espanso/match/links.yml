@@ -13,6 +13,10 @@ matches:
     replace: |-
       http://localhost:9999/ui
 
+  - trigger: "`lc"
+    replace: |-
+      https://www.techinterviewhandbook.org/grind75/
+
   - trigger: "`docker"
     replace: |-
       http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/DockerDeepDive.pdf
