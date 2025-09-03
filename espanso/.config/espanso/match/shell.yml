@@ -1,4 +1,4 @@
 matches:
-  - trigger: ":rpi"
+  - trigger: "`rpi"
     replace: |-
       kitten ssh pi@10.126.247.14
