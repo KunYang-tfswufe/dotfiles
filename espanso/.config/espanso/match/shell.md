@@ -1,0 +1,5 @@
+matches:
+
+- trigger: "`pi"
+  replace: |-
+  kitten ssh pi@10.126.247.14
