@@ -90,6 +90,10 @@ matches:
     replace: |-
       请详细讲解这个Youtube视频: https://www.youtube.com/watch?v=xxxxxx(Gemini能够直接观看youtube视频,不需要字幕,但是消耗是普通聊天的100倍)
 
+  - trigger: "`c2"
+    replace: |-
+      这个文档是我把图片转换为文字,方便给Cursor等AI代码编辑器提供上下文,我转换的是否有问题,是否有遗漏?
+
   # 使用费曼学习法解释 (Feynman Technique)
   - trigger: "`fey"
     replace: |-
