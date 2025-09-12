@@ -31,6 +31,7 @@ ignored_files=(
     "*.log"
     "*.swp"
     "*.bak"
+    "*.hex"
     "$output_file" # Ensure the output file itself is not included
 
     # --- Add these lines to ignore license files ---
