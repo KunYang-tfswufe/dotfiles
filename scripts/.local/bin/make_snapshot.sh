@@ -13,6 +13,7 @@ ignored_dirs=(
     .idea
     .obsidian
     .metadata
+    .venv
     node_modules
     target
     build
