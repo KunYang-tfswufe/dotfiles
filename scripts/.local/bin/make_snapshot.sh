@@ -19,7 +19,7 @@ ignored_dirs=(
     build
     dist
     __pycache__
-
+    "micropython-lib"
     # --- STM32CubeIDE specific folders to ignore ---
     "Debug"      # Contains compiled binaries and object files (.o, .elf)
     "Drivers"    # Contains ST's standard HAL/CMSIS library files
