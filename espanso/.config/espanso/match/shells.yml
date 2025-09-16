@@ -6,7 +6,3 @@ matches:
   - trigger: "`tr"
     replace: |-
       find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
-
-  - trigger: "`pi"
-    replace: |-
-      kitten ssh pi@10.126.247.14
