@@ -1,20 +1,10 @@
 -- init.lua
 -- Neovim 配置文件入口
--- =============================================================================
--- [新增] 强制设置 JDK 环境变量，确保 Neovim 及其子进程使用正确的 Java 版本
--- =============================================================================
-local jdk_path    = '/usr/lib/jvm/java-24-openjdk' -- Arch Linux 上 Java 24 的标准路径
-
-vim.env.JAVA_HOME = jdk_path
-vim.env.JDK_HOME  = jdk_path
--- 将正确的 Java bin 目录添加到 Neovim 进程 PATH 的最前端
-vim.env.PATH      = jdk_path .. '/bin:' .. (vim.env.PATH or '')
--- =============================================================================
 
 -- 1. lazy.nvim 插件管理器设置
 -- =============================================================================
 -- 定义 lazy.nvim 的安装路径
-local lazypath    = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- 如果 lazy.nvim 未安装，则从 GitHub 克隆
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -47,11 +37,9 @@ require("lazy").setup({
         build = ':TSUpdate',
         config = function()
             require('nvim-treesitter.configs').setup({
-                -- [修改] 添加 'java'
                 ensure_installed = {
                     "lua", "vim", "vimdoc", "query",
-                    "rust", "python", "json", "bash", "yaml", "toml", "markdown", "markdown_inline",
-                    "java"
+                    "rust", "python", "json", "bash", "yaml", "toml", "markdown", "markdown_inline"
                 },
                 sync_install = false,
                 auto_install = true,
@@ -73,9 +61,6 @@ require("lazy").setup({
     { 'github/copilot.vim',            init = function() vim.g.copilot_enabled = 1 end },
     { 'lewis6991/gitsigns.nvim',       config = function() require('gitsigns').setup() end },
     { 'stevearc/conform.nvim',         event = { "BufWritePre" },                          cmd = { "ConformInfo" }, opts = { formatters_by_ft = { lua = { "stylua" }, markdown = { "prettier" } }, format_on_save = { timeout_ms = 500, lsp_fallback = true } } },
-
-    -- [新增] 添加 nvim-jdtls 插件以更好地支持 jdtls
-    { 'mfussenegger/nvim-jdtls' },
 
     -- LSP (语言服务器协议) 快速配置: lsp-zero
     {
@@ -111,23 +96,13 @@ require("lazy").setup({
 
             require('mason').setup({})
 
-            -- [修改] 使用正确的 handlers 语法，并为 jdtls 添加专属 handler
             local mason_lspconfig = require('mason-lspconfig')
             mason_lspconfig.setup({
-                -- [修改] 添加 'jdtls'
                 ensure_installed = {
-                    'rust_analyzer', 'jsonls', 'bashls', 'yamlls', 'taplo', 'gopls', 'lua_ls', 'pyright',
-                    'jdtls'
+                    'rust_analyzer', 'jsonls', 'bashls', 'yamlls', 'taplo', 'lua_ls', 'pyright'
                 },
                 handlers = {
                     lsp_zero.default_setup,
-                    -- jdtls 的 handler 现在非常简单，因为它会从正确的环境变量中找到 JDK
-                    ['jdtls'] = function()
-                        require('lspconfig').jdtls.setup({
-                            on_attach = lsp_zero.on_attach,
-                            capabilities = require('cmp_nvim_lsp').default_capabilities()
-                        })
-                    end,
                 }
             })
 
