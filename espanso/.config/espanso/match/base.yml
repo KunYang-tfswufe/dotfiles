@@ -3,7 +3,12 @@ matches:
   # 解释与总结 (Explain & Summarize)
   # ===============================================
 
-  - trigger: "`2"
+  # 项目启动
+  - trigger: "`1"
+    replace: |-
+      请仔细仔细仔细的阅读不要漏读项目的源码和文档和其他文件,并做总结,千万千万不要漏读,否则我之后的提问你会对不上
+
+  - trigger: "`3"
     replace: |-
       一个优秀的人,Exmaple1作为默认行为是最佳实践,还是Exmaple2作为默认行为是最佳实践(你只能选一个)
 
@@ -75,7 +80,7 @@ matches:
   # 文本处理与翻译 (Text Processing & Translation)
   # ===============================================
   # 英译中 (English to Chinese)
-  - trigger: "`1"
+  - trigger: "`2"
     replace: |-
       Only translate the English into Chinese：{{clipb}}
     vars:
