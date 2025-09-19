@@ -30,6 +30,10 @@ matches:
     replace: |-
       我没有理解到,请帮我浓缩成极致简短的精华摘要
 
+  - trigger: "bk"
+    replace: |-
+      Example这个词是什么意思？我没有理解到。请你把它掰开，捏碎了揉碎了给我讲
+
   - trigger: "`tld"
     replace: |-
       我没有理解到,请直接给我太长不看 (TL;DR) 版本
