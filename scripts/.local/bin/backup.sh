@@ -11,7 +11,6 @@
 BACKUP_TARGETS=(
     "$HOME/dotfiles"
     "$HOME/SecondBrain"
-    "$HOME/FinalProject"
 )
 
 # Rclone Configuration
