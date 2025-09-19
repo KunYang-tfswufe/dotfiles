@@ -14,6 +14,9 @@ ignored_dirs=(
     .obsidian
     .metadata
     .venv
+    venv
+    .direnv
+    .envrc
     node_modules
     target
     build
