@@ -1,7 +1,11 @@
 matches:
   - trigger: "`pi"
     replace: |-
-      kitten ssh pi@10.11.33.14
+      10.11.33.14
+
+  - trigger: "`spi"
+    replace: |-
+      kitten ssh pi@
 
   - trigger: "`tr"
     replace: |-
