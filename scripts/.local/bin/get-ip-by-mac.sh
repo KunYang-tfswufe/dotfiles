@@ -14,7 +14,7 @@ get_mac_by_alias() {
     case "$1" in
         "pi")       MAC_ADDRESS="d8:3a:dd:7e:c5:dc" ;; 
         "phone1")   MAC_ADDRESS="d6:51:bb:10:0e:54" ;; 
-        "phone2")   MAC_ADDRESS="aa:ae:a9:48:59:77" ;; 
+        "phone2")   MAC_ADDRESS="74:38:22:99:7e:b1" ;; 
         *)          
             printf "错误: 未知的设备别名 '%s'\\n" "$1" >&2
             printf "可用别名: pi, phone1, phone2\\n" >&2
