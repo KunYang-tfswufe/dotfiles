@@ -38,13 +38,13 @@ if ! command -v arp-scan &> /dev/null; then
     exit 1
 fi
 
-printf "==> 正在通过 MAC (%s) 扫描 '%s' 的 IP 地址...\\n" "$TARGET_MAC" "$DEVICE_ALIAS" >&2
+# 屏蔽 arp-scan 自身的扫描信息，让主脚本控制输出
 # 【核心修正】在管道末尾添加 head -n 1 来确保只取唯一的IP地址
-DEVICE_IP=$(sudo arp-scan -l | grep -i "$TARGET_MAC" | awk '{print $1}' | head -n 1)
+DEVICE_IP=$(sudo arp-scan -l 2>/dev/null | grep -i "$TARGET_MAC" | awk '{print $1}' | head -n 1)
 
 if [ -n "$DEVICE_IP" ]; then
     echo "$DEVICE_IP"
 else
-    printf "错误: 在网络中找不到 MAC 地址为 %s 的设备.\\n" "$TARGET_MAC" >&2
+    # 错误信息现在由主脚本控制
     exit 1
 fi
