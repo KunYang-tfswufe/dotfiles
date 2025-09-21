@@ -5,8 +5,8 @@ matches:
 
   - trigger: "`fPI"
     replace: |-
-      sshfs pi@10.11.33.14: ~/pi_mnt_point/
+      sshfs pi@10.95.105.14: ~/pi_mnt_point/
 
   - trigger: "`sPI"
     replace: |-
-      kitten ssh pi@10.11.33.14
+      kitten ssh pi@10.95.105.14
