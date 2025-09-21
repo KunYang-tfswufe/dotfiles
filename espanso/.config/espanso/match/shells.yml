@@ -7,6 +7,14 @@ matches:
     replace: |-
       kitten ssh pi@
 
+  - trigger: "`sr1"
+    replace: |-
+      kitten ssh pi@
+
+  - trigger: "`sr2"
+    replace: |-
+      kitten ssh pi@
+
   - trigger: "`tr"
     replace: |-
       find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
