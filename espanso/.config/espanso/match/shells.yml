@@ -3,15 +3,15 @@ matches:
     replace: |-
       10.11.33.14
 
-  - trigger: "`spi"
+  - trigger: "`sPI"
     replace: |-
       kitten ssh pi@
 
-  - trigger: "`sr1"
+  - trigger: "`sAN1"
     replace: |-
       kitten ssh pi@
 
-  - trigger: "`sr2"
+  - trigger: "`sAN2"
     replace: |-
       kitten ssh pi@
 
