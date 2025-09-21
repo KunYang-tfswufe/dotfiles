@@ -8,13 +8,14 @@ matches:
   - trigger: "`fPI"
     replace: "sshfs pi@{{my_pi_ip}}: ~/pi_mnt_point/"
     vars:
-      # 【最终修正】使用 'shell' 类型来执行 'cmd' 命令, 并修正了文件名拼写错误
+      # 【最终方案】使用 'shell' 类型，并增加容错能力
       - &variable_pi_ip
         name: my_pi_ip
-        type: shell # <-- 从 script 改为 shell
+        type: shell
         params:
-          # 这是 shell 模块的正确参数，并修正了文件名
-          cmd: "cat /home/imak/.pi_ip_address"
+          # 如果 cat 命令失败 (因为文件不存在), 则 || 后面的 echo 命令会执行
+          # 这确保了变量 my_pi_ip 永远都有一个值，Espanso 就不会报错
+          cmd: "cat /home/imak/.pi_ip_address || echo 'IP_NOT_SET'"
 
   - trigger: "`sPI"
     replace: "kitten ssh pi@{{my_pi_ip}}"
