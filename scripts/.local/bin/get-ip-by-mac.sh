@@ -13,7 +13,7 @@ get_mac_by_alias() {
     local MAC_ADDRESS=""
     case "$1" in
         "pi")       MAC_ADDRESS="d8:3a:dd:7e:c5:dc" ;; 
-        "phone1")   MAC_ADDRESS="d6:51:bb:10:0e:54" ;; 
+        "phone1")   MAC_ADDRESS="b2:4d:63:72:58:8b" ;; 
         "phone2")   MAC_ADDRESS="74:38:22:99:7e:b1" ;; 
         *)          
             printf "错误: 未知的设备别名 '%s'\\n" "$1" >&2
