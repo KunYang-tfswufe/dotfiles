@@ -1,24 +1,12 @@
 matches:
-  - trigger: "`PI"
-    replace: |-
-      10.11.33.14
-
-  - trigger: "`sPI"
-    replace: |-
-      kitten ssh pi@
-
-  - trigger: "`sAN1"
-    replace: |-
-      kitten ssh pi@
-
-  - trigger: "`sAN2"
-    replace: |-
-      kitten ssh pi@
-
   - trigger: "`tr"
     replace: |-
       find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
 
-  - trigger: "`fs"
+  - trigger: "`fPI"
     replace: |-
       sshfs pi@10.11.33.14: ~/pi_mnt_point/
+
+  - trigger: "`sPI"
+    replace: |-
+      kitten ssh pi@10.11.33.14

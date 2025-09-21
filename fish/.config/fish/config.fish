@@ -50,3 +50,6 @@ fish_add_path $ANDROID_SDK_ROOT/cmdline-tools/latest/bin
 fish_add_path $ANDROID_SDK_ROOT/platform-tools
 fish_add_path $ANDROID_SDK_ROOT/emulator
 fish_add_path ~/.npm-global/bin
+set -gx ANTHROPIC_API_KEY 'sk-IRxC3rkZofNlJPMuJ22CqD3FTQcAagCtX74UTOvGISso0LWm'
+set -gx ANTHROPIC_AUTH_TOKEN 'sk-IRxC3rkZofNlJPMuJ22CqD3FTQcAagCtX74UTOvGISso0LWm'
+set -gx ANTHROPIC_BASE_URL 'https://code.ppchat.vip'
