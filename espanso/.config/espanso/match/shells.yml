@@ -4,18 +4,3 @@ matches:
   - trigger: "`tr"
     replace: |-
       find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
-
-  - trigger: "`fPI"
-    replace: "sshfs pi@{{my_pi_ip}}: ~/pi_mnt_point/"
-    vars:
-      - &variable_pi_ip
-        name: my_pi_ip
-        type: shell
-        params:
-          # 使用 $HOME 使其可移植，并用 || 提供容错
-          cmd: 'cat "$HOME/.pi_ip_address" || echo ''IP_NOT_SET'''
-
-  - trigger: "`sPI"
-    replace: "kitten ssh pi@{{my_pi_ip}}"
-    vars:
-      - *variable_pi_ip
