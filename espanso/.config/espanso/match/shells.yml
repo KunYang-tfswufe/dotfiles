@@ -1,12 +1,21 @@
+# ~/dotfiles/espanso/.config/espanso/match/shells.yml
+
 matches:
+  # The CORRECTED way to define a file-scoped variable:
+  # We attach it to the first match in the file.
   - trigger: "`tr"
     replace: |-
       find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
+    # The vars block goes INSIDE the first match
+    vars:
+      - name: my_pi_ip
+        type: path
+        params:
+          path: "~/.pi_ip_address"
 
+  # Now, the 'my_pi_ip' variable is available to all subsequent matches in this file
   - trigger: "`fPI"
-    replace: |-
-      sshfs pi@10.95.105.14: ~/pi_mnt_point/
+    replace: "sshfs pi@{{my_pi_ip}}: ~/pi_mnt_point/"
 
   - trigger: "`sPI"
-    replace: |-
-      kitten ssh pi@10.95.105.14
+    replace: "kitten ssh pi@{{my_pi_ip}}"
