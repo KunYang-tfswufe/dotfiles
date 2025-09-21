@@ -1,5 +1,5 @@
 matches:
-  - trigger: "`pi"
+  - trigger: "`PI"
     replace: |-
       10.11.33.14
 
