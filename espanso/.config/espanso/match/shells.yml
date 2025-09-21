@@ -8,13 +8,11 @@ matches:
   - trigger: "`fPI"
     replace: "sshfs pi@{{my_pi_ip}}: ~/pi_mnt_point/"
     vars:
-      # 【最终的可移植方案】使用 $HOME 环境变量代替硬编码路径
       - &variable_pi_ip
         name: my_pi_ip
         type: shell
         params:
-          # $HOME 会被 shell 自动替换为当前用户的主目录, e.g., /home/imak or /home/colleague
-          # 我们用双引号把命令包起来，这是良好的 shell 编程习惯
+          # 使用 $HOME 使其可移植，并用 || 提供容错
           cmd: 'cat "$HOME/.pi_ip_address" || echo ''IP_NOT_SET'''
 
   - trigger: "`sPI"
