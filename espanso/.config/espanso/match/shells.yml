@@ -1,21 +1,22 @@
 # ~/dotfiles/espanso/.config/espanso/match/shells.yml
 
 matches:
-  # The CORRECTED way to define a file-scoped variable:
-  # We attach it to the first match in the file.
   - trigger: "`tr"
     replace: |-
       find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
-    # The vars block goes INSIDE the first match
-    vars:
-      - name: my_pi_ip
-        type: path
-        params:
-          path: "~/.pi_ip_address"
 
-  # Now, the 'my_pi_ip' variable is available to all subsequent matches in this file
   - trigger: "`fPI"
     replace: "sshfs pi@{{my_pi_ip}}: ~/pi_mnt_point/"
+    vars:
+      # 【最终修正】使用 'shell' 类型来执行 'cmd' 命令, 并修正了文件名拼写错误
+      - &variable_pi_ip
+        name: my_pi_ip
+        type: shell # <-- 从 script 改为 shell
+        params:
+          # 这是 shell 模块的正确参数，并修正了文件名
+          cmd: "cat /home/imak/.pi_ip_address"
 
   - trigger: "`sPI"
     replace: "kitten ssh pi@{{my_pi_ip}}"
+    vars:
+      - *variable_pi_ip
