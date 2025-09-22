@@ -110,13 +110,16 @@ end
 #  为手机添加的 SSH 连接函数 (V4 - 终极版，包含 MAC 地址设置提醒)
 # =============================================================================
 
-# 函数 s_phone1: 快速 SSH 连接到手机1 (Termux)
-function s_phone1
+# 函数 s_phone1: 通过静态 IP 连接到手机1 (Termux)
+function s_phone1 --description "通过静态 IP (9.9.9.9) 连接到手机1"
     set_color yellow
-    echo "请手动在termux启动sshd服务"
+    echo "提醒: 确保手机1已启动 Termux SSH 服务 (sshd)。"
     set_color normal
-    read --prompt-str "确认完成后, 请按 Enter键 继续连接 (按 Ctrl+C 取消)..."
-    echo "好的, 正在连接9.9.9.9"
+    read --prompt-str "确认后按 Enter 连接 (Ctrl+C 取消)..."
+    
+    # 由于手机1已设置静态IP, 直接连接
+    echo "" # 添加空行，格式更美观
+    echo "==> 直接连接到静态IP: 9.9.9.9, 端口: 8022..."
     kitten ssh -p 8022 "9.9.9.9"
 end
 
