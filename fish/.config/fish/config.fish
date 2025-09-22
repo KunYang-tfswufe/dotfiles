@@ -111,29 +111,13 @@ end
 # =============================================================================
 
 # 函数 s_phone1: 快速 SSH 连接到手机1 (Termux)
-function s_phone1 --description "提醒后通过 MAC 地址发现并 SSH 连接到手机1 (Termux)"
+function s_phone1
     set_color yellow
-    echo "----------------------- [首次设置检查清单] -----------------------"
-    echo "请在安卓手机上, 确保对当前Wi-Fi热点网络已完成以下操作:"
-    echo "  1. 【关键】关闭MAC地址随机化: Wi-Fi设置 -> 高级 -> MAC地址类型 -> 使用设备MAC。"
-    echo "     (注意: 这可能会改变手机的MAC地址，需要您更新 get-ip-by-mac.sh 脚本!)"
-    echo "  2. 【启动】在 Termux 中运行 'sshd' 命令来启动 SSH 服务。"
-    echo "  3. 【密码】(如果首次使用) 运行 'passwd' 命令来设置连接密码。"
-    echo "-----------------------------------------------------------------"
+    echo "请手动在termux启动sshd服务"
     set_color normal
-
     read --prompt-str "确认完成后, 请按 Enter键 继续连接 (按 Ctrl+C 取消)..."
-    echo ""
-    echo "好的, 正在网络中扫描手机1..."
-
-    set --local phone1_ip (get-ip-by-mac.sh phone1)
-    if test $status -ne 0
-        echo "错误: 无法发现手机1的 IP 地址。" >&2
-        return 1
-    end
-
-    echo "==> 发现手机1 IP: $phone1_ip, 正在连接 (Termux)..."
-    kitten ssh -p 8022 "$phone1_ip"
+    echo "好的, 正在连接9.9.9.9"
+    kitten ssh -p 8022 "9.9.9.9"
 end
 
 # 函数 s_phone2: 快速 SSH 连接到手机2 (Termux)

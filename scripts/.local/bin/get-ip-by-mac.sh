@@ -1,9 +1,11 @@
+# 文件路径: ~/.local/bin/get-ip-by-mac.sh
+
 #!/bin/bash
 
 #==============================================================================
-#          FILE:  get-ip-by-mac.sh (v1.1 - Resilient to Duplicates)
+#          FILE:  get-ip-by-mac.sh (v1.2 - Cleaned up for phone1)
 #         USAGE:  get-ip-by-mac.sh <device_alias>
-#   DESCRIPTION:  通过 MAC 地址查找 IP。增加了 head -n 1 来处理重复的 ARP 响应。
+#   DESCRIPTION:  通过 MAC 地址查找 IP。phone1 已使用静态 IP，故从中移除。
 #==============================================================================
 
 set -eo pipefail 
@@ -13,11 +15,11 @@ get_mac_by_alias() {
     local MAC_ADDRESS=""
     case "$1" in
         "pi")       MAC_ADDRESS="d8:3a:dd:7e:c5:dc" ;; 
-        "phone1")   MAC_ADDRESS="7e:68:3f:ad:6b:d7" ;; 
         "phone2")   MAC_ADDRESS="74:38:22:99:7e:b1" ;; 
+        # "phone1" 的条目已被移除
         *)          
             printf "错误: 未知的设备别名 '%s'\\n" "$1" >&2
-            printf "可用别名: pi, phone1, phone2\\n" >&2
+            printf "可用别名: pi, phone2\\n" >&2 # <-- 更新了可用别名列表
             exit 1 
             ;;
     esac
@@ -39,7 +41,6 @@ if ! command -v arp-scan &> /dev/null; then
 fi
 
 # 屏蔽 arp-scan 自身的扫描信息，让主脚本控制输出
-# 【核心修正】在管道末尾添加 head -n 1 来确保只取唯一的IP地址
 DEVICE_IP=$(sudo arp-scan -l 2>/dev/null | grep -i "$TARGET_MAC" | awk '{print $1}' | head -n 1)
 
 if [ -n "$DEVICE_IP" ]; then
