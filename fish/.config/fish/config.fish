@@ -254,7 +254,7 @@ function scpy_usb --description "通过USB为手机开启无线ADB模式 (TCP 55
 end
 
 
-# 函数 scpy_phone1: [连接] 无线连接并启动 scrcpy 到手机1
+# 函数 scpy_phone1: [连接] 无线连接并启动 scrcpy 到手机1 (V2 - 健壮版)
 # 这是你日常最常用的命令。
 function scpy_phone1 --description "通过静态 IP (9.9.9.9) 无线启动 scrcpy"
     set --local PHONE_IP "9.9.9.9" # 你的手机静态IP
@@ -277,10 +277,9 @@ function scpy_phone1 --description "通过静态 IP (9.9.9.9) 无线启动 scrcp
         set_color green
         echo "✅ 连接成功! 正在启动 scrcpy..."
         set_color normal
-        # 启动 scrcpy, 并添加一些实用的参数
-        # -S: 镜像时关闭手机实体屏幕，省电
-        # --window-title: 给窗口一个明确的标题，便于在Hyprland中管理
-        scrcpy -S --window-title="Phone 1 (scrcpy)"
+        # 【关键改动】添加 -e 参数，明确告诉 scrcpy 使用网络设备。
+        # 这样即使 USB 还插着，也不会报错。
+        scrcpy -e -S --window-title="Phone 1 (scrcpy)"
     else
         set_color red
         echo "❌ 连接失败! 请按提示进行检查。" >&2
