@@ -228,14 +228,22 @@ end
 
 
 # =============================================================================
-#  为手机添加的 SCRCPY 无线投屏函数 (基于 V4 连接函数风格)
+#  为手机添加的 SCRCPY 无线投屏函数 (V3 - 集成清理功能)
 # =============================================================================
 
-# 函数 scpy_usb: [设置] 通过USB为手机开启无线ADB模式
+# 函数 scpy_usb: [设置] 清理旧连接并通过USB为手机开启无线ADB模式
 # 这是每次手机重启后，需要运行一次的“初始化”命令。
-function scpy_usb --description "通过USB为手机开启无线ADB模式 (TCP 5555)"
+function scpy_usb --description "清理旧连接并通过USB为手机开启无线ADB模式 (TCP 5555)"
+    set --local PHONE_IP "9.9.9.9" # 你的手机静态IP
+
+    set_color magenta
+    echo "==> 步骤 1/2: 清理旧的无线连接 (如果有)..."
+    set_color normal
+    # 使用 adb disconnect 并忽略可能出现的错误（比如本来就没连接）
+    adb disconnect "$PHONE_IP:5555" >/dev/null 2>&1
+    
     set_color bryellow
-    echo "🔌 请确保手机已通过 USB 连接并已授权..."
+    echo "🔌 步骤 2/2: 请确保手机已通过 USB 连接并已授权..."
     set_color normal
     read --prompt-str "确认后按 Enter 继续 (Ctrl+C 取消)..."
     echo ""
@@ -244,7 +252,7 @@ function scpy_usb --description "通过USB为手机开启无线ADB模式 (TCP 55
     if test $status -eq 0
         set_color green
         echo "✅ 成功! 无线ADB模式已开启。"
-        echo "现在可以拔掉 USB 数据线，然后使用 'scpy_phone1' 命令进行连接。"
+        echo "现在可以拔掉 USB 数据线 (或者不拔也行)，然后使用 'scpy_phone1' 命令进行连接。"
         set_color normal
     else
         set_color red
@@ -277,7 +285,7 @@ function scpy_phone1 --description "通过静态 IP (9.9.9.9) 无线启动 scrcp
         set_color green
         echo "✅ 连接成功! 正在启动 scrcpy..."
         set_color normal
-        # 【关键改动】添加 -e 参数，明确告诉 scrcpy 使用网络设备。
+        # 【关键】添加 -e 参数，明确告诉 scrcpy 使用网络设备。
         # 这样即使 USB 还插着，也不会报错。
         scrcpy -e -S --window-title="Phone 1 (scrcpy)"
     else
@@ -286,11 +294,4 @@ function scpy_phone1 --description "通过静态 IP (9.9.9.9) 无线启动 scrcp
         set_color normal
         return 1
     end
-end
-
-# 函数 d_phone1: [断开] 断开与手机1的 adb 连接
-# 可选的辅助函数，用于清理连接
-function d_phone1 --description "断开与手机1 (9.9.9.9) 的 adb 连接"
-    echo "==> 正在断开与 9.9.9.9:5555 的连接..."
-    adb disconnect 9.9.9.9:5555
 end
