@@ -224,3 +224,74 @@ function u_all --description "卸载所有自定义挂载点 (pi, phone1, phone2
     fusermount -u ~/phone1_mnt 2>/dev/null && echo "✓ 手机1已卸载" || echo "手机1未挂载或卸载失败"
     fusermount -u ~/phone2_mnt 2>/dev/null && echo "✓ 手机2已卸载" || echo "手机2未挂载或卸载失败"
 end
+
+
+
+# =============================================================================
+#  为手机添加的 SCRCPY 无线投屏函数 (基于 V4 连接函数风格)
+# =============================================================================
+
+# 函数 scpy_usb: [设置] 通过USB为手机开启无线ADB模式
+# 这是每次手机重启后，需要运行一次的“初始化”命令。
+function scpy_usb --description "通过USB为手机开启无线ADB模式 (TCP 5555)"
+    set_color bryellow
+    echo "🔌 请确保手机已通过 USB 连接并已授权..."
+    set_color normal
+    read --prompt-str "确认后按 Enter 继续 (Ctrl+C 取消)..."
+    echo ""
+
+    adb tcpip 5555
+    if test $status -eq 0
+        set_color green
+        echo "✅ 成功! 无线ADB模式已开启。"
+        echo "现在可以拔掉 USB 数据线，然后使用 'scpy_phone1' 命令进行连接。"
+        set_color normal
+    else
+        set_color red
+        echo "❌ 失败! 请检查手机连接和USB调试授权。" >&2
+        set_color normal
+    end
+end
+
+
+# 函数 scpy_phone1: [连接] 无线连接并启动 scrcpy 到手机1
+# 这是你日常最常用的命令。
+function scpy_phone1 --description "通过静态 IP (9.9.9.9) 无线启动 scrcpy"
+    set --local PHONE_IP "9.9.9.9" # 你的手机静态IP
+
+    set_color yellow
+    echo "------------------- [ scrcpy 无线连接检查 ] -------------------"
+    echo "1. 确保手机和电脑在同一网络下。"
+    echo "2. 确保手机已开启无线ADB模式。"
+    echo "   (如果连接失败, 请先连接USB并运行一次 'scpy_usb')"
+    echo "----------------------------------------------------------------"
+    set_color normal
+    read --prompt-str "确认后按 Enter 连接 (Ctrl+C 取消)..."
+    echo ""
+
+    echo "==> 正在连接到 $PHONE_IP:5555..."
+    adb connect "$PHONE_IP:5555"
+
+    # 检查 adb connect 是否成功
+    if test $status -eq 0
+        set_color green
+        echo "✅ 连接成功! 正在启动 scrcpy..."
+        set_color normal
+        # 启动 scrcpy, 并添加一些实用的参数
+        # -S: 镜像时关闭手机实体屏幕，省电
+        # --window-title: 给窗口一个明确的标题，便于在Hyprland中管理
+        scrcpy -S --window-title="Phone 1 (scrcpy)"
+    else
+        set_color red
+        echo "❌ 连接失败! 请按提示进行检查。" >&2
+        set_color normal
+        return 1
+    end
+end
+
+# 函数 d_phone1: [断开] 断开与手机1的 adb 连接
+# 可选的辅助函数，用于清理连接
+function d_phone1 --description "断开与手机1 (9.9.9.9) 的 adb 连接"
+    echo "==> 正在断开与 9.9.9.9:5555 的连接..."
+    adb disconnect 9.9.9.9:5555
+end
