@@ -48,7 +48,7 @@ require("lazy").setup({
         end
     },
 
-    -- 基础插件 (保持不变)
+    -- 基础插件
     { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' } },
     {
         'folke/which-key.nvim',
@@ -119,7 +119,7 @@ require("lazy").setup({
 })
 
 -- =============================================================================
--- 2. 通用编辑器选项 (保持不变)
+-- 2. 通用编辑器选项
 -- =============================================================================
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -128,7 +128,12 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
-vim.opt.wrap = false
+
+-- 自动换行设置 (默认关闭)
+vim.opt.wrap = false -- 默认关闭自动换行
+vim.opt.linebreak = true -- 当开启换行时，不在单词中间断行
+vim.opt.showbreak = '↪ ' -- 当开启换行时，在行首显示标记
+
 vim.opt.mouse = 'a'
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -137,7 +142,7 @@ vim.o.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 
 -- =============================================================================
--- 3. 全局变量与快捷键映射 (保持不变)
+-- 3. 全局变量与快捷键映射
 -- =============================================================================
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -146,6 +151,7 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<Up>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Left>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Right>', '<Nop>')
+
 vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", { desc = '查找文件' })
 vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = '全局文本搜索' })
 vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", { desc = '查找缓冲区' })
@@ -154,6 +160,10 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "跳转到上一个
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "下一个诊断" })
 vim.keymap.set({ "n", "v" }, "<leader>fm",
     function() require("conform").format({ async = true, lsp_fallback = true }) end, { desc = "格式化文件" })
+
+-- 用于切换自动换行的快捷键
+vim.keymap.set('n', '<leader>w', function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = '切换自动换行' })
+
 vim.keymap.set('n', '<leader>h', '<C-w>h', { desc = '移动到左侧窗口' })
 vim.keymap.set('n', '<leader>l', '<C-w>l', { desc = '移动到右侧窗口' })
 vim.keymap.set('n', '<leader>k', '<C-w>k', { desc = '移动到上方窗口' })
@@ -162,6 +172,6 @@ vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = '垂直分割窗口' })
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = '水平分割窗口' })
 
 -- =============================================================================
--- 4. 应用主题方案 (保持不变)
+-- 4. 应用主题方案
 -- =============================================================================
 vim.cmd('colorscheme tokyonight')
