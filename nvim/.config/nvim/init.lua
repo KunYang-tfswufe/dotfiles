@@ -58,7 +58,6 @@ require("lazy").setup({
         end,
         opts = {}
     },
-    { 'github/copilot.vim',            init = function() vim.g.copilot_enabled = 1 end },
     { 'lewis6991/gitsigns.nvim',       config = function() require('gitsigns').setup() end },
     { 'stevearc/conform.nvim',         event = { "BufWritePre" },                          cmd = { "ConformInfo" }, opts = { formatters_by_ft = { lua = { "stylua" }, markdown = { "prettier" } }, format_on_save = { timeout_ms = 500, lsp_fallback = true } } },
 
@@ -142,15 +141,6 @@ vim.opt.clipboard = "unnamedplus"
 -- =============================================================================
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-function _G.toggle_copilot()
-    if vim.g.copilot_enabled == 1 then
-        vim.cmd('Copilot disable')
-        print('Copilot 已禁用。')
-    else
-        vim.cmd('Copilot enable')
-        print('Copilot 已启用。')
-    end
-end
 
 vim.keymap.set({ 'n', 'v', 'i' }, '<Up>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', '<Nop>')
@@ -160,7 +150,6 @@ vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_fi
 vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = '全局文本搜索' })
 vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", { desc = '查找缓冲区' })
 vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = '查找帮助文档' })
-vim.keymap.set('n', '<leader>ct', '<cmd>lua _G.toggle_copilot()<cr>', { desc = '切换 Copilot (启用/禁用)' })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "跳转到上一个诊断" })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "下一个诊断" })
 vim.keymap.set({ "n", "v" }, "<leader>fm",
