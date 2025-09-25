@@ -147,6 +147,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- 让 j 和 k 按照可视行移动，这对于处理自动换行的文本非常重要
+vim.keymap.set({ 'n', 'v' }, 'j', 'gj', { desc = 'Move down by visual line' })
+vim.keymap.set({ 'n', 'v' }, 'k', 'gk', { desc = 'Move up by visual line' })
+
 vim.keymap.set({ 'n', 'v', 'i' }, '<Up>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Down>', '<Nop>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<Left>', '<Nop>')
