@@ -14,6 +14,27 @@ end
 
 # --- Aliases & Environment Variables ---
 alias cat 'bat --paging=never'
+# =============================================================================
+#  EZA Aliases (Modern replacement for 'ls')
+# =============================================================================
+# We're not just replacing ls, but enhancing it with eza's features.
+# These aliases provide useful defaults like icons, git integration, and headers.
+# -----------------------------------------------------------------------------
+
+# 1. 替换基础的 'ls' 命令
+#    --icons: 显示文件/目录图标 (需要 Nerd Font)
+#    --git:   显示文件的 Git 状态
+alias ls 'eza --icons --git'
+
+# 2. 创建更实用、更常用的快捷方式
+alias l 'eza --icons --git'                 # 'l' 作为 'ls' 的快速版
+alias ll 'eza -l --icons --git --header'    # 'll' 显示长列表格式 (有表头)
+alias la 'eza -a --icons --git'             # 'la' 显示所有文件 (包括隐藏文件)
+alias lla 'eza -la --icons --git --header'  # 'lla' 显示所有文件的长列表格式
+
+# 3. Tree 视图 (eza 的杀手级功能, 可替代 'tree' 命令)
+alias lt 'eza --tree'                       # 'lt' 以树状结构显示
+alias lta 'eza --tree -a'                   # 'lta' 显示包含隐藏文件的完整树状结构
 set -gx VISUAL nvim
 
 # --- Tool Initializations ---
