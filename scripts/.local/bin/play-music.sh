@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # =====================================================================
-# Unified Music Player Script
+# Unified Music Player Script (v2 - Consolidated Directory)
 # Terminates any existing mpv instance, starts a new shuffled
-# playlist from all specified music directories, and sends a notification.
+# playlist from the single, unified music directory.
 # =====================================================================
 
 # First, gently terminate any existing mpv process.
@@ -11,13 +11,10 @@
 # to function as a "play new random mix" button.
 killall mpv &> /dev/null || true
 
-# Launch mpv with the --shuffle flag, providing all music directories as arguments.
+# Launch mpv with the --shuffle flag, pointing to the new unified music directory.
 # The '&' at the end is CRUCIAL. It runs the mpv process in the background,
 # allowing the script to immediately continue to the next command (notify-send).
-mpv --shuffle \
-    "$HOME/Music/th_00000000yangkun" \
-    "$HOME/Music/th_daisukimarisadaze" \
-    "$HOME/Music/th_kirisamefreeman" &
+mpv --shuffle "$HOME/MyPublic/Music" &
 
 # Immediately after starting music, send a notification with the current date and time.
 # The date format is consistent with your other scripts.
