@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =====================================================================
-# Personal Backup Script - v4 (Extendable Array)
+# Personal Backup Script - v5 (Target GDrive_2TB)
 # Easily manage directories to be backed up by modifying the BACKUP_TARGETS array.
 # =====================================================================
 
@@ -13,14 +13,14 @@ BACKUP_TARGETS=(
     "$HOME/SecondBrain"
 )
 
-# Rclone Configuration
-RCLONE_REMOTE="GoogleDrive:Backups/ArchPC"
+# Rclone Configuration (MODIFIED: Target updated to the 2TB account)
+RCLONE_REMOTE="GDrive_2TB:Backups/ArchPC"
 DAYS_TO_KEEP=7
 
 # --- Script Main Body (Do not modify below this line) ---
 
 export TZ='Asia/Shanghai'
-echo ">> Starting backup process (Target: Google Drive)..."
+echo ">> Starting backup process (Target: GDrive_2TB)..."
 
 # Dynamically check if all target directories exist
 for target in "${BACKUP_TARGETS[@]}"; do
