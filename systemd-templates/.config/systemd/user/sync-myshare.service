@@ -1,6 +1,0 @@
-[Unit]
-Description=Sync MyShare folder to the cloud
-
-[Service]
-Type=oneshot
-ExecStart=__HOME_DIR__/.local/bin/sync-myshare.sh

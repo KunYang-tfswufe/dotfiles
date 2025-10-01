@@ -1,5 +1,5 @@
 # =============================================================================
-# Makefile for managing imak's dotfiles (V3.1 - Added MyPublic Sync)
+# Makefile for managing imak's dotfiles (V3.2 - Consolidated Sync Logic)
 # =============================================================================
 
 # --- Variables ---
@@ -43,7 +43,8 @@ systemd-user:
 	done
 	@echo "--> Reloading and enabling all USER Systemd units..."
 	@systemctl --user daemon-reload
-	@systemctl --user enable --now dotfiles-backup.timer sync-myshare.timer sync-mypublic.timer python-http.service
+	# MODIFIED: Removed sync-myshare.timer from this line
+	@systemctl --user enable --now dotfiles-backup.timer sync-mypublic.timer python-http.service
 
 # NEW: Target to handle system-level configurations using sudo
 systemd-system:
@@ -59,21 +60,22 @@ backup:
 	@echo "--> Manually running snapshot backup..."
 	@$(HOME)/.local/bin/backup.sh
 
-sync:
-	@echo "--> Manually running incremental sync (MyShare)..."
-	@$(HOME)/.local/bin/sync-myshare.sh
+# MODIFIED: 'sync' is now an alias for 'sync-public' for convenience
+sync: sync-public
 
 sync-public:
 	@echo "--> Manually running incremental sync (MyPublic to GDrive_2TB)..."
 	@$(HOME)/.local/bin/sync-mypublic.sh
 
-backup-all: backup sync sync-public
-	@echo ">> All backup tasks (snapshot + syncs) completed!"
+# MODIFIED: 'backup-all' now depends on sync-public instead of sync
+backup-all: backup sync-public
+	@echo ">> All backup tasks (snapshot + sync) completed!"
 
 clean:
 	@echo "--> Cleaning up systemd units and unstowing packages..."
 	@echo "    - Cleaning user units..."
-	@systemctl --user disable --now dotfiles-backup.timer sync-myshare.timer sync-mypublic.timer python-http.service || true
+	# MODIFIED: Removed sync-myshare.timer from this line
+	@systemctl --user disable --now dotfiles-backup.timer sync-mypublic.timer python-http.service || true
 	@for template in $(SYSTEMD_UNITS_SRC)/*; do \
 		if [ -f "$$template" ]; then \
 			target_name=$$(basename "$$template"); \
@@ -96,8 +98,8 @@ help:
 	@echo "  permissions    - Set executable permissions for all scripts."
 	@echo "  systemd        - Install and enable all user and system systemd units (requires sudo)."
 	@echo "  backup         - Manually run a snapshot backup."
-	@echo "  sync           - Manually run an incremental sync (MyShare)."
-	@echo "  sync-public    - Manually run an incremental sync for MyPublic (NEW)."
-	@echo "  backup-all     - Run all backup tasks (snapshot + syncs)."
+	@echo "  sync           - Manually run an incremental sync for MyPublic."
+	@echo "  sync-public    - (same as sync) Manually run an incremental sync for MyPublic."
+	@echo "  backup-all     - Run all backup tasks (snapshot + sync)."
 	@echo "  clean          - Disable/remove service units and unstow all packages (requires sudo)."
 	@echo "  help           - Show this help message."
