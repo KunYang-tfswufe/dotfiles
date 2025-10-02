@@ -1,6 +1,0 @@
-# ~/dotfiles/espanso/.config/espanso/match/shells.yml
-
-matches:
-  - trigger: "`tr"
-    replace: |-
-      find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'
