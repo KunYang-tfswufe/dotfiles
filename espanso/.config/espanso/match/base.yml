@@ -74,3 +74,53 @@ matches:
     vars:
       - name: "clipb"
         type: "clipboard"
+
+  # matches for frequently used links
+  - trigger: "`urls"
+    replace: |-
+      https://drive.google.com/drive/folders/1uvnAF6p8SV-thApgDzMMzs0tCxVdlnBp?usp=sharing
+      https://drive.google.com/drive/folders/1BNkmsWD34mNPuc79EMY85QT3JGyh3v0k?usp=sharing
+
+  - trigger: "`terminal"
+    replace: |-
+      http://localhost:9090/system/terminal
+
+  - trigger: "`proxy"
+    replace: |-
+      http://localhost:9999/ui
+
+  - trigger: "`lc"
+    replace: |-
+      https://www.techinterviewhandbook.org/grind75/
+
+  - trigger: "`docker"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/DockerDeepDive.pdf
+
+  - trigger: "`AN"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/AttentionIsAllYouNeed.pdf
+
+  - trigger: "`math"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/CalculusEarlyTranscendentals.pdf
+
+  - trigger: "`git"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/progit.pdf
+
+  - trigger: "`spring"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/SpringinAction5thEdition.pdf
+
+  - trigger: "`cet4-1"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/2024-12-CET4-1.pdf
+
+  - trigger: "`cet4-2"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/2024-12-CET4-2.pdf
+
+  - trigger: "`cet4-3"
+    replace: |-
+      http://localhost:8080/.local/share/pdfjs-dist/web/viewer.html?file=/MyShare_sync/bookshelf/2024-12-CET4-3.pdf
