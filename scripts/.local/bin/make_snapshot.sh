@@ -4,7 +4,8 @@
 #  Configuration
 # =============================================================================
 # 1. [HARDCODED] 要扫描的项目目录的绝对路径。
-PROJECT_PATH="$HOME/dotfiles"
+#PROJECT_PATH="$HOME/dotfiles"
+PROJECT_PATH="$HOME/FinalProject"
 
 # 2. [HARDCODED] 单一、静态的输出文件绝对路径。
 #    此文件将在每次运行时被覆盖。
