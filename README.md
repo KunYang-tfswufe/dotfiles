@@ -216,6 +216,10 @@ sudo dnf install fzf
 
 # keepassxc
 sudo dnf install keepassxc
+
+# lazygit
+sudo dnf copr enable dejan/lazygit
+sudo dnf install lazygit
 ```
 
 # MacOS
