@@ -236,6 +236,10 @@ sudo dnf install bottom
 
 # yt-dlp
 sudo dnf install yt-dlp
+
+# yazi
+sudo dnf copr enable lihaohong/yazi
+sudo dnf install yazi
 ```
 
 # MacOS
