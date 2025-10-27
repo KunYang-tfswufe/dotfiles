@@ -246,6 +246,9 @@ sudo dnf install rpi-imager
 
 # tigervnc
 sudo dnf install tigervnc
+
+# obs-studio
+sudo dnf install obs-studio
 ```
 
 # MacOS
