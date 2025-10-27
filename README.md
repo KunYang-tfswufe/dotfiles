@@ -251,6 +251,9 @@ sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/t
 sudo dnf install espanso-wayland
 espanso service register
 espanso start
+
+# scrcpy
+sudo dnf copr enable zeno/scrcpy && sudo dnf install scrcpy
 ```
 
 # MacOS
