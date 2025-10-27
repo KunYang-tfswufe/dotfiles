@@ -22,6 +22,7 @@
 - [ ] 玩PVE虚拟机在我的dell笔记本上面安装,实现ALL in One,然后将我的Thinkpadx220作为我的主力操作系统并采用archlinux.
 - [ ] 出售我的dell g5 15 5500,redmi 14C,建议加上验货宝,购买一款二手的macbook(建议闲鱼严选,转转价格略高,淘宝质量没有保证),购买一台pixel 2xl,购买一台iphone6s plus在闲鱼严选电池健康度>95%成色无所谓,购买Thinkpad x220.
 - [ ] 玩转炒股模拟器，挖矿模拟器.
+- [ ] 尝试openai浏览器https://chatgpt.com/atlas/
 
 ## Done
 
