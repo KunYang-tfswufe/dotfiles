@@ -195,9 +195,6 @@ chsh -s /usr/bin/fish
 sudo dnf copr enable scottames/ghostty
 sudo dnf install ghostty
 
-# fedora
-sudo dnf install -y neovim python3-neovim
-
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
