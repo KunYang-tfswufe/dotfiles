@@ -233,6 +233,9 @@ sudo dnf install bat
 # bottom
 sudo dnf copr enable atim/bottom -y
 sudo dnf install bottom
+
+# yt-dlp
+sudo dnf install yt-dlp
 ```
 
 # MacOS
