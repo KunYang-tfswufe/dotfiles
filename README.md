@@ -190,6 +190,8 @@ sudo systemctl enable sshd
 chsh -s /usr/bin/fish
 ```
 
+# Fedora
+
 ```bash
 # ghostty
 sudo dnf copr enable scottames/ghostty
@@ -211,4 +213,10 @@ sudo dnf install prismlauncher
 
 # fzf
 sudo dnf install fzf
+```
+
+# MacOS
+
+```bash
+
 ```
