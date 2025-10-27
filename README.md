@@ -204,4 +204,8 @@ sudo systemctl disable firewalld
 
 # neovim
 sudo dnf install neovim python3-neovim
+
+# prismlauncher
+sudo dnf copr enable g3tchoo/prismlauncher
+sudo dnf install prismlauncher
 ```
