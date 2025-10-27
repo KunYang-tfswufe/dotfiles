@@ -190,8 +190,7 @@ chsh -s /usr/bin/fish
 
 ```bash
 # ghostty
-sudo dnf copr enable scottames/ghostty
-sudo dnf install ghostty
+sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
 
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -204,8 +203,7 @@ sudo systemctl disable firewalld
 sudo dnf install neovim python3-neovim
 
 # prismlauncher
-sudo dnf copr enable g3tchoo/prismlauncher
-sudo dnf install prismlauncher
+sudo dnf copr enable g3tchoo/prismlauncher && sudo dnf install prismlauncher
 
 # fzf
 sudo dnf install fzf
@@ -214,8 +212,7 @@ sudo dnf install fzf
 sudo dnf install keepassxc
 
 # lazygit
-sudo dnf copr enable dejan/lazygit
-sudo dnf install lazygit
+sudo dnf copr enable dejan/lazygit && sudo dnf install lazygit
 
 # mpv
 sudo dnf install mpv
@@ -227,15 +224,13 @@ sudo dnf install ripgrep
 sudo dnf install bat
 
 # bottom
-sudo dnf copr enable atim/bottom -y
-sudo dnf install bottom
+sudo dnf copr enable atim/bottom -y && sudo dnf install bottom
 
 # yt-dlp
 sudo dnf install yt-dlp
 
 # yazi
-sudo dnf copr enable lihaohong/yazi
-sudo dnf install yazi
+sudo dnf copr enable lihaohong/yazi && sudo dnf install yazi
 
 # rpi-imager
 sudo dnf install rpi-imager
