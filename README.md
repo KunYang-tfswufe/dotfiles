@@ -258,6 +258,9 @@ sudo dnf install android-tools
 
 # github-cli
 sudo dnf install gh
+
+# fish
+sudo dnf install fish && chsh -s /usr/bin/fish
 ```
 
 # MacOS
