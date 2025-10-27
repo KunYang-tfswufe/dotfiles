@@ -226,6 +226,9 @@ sudo dnf install mpv
 
 # ripgrep
 sudo dnf install ripgrep
+
+# bat
+sudo dnf install bat
 ```
 
 # MacOS
