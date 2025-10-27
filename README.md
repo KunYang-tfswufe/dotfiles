@@ -127,7 +127,7 @@ sudo reboot
 ### Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed cockpit openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli rustscan dust okular docker docker-compose fish qemu-full edk2-ovmf ollama-cuda npm swaybg minicom starship stow playerctl dunst sof-firmware veracrypt ffmpeg cronie sshfs gawk avahi arp-scan eza
+sudo pacman -Syu --needed cockpit openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli rustscan dust okular docker docker-compose qemu-full edk2-ovmf ollama-cuda npm swaybg minicom starship stow playerctl dunst sof-firmware veracrypt ffmpeg cronie sshfs gawk avahi arp-scan eza
 ```
 
 ### Archlinuxcn Repository Package List
@@ -182,8 +182,6 @@ ollama run gemma3:4b
 sudo systemctl start sshd
 sudo systemctl enable sshd
 
-# 默认 Shell 切换为 Fish
-chsh -s /usr/bin/fish
 ```
 
 # Fedora
