@@ -249,6 +249,12 @@ sudo dnf install tigervnc
 
 # obs-studio
 sudo dnf install obs-studio
+
+# espanso
+sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+sudo dnf install espanso-wayland
+espanso service register
+espanso start
 ```
 
 # MacOS
