@@ -243,6 +243,9 @@ sudo dnf install yazi
 
 # rpi-imager
 sudo dnf install rpi-imager
+
+# tigervnc
+sudo dnf install tigervnc
 ```
 
 # MacOS
