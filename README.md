@@ -259,6 +259,9 @@ sudo dnf install gh
 
 # fish
 sudo dnf install fish && chsh -s /usr/bin/fish
+
+# minicom
+sudo dnf install minicom
 ```
 
 # MacOS
