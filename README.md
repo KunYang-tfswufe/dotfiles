@@ -220,6 +220,9 @@ sudo dnf install keepassxc
 # lazygit
 sudo dnf copr enable dejan/lazygit
 sudo dnf install lazygit
+
+# mpv
+sudo dnf install mpv
 ```
 
 # MacOS
