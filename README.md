@@ -127,7 +127,7 @@ sudo reboot
 ### Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed cockpit openssh waybar grim slurp wl-clipboard fcitx5-im fcitx5-rime ntfs-3g zellij jq zoxide 7zip flatpak wireshark-cli github-cli rustscan dust okular docker docker-compose fish qemu-full edk2-ovmf ollama-cuda npm swaybg minicom starship stow playerctl dunst sof-firmware veracrypt ffmpeg cronie sshfs gawk avahi arp-scan android-tools scrcpy eza
+sudo pacman -Syu --needed cockpit openssh waybar grim slurp wl-clipboard fcitx5-im fcitx5-rime ntfs-3g zellij jq zoxide 7zip flatpak wireshark-cli github-cli rustscan dust okular docker docker-compose fish qemu-full edk2-ovmf ollama-cuda npm swaybg minicom starship stow playerctl dunst sof-firmware veracrypt ffmpeg cronie sshfs gawk avahi arp-scan android-tools eza
 ```
 
 ### Archlinuxcn Repository Package List
