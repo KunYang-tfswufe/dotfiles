@@ -223,6 +223,9 @@ sudo dnf install lazygit
 
 # mpv
 sudo dnf install mpv
+
+# ripgrep
+sudo dnf install ripgrep
 ```
 
 # MacOS
