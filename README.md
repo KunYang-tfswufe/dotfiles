@@ -213,6 +213,9 @@ sudo dnf install prismlauncher
 
 # fzf
 sudo dnf install fzf
+
+# keepassxc
+sudo dnf install keepassxc
 ```
 
 # MacOS
