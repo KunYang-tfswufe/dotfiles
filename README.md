@@ -127,7 +127,7 @@ sudo reboot
 ### Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed cockpit openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli rustscan dust docker docker-compose qemu-full edk2-ovmf ollama-cuda npm swaybg starship stow playerctl dunst veracrypt ffmpeg cronie sshfs gawk avahi arp-scan eza
+sudo pacman -Syu --needed openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli rustscan dust docker docker-compose qemu-full edk2-ovmf ollama-cuda npm swaybg starship stow playerctl dunst veracrypt ffmpeg cronie sshfs gawk avahi arp-scan eza
 ```
 
 ### Archlinuxcn Repository Package List
@@ -158,9 +158,6 @@ curl https://cursor.com/install -fsS | bash
 ### Initialization and Services
 
 ```bash
-# Cockpit
-sudo systemctl enable --now cockpit.socket
-
 # Avahi
 sudo systemctl enable --now avahi-daemon.service
 
