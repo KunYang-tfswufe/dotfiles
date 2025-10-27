@@ -127,7 +127,7 @@ sudo reboot
 ### Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed cockpit openssh waybar grim slurp wl-clipboard noto-fonts-cjk ttf-font-awesome ttf-jetbrains-mono-nerd fcitx5-im fcitx5-rime ntfs-3g zellij jq zoxide ripgrep bat lazygit keepassxc 7zip flatpak bottom wireshark-cli github-cli mpv obs-studio yt-dlp rustscan dust okular tigervnc docker docker-compose fish qemu-full edk2-ovmf ollama-cuda rpi-imager npm rclone noto-fonts-emoji swaybg minicom starship stow playerctl dunst sof-firmware veracrypt ffmpeg cronie glow firefox-developer-edition chromium sshfs gawk avahi arp-scan android-tools scrcpy yazi eza
+sudo pacman -Syu --needed cockpit openssh waybar grim slurp wl-clipboard fcitx5-im fcitx5-rime ntfs-3g zellij jq zoxide ripgrep bat lazygit 7zip flatpak bottom wireshark-cli github-cli mpv obs-studio yt-dlp rustscan dust okular tigervnc docker docker-compose fish qemu-full edk2-ovmf ollama-cuda rpi-imager npm rclone noto-fonts-emoji swaybg minicom starship stow playerctl dunst sof-firmware veracrypt ffmpeg cronie glow firefox-developer-edition chromium sshfs gawk avahi arp-scan android-tools scrcpy yazi eza
 ```
 
 ### Archlinuxcn Repository Package List
