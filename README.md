@@ -139,7 +139,7 @@ sudo pacman -Syu --needed v2ray v2raya dae daed
 ### AUR Package List
 
 ```bash
-yay -Syu --needed v2ray v2raya dae daed envycontrol espanso-wayland subconverter-bin
+yay -Syu --needed v2ray v2raya dae daed envycontrol subconverter-bin
 ```
 
 ### Other Package
@@ -173,10 +173,6 @@ sudo systemctl enable --now daed
 # Docker
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
-
-# Espanso
-espanso service register
-espanso service start
 
 # Ollama
 sudo systemctl enable --now ollama
