@@ -101,9 +101,9 @@
 | https://github.com/EvanLi/Github-Ranking                                             | GitHub 仓库/开发者排名                           |
 | https://github.com/GTNewHorizons                                                     | Minecraft GT New Horizons                        |
 | https://github.com/openwrt                                                           | 路由器/嵌入式 Linux 系统                         |
-| https://github.com/google-gemini/gemini-cli                                          | Gemini 命令行客户端                              |
 | https://github.com/anthropics/claude-code                                            | claude-code                                      |
 | https://github.com/github/copilot-cli                                                | copilot-cli                                      |
+| https://github.com/ollama/ollama                                                     | ollama                                           |
 | https://github.com/browser-use/browser-use                                           | browser-use                                      |
 | https://github.com/astral-sh/uv                                                      | uv                                               |
 | https://github.com/v2rayA/v2rayA                                                     | v2rayA代理webui客户端                            |
@@ -180,9 +180,6 @@ sudo systemctl enable sshd
 # Fedora
 
 ```bash
-# ollama
-curl -fsSL https://ollama.com/install.sh | sh
-
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
 
