@@ -191,6 +191,14 @@ curl https://cursor.com/install -fsS | bash
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
 
+# docker
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl enable --now docker
+sudo docker run hello-world
+sudo usermod -aG docker $USER
+
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
