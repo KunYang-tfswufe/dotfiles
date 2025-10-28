@@ -190,6 +190,9 @@ npm install -g @github/copilot
 # gemini-cli
 npm install -g @google/gemini-cli
 
+# codex-cli
+npm install -g @openai/codex
+
 # cursor-cli
 curl https://cursor.com/install -fsS | bash
 
