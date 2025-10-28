@@ -147,9 +147,6 @@ yay -Syu --needed v2ray v2raya dae daed envycontrol subconverter-bin
 ```bash
 # prettier
 sudo npm install -g prettier
-
-# cursor-cli
-curl https://cursor.com/install -fsS | bash
 ```
 
 ### Initialization and Services
@@ -188,7 +185,7 @@ sudo systemctl enable sshd
 # gemini-cli
 npm install -g @google/gemini-cli
 
-# cursor
+# cursor-cli
 curl https://cursor.com/install -fsS | bash
 
 # ghostty
