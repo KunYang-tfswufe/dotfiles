@@ -127,7 +127,7 @@ sudo reboot
 ### Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli rustscan dust docker docker-compose qemu-full edk2-ovmf ollama-cuda npm starship stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan eza
+sudo pacman -Syu --needed openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli rustscan dust docker docker-compose qemu-full edk2-ovmf npm starship stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan eza
 ```
 
 ### Archlinuxcn Repository Package List
@@ -170,10 +170,6 @@ sudo systemctl enable --now daed
 # Docker
 sudo systemctl enable --now docker
 sudo usermod -aG docker $USER
-
-# Ollama
-sudo systemctl enable --now ollama
-ollama run gemma3:4b
 
 # SSH
 sudo systemctl start sshd
