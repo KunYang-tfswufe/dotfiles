@@ -202,6 +202,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 
+# enable sshd
+sudo systemctl start sshd
+sudo systemctl enable sshd
+
 # neovim
 sudo dnf install neovim python3-neovim
 
