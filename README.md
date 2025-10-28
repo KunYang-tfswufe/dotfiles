@@ -169,6 +169,14 @@ sudo systemctl enable sshd
 # Fedora
 
 ```bash
+# stop firewalld
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
+
+# enable sshd
+sudo systemctl start sshd
+sudo systemctl enable sshd
+
 # claude-cli
 npm install -g @anthropic-ai/claude-code
 
@@ -197,14 +205,6 @@ sudo usermod -aG docker $USER
 
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# stop firewalld
-sudo systemctl stop firewalld
-sudo systemctl disable firewalld
-
-# enable sshd
-sudo systemctl start sshd
-sudo systemctl enable sshd
 
 # neovim
 sudo dnf install neovim python3-neovim
