@@ -184,6 +184,9 @@ sudo systemctl enable sshd
 # Fedora
 
 ```bash
+# ollama
+sudo dnf install ollama
+
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
 
