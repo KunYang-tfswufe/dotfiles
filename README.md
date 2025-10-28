@@ -101,7 +101,6 @@
 | https://github.com/EvanLi/Github-Ranking                                             | GitHub 仓库/开发者排名                           |
 | https://github.com/GTNewHorizons                                                     | Minecraft GT New Horizons                        |
 | https://github.com/openwrt                                                           | 路由器/嵌入式 Linux 系统                         |
-| https://github.com/anthropics/claude-code                                            | claude-code                                      |
 | https://github.com/github/copilot-cli                                                | copilot-cli                                      |
 | https://github.com/ollama/ollama                                                     | ollama                                           |
 | https://github.com/browser-use/browser-use                                           | browser-use                                      |
@@ -182,6 +181,9 @@ sudo systemctl enable sshd
 ## extras
 
 ```bash
+# claude-cli
+npm install -g @anthropic-ai/claude-code
+
 # gemini-cli
 npm install -g @google/gemini-cli
 
