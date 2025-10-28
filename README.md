@@ -159,11 +159,6 @@ sudo systemctl enable --now v2raya
 
 # Daed
 sudo systemctl enable --now daed
-
-# SSH
-sudo systemctl start sshd
-sudo systemctl enable sshd
-
 ```
 
 # Fedora
