@@ -179,6 +179,14 @@ sudo systemctl enable sshd
 
 # Fedora
 
+## bases
+
+```bash
+
+```
+
+## extras
+
 ```bash
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
