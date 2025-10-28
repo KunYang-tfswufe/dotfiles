@@ -172,14 +172,6 @@ sudo systemctl enable sshd
 
 # Fedora
 
-## bases
-
-```bash
-
-```
-
-## extras
-
 ```bash
 # claude-cli
 npm install -g @anthropic-ai/claude-code
