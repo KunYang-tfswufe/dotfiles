@@ -184,6 +184,9 @@ sudo systemctl enable sshd
 # claude-cli
 npm install -g @anthropic-ai/claude-code
 
+# copilot-cli
+npm install -g @github/copilot
+
 # gemini-cli
 npm install -g @google/gemini-cli
 
