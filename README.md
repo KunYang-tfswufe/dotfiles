@@ -181,7 +181,7 @@ sudo systemctl enable sshd
 
 ```bash
 # ollama
-sudo dnf install ollama
+curl -fsSL https://ollama.com/install.sh | sh
 
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
