@@ -188,6 +188,9 @@ sudo systemctl enable sshd
 # gemini-cli
 npm install -g @google/gemini-cli
 
+# cursor
+curl https://cursor.com/install -fsS | bash
+
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
 
