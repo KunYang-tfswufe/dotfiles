@@ -164,7 +164,7 @@ sudo systemctl enable --now daed
 # Fedora
 
 ```bash
-# stop firewalld
+# close firewalld
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 
