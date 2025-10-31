@@ -37,9 +37,6 @@ alias lt 'eza --tree'                       # 'lt' 以树状结构显示
 alias lta 'eza --tree -a'                   # 'lta' 显示包含隐藏文件的完整树状结构
 set -gx VISUAL nvim
 
-# --- Tool Initializations ---
-zoxide init fish | source
-
 # =============================================================================
 #  CUSTOM FUNCTION: wl-copy with a specific terminal notification
 # =============================================================================
