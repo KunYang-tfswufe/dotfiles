@@ -150,6 +150,9 @@ sudo reboot
 # 7z
 sudo dnf install p7zip p7zip-plugins
 
+# stow
+sudo dnf install stow
+
 # input-methods
 sudo dnf install @input-methods
 
