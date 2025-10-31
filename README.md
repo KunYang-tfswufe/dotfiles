@@ -118,11 +118,6 @@
 
 ```bash
 sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm starship stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan eza
-```
-
-### AUR Package List
-
-```bash
 yay -Syu --needed envycontrol subconverter-bin
 # prettier
 sudo npm install -g prettier
