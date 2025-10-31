@@ -114,7 +114,7 @@
 | https://addons.mozilla.org/firefox/addon/bilibili-to-english/                        | bilibili英文可以降低b站的体验防上瘾,顺便学习英语 |
 | https://addons.mozilla.org/firefox/addon/minimal-bilibili                            | 最小化bilibili                                   |
 
-### Official Repository Package List
+# Official Repository Package List
 
 ```bash
 sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm starship stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan eza
