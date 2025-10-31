@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan
+sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm stow playerctl dunst ffmpeg cronie sshfs gawk avahi
 yay -Syu --needed envycontrol subconverter-bin
 # prettier
 sudo npm install -g prettier
@@ -255,6 +255,9 @@ sudo dnf install starship
 
 # eza
 sudo dnf install eza
+
+# arp-scan
+sudo dnf install arp-scan
 ```
 
 # MacOS
