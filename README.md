@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed openssh grim slurp wl-clipboard 7zip wireshark-cli dust npm stow playerctl dunst ffmpeg cronie gawk avahi
+sudo pacman -Syu --needed grim slurp wl-clipboard 7zip wireshark-cli dust npm stow playerctl dunst ffmpeg cronie gawk avahi
 # prettier
 sudo npm install -g prettier
 # Avahi
