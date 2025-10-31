@@ -258,6 +258,9 @@ sudo dnf install eza
 
 # arp-scan
 sudo dnf install arp-scan
+
+# sshfs
+sudo dnf install sshfs
 ```
 
 # MacOS
