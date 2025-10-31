@@ -271,6 +271,11 @@ sudo dnf install minicom
 sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install daed
 sudo systemctl enable --now daed
+
+# v2rayA
+sudo dnf copr enable zhullyb/v2rayA
+sudo dnf install v2ray v2raya
+sudo systemctl enable --now v2raya
 ```
 
 # MacOS
