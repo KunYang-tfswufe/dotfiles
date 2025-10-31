@@ -270,6 +270,7 @@ sudo dnf install minicom
 # daed
 sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install daed
+sudo systemctl enable --now daed
 ```
 
 # MacOS
