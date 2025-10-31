@@ -114,8 +114,6 @@
 | https://addons.mozilla.org/firefox/addon/bilibili-to-english/                        | bilibili英文可以降低b站的体验防上瘾,顺便学习英语 |
 | https://addons.mozilla.org/firefox/addon/minimal-bilibili                            | 最小化bilibili                                   |
 
-# install pinyin input method
-
 ### Official Repository Package List
 
 ```bash
@@ -126,18 +124,8 @@ sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq zoxide 7zip 
 
 ```bash
 yay -Syu --needed envycontrol subconverter-bin
-```
-
-### Other Package
-
-```bash
 # prettier
 sudo npm install -g prettier
-```
-
-### Initialization and Services
-
-```bash
 # Avahi
 sudo systemctl enable --now avahi-daemon.service
 ```
