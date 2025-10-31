@@ -118,7 +118,6 @@
 
 ```bash
 sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq 7zip flatpak wireshark-cli dust npm stow playerctl dunst ffmpeg cronie gawk avahi
-yay -Syu --needed envycontrol subconverter-bin
 # prettier
 sudo npm install -g prettier
 # Avahi
