@@ -147,12 +147,6 @@ sudo npm install -g prettier
 ```bash
 # Avahi
 sudo systemctl enable --now avahi-daemon.service
-
-# V2raya
-sudo systemctl enable --now v2raya
-
-# Daed
-sudo systemctl enable --now daed
 ```
 
 # Fedora
