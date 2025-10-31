@@ -143,6 +143,9 @@ echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
 sudo reboot
 
+# qemu
+sudo dnf install @virtualization
+
 # claude-cli
 npm install -g @anthropic-ai/claude-code
 
