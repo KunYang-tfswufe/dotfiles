@@ -266,6 +266,10 @@ sudo dnf install fish && chsh -s /usr/bin/fish
 
 # minicom
 sudo dnf install minicom
+
+# daed
+sudo dnf copr enable zhullyb/v2rayA
+sudo dnf install daed
 ```
 
 # MacOS
