@@ -133,8 +133,7 @@ sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 
 # sshd
-sudo dnf install openssh-server -y
-sudo systemctl enable --now sshd
+sudo dnf install openssh-server -y && sudo systemctl enable --now sshd
 
 # fcitx5
 sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-rime
