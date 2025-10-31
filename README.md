@@ -136,7 +136,7 @@ sudo systemctl disable firewalld
 sudo dnf install openssh-server -y && sudo systemctl enable --now sshd
 
 # fcitx5
-sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-rime
+sudo dnf install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons fcitx5-rime
 mkdir -p ~/.config/environment.d
 echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
 echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
