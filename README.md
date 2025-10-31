@@ -144,6 +144,9 @@ echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 sudo reboot
 
+# 7z
+sudo dnf install p7zip p7zip-plugins
+
 # input-methods
 sudo dnf install @input-methods
 
