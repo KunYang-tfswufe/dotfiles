@@ -129,16 +129,10 @@ sudo reboot
 sudo pacman -Syu --needed openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm starship stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan eza
 ```
 
-### Archlinuxcn Repository Package List
-
-```bash
-sudo pacman -Syu --needed v2ray v2raya dae daed
-```
-
 ### AUR Package List
 
 ```bash
-yay -Syu --needed v2ray v2raya dae daed envycontrol subconverter-bin
+yay -Syu --needed envycontrol subconverter-bin
 ```
 
 ### Other Package
