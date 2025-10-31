@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm stow playerctl dunst ffmpeg cronie gawk avahi
+sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm stow playerctl dunst ffmpeg cronie gawk avahi
 yay -Syu --needed envycontrol subconverter-bin
 # prettier
 sudo npm install -g prettier
