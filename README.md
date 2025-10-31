@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed wl-clipboard wireshark-cli dust playerctl dunst ffmpeg gawk avahi
+sudo pacman -Syu --needed wl-clipboard wireshark-cli playerctl dunst ffmpeg gawk avahi
 # prettier
 sudo npm install -g prettier
 # Avahi
