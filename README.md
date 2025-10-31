@@ -252,6 +252,9 @@ sudo systemctl enable --now v2raya
 # starship
 sudo dnf copr enable atim/starship
 sudo dnf install starship
+
+# eza
+sudo dnf install eza
 ```
 
 # MacOS
