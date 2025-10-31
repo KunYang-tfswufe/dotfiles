@@ -116,17 +116,10 @@
 
 # install pinyin input method
 
-sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-rime
-mkdir -p ~/.config/environment.d
-echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
-echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
-echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
-sudo reboot
-
 ### Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed openssh grim slurp wl-clipboard fcitx5-im fcitx5-rime zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm starship stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan eza
+sudo pacman -Syu --needed openssh grim slurp wl-clipboard zellij jq zoxide 7zip flatpak wireshark-cli dust qemu-full edk2-ovmf npm starship stow playerctl dunst ffmpeg cronie sshfs gawk avahi arp-scan eza
 ```
 
 ### AUR Package List
@@ -159,6 +152,14 @@ sudo systemctl disable firewalld
 # enable sshd
 sudo systemctl start sshd
 sudo systemctl enable sshd
+
+# fcitx5
+sudo dnf install fcitx5 fcitx5-chinese-addons fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-rime
+mkdir -p ~/.config/environment.d
+echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
+echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
+echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
+sudo reboot
 
 # claude-cli
 npm install -g @anthropic-ai/claude-code
