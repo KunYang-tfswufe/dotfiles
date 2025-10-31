@@ -141,6 +141,8 @@ mkdir -p ~/.config/environment.d
 echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
 echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
+echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
+echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 sudo reboot
 
 # input-methods
