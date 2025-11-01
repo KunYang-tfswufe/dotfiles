@@ -228,9 +228,6 @@ sudo dnf install espanso-wayland
 espanso service register
 espanso start
 
-# scrcpy
-sudo dnf copr enable zeno/scrcpy && sudo dnf install scrcpy
-
 # rclone
 sudo dnf install rclone
 
