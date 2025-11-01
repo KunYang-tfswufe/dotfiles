@@ -101,12 +101,8 @@
 | https://github.com/EvanLi/Github-Ranking                                             | GitHub 仓库/开发者排名                           |
 | https://github.com/GTNewHorizons                                                     | Minecraft GT New Horizons                        |
 | https://github.com/openwrt                                                           | 路由器/嵌入式 Linux 系统                         |
-| https://github.com/github/copilot-cli                                                | copilot-cli                                      |
 | https://github.com/ollama/ollama                                                     | ollama                                           |
 | https://github.com/browser-use/browser-use                                           | browser-use                                      |
-| https://github.com/astral-sh/uv                                                      | uv                                               |
-| https://github.com/v2rayA/v2rayA                                                     | v2rayA代理webui客户端                            |
-| https://github.com/daeuniverse/daed                                                  | daed代理webui客户端                              |
 | https://addons.mozilla.org/firefox/addon/darkreader                                  | 全站暗色模式                                     |
 | https://addons.mozilla.org/en-US/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB/ | 流畅阅读(沉浸式翻译开源版本)                     |
 | https://addons.mozilla.org/firefox/addon/youtube-recommended-videos/                 | 隐藏YouTube分散注意力的元素                      |
