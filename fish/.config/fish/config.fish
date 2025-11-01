@@ -57,7 +57,6 @@ function copy --wraps wl-copy --description "Pipe content to wl-copy and send a 
     end
 end
 
-starship init fish | source
 
 fish_add_path $HOME/.local/bin
 
