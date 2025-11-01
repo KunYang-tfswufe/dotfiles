@@ -236,14 +236,24 @@ bindsym $mod+Control+p exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(
 # ===============================================================
 
 # ===============================================================
-# >>> 音乐控制快捷键 (已修改避免冲突) - 开始 <<<
+# >>> 音乐控制快捷键 (新方案) - 开始 <<<
 # ===============================================================
-# 启动音乐
-bindsym $mod+F12 exec ~/.local/bin/play-music.sh
+# 使用 $mod+m (m for music) 替换了原来不好按的 F12 键方案。
+# 这套快捷键更符合直觉，也更容易单手操作。
 
-# 停止音乐 
-bindsym $mod+Control+F12 exec killall mpv
+# 快捷键: Mod + m
+# 功能: 启动/播放音乐
+bindsym $mod+m exec ~/.local/bin/play-music.sh
 
+# 快捷键: Mod + Shift + m
+# 功能: 停止音乐 (使用 Shift 组合键，作为播放的关联操作)
+bindsym $mod+Shift+m exec killall mpv
+
+# --- 备选方案: 使用键盘媒体键 (如果您的键盘有) ---
+# 如果您的键盘有专用的播放/暂停/停止键，使用它们是更好的选择。
+# 您可以取消下面几行的注释来启用它们。
+# bindsym XF86AudioPlay exec ~/.local/bin/play-music.sh
+# bindsym XF86AudioStop exec killall mpv
 # ===============================================================
 # >>> 音乐控制快捷键 - 结束 <<<
 # ===============================================================
