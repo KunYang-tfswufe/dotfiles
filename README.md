@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed wl-clipboard wireshark-cli playerctl dunst gawk avahi
+sudo pacman -Syu --needed wireshark-cli playerctl dunst gawk avahi
 # Avahi
 sudo systemctl enable --now avahi-daemon.service
 ```
@@ -277,6 +277,9 @@ sudo dnf install arp-scan
 
 # sshfs
 sudo dnf install sshfs
+
+# wl-clipboard
+sudo dnf install wl-clipboard
 ```
 
 # MacOS
