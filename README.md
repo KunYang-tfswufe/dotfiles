@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed dunst gawk
+sudo pacman -Syu --needed gawk
 ```
 
 # Fedora
@@ -207,6 +207,9 @@ sudo dnf copr enable dejan/lazygit && sudo dnf install lazygit
 
 # mpv
 sudo dnf install mpv
+
+# dunst
+sudo dnf install dunst
 
 # ripgrep
 sudo dnf install ripgrep
