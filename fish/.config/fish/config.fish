@@ -71,21 +71,6 @@ set -gx ANTHROPIC_API_KEY 'sk-IRxC3rkZofNlJPMuJ22CqD3FTQcAagCtX74UTOvGISso0LWm'
 set -gx ANTHROPIC_AUTH_TOKEN 'sk-IRxC3rkZofNlJPMuJ22CqD3FTQcAagCtX74UTOvGISso0LWm'
 set -gx ANTHROPIC_BASE_URL 'https://code.ppchat.vip'
 
-function zt --description "Create multiple tabs in current Zellij session"
-    # 如果没在 Zellij 里，就提示用户
-    if not set -q ZELLIJ
-        echo "⚠️  Not inside a Zellij session. Please start Zellij first."
-        return 1
-    end
-    # 定义 tab 名称列表
-    set tabs Tab1 Tab2 Tab3 Tab4 Tab5
-    # 遍历创建 tabs
-    for t in $tabs
-        zellij action new-tab --name $t
-    end
-    echo "✅ Created (or attempted to create) tabs: $tabs"
-end
-
 # =============================================================================
 #  基于 MAC 地址的设备快速连接函数 (V2.1 - 终端兼容性修正版)
 # =============================================================================
