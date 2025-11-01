@@ -32,7 +32,7 @@ matches:
 
   - trigger: "`sum"
     replace: |-
-      我没有理解到,请帮我浓缩成极致简短的精华摘要
+      不要那么多废话,几句话讲清楚
 
   - trigger: "bk"
     replace: |-
@@ -40,7 +40,7 @@ matches:
 
   - trigger: "`tld"
     replace: |-
-      我没有理解到,请直接给我太长不看 (TL;DR) 版本
+      我没有理解到,请直接给我太长不看 (TL;DR) 版本 | 我没有理解到,请帮我浓缩成极致简短的精华摘要
 
   - trigger: "`een"
     replace: |-
