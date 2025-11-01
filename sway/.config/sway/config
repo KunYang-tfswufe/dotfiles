@@ -197,6 +197,33 @@ output * bg /usr/share/backgrounds/default.jxl fill
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+# ===============================================================
+# >>> 截图快捷键 (Screenshot Keybindings) - 已整合 <<<
+# ===============================================================
+# 依赖: grim, slurp, wl-clipboard, jq
+
+# 快捷键: Mod + P
+# 功能: 选择区域截图到剪贴板 (最常用)
+bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
+
+# 快捷键: Mod + Shift + P
+# 功能: 全屏截图到剪贴板
+bindsym $mod+Shift+p exec grim - | wl-copy
+
+# 快捷键: Mod + Ctrl + P
+# 功能: 当前活动窗口截图到剪贴板
+bindsym $mod+Control+p exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | wl-copy
+
+# --- 可选：保存为文件而非剪贴板 ---
+# 如果你希望保存为文件，请注释掉上面的绑定，并取消下面行的注释
+# set $screenshot_dir ~/Pictures/Screenshots
+# bindsym $mod+p exec grim -g "$(slurp)" "$screenshot_dir/$(date +'%Y-%m-%d_%H-%M-%S').png"
+# bindsym $mod+Shift+p exec grim "$screenshot_dir/$(date +'%Y-%m-%d_%H-%M-%S').png"
+# ===============================================================
+# >>> 截图快捷键 (Screenshot Keybindings) - 结束 <<<
+# ===============================================================
+
 #
 # Resizing containers:
 #
