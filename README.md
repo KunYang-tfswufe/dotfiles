@@ -192,6 +192,9 @@ sudo dnf copr enable dejan/lazygit && sudo dnf install lazygit
 # mpv
 sudo dnf install mpv
 
+# zellij
+sudo dnf install zellij
+
 # dunst
 sudo dnf install dunst
 
