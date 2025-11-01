@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed wireshark-cli playerctl dunst gawk avahi
+sudo pacman -Syu --needed playerctl dunst gawk avahi
 # Avahi
 sudo systemctl enable --now avahi-daemon.service
 ```
