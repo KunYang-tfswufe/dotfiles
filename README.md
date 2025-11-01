@@ -175,6 +175,9 @@ curl https://cursor.com/install -fsS | bash
 # prettier
 sudo npm install -g prettier
 
+# wireshark-cli
+sudo dnf install wireshark-cli
+
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
 
