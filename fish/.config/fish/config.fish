@@ -13,7 +13,7 @@ if status is-interactive
 end
 
 # --- Aliases & Environment Variables ---
-alias cat 'bat --paging=never'
+alias cat 'bat --paging=never --style="plain"'
 # =============================================================================
 #  EZA Aliases (Modern replacement for 'ls')
 # =============================================================================

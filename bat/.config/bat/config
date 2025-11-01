@@ -1,7 +1,0 @@
-# ~/.config/bat/config
-
-# Do not automatically page when content is long, making it behave more like cat
---paging=never
-
-# Use "plain" style to keep only syntax highlighting, removing line numbers, grids, etc.
---style="plain"
