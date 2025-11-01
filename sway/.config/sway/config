@@ -42,7 +42,7 @@ exec firefox
 
 ### V2P 新增：开机自启动 Ghostty 并将其发送到暂存区 ###
 # 1. 启动 Ghostty
-exec ghostty
+exec ghostty -e zellij
 # 2. 匹配 app_id 为 com.mitchellh.ghostty 的窗口，并将其移动到暂存区
 for_window [app_id="com.mitchellh.ghostty"] move scratchpad
 
