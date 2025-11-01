@@ -40,6 +40,9 @@ exec fcitx5 -d
 # 使用推荐的 Wayland 参数启动 Chromium 以获得最佳性能
 exec chromium-browser --ozone-platform-hint=auto
 
+# 启动 Firefox
+exec firefox
+
 ### V2P 新增：开机自启动 Ghostty 并将其发送到暂存区 ###
 # 1. 启动 Ghostty
 exec ghostty
@@ -48,6 +51,10 @@ for_window [app_id="com.mitchellh.ghostty"] move scratchpad
 
 ### Workspace assignments
 # 将特定的应用程序分配到固定的工作区
+
+# 将所有 Firefox 窗口默认分配到工作区 1
+assign [app_id="firefox"] workspace number 1
+
 # 将所有 chromium-browser 窗口默认分配到工作区 2
 assign [app_id="chromium-browser"] workspace number 2
 
