@@ -114,12 +114,6 @@
 | https://addons.mozilla.org/firefox/addon/bilibili-to-english/                        | bilibili英文可以降低b站的体验防上瘾,顺便学习英语 |
 | https://addons.mozilla.org/firefox/addon/minimal-bilibili                            | 最小化bilibili                                   |
 
-# Official Repository Package List
-
-```bash
-sudo pacman -Syu --needed gawk
-```
-
 # Fedora
 
 ```bash
