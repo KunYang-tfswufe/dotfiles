@@ -27,6 +27,24 @@ set $rofi_cmd rofi \
 # TODO: add window with the next release of rofi-wayland
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
+# ===============================================================
+# >>> 新增配置开始 (START OF NEW CONFIGURATION) <<<
+# ===============================================================
+
+### Autostart applications
+# 在Sway会话启动时自动运行的程序
+# 使用推荐的 Wayland 参数启动 Chromium 以获得最佳性能
+exec chromium-browser --ozone-platform-hint=auto
+
+### Workspace assignments
+# 将特定的应用程序分配到固定的工作区
+# 将所有 chromium-browser 窗口默认分配到工作区 2
+assign [app_id="chromium-browser"] workspace number 2
+
+# ===============================================================
+# >>> 新增配置结束 (END OF NEW CONFIGURATION) <<<
+# ===============================================================
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
