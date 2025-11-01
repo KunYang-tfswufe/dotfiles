@@ -117,9 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed playerctl dunst gawk avahi
-# Avahi
-sudo systemctl enable --now avahi-daemon.service
+sudo pacman -Syu --needed playerctl dunst gawk
 ```
 
 # Fedora
