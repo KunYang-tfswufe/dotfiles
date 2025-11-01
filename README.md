@@ -118,8 +118,6 @@
 
 ```bash
 sudo pacman -Syu --needed wl-clipboard wireshark-cli playerctl dunst gawk avahi
-# prettier
-sudo npm install -g prettier
 # Avahi
 sudo systemctl enable --now avahi-daemon.service
 ```
@@ -173,6 +171,9 @@ npm install -g @openai/codex
 
 # cursor-cli
 curl https://cursor.com/install -fsS | bash
+
+# prettier
+sudo npm install -g prettier
 
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
