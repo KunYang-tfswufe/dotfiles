@@ -1,4 +1,4 @@
-default_layout "/home/imak/.config/zellij/layouts/five-tabs.kdl"
+default_layout "five-tabs"
 keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
