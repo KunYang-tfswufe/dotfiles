@@ -3,7 +3,7 @@
 # =============================================================================
 
 # --- Variables ---
-STOW_PACKAGES := hypr nvim scripts waybar espanso configs bat fish dunst
+STOW_PACKAGES := hypr nvim scripts waybar espanso configs fish
 DOTFILES_DIR := $(CURDIR)
 SYSTEMD_UNITS_SRC := $(DOTFILES_DIR)/systemd-templates/.config/systemd/user
 
