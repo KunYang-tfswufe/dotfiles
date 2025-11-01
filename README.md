@@ -256,10 +256,6 @@ sudo dnf copr enable zhullyb/v2rayA
 sudo dnf install v2ray v2raya
 sudo systemctl enable --now v2raya
 
-# starship
-sudo dnf copr enable atim/starship
-sudo dnf install starship
-
 # eza
 sudo dnf install eza
 
