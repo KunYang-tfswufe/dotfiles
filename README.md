@@ -76,32 +76,32 @@
 
 ## 书签
 
-| URL                                                                                  | Description                                                  |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| https://www.techinterviewhandbook.org/grind75/                                       | grind75                                                      |
-| 小白Debug                                                                            | https://space.bilibili.com/302188068?spm_id_from=333.337.0.0 |
-| https://leetcode.com                                                                 | Leetcode                                                     |
-| https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1                             | WeActStudio                                                  |
-| https://alternativeto.net                                                            | 查找软件替代品与用户评价                                     |
-| https://convertio.co                                                                 | 格式在线文件转换                                             |
-| https://cpulator.01xz.net/                                                           | 在线汇编学习网站                                             |
-| https://linshiguge.com                                                               | 临时邮箱（一次性邮箱）                                       |
-| https://artificialanalysis.ai                                                        | AI 模型排行榜与对比                                          |
-| https://w3schools.com                                                                | Web 开发教程与示例                                           |
-| https://freecodecamp.org                                                             | 免费编程课程与项目                                           |
-| https://minecraft.wiki                                                               | Minecraft 维基                                               |
-| https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel                  | Pixel Magisk VoTEL 模块                                      |
-| https://github.com/EvanLi/Github-Ranking                                             | GitHub 仓库/开发者排名                                       |
-| https://github.com/GTNewHorizons                                                     | Minecraft GT New Horizons                                    |
-| https://github.com/openwrt                                                           | 路由器/嵌入式 Linux 系统                                     |
-| https://github.com/ollama/ollama                                                     | ollama                                                       |
-| https://github.com/browser-use/browser-use                                           | browser-use                                                  |
-| https://addons.mozilla.org/firefox/addon/darkreader                                  | 全站暗色模式                                                 |
-| https://addons.mozilla.org/en-US/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB/ | 流畅阅读(沉浸式翻译开源版本)                                 |
-| https://addons.mozilla.org/firefox/addon/youtube-recommended-videos/                 | 隐藏YouTube分散注意力的元素                                  |
-| https://addons.mozilla.org/firefox/addon/adguard-adblocker/                          | 强大的广告拦截器                                             |
-| https://addons.mozilla.org/firefox/addon/bilibili-to-english/                        | bilibili英文可以降低b站的体验防上瘾,顺便学习英语             |
-| https://addons.mozilla.org/firefox/addon/minimal-bilibili                            | 最小化bilibili                                               |
+| URL                                                                                  | Description                                      |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------ |
+| https://www.techinterviewhandbook.org/grind75/                                       | grind75                                          |
+| https://space.bilibili.com/302188068?spm_id_from=333.337.0.0                         | 小白Debug                                        |
+| https://leetcode.com                                                                 | Leetcode                                         |
+| https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1                             | WeActStudio                                      |
+| https://alternativeto.net                                                            | 查找软件替代品与用户评价                         |
+| https://convertio.co                                                                 | 格式在线文件转换                                 |
+| https://cpulator.01xz.net/                                                           | 在线汇编学习网站                                 |
+| https://linshiguge.com                                                               | 临时邮箱（一次性邮箱）                           |
+| https://artificialanalysis.ai                                                        | AI 模型排行榜与对比                              |
+| https://w3schools.com                                                                | Web 开发教程与示例                               |
+| https://freecodecamp.org                                                             | 免费编程课程与项目                               |
+| https://minecraft.wiki                                                               | Minecraft 维基                                   |
+| https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel                  | Pixel Magisk VoTEL 模块                          |
+| https://github.com/EvanLi/Github-Ranking                                             | GitHub 仓库/开发者排名                           |
+| https://github.com/GTNewHorizons                                                     | Minecraft GT New Horizons                        |
+| https://github.com/openwrt                                                           | 路由器/嵌入式 Linux 系统                         |
+| https://github.com/ollama/ollama                                                     | ollama                                           |
+| https://github.com/browser-use/browser-use                                           | browser-use                                      |
+| https://addons.mozilla.org/firefox/addon/darkreader                                  | 全站暗色模式                                     |
+| https://addons.mozilla.org/en-US/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB/ | 流畅阅读(沉浸式翻译开源版本)                     |
+| https://addons.mozilla.org/firefox/addon/youtube-recommended-videos/                 | 隐藏YouTube分散注意力的元素                      |
+| https://addons.mozilla.org/firefox/addon/adguard-adblocker/                          | 强大的广告拦截器                                 |
+| https://addons.mozilla.org/firefox/addon/bilibili-to-english/                        | bilibili英文可以降低b站的体验防上瘾,顺便学习英语 |
+| https://addons.mozilla.org/firefox/addon/minimal-bilibili                            | 最小化bilibili                                   |
 
 # Fedora
 
