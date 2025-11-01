@@ -117,7 +117,7 @@
 # Official Repository Package List
 
 ```bash
-sudo pacman -Syu --needed playerctl dunst gawk
+sudo pacman -Syu --needed dunst gawk
 ```
 
 # Fedora
