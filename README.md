@@ -161,8 +161,7 @@ sudo npm install -g prettier
 sudo dnf install wireshark-cli
 
 # ghostty
-sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
-echo 'theme = "Pro"' >> ~/.config/ghostty/config
+sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty --setopt=install_weak_deps=False && echo 'theme = "Pro"' >> ~/.config/ghostty/config
 
 # docker
 sudo dnf -y install dnf-plugins-core
