@@ -40,6 +40,12 @@ exec fcitx5 -d
 # 使用推荐的 Wayland 参数启动 Chromium 以获得最佳性能
 exec chromium-browser --ozone-platform-hint=auto
 
+### V2P 新增：开机自启动 Ghostty 并将其发送到暂存区 ###
+# 1. 启动 Ghostty
+exec ghostty
+# 2. 匹配 app_id 为 com.mitchellh.ghostty 的窗口，并将其移动到暂存区
+for_window [app_id="com.mitchellh.ghostty"] move scratchpad
+
 ### Workspace assignments
 # 将特定的应用程序分配到固定的工作区
 # 将所有 chromium-browser 窗口默认分配到工作区 2
@@ -200,7 +206,7 @@ output * bg /usr/share/backgrounds/default.jxl fill
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+grave scratchpad show, resize set 100 ppt 100 ppt
+    bindsym $mod+grave scratchpad show, resize set width 100 ppt height 100 ppt, move position center
 
 # ===============================================================
 # >>> 截图快捷键 (Screenshot Keybindings) - 已整合 <<<
