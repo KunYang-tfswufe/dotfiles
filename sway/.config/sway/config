@@ -206,7 +206,7 @@ output * bg /usr/share/backgrounds/default.jxl fill
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+grave scratchpad show, resize set width 100 ppt height 100 ppt, move position center
+    bindsym $mod+grave scratchpad show, resize set 100 ppt 100 ppt, move position center
 
 # ===============================================================
 # >>> 截图快捷键 (Screenshot Keybindings) - 已整合 <<<
