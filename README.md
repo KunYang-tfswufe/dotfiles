@@ -162,6 +162,7 @@ sudo dnf install wireshark-cli
 
 # ghostty
 sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty
+echo 'theme = "Pro"' >> ~/.config/ghostty/config
 
 # docker
 sudo dnf -y install dnf-plugins-core
