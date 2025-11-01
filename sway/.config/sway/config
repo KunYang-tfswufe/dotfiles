@@ -37,9 +37,6 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 # 启动 Fcitx5 输入法框架 (以守护进程/后台模式启动)
 exec fcitx5 -d
 
-# 使用推荐的 Wayland 参数启动 Chromium 以获得最佳性能
-exec chromium-browser --ozone-platform-hint=auto
-
 # 启动 Firefox
 exec firefox
 
@@ -54,9 +51,6 @@ for_window [app_id="com.mitchellh.ghostty"] move scratchpad
 
 # 将所有 Firefox 窗口默认分配到工作区 1
 assign [app_id="firefox"] workspace number 1
-
-# 将所有 chromium-browser 窗口默认分配到工作区 2
-assign [app_id="chromium-browser"] workspace number 2
 
 # ===============================================================
 # >>> 新增配置结束 (END OF NEW CONFIGURATION) <<<
