@@ -33,6 +33,10 @@ set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
 ### Autostart applications
 # 在Sway会话启动时自动运行的程序
+
+# 启动 Fcitx5 输入法框架 (以守护进程/后台模式启动)
+exec fcitx5 -d
+
 # 使用推荐的 Wayland 参数启动 Chromium 以获得最佳性能
 exec chromium-browser --ozone-platform-hint=auto
 
