@@ -60,6 +60,9 @@ end
 
 fish_add_path $HOME/.local/bin
 
+set -gx EDITOR (command -v nvim)
+set -gx VISUAL (command -v nvim)
+
 # 设置 Android SDK 的根目录
 set -x ANDROID_SDK_ROOT "/opt/android-sdk"
 set -x ANDROID_AVD_HOME "$HOME/.android/avd"
