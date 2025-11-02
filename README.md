@@ -269,5 +269,5 @@ sudo dnf install wl-clipboard
 # MacOS
 
 ```bash
-
+#
 ```
