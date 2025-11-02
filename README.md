@@ -107,6 +107,12 @@
 # Fedora
 
 ```bash
+# RPM Fusion # Restart Required 
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# broadcom-wl # Restart Required
+sudo dnf install broadcom-wl
+
 # close firewalld
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
@@ -132,9 +138,6 @@ sudo dnf install p7zip p7zip-plugins
 
 # stow
 sudo dnf install stow
-
-# input-methods
-sudo dnf install @input-methods
 
 # qemu
 sudo dnf install @virtualization
