@@ -111,20 +111,20 @@
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # broadcom-wl # Restart Required
-sudo dnf install -y broadcom-wl
+sudo dnf -y install broadcom-wl
 
 # close firewalld
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 
 # sshd
-sudo dnf install -y openssh-server -y && sudo systemctl enable --now sshd
+sudo dnf -y install openssh-server && sudo systemctl enable --now sshd
 
 # nodejs
-sudo dnf install -y nodejs
+sudo dnf -y install nodejs
 
 # fcitx5 # Restart Required
-sudo dnf install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons fcitx5-rime
+sudo dnf -y install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons fcitx5-rime
 mkdir -p ~/.config/environment.d
 echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
 echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
@@ -133,13 +133,13 @@ echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 
 # 7z
-sudo dnf install -y p7zip p7zip-plugins
+sudo dnf -y install p7zip p7zip-plugins
 
 # stow
-sudo dnf install -y stow
+sudo dnf -y install stow
 
 # qemu
-sudo dnf install -y @virtualization
+sudo dnf -y install @virtualization
 
 # claude-cli
 npm install -g @anthropic-ai/claude-code
@@ -160,15 +160,15 @@ curl https://cursor.com/install -fsS | bash
 sudo npm install -g prettier
 
 # wireshark-cli
-sudo dnf install -y wireshark-cli
+sudo dnf -y install wireshark-cli
 
 # ghostty
-sudo dnf copr enable scottames/ghostty && sudo dnf install -y ghostty --setopt=install_weak_deps=False && echo 'theme = "Pro"' >> ~/.config/ghostty/config
+sudo dnf -y copr enable scottames/ghostty && sudo dnf -y install ghostty --setopt=install_weak_deps=False && echo 'theme = "Pro"' >> ~/.config/ghostty/config
 
 # docker
 sudo dnf -y install dnf-plugins-core
 sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo systemctl enable --now docker
 sudo docker run hello-world
 sudo usermod -aG docker $USER
@@ -177,92 +177,92 @@ sudo usermod -aG docker $USER
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # neovim
-sudo dnf install -y neovim python3-neovim
+sudo dnf -y install neovim python3-neovim
 
 # prismlauncher
-sudo dnf copr enable g3tchoo/prismlauncher && sudo dnf install -y prismlauncher
+sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
 
 # fzf
-sudo dnf install -y fzf
+sudo dnf -y install fzf
 
 # keepassxc
-sudo dnf install -y keepassxc
+sudo dnf -y install keepassxc
 
 # lazygit
-sudo dnf copr enable dejan/lazygit && sudo dnf install -y lazygit
+sudo dnf -y copr enable dejan/lazygit && sudo dnf -y install lazygit
 
 # mpv
-sudo dnf install -y mpv
+sudo dnf -y install mpv
 
 # zellij
-sudo dnf install -y zellij
+sudo dnf -y install zellij
 
 # ripgrep
-sudo dnf install -y ripgrep
+sudo dnf -y install ripgrep
 
 # bat
-sudo dnf install -y bat
+sudo dnf -y install bat
 
 # bottom
-sudo dnf copr enable atim/bottom -y && sudo dnf install -y bottom
+sudo dnf -y copr enable atim/bottom && sudo dnf -y install bottom
 
 # yt-dlp
-sudo dnf install -y yt-dlp
+sudo dnf -y install yt-dlp
 
 # yazi
-sudo dnf copr enable lihaohong/yazi && sudo dnf install -y yazi
+sudo dnf -y copr enable lihaohong/yazi && sudo dnf -y install yazi
 
 # rpi-imager
-sudo dnf install -y rpi-imager
+sudo dnf -y install rpi-imager
 
 # tigervnc
-sudo dnf install -y tigervnc
+sudo dnf -y install tigervnc
 
 # obs-studio
-sudo dnf install -y obs-studio
+sudo dnf -y install obs-studio
 
 # espanso
-sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf install -y espanso-wayland
+sudo dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+sudo dnf -y install espanso-wayland
 espanso service register
 espanso start
 
 # rclone
-sudo dnf install -y rclone
+sudo dnf -y install rclone
 
 # android-tools
-sudo dnf install -y android-tools
+sudo dnf -y install android-tools
 
 # github-cli
-sudo dnf install -y gh
+sudo dnf -y install gh
 
 # fish
-sudo dnf install -y fish && chsh -s /usr/bin/fish
+sudo dnf -y install fish && chsh -s /usr/bin/fish
 
 # minicom
-sudo dnf install -y minicom
+sudo dnf -y install minicom
 
 # daed
-sudo dnf copr enable zhullyb/v2rayA
-sudo dnf install -y daed
+sudo dnf -y copr enable zhullyb/v2rayA
+sudo dnf -y install daed
 sudo systemctl enable --now daed
 
 # v2rayA
-sudo dnf copr enable zhullyb/v2rayA
-sudo dnf install -y v2ray v2raya
+sudo dnf -y copr enable zhullyb/v2rayA
+sudo dnf -y install v2ray v2raya
 sudo systemctl enable --now v2raya
 
 # eza
-sudo dnf install -y eza
+sudo dnf -y install eza
 
 # arp-scan
-sudo dnf install -y arp-scan
+sudo dnf -y install arp-scan
 
 # sshfs
-sudo dnf install -y sshfs
+sudo dnf -y install sshfs
 
 # Screenshot and Clipboard
-sudo dnf install -y wl-clipboard grim slurp jq dunst
+sudo dnf -y install wl-clipboard grim slurp jq dunst
 ```
 
 # MacOS
