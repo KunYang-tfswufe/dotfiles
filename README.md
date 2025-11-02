@@ -267,7 +267,7 @@ sudo dnf -y install wl-clipboard grim slurp jq dunst
 # vagrant
 wget -O- https://rpm.releases.hashicorp.com/fedora/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo
 sudo yum list available | grep hashicorp
-sudo dnf -y install vagrant
+sudo dnf -y install vagrant libvirt-devel
 mkdir ~/vagrant-alpine && vagrant init generic/alpine318
 ```
 
