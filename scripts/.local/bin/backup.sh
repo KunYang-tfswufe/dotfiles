@@ -10,7 +10,6 @@
 # Add or remove absolute paths of the directories you want to back up here.
 BACKUP_TARGETS=(
     "$HOME/dotfiles"
-    "$HOME/SecondBrain"
 )
 
 # Rclone Configuration (MODIFIED: Target updated to the 2TB account)
