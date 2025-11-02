@@ -269,6 +269,7 @@ wget -O- https://rpm.releases.hashicorp.com/fedora/hashicorp.repo | sudo tee /et
 sudo yum list available | grep hashicorp
 sudo dnf -y install vagrant libvirt-devel
 mkdir ~/vagrant-alpine && vagrant init generic/alpine318
+vagrant plugin install vagrant-libvirt
 ```
 
 # MacOS
