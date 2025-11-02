@@ -195,9 +195,6 @@ sudo dnf install mpv
 # zellij
 sudo dnf install zellij
 
-# dunst
-sudo dnf install dunst
-
 # ripgrep
 sudo dnf install ripgrep
 
@@ -262,8 +259,8 @@ sudo dnf install arp-scan
 # sshfs
 sudo dnf install sshfs
 
-# wl-clipboard
-sudo dnf install wl-clipboard
+# Screenshot and Clipboard
+sudo dnf install wl-clipboard grim slurp jq dunst
 ```
 
 # MacOS
