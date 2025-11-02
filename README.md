@@ -107,23 +107,23 @@
 # Fedora
 
 ```bash
-# RPM Fusion # Restart Required 
+# RPM Fusion # Restart Required
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # broadcom-wl # Restart Required
-sudo dnf install broadcom-wl
+sudo dnf install -y broadcom-wl
 
 # close firewalld
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 
 # sshd
-sudo dnf install openssh-server -y && sudo systemctl enable --now sshd
+sudo dnf install -y openssh-server -y && sudo systemctl enable --now sshd
 
 # nodejs
-sudo dnf install nodejs
+sudo dnf install -y nodejs
 
-# fcitx5 # Restart Required 
+# fcitx5 # Restart Required
 sudo dnf install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons fcitx5-rime
 mkdir -p ~/.config/environment.d
 echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
@@ -133,13 +133,13 @@ echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 
 # 7z
-sudo dnf install p7zip p7zip-plugins
+sudo dnf install -y p7zip p7zip-plugins
 
 # stow
-sudo dnf install stow
+sudo dnf install -y stow
 
 # qemu
-sudo dnf install @virtualization
+sudo dnf install -y @virtualization
 
 # claude-cli
 npm install -g @anthropic-ai/claude-code
@@ -160,10 +160,10 @@ curl https://cursor.com/install -fsS | bash
 sudo npm install -g prettier
 
 # wireshark-cli
-sudo dnf install wireshark-cli
+sudo dnf install -y wireshark-cli
 
 # ghostty
-sudo dnf copr enable scottames/ghostty && sudo dnf install ghostty --setopt=install_weak_deps=False && echo 'theme = "Pro"' >> ~/.config/ghostty/config
+sudo dnf copr enable scottames/ghostty && sudo dnf install -y ghostty --setopt=install_weak_deps=False && echo 'theme = "Pro"' >> ~/.config/ghostty/config
 
 # docker
 sudo dnf -y install dnf-plugins-core
@@ -177,92 +177,92 @@ sudo usermod -aG docker $USER
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # neovim
-sudo dnf install neovim python3-neovim
+sudo dnf install -y neovim python3-neovim
 
 # prismlauncher
-sudo dnf copr enable g3tchoo/prismlauncher && sudo dnf install prismlauncher
+sudo dnf copr enable g3tchoo/prismlauncher && sudo dnf install -y prismlauncher
 
 # fzf
-sudo dnf install fzf
+sudo dnf install -y fzf
 
 # keepassxc
-sudo dnf install keepassxc
+sudo dnf install -y keepassxc
 
 # lazygit
-sudo dnf copr enable dejan/lazygit && sudo dnf install lazygit
+sudo dnf copr enable dejan/lazygit && sudo dnf install -y lazygit
 
 # mpv
-sudo dnf install mpv
+sudo dnf install -y mpv
 
 # zellij
-sudo dnf install zellij
+sudo dnf install -y zellij
 
 # ripgrep
-sudo dnf install ripgrep
+sudo dnf install -y ripgrep
 
 # bat
-sudo dnf install bat
+sudo dnf install -y bat
 
 # bottom
-sudo dnf copr enable atim/bottom -y && sudo dnf install bottom
+sudo dnf copr enable atim/bottom -y && sudo dnf install -y bottom
 
 # yt-dlp
-sudo dnf install yt-dlp
+sudo dnf install -y yt-dlp
 
 # yazi
-sudo dnf copr enable lihaohong/yazi && sudo dnf install yazi
+sudo dnf copr enable lihaohong/yazi && sudo dnf install -y yazi
 
 # rpi-imager
-sudo dnf install rpi-imager
+sudo dnf install -y rpi-imager
 
 # tigervnc
-sudo dnf install tigervnc
+sudo dnf install -y tigervnc
 
 # obs-studio
-sudo dnf install obs-studio
+sudo dnf install -y obs-studio
 
 # espanso
 sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf install espanso-wayland
+sudo dnf install -y espanso-wayland
 espanso service register
 espanso start
 
 # rclone
-sudo dnf install rclone
+sudo dnf install -y rclone
 
 # android-tools
-sudo dnf install android-tools
+sudo dnf install -y android-tools
 
 # github-cli
-sudo dnf install gh
+sudo dnf install -y gh
 
 # fish
-sudo dnf install fish && chsh -s /usr/bin/fish
+sudo dnf install -y fish && chsh -s /usr/bin/fish
 
 # minicom
-sudo dnf install minicom
+sudo dnf install -y minicom
 
 # daed
 sudo dnf copr enable zhullyb/v2rayA
-sudo dnf install daed
+sudo dnf install -y daed
 sudo systemctl enable --now daed
 
 # v2rayA
 sudo dnf copr enable zhullyb/v2rayA
-sudo dnf install v2ray v2raya
+sudo dnf install -y v2ray v2raya
 sudo systemctl enable --now v2raya
 
 # eza
-sudo dnf install eza
+sudo dnf install -y eza
 
 # arp-scan
-sudo dnf install arp-scan
+sudo dnf install -y arp-scan
 
 # sshfs
-sudo dnf install sshfs
+sudo dnf install -y sshfs
 
 # Screenshot and Clipboard
-sudo dnf install wl-clipboard grim slurp jq dunst
+sudo dnf install -y wl-clipboard grim slurp jq dunst
 ```
 
 # MacOS
