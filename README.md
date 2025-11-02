@@ -123,7 +123,7 @@ sudo dnf install openssh-server -y && sudo systemctl enable --now sshd
 # nodejs
 sudo dnf install nodejs
 
-# fcitx5
+# fcitx5 # Restart Required 
 sudo dnf install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons fcitx5-rime
 mkdir -p ~/.config/environment.d
 echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
@@ -131,7 +131,6 @@ echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
 echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
-sudo reboot
 
 # 7z
 sudo dnf install p7zip p7zip-plugins
