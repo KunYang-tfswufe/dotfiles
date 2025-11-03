@@ -79,6 +79,7 @@
 
 | URL                                                                                  | Description                                      |
 | ------------------------------------------------------------------------------------ | ------------------------------------------------ |
+| https://www.dropbox.com                                                              | dropbox配合沉浸式划词翻译阅读pdf                 |
 | https://www.techinterviewhandbook.org/grind75/                                       | grind75                                          |
 | https://space.bilibili.com/302188068?spm_id_from=333.337.0.0                         | 小白Debug                                        |
 | https://leetcode.com                                                                 | Leetcode                                         |
