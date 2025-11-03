@@ -27,7 +27,7 @@
 
 ## Done
 
-- [x] **阅读w3schools.com的Rust教程(英文版本)**
+- [x] **阅读w3schools.com的Rust教程.**
 
 ## AI Prompt Memo
 
