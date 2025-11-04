@@ -270,6 +270,9 @@ sudo yum list available | grep hashicorp
 sudo dnf -y install vagrant libvirt-devel
 mkdir ~/vagrant-alpine && vagrant init generic/alpine318
 vagrant plugin install vagrant-libvirt
+
+# dotfiles python server
+systemctl --user enable --now my-python-server.service
 ```
 
 # MacOS
