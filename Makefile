@@ -57,9 +57,8 @@ clean:
 	@echo "🗑️  Clean complete."
 
 upload:
-	@echo "==> Running all upload tasks (backup & sync)..."
-	@scripts/.local/bin/backup.sh
-	@scripts/.local/bin/sync-mypublic.sh
+	@echo "==> Running the combined upload script..."
+	@scripts/.local/bin/upload.sh
 	@echo "☁️  All upload tasks complete."
 
 help:
