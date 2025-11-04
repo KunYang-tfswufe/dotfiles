@@ -1,9 +1,0 @@
-[Unit]
-Description=Run MyPublic sync every 4 hours
-
-[Timer]
-OnCalendar=*-*-* 0/4:00:00
-Persistent=true
-
-[Install]
-WantedBy=timers.target

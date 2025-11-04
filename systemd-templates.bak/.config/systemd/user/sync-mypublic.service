@@ -1,6 +1,0 @@
-[Unit]
-Description=Sync MyPublic folder to the cloud (GDrive_2TB)
-
-[Service]
-Type=oneshot
-ExecStart=__HOME_DIR__/.local/bin/sync-mypublic.sh

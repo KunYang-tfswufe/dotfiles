@@ -1,6 +1,0 @@
-[Unit]
-Description=Backup dotfiles and Obsidian
-
-[Service]
-Type=oneshot
-ExecStart=__HOME_DIR__/.local/bin/backup.sh
