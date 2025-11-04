@@ -35,7 +35,6 @@ alias lla 'eza -la --icons --git --header'  # 'lla' 显示所有文件的长列�
 # 3. Tree 视图 (eza 的杀手级功能, 可替代 'tree' 命令)
 alias lt 'eza --tree'                       # 'lt' 以树状结构显示
 alias lta 'eza --tree -a'                   # 'lta' 显示包含隐藏文件的完整树状结构
-set -gx VISUAL nvim
 
 # =============================================================================
 #  CUSTOM FUNCTION: wl-copy with a specific terminal notification
