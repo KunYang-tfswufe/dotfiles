@@ -1,8 +1,5 @@
 # =============================================================================
-#  LOAD SENSITIVE ENVIRONMENT VARIABLES (e.g., API Keys)
-# =============================================================================
-# This block checks for a 'secrets.fish' file and sources it if it exists.
-# This file is intended for API keys and other secrets and should be in .gitignore.
+#  LOAD SENSITIVE ENVIRONMENT VARIABLES
 # =============================================================================
 if test -f ~/.config/fish/secrets.fish
     source ~/.config/fish/secrets.fish
@@ -12,194 +9,142 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-# --- Aliases & Environment Variables ---
+# =============================================================================
+#  ALIASES & ENVIRONMENT
+# =============================================================================
+set -gx EDITOR (command -v nvim)
+set -gx VISUAL (command -v nvim)
+
+fish_add_path $HOME/.local/bin
+
 alias cat 'bat --paging=never --style="plain"'
-# =============================================================================
-#  EZA Aliases (Modern replacement for 'ls')
-# =============================================================================
-# We're not just replacing ls, but enhancing it with eza's features.
-# These aliases provide useful defaults like icons, git integration, and headers.
-# -----------------------------------------------------------------------------
 
-# 1. 替换基础的 'ls' 命令
-#    --icons: 显示文件/目录图标 (需要 Nerd Font)
-#    --git:   显示文件的 Git 状态
+# --- EZA (ls replacement) Aliases ---
 alias ls 'eza --icons --git'
-
-# 2. 创建更实用、更常用的快捷方式
-alias l 'eza --icons --git'                 # 'l' 作为 'ls' 的快速版
-alias ll 'eza -l --icons --git --header'    # 'll' 显示长列表格式 (有表头)
-alias la 'eza -a --icons --git'             # 'la' 显示所有文件 (包括隐藏文件)
-alias lla 'eza -la --icons --git --header'  # 'lla' 显示所有文件的长列表格式
-
-# 3. Tree 视图 (eza 的杀手级功能, 可替代 'tree' 命令)
-alias lt 'eza --tree'                       # 'lt' 以树状结构显示
-alias lta 'eza --tree -a'                   # 'lta' 显示包含隐藏文件的完整树状结构
+alias l  'eza --icons --git'
+alias ll 'eza -l --icons --git --header'
+alias la 'eza -a --icons --git'
+alias lla 'eza -la --icons --git --header'
+alias lt 'eza --tree'
+alias lta 'eza --tree -a'
 
 # =============================================================================
-#  CUSTOM FUNCTION: wl-copy with a specific terminal notification
+#  UTILITY FUNCTIONS
 # =============================================================================
-# This function wraps 'wl-copy' for terminal-specific pipe operations.
-# It uses a backwards-compatible method to check for success.
-#
-# Usage: echo "some text" | copy
-# =============================================================================
-function copy --wraps wl-copy --description "Pipe content to wl-copy and send a terminal-specific notification"
-    # Execute the original wl-copy command
+
+# --- wl-copy wrapper with notification ---
+function copy --wraps wl-copy --description "Pipe to wl-copy and notify"
     command wl-copy $argv
-
-    # Check the exit status in a universally compatible way.
-    # If the exit code ($status) is 0, the command was successful.
     if test $status -eq 0
-        # Send a notification that clearly indicates the source is the terminal.
         notify-send -a "Terminal" -i "utilities-terminal" "复制成功 (来自终端)" "内容已通过管道命令保存"
     end
 end
 
-
-fish_add_path $HOME/.local/bin
-
-set -gx EDITOR (command -v nvim)
-set -gx VISUAL (command -v nvim)
-
 # =============================================================================
-#  基于 MAC 地址的设备快速连接函数 (V2.1 - 终端兼容性修正版)
+#  【核心重构】设备发现与连接
 # =============================================================================
-# 这个区块依赖于 ~/.local/bin/get-ip-by-mac.sh 脚本
-# -----------------------------------------------------------------------------
+# 原 get-ip-by-mac.sh 脚本已被整合为下面的 get_ip 函数。
+# 所有的设备连接函数现在都依赖于这个内部函数。
 
-# 函数 s_pi: 快速 SSH 连接到树莓派
-function s_pi --description "通过 MAC 地址发现并 SSH 连接到树莓派"
-    # 1. 调用脚本获取 IP，并将结果存入变量
-    set --local pi_ip (get-ip-by-mac.sh pi)
-
-    # 2. 检查命令是否成功 (如果 $status 不为 0，则说明失败)
-    if test $status -ne 0
-        echo "错误: 无法发现树莓派 IP. 请检查网络或 get-ip-by-mac.sh 脚本的日志。" >&2
-        return 1 # 以失败状态码退出函数
+# --- 主函数：通过 MAC 地址发现设备 IP ---
+# 这个函数是所有动态 IP 连接的基础。
+function get_ip --description "Discovers a device IP using its MAC address"
+    # 1. 检查依赖项
+    if not command -v arp-scan >/dev/null
+        echo "错误: 'arp-scan' 命令未找到。请先安装 (e.g., sudo dnf install arp-scan)" >&2
+        return 1
     end
 
-    # 3. 如果成功, 执行连接命令
-    echo "==> 发现树莓派 IP: $pi_ip, 正在连接..."
-    TERM=xterm-256color ssh "pi@$pi_ip"
+    # 2. 定义设备-MAC地址映射
+    #    【请务必修改为您自己的 MAC 地址！】
+    set --local device_alias $argv[1]
+    set --local mac_address
+    switch $device_alias
+        case 'pi'
+            # 示例 MAC 地址，替换为您树莓派的真实地址
+            set mac_address 'B8:27:EB:XX:XX:XX'
+        # case 'another_device' # 您可以在这里添加更多设备
+        #     set mac_address '...'
+        case '*'
+            echo "错误: 未知的设备别名 '$device_alias'。请在 get_ip 函数中添加它。" >&2
+            return 1
+    end
+
+    # 3. 扫描网络并提取 IP
+    #    注意：arp-scan 通常需要 root 权限。您可能需要配置无密码 sudo。
+    #    (e.g., sudo visudo -> your_user ALL=(ALL) NOPASSWD: /usr/sbin/arp-scan)
+    echo "==> 正在使用 MAC [$mac_address] 扫描 '$device_alias'..."
+    set --local ip (sudo arp-scan -l | string match -ir $mac_address | awk '{print $1}')
+
+    # 4. 检查结果并返回
+    if test -z "$ip"
+        echo "错误: 未能在网络上找到设备 '$device_alias'。" >&2
+        return 1
+    end
+
+    echo $ip # 成功时，将 IP 输出到 stdout
 end
 
-# 函数 f_pi: 快速用 sshfs 挂载树莓派
-function f_pi --description "通过 MAC 地址发现并挂载树莓派文件系统"
-    # 1. 确保挂载点存在
+
+# --- 【简化】连接树莓派的系列函数 ---
+# 这些函数现在都调用内部的 get_ip 函数，代码更简洁统一。
+
+function s_pi --description "SSH to Raspberry Pi"
+    if set --local pi_ip (get_ip pi)
+        echo "==> 发现树莓派 IP: $pi_ip, 正在连接..."
+        TERM=xterm-256color ssh "pi@$pi_ip"
+    else
+        return 1 # get_ip 已经打印了错误信息
+    end
+end
+
+function f_pi --description "Mount Raspberry Pi via sshfs"
     mkdir -p ~/mnt_points/pi_mnt_point
-
-    # 2. 调用脚本获取 IP
-    set --local pi_ip (get-ip-by-mac.sh pi)
-
-    # 3. 检查命令是否成功
-    if test $status -ne 0
-        echo "错误: 无法发现树莓派 IP. 挂载失败。" >&2
-        return 1
-    end
-
-    # 4. 执行挂载命令
-    echo "==> 发现树莓派 IP: $pi_ip, 正在挂载到 ~/mnt_points/pi_mnt_point/..."
-    sshfs "pi@$pi_ip": ~/mnt_points/pi_mnt_point/
-
-    # 检查挂载是否成功
-    if test $status -eq 0
-        echo "✅ 成功! 树莓派已挂载。"
+    if set --local pi_ip (get_ip pi)
+        echo "==> 发现树莓派 IP: $pi_ip, 正在挂载..."
+        sshfs "pi@$pi_ip": ~/mnt_points/pi_mnt_point/
+        if test $status -eq 0; echo "✅ 成功! 树莓派已挂载。"; else; echo "❌ 错误: sshfs 挂载失败。" >&2; end
     else
-        echo "❌ 错误: sshfs 挂载失败。" >&2
+        return 1
     end
 end
 
-# =============================================================================
-#  为树莓派添加 VNC 远程桌面连接函数
-# =============================================================================
-# 这个函数依赖于 TigerVNC (vncviewer) 客户端
-# -----------------------------------------------------------------------------
-
-function vnc_pi --description "通过 MAC 地址发现并 VNC 连接到树莓派桌面"
-    # 1. 前置检查与提醒，保持用户体验一致
-    set_color yellow
-    echo "-------------------- [VNC 连接前置检查] --------------------"
-    echo "  - 电脑端: 确保已安装 VNC 客户端 (如: sudo pacman -S tigervnc)。"
-    echo "  - 树莓派端: 确保已通过 'sudo raspi-config' 启用 VNC 服务。"
-    echo "------------------------------------------------------------"
-    set_color normal
-    read --prompt-str "确认完成后, 请按 Enter键 继续连接 (按 Ctrl+C 取消)..."
+function vnc_pi --description "VNC to Raspberry Pi"
+    echo "提示: 请确保树莓派已启用 VNC 服务，并且您已安装 vncviewer (tigervnc)。"
+    read --prompt-str "按 Enter 继续, Ctrl+C 取消..."
     echo ""
-
-    # 2. 调用您现有的脚本获取 IP
-    echo "正在网络中扫描树莓派..."
-    set --local pi_ip (get-ip-by-mac.sh pi)
-
-    # 3. 检查 IP 获取是否成功
-    if test $status -ne 0
-        echo "错误: 无法发现树莓派 IP. VNC 连接失败。" >&2
-        return 1
-    end
-
-    # 4. 执行 VNC 连接命令
-    echo "==> 发现树莓派 IP: $pi_ip, 正在启动 VNC 查看器..."
-    # 使用 '&' 将 vncviewer 进程放到后台运行，这样它就不会阻塞你的终端
-    vncviewer $pi_ip &
-
-    # 5. 检查 vncviewer 是否成功启动
-    if test $status -eq 0
-        echo "✅ VNC 客户端已启动。请在弹出的窗口中输入用户名和密码。"
+    if set --local pi_ip (get_ip pi)
+        echo "==> 发现树莓派 IP: $pi_ip, 正在启动 VNC 查看器..."
+        vncviewer $pi_ip &
+        if test $status -eq 0; echo "✅ VNC 客户端已启动。"; else; echo "❌ 错误: 启动 vncviewer 失败。" >&2; end
     else
-        echo "❌ 错误: 启动 vncviewer 失败。请检查 'tigervnc' 是否已正确安装。" >&2
+        return 1
     end
 end
 
 
-# =============================================================================
-#  为手机添加的 SSH 连接函数 (V4 - 终极版，包含 MAC 地址设置提醒)
-# =============================================================================
+# --- 【保留】连接手机的系列函数（静态IP）---
+# 由于手机使用静态IP，其逻辑保持不变，因为它们不依赖于 MAC 地址发现。
 
-# 函数 s_phone1: 通过静态 IP 连接到手机1 (Termux)
-function s_phone1 --description "通过静态 IP (9.9.9.9) 连接到手机1"
-    set_color yellow
-    echo "提醒: 确保手机1已启动 Termux SSH 服务 (sshd)。"
-    set_color normal
-    read --prompt-str "确认后按 Enter 连接 (Ctrl+C 取消)..."
-
-    # 由于手机1已设置静态IP, 直接连接
-    echo "" # 添加空行，格式更美观
-    echo "==> 直接连接到静态IP: 9.9.9.9, 端口: 8022..."
+function s_phone1 --description "SSH to Phone 1 (Static IP)"
+    read --prompt-str "确保手机 Termux 的 sshd 已启动。按 Enter 连接..."
+    echo ""
     ssh -p 8022 "9.9.9.9"
 end
 
-# =============================================================================
-#  为手机添加的 SSHFS 挂载函数 (基于 V4 连接函数)
-# =============================================================================
-
-# 函数 f_phone1: 通过静态 IP 挂载手机1的文件系统
-function f_phone1 --description "通过静态 IP (9.9.9.9) 挂载手机1 (Termux)"
-    # 1. 确保挂载点存在
+function f_phone1 --description "Mount Phone 1 via sshfs"
     mkdir -p ~/mnt_points/phone1_mnt
-
-    set_color yellow
-    echo "提醒: 确保手机1已启动 Termux SSH 服务 (sshd)。"
-    set_color normal
-    read --prompt-str "确认后按 Enter 挂载 (Ctrl+C 取消)..."
+    read --prompt-str "确保手机 Termux 的 sshd 已启动。按 Enter 挂载..."
     echo ""
-
-    # 2. 执行挂载命令, 注意端口号和远程路径
-    echo "==> 连接到静态IP: 9.9.9.9, 端口: 8022, 正在挂载到 ~/mnt_points/phone1_mnt/..."
-    # Termux 的主目录完整路径为 /data/data/com.termux/files/home
     sshfs -p 8022 "9.9.9.9:/data/data/com.termux/files/home" ~/mnt_points/phone1_mnt
-
-    # 3. 检查挂载是否成功
-    if test $status -eq 0
-        echo "✅ 成功! 手机1已挂载。"
-    else
-        echo "❌ 错误: sshfs 挂载失败。请检查连接或sshd服务。" >&2
-    end
+    if test $status -eq 0; echo "✅ 成功! 手机1已挂载。"; else; echo "❌ 错误: sshfs 挂载失败。" >&2; end
 end
 
 
-# 函数 u_all: 卸载所有已挂载的设备
-function u_all --description "卸载所有自定义挂载点 (pi, phone1)"
-    echo "正在尝试卸载挂载点..."
+# --- 【保留】通用卸载函数 ---
+
+function u_all --description "Unmount all custom mount points"
+    echo "正在尝试卸载..."
     fusermount -u ~/mnt_points/pi_mnt_point 2>/dev/null && echo "✓ 树莓派已卸载" || echo "树莓派未挂载或卸载失败"
     fusermount -u ~/mnt_points/phone1_mnt 2>/dev/null && echo "✓ 手机1已卸载" || echo "手机1未挂载或卸载失败"
 end
