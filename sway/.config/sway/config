@@ -44,7 +44,7 @@ exec firefox
 # 1. 启动 Ghostty
 exec ghostty -e zellij
 
-exec ~/.local/bin/clip-history.sh
+exec $HOME/.local/bin/clip-history.sh
 # 2. 匹配 app_id 为 com.mitchellh.ghostty 的窗口，并将其移动到暂存区
 for_window [app_id="com.mitchellh.ghostty"] move scratchpad
 
@@ -245,7 +245,7 @@ bindsym $mod+Control+p exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(
 
 # 快捷键: Mod + m
 # 功能: 启动/播放音乐
-bindsym $mod+m exec ~/.local/bin/play-music.sh
+bindsym $mod+m exec $HOME/.local/bin/play-music.sh
 
 # 快捷键: Mod + Shift + m
 # 功能: 停止音乐 (使用 Shift 组合键，作为播放的关联操作)
