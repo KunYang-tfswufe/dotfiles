@@ -43,6 +43,8 @@ ignored_dirs=(
     "Debug"      # Contains compiled binaries and object files (.o, .elf)
     "Drivers"    # Contains ST's standard HAL/CMSIS library files
     ".settings"  # Contains local IDE workspace settings
+    "lib"
+    "bin"
 )
 
 # 2. List of files to ignore by default (full filenames or wildcards)
