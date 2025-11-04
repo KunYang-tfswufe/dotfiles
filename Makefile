@@ -1,11 +1,11 @@
 # =============================================================================
-# Makefile for dotfiles (V6.0 - Ultra-Concise)
+# Makefile for dotfiles (V7.0 - Final & Pure)
 # =============================================================================
 
 PACKAGES       := nvim scripts espanso fish sway zellij systemd
 SYSTEMD_UNITS  := $(notdir $(wildcard systemd/.config/systemd/user/*.service systemd/.config/systemd/user/*.timer))
 
-.PHONY: all install clean backup sync help
+.PHONY: all install clean upload help
 
 all: install
 
@@ -23,12 +23,15 @@ clean:
 	@stow --delete --target=$(HOME) $(PACKAGES)
 	@echo "🗑️  Clean complete."
 
-backup: ; @scripts/.local/bin/backup.sh
-sync:   ; @scripts/.local/bin/sync-mypublic.sh
+upload:
+	@echo "==> Running all upload tasks (backup & sync)..."
+	@scripts/.local/bin/backup.sh
+	@scripts/.local/bin/sync-mypublic.sh
+	@echo "☁️  All upload tasks complete."
 
 help:
 	@echo "Usage: make [target]"
 	@echo "  install - Link files, set permissions, enable systemd units."
 	@echo "  clean   - Disable systemd units and unlink all files."
-	@echo "  backup  - Run the snapshot backup script."
-	@echo "  sync    - Run the MyPublic sync script."
+	@echo "  upload  - Run all upload tasks (dotfiles backup + MyPublic sync)."
+	@echo "  help    - Show this help message."
