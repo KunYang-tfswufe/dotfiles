@@ -168,33 +168,6 @@ function s_phone1 --description "通过静态 IP (9.9.9.9) 连接到手机1"
     ssh -p 8022 "9.9.9.9"
 end
 
-# 函数 s_phone2: 快速 SSH 连接到手机2 (Termux)
-function s_phone2 --description "提醒后通过 MAC 地址发现并 SSH 连接到手机2 (Termux)"
-    set_color yellow
-    echo "----------------------- [首次设置检查清单] -----------------------"
-    echo "请在安卓手机上, 确保对当前Wi-Fi热点网络已完成以下操作:"
-    echo "  1. 【关键】关闭MAC地址随机化: Wi-Fi设置 -> 高级 -> MAC地址类型 -> 使用设备MAC。"
-    echo "     (注意: 这可能会改变手机的MAC地址，需要您更新 get-ip-by-mac.sh 脚本!)"
-    echo "  2. 【启动】在 Termux 中运行 'sshd' 命令来启动 SSH 服务。"
-    echo "  3. 【密码】(如果首次使用) 运行 'passwd' 命令来设置连接密码。"
-    echo "-----------------------------------------------------------------"
-    set_color normal
-
-    read --prompt-str "确认完成后, 请按 Enter键 继续连接 (按 Ctrl+C 取消)..."
-    echo ""
-    echo "好的, 正在网络中扫描手机2..."
-
-    set --local phone2_ip (get-ip-by-mac.sh phone2)
-    if test $status -ne 0
-        echo "错误: 无法发现手机2的 IP 地址。" >&2
-        return 1
-    end
-
-    echo "==> 发现手机2 IP: $phone2_ip, 正在连接 (Termux)..."
-    ssh -p 8022 "$phone2_ip"
-end
-
-
 # =============================================================================
 #  为手机添加的 SSHFS 挂载函数 (基于 V4 连接函数)
 # =============================================================================
@@ -223,50 +196,10 @@ function f_phone1 --description "通过静态 IP (9.9.9.9) 挂载手机1 (Termux
     end
 end
 
-# 函数 f_phone2: 通过 MAC 地址发现并挂载手机2的文件系统
-function f_phone2 --description "通过 MAC 地址发现并挂载手机2 (Termux)"
-    # 1. 确保挂载点存在
-    mkdir -p ~/mnt_points/phone2_mnt
-
-    # 2. 调用 s_phone2 函数中的同款提示，保持用户体验一致
-    set_color yellow
-    echo "----------------------- [挂载前检查清单] -----------------------"
-    echo "请在安卓手机上, 确保对当前Wi-Fi热点网络已完成以下操作:"
-    echo "  1. 【关键】关闭MAC地址随机化 -> 使用设备MAC。"
-    echo "  2. 【启动】在 Termux 中运行 'sshd' 命令来启动 SSH 服务。"
-    echo "----------------------------------------------------------------"
-    set_color normal
-    read --prompt-str "确认完成后, 请按 Enter键 继续挂载 (按 Ctrl+C 取消)..."
-    echo ""
-
-    # 3. 调用脚本获取 IP
-    echo "正在网络中扫描手机2..."
-    set --local phone2_ip (get-ip-by-mac.sh phone2)
-
-    # 4. 检查命令是否成功
-    if test $status -ne 0
-        echo "错误: 无法发现手机2的 IP 地址。挂载失败。" >&2
-        return 1
-    end
-
-    # 5. 执行挂载命令, 注意端口号和远程路径
-    echo "==> 发现手机2 IP: $phone2_ip, 正在挂载到 ~/mnt_points/phone2_mnt/..."
-    sshfs -p 8022 "$phone2_ip:/data/data/com.termux/files/home" ~/mnt_points/phone2_mnt
-
-    # 6. 检查挂载是否成功
-    if test $status -eq 0
-        echo "✅ 成功! 手机2已挂载。"
-    else
-        echo "❌ 错误: sshfs 挂载失败。" >&2
-    end
-end
-
 
 # 函数 u_all: 卸载所有已挂载的设备
-function u_all --description "卸载所有自定义挂载点 (pi, phone1, phone2)"
+function u_all --description "卸载所有自定义挂载点 (pi, phone1)"
     echo "正在尝试卸载挂载点..."
     fusermount -u ~/mnt_points/pi_mnt_point 2>/dev/null && echo "✓ 树莓派已卸载" || echo "树莓派未挂载或卸载失败"
     fusermount -u ~/mnt_points/phone1_mnt 2>/dev/null && echo "✓ 手机1已卸载" || echo "手机1未挂载或卸载失败"
-    fusermount -u ~/mnt_points/phone2_mnt 2>/dev/null && echo "✓ 手机2已卸载" || echo "手机2未挂载或卸载失败"
 end
-
