@@ -39,7 +39,7 @@ systemd-user:
 	@echo "--> Reloading and enabling all USER Systemd units..."
 	@systemctl --user daemon-reload
 	# REMOVED: espanso.service is no longer managed here
-	@systemctl --user enable --now dotfiles-backup.timer sync-mypublic.timer python-http.service
+	@systemctl --user enable --now dotfiles-backup.timer sync-mypublic.timer
 
 backup:
 	@echo "--> Manually running snapshot backup..."
@@ -58,7 +58,7 @@ clean:
 	@echo "--> Cleaning up systemd units and unstowing packages..."
 	@echo "    - Cleaning user units..."
 	# REMOVED: espanso.service is no longer managed here
-	@systemctl --user disable --now dotfiles-backup.timer sync-mypublic.timer python-http.service || true
+	@systemctl --user disable --now dotfiles-backup.timer sync-mypublic.timer || true
 	@for template in $(SYSTEMD_UNITS_SRC)/*; do \
 		if [ -f "$$template" ]; then \
 			target_name=$$(basename "$$template"); \
