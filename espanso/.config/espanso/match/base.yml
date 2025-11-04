@@ -90,14 +90,6 @@ matches:
       https://drive.google.com/drive/folders/1U46jERIFY25-1hxfParl98OS_hX1Yy1O?usp=sharing
       https://drive.google.com/drive/folders/1lKNv9XEShpdI4W-7v7R8RCiDcBEMaQRx?usp=sharing
 
-  - trigger: "`terminal"
-    replace: |-
-      http://localhost:9090/system/terminal
-
-  - trigger: "`proxy"
-    replace: |-
-      http://localhost:9999/ui
-
   - trigger: "`lc"
     replace: |-
       https://www.techinterviewhandbook.org/grind75/
