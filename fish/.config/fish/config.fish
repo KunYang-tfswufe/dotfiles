@@ -63,14 +63,6 @@ fish_add_path $HOME/.local/bin
 set -gx EDITOR (command -v nvim)
 set -gx VISUAL (command -v nvim)
 
-# 设置 Android SDK 的根目录
-set -x ANDROID_SDK_ROOT "/opt/android-sdk"
-set -x ANDROID_AVD_HOME "$HOME/.android/avd"
-fish_add_path $ANDROID_SDK_ROOT/cmdline-tools/latest/bin
-fish_add_path $ANDROID_SDK_ROOT/platform-tools
-fish_add_path $ANDROID_SDK_ROOT/emulator
-fish_add_path ~/.npm-global/bin
-
 # =============================================================================
 #  基于 MAC 地址的设备快速连接函数 (V2.1 - 终端兼容性修正版)
 # =============================================================================
