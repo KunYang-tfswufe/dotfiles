@@ -60,9 +60,7 @@ matches:
   # matches for frequently used links
   - trigger: "`urls"
     replace: |-
-      https://drive.proton.me/urls/230JZ1KRKR#BIKV6xMH1y8x
-      https://drive.google.com/drive/folders/1U46jERIFY25-1hxfParl98OS_hX1Yy1O?usp=sharing
-      https://drive.google.com/drive/folders/1lKNv9XEShpdI4W-7v7R8RCiDcBEMaQRx?usp=sharing
+      https://drive.proton.me/urls/AD7NJKF8X4#zgRbOsQMqZcp
 
   - trigger: "`lc"
     replace: |-
