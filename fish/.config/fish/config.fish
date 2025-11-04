@@ -62,7 +62,7 @@ function get_ip --description "Discovers a device IP using its MAC address"
     switch $device_alias
         case 'pi'
             # 示例 MAC 地址，替换为您树莓派的真实地址
-            set mac_address 'B8:27:EB:XX:XX:XX'
+            set mac_address 'd8:3a:dd:7e:c5:dc'
         # case 'another_device' # 您可以在这里添加更多设备
         #     set mac_address '...'
         case '*'
