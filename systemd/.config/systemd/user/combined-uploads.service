@@ -1,0 +1,7 @@
+[Unit]
+Description=Run combined backup and sync tasks
+
+[Service]
+Type=oneshot
+# %h 会自动替换为你的家目录
+ExecStart=%h/.local/bin/upload.sh

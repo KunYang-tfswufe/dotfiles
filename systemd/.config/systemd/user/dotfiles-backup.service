@@ -1,7 +1,0 @@
-[Unit]
-Description=Backup dotfiles using local script
-
-[Service]
-Type=oneshot
-# %h 会自动替换为你的家目录, e.g., /home/imak
-ExecStart=%h/.local/bin/backup.sh

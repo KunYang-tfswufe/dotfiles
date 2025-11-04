@@ -1,7 +1,8 @@
 [Unit]
-Description=Run MyPublic sync every 4 hours
+Description=Run combined backup and sync every 4 hours
 
 [Timer]
+# The schedule remains the same
 OnCalendar=*-*-* 0/4:00:00
 Persistent=true
 
