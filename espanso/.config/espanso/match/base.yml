@@ -57,8 +57,7 @@ matches:
       - name: "clipb"
         type: "clipboard"
 
-  # matches for frequently used links
-  - trigger: "`urls"
+  - trigger: "`drive"
     replace: |-
       https://drive.proton.me/urls/AD7NJKF8X4#zgRbOsQMqZcp
 
