@@ -68,6 +68,8 @@
 | 另一个杀手级的科学上网共享方式LineageOS的wifi热点设置自带的VPN分享                 | https://www.lineageos.org                                              |
 | 可以考虑GPU租用平台学习AI绘图,体验MC光追,租用H100学习LLM,p2p散户出租平台有H100 --> | https://vast.ai                                                        |
 
+## 书签
+
 - [最小化bilibili](https://addons.mozilla.org/firefox/addon/minimal-bilibili)
 - [bilibili英文可以降低b站的体验防上瘾,顺便学习英语](https://addons.mozilla.org/firefox/addon/bilibili-to-english/)
 - [强大的广告拦截器](https://addons.mozilla.org/firefox/addon/adguard-adblocker/)
