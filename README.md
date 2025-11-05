@@ -2,28 +2,28 @@
 
 ### Running
 
-- [ ] 英语4级备考 (目标：2025年12月考试)
-- [ ] 毕业设计：藏红花培育系统.
-- [ ] 技术能力提升 (主攻后端，备战实习/秋招)
+- [英语4级备考 (目标：2025年12月考试)]
+- [毕业设计：藏红花培育系统.]
+- [技术能力提升 (主攻后端，备战实习/秋招)]
 
 ### Waiting
 
-- [ ] 实现docker安装 代理软件/openwrt,科学上网.https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26
-- [ ] 学习 macOS [基础教程](https://edu.gcfglobal.org/en/macosbasics)
-- [ ] 学习 Email [基础知识](https://edu.gcfglobal.org/en/topics/emailbasics)
-- [ ] 完成Grind75(一个精选的LeetCode题集)https://www.techinterviewhandbook.org/grind75/
-- [ ] 观看优秀的spring boot教程:https://www.youtube.com/watch?v=gJrjgg1KVL4
-- [ ] 观看优秀的技术栈up主的教程:https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click
-- [ ] GeekHour的编程教程https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click
-- [ ] 存钱预计9000元用作求职基金,并且找工作期间每天3小时游戏搬砖延长求职时间和破产
-- [ ] 阅读w3schools.com的DSA教程(英文版本)
-- [ ] 学会HiddifyCli的使用,以便在linux翻墙
-- [ ] 购买ThinkpadX220,并学习更换硬件为以后Build PC做过渡学习:https://item.taobao.com/item.htm?id=599252629780&mi_id=00001SxoqYbsbleYCgKnwDevBIhHJ8qw14GlspulM0dwdaQ&spm=tbpc.mytb_itemcollect.item.goods&upStreamPrice=29800&sku_properties=20105%3A18190580%3B20122%3A20213
-- [ ] 玩PVE虚拟机在我的dell笔记本上面安装,实现ALL in One,然后将我的Thinkpadx220作为我的主力操作系统并采用archlinux.
-- [ ] 出售我的dell g5 15 5500,redmi 14C,建议加上验货宝,购买一款二手的macbook(建议闲鱼严选,转转价格略高,淘宝质量没有保证),购买一台pixel 2xl,购买一台iphone6s plus在闲鱼严选电池健康度>95%成色无所谓,购买Thinkpad x220.
-- [ ] 玩转炒股模拟器，挖矿模拟器.
-- [ ] 尝试openai浏览器https://chatgpt.com/atlas
-- [ ] 考雅思
+- [实现docker安装 代理软件/openwrt,科学上网.](https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26)
+- [学习 macOS 基础教程](https://edu.gcfglobal.org/en/macosbasics)
+- [学习 Email 基础知识](https://edu.gcfglobal.org/en/topics/emailbasics)
+- [完成Grind75一个精选的LeetCode题集](https://www.techinterviewhandbook.org/grind75/)
+- [观看优秀的spring boot教程:https://www.youtube.com/watch?v=gJrjgg1KVL4]
+- [观看优秀的技术栈up主的教程:https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click]
+- [GeekHour的编程教程https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click]
+- [存钱预计9000元用作求职基金,并且找工作期间每天3小时游戏搬砖延长求职时间和破产]
+- [阅读w3schools.com的DSA教程(英文版本)]
+- [学会HiddifyCli的使用,以便在linux翻墙]
+- [购买ThinkpadX220,并学习更换硬件为以后Build PC做过渡学习:https://item.taobao.com/item.htm?id=599252629780&mi_id=00001SxoqYbsbleYCgKnwDevBIhHJ8qw14GlspulM0dwdaQ&spm=tbpc.mytb_itemcollect.item.goods&upStreamPrice=29800&sku_properties=20105%3A18190580%3B20122%3A20213]
+- [玩PVE虚拟机在我的dell笔记本上面安装,实现ALL in One,然后将我的Thinkpadx220作为我的主力操作系统并采用archlinux.]
+- [出售我的dell g5 15 5500,redmi 14C,建议加上验货宝,购买一款二手的macbook(建议闲鱼严选,转转价格略高,淘宝质量没有保证),购买一台pixel 2xl,购买一台iphone6s plus在闲鱼严选电池健康度>95%成色无所谓,购买Thinkpad x220.]
+- [玩转炒股模拟器，挖矿模拟器.]
+- [尝试openai浏览器https://chatgpt.com/atlas]
+- [考雅思]
 
 ## AI Prompt Memo
 
