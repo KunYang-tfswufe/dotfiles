@@ -8,7 +8,7 @@
 
 ### Waiting
 
-- [食品,车,手机电脑用非国产,注重食品交通信息安全,其他可以考虑国产]
+- [食品例如无糖可乐或者纯净水,车,手机电脑用非国产,注重食品交通信息安全,其他可以考虑国产]
 - [docker代理容器](https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26)
 - [学习macOS基础](https://edu.gcfglobal.org/en/macosbasics)
 - [学习Email基础](https://edu.gcfglobal.org/en/topics/emailbasics)
