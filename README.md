@@ -11,8 +11,8 @@
 - [实现docker安装 代理软件/openwrt,科学上网.](https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26)
 - [学习macOS基础教程](https://edu.gcfglobal.org/en/macosbasics)
 - [学习Email基础知识](https://edu.gcfglobal.org/en/topics/emailbasics)
-- [完成Grind75](https://www.techinterviewhandbook.org/grind75)
-- [观看优秀的spring boot教程](https://www.youtube.com/watch?v=gJrjgg1KVL4)
+- [完成Grind75](https://techinterviewhandbook.org/grind75)
+- [观看优秀的spring boot教程](https://youtube.com/watch?v=gJrjgg1KVL4)
 - [观看优秀的技术栈up主的教程](https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click)
 - [GeekHour的编程教程](https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click)
 - [存钱预计9000元用作求职基金]
@@ -46,19 +46,19 @@
 - [闲鱼kiro激活码](https://m.tb.cn/h.Sd3S03k?tk=bfal4FnIW70)
 - [闲鱼美国教育邮箱,可过gemini,cursor,jetbrains](https://m.tb.cn/h.SdJIkAL?tk=qX8J4FOM7eI)
 - [乐乐课堂](https://pan.baidu.com/s/1Gltyjb9UaBmG7RWEhHupRw?pwd=6z4c)
-- [使用便宜非国产二手机例如pixel 2xl做tiktok运营](https://www.youtube.com/watch?v=CzVcG6GfuPk)
+- [使用便宜非国产二手机例如pixel 2xl做tiktok运营](https://youtube.com/watch?v=CzVcG6GfuPk)
 - [CET4/6真题](https://pan.baidu.com/share/init?surl=_L6y0xqAq_npuLKYmB_Wmg&pwd=x6tq)
 - [java真实简历](https://pan.baidu.com/s/1RmYOx8E2dYdyyjDiCUyw6Q?pwd=6688#list/path=%2F)
 - [教育邮箱购买](https://shop.edumails.org)
 - [代订阅服务与共享订阅账户平台](https://sorryios.com)
 - [次世代合租平台](https://nf.video)
-- [野卡-虚拟信用卡服务](https://www.yeka.ai)
+- [野卡-虚拟信用卡服务](https://yeka.ai)
 - [校招信息差弥补以及收集的官方岗位列表](https://offer.gfjianli.com)
 - [虚拟号码接码平台](https://sms-activate.org)
 - [mitce机场](https://mitce.net)
 - [nb机场](https://6.66jc.top)
 - [杀手级的科学上网共享方式VPNHotspot需要root](https://github.com/Mygod/VPNHotspot)
-- [另一个杀手级的科学上网共享方式LineageOS的wifi热点设置自带的VPN分享](https://www.lineageos.org)
+- [另一个杀手级的科学上网共享方式LineageOS的wifi热点设置自带的VPN分享](https://lineageos.org)
 - [可以考虑GPU租用平台学习AI绘图,体验MC光追,租用H100学习LLM,p2p散户出租平台有H100 -->](https://vast.ai)
 
 ## 书签
@@ -86,7 +86,6 @@
 - [WeActStudio](https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1)
 - [Leetcode](https://leetcode.com)
 - [小白Debug](https://space.bilibili.com/302188068?spm_id_from=333.337.0.0)
-- [grind75](https://www.techinterviewhandbook.org/grind75)
 
 # Fedora
 
