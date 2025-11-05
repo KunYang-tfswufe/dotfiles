@@ -9,13 +9,13 @@
 ### Waiting
 
 - [实现docker安装 代理软件/openwrt,科学上网.](https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26)
-- [学习 macOS 基础教程](https://edu.gcfglobal.org/en/macosbasics)
-- [学习 Email 基础知识](https://edu.gcfglobal.org/en/topics/emailbasics)
-- [完成Grind75一个精选的LeetCode题集](https://www.techinterviewhandbook.org/grind75)
+- [学习macOS基础教程](https://edu.gcfglobal.org/en/macosbasics)
+- [学习Email基础知识](https://edu.gcfglobal.org/en/topics/emailbasics)
+- [完成Grind75](https://www.techinterviewhandbook.org/grind75)
 - [观看优秀的spring boot教程](https://www.youtube.com/watch?v=gJrjgg1KVL4)
 - [观看优秀的技术栈up主的教程](https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click)
 - [GeekHour的编程教程](https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click)
-- [存钱预计9000元用作求职基金,并且找工作期间每天3小时游戏搬砖延长求职时间和破产]
+- [存钱预计9000元用作求职基金]
 - [阅读w3schools.com的DSA教程(英文版本)]
 - [学会HiddifyCli的使用,以便在linux翻墙]
 - [购买ThinkpadX220,并学习更换硬件为以后Build PC做过渡学习](https://item.taobao.com/item.htm?id=599252629780&mi_id=00001SxoqYbsbleYCgKnwDevBIhHJ8qw14GlspulM0dwdaQ&spm=tbpc.mytb_itemcollect.item.goods&upStreamPrice=29800&sku_properties=20105%3A18190580%3B20122%3A20213)
@@ -24,6 +24,7 @@
 - [玩转炒股模拟器，挖矿模拟器.]
 - [尝试openai浏览器](https://chatgpt.com/atlas)
 - [考雅思]
+- [学习游戏搬砖]
 
 ## AI Prompt Memo
 
