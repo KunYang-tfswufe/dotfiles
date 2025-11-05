@@ -226,9 +226,6 @@ sudo dnf -y install android-tools
 # github-cli
 sudo dnf -y install gh
 
-# fish
-sudo dnf -y install fish && chsh -s /usr/bin/fish
-
 # minicom
 sudo dnf -y install minicom
 
@@ -263,6 +260,9 @@ vagrant plugin install vagrant-libvirt
 
 # dotfiles python server
 systemctl --user enable --now my-python-server.service
+
+# fish
+sudo dnf -y install fish && chsh -s /usr/bin/fish
 ```
 
 # MacOS
