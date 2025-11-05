@@ -19,8 +19,8 @@
 - [阅读w3schools.com的DSA教程(英文版本)]
 - [学会HiddifyCli的使用,以便在linux翻墙]
 - [购买ThinkpadX220,并学习更换硬件为以后Build PC做过渡学习](https://item.taobao.com/item.htm?id=599252629780&mi_id=00001SxoqYbsbleYCgKnwDevBIhHJ8qw14GlspulM0dwdaQ&spm=tbpc.mytb_itemcollect.item.goods&upStreamPrice=29800&sku_properties=20105%3A18190580%3B20122%3A20213)
-- [玩PVE虚拟机在我的dell笔记本上面安装,实现ALL in One,然后将我的Thinkpadx220作为我的主力操作系统并采用archlinux.]
-- [出售我的redmi 14C,购买Thinkpad x220]
+- [玩PVE虚拟机]
+- [出售我的二手闲置物品例如手机]
 - [玩转炒股模拟器，挖矿模拟器.]
 - [尝试openai浏览器](https://chatgpt.com/atlas)
 - [考雅思]
