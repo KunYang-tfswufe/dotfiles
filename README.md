@@ -64,7 +64,7 @@
 ## 书签
 
 - [最小化bilibili](https://addons.mozilla.org/firefox/addon/minimal-bilibili)
-- [bilibili英文可以降低b站的体验防上瘾,顺便学习英语](https://addons.mozilla.org/firefox/addon/bilibili-to-english)
+- [bilibili英文版本](https://addons.mozilla.org/firefox/addon/bilibili-to-english)
 - [广告拦截器](https://addons.mozilla.org/firefox/addon/adguard-adblocker)
 - [隐藏YouTube分散注意力的元素](https://addons.mozilla.org/firefox/addon/youtube-recommended-videos)
 - [流畅翻译](https://addons.mozilla.org/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB)
