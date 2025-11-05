@@ -97,10 +97,6 @@
 | https://addons.mozilla.org/firefox/addon/bilibili-to-english/                        | bilibili英文可以降低b站的体验防上瘾,顺便学习英语 |
 
 - [最小化bilibili](https://addons.mozilla.org/firefox/addon/minimal-bilibili)
-- [SwiftChat (macOS with ReactNative)](https://github.com/aws-samples/swift-chat)
-- [Enchanted (macOS native)](https://github.com/AugustDev/enchanted)
-- [Hollama](https://github.com/fmaclen/hollama)
-- [Lollms-Webui](https://github.com/ParisNeo/lollms-webui)
 
 # Fedora
 
