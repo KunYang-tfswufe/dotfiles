@@ -71,7 +71,7 @@
 - [全站暗色模式](https://addons.mozilla.org/firefox/addon/darkreader)
 - [browser-use](https://github.com/browser-use/browser-use)
 - [ollama](https://github.com/ollama/ollama)
-- [路由器/嵌入式 Linux 系统](https://github.com/openwrt)
+- [openwrt](https://github.com/openwrt)
 - [GTNH](https://github.com/GTNewHorizons)
 - [GitHub排名](https://github.com/EvanLi/Github-Ranking)
 - [Pixel Magisk VoTEL 模块](https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel)
