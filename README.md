@@ -11,7 +11,7 @@
 - [实现docker安装 代理软件/openwrt,科学上网.](https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26)
 - [学习 macOS 基础教程](https://edu.gcfglobal.org/en/macosbasics)
 - [学习 Email 基础知识](https://edu.gcfglobal.org/en/topics/emailbasics)
-- [完成Grind75一个精选的LeetCode题集](https://www.techinterviewhandbook.org/grind75/)
+- [完成Grind75一个精选的LeetCode题集](https://www.techinterviewhandbook.org/grind75)
 - [观看优秀的spring boot教程](https://www.youtube.com/watch?v=gJrjgg1KVL4)
 - [观看优秀的技术栈up主的教程](https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click)
 - [GeekHour的编程教程](https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click)
@@ -63,10 +63,10 @@
 ## 书签
 
 - [最小化bilibili](https://addons.mozilla.org/firefox/addon/minimal-bilibili)
-- [bilibili英文可以降低b站的体验防上瘾,顺便学习英语](https://addons.mozilla.org/firefox/addon/bilibili-to-english/)
-- [强大的广告拦截器](https://addons.mozilla.org/firefox/addon/adguard-adblocker/)
-- [隐藏YouTube分散注意力的元素](https://addons.mozilla.org/firefox/addon/youtube-recommended-videos/)
-- [流畅阅读(沉浸式翻译开源版本)](https://addons.mozilla.org/en-US/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB/)
+- [bilibili英文可以降低b站的体验防上瘾,顺便学习英语](https://addons.mozilla.org/firefox/addon/bilibili-to-english)
+- [强大的广告拦截器](https://addons.mozilla.org/firefox/addon/adguard-adblocker)
+- [隐藏YouTube分散注意力的元素](https://addons.mozilla.org/firefox/addon/youtube-recommended-videos)
+- [流畅阅读(沉浸式翻译开源版本)](https://addons.mozilla.org/en-US/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB)
 - [全站暗色模式](https://addons.mozilla.org/firefox/addon/darkreader)
 - [browser-use](https://github.com/browser-use/browser-use)
 - [ollama](https://github.com/ollama/ollama)
@@ -79,13 +79,13 @@
 - [Web 开发教程与示例](https://www.w3schools.com)
 - [AI 模型排行榜与对比](https://artificialanalysis.ai)
 - [临时邮箱](https://linshiguge.com)
-- [在线汇编学习网站](https://cpulator.01xz.net/)
+- [在线汇编学习网站](https://cpulator.01xz.net)
 - [格式在线文件转换](https://convertio.co)
 - [查找软件替代品与用户评价](https://alternativeto.net)
 - [WeActStudio](https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1)
 - [Leetcode](https://leetcode.com)
 - [小白Debug](https://space.bilibili.com/302188068?spm_id_from=333.337.0.0)
-- [grind75](https://www.techinterviewhandbook.org/grind75/)
+- [grind75](https://www.techinterviewhandbook.org/grind75)
 
 # Fedora
 
