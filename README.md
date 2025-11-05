@@ -8,13 +8,13 @@
 
 ### Waiting
 
-- [实现docker安装 代理软件/openwrt,科学上网.](https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26)
-- [学习macOS基础教程](https://edu.gcfglobal.org/en/macosbasics)
-- [学习Email基础知识](https://edu.gcfglobal.org/en/topics/emailbasics)
+- [docker代理容器](https://hub.docker.com/r/metacubex/mihomo?uuid=5E6C6831-A11E-4EA1-9BC0-42B9251D1A26)
+- [学习macOS基础](https://edu.gcfglobal.org/en/macosbasics)
+- [学习Email基础](https://edu.gcfglobal.org/en/topics/emailbasics)
 - [完成Grind75](https://techinterviewhandbook.org/grind75)
-- [观看优秀的spring boot教程](https://youtube.com/watch?v=gJrjgg1KVL4)
+- [spring boot教程](https://youtube.com/watch?v=gJrjgg1KVL4)
 - [观看优秀的技术栈up主的教程](https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click)
-- [GeekHour的编程教程](https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click)
+- [GeekHour教程](https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click)
 - [存钱预计9000元用作求职基金]
 - [阅读w3schools.com的DSA教程(英文版本)]
 - [学会HiddifyCli的使用,以便在linux翻墙]
