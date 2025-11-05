@@ -69,7 +69,7 @@
 - [隐藏YouTube分散注意力的元素](https://addons.mozilla.org/firefox/addon/youtube-recommended-videos)
 - [流畅阅读(沉浸式翻译开源版本)](https://addons.mozilla.org/firefox/addon/%E6%B5%81%E7%95%85%E9%98%85%E8%AF%BB)
 - [全站暗色模式](https://addons.mozilla.org/firefox/addon/darkreader)
-- [browser-use](https://github.com/browser-use/browser-use)
+- [网站ai代理](https://github.com/browser-use/browser-use)
 - [ollama](https://github.com/ollama/ollama)
 - [openwrt](https://github.com/openwrt)
 - [GTNH](https://github.com/GTNewHorizons)
