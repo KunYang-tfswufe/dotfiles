@@ -49,12 +49,12 @@
 
 | 主题                                                                               | URL                                                                    |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| 捡漏:闲鱼Cursor试用账户1元14天10美元                                               | https://m.tb.cn/h.SdppiAF?tk=6jo14Fk9LXN                               |
-| 捡漏:闲鱼Augment Code无限续杯账户                                                  | https://m.tb.cn/h.S2AcfrZ?tk=7tGT4Fkyy9v                               |
-| 捡漏:闲鱼Gemini教育认证加绑卡                                                      | https://m.tb.cn/h.SdZPotQ?tk=rvVB4FOhFSo                               |
-| 捡漏:闲鱼windsurf无限续杯账户                                                      | https://m.tb.cn/h.SdYKAO1?tk=2kIt4FnQQtE                               |
-| 捡漏:闲鱼codex cli无限续杯账户                                                     | https://m.tb.cn/h.Sdszz1l?tk=ULG04FnvCQJ                               |
-| 闲鱼github copilot教育认证                                                         | https://m.tb.cn/h.SdZJJor?tk=djUy4FOlT9g                               |
+| 闲鱼Cursor                                                                         | https://m.tb.cn/h.SdppiAF?tk=6jo14Fk9LXN                               |
+| 闲鱼Augment Code                                                                   | https://m.tb.cn/h.S2AcfrZ?tk=7tGT4Fkyy9v                               |
+| 闲鱼Gemini                                                                         | https://m.tb.cn/h.SdZPotQ?tk=rvVB4FOhFSo                               |
+| 闲鱼windsurf                                                                       | https://m.tb.cn/h.SdYKAO1?tk=2kIt4FnQQtE                               |
+| 闲鱼codex cli                                                                      | https://m.tb.cn/h.Sdszz1l?tk=ULG04FnvCQJ                               |
+| 闲鱼github copilot                                                                 | https://m.tb.cn/h.SdZJJor?tk=djUy4FOlT9g                               |
 | 闲鱼kiro激活码                                                                     | https://m.tb.cn/h.Sd3S03k?tk=bfal4FnIW70                               |
 | 闲鱼美国教育邮箱,可过gemini,cursor,jetbrains                                       | https://m.tb.cn/h.SdJIkAL?tk=qX8J4FOM7eI                               |
 | 乐乐课堂                                                                           | https://pan.baidu.com/s/1Gltyjb9UaBmG7RWEhHupRw?pwd=6z4c               |
