@@ -82,7 +82,7 @@
 - [临时邮箱](https://linshiguge.com)
 - [在线汇编学习网站](https://cpulator.01xz.net)
 - [格式在线文件转换](https://convertio.co)
-- [查找软件替代品与用户评价](https://alternativeto.net)
+- [软件替代品alternativeto](https://alternativeto.net)
 - [WeActStudio](https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1)
 - [Leetcode](https://leetcode.com)
 - [小白Debug](https://space.bilibili.com/302188068?spm_id_from=333.337.0.0)
