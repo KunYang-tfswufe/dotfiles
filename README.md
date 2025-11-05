@@ -82,7 +82,7 @@
 - [Pixel Magisk VoTEL 模块](https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel)
 - [Minecraft 维基](https://minecraft.wiki)
 - [免费编程课程与项目](https://freecodecamp.org)
-- [Web 开发教程与示例](https://w3schools.com)
+- [Web 开发教程与示例](https://www.w3schools.com)
 - [AI 模型排行榜与对比](https://artificialanalysis.ai)
 - [临时邮箱](https://linshiguge.com)
 - [在线汇编学习网站](https://cpulator.01xz.net/)
