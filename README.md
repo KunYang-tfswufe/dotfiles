@@ -60,7 +60,7 @@
 - [nb机场](https://6.66jc.top)
 - [杀手级的科学上网共享方式VPNHotspot需要root](https://github.com/Mygod/VPNHotspot)
 - [另一个杀手级的科学上网共享方式LineageOS的wifi热点设置自带的VPN分享](https://lineageos.org)
-- [可以考虑GPU租用平台学习AI绘图,体验MC光追,租用H100学习LLM,p2p散户出租平台有H100 -->](https://vast.ai)
+- [GPU租用学习AI绘图,体验MC光追](https://vast.ai)
 
 ## 书签
 
