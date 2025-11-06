@@ -232,16 +232,16 @@ sudo dnf -y install fish && chsh -s /usr/bin/fish
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # claude-cli
-npm install -g @anthropic-ai/claude-code
+sudo npm install -g @anthropic-ai/claude-code
 
 # copilot-cli
-npm install -g @github/copilot
+sudo npm install -g @github/copilot
 
 # gemini-cli
-npm install -g @google/gemini-cli
+sudo npm install -g @google/gemini-cli
 
 # codex-cli
-npm install -g @openai/codex
+sudo npm install -g @openai/codex
 
 # cursor-cli
 curl https://cursor.com/install -fsS | bash
