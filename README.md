@@ -18,7 +18,7 @@
 - [存钱预计9000元用作求职基金]
 - [阅读w3schools.com的DSA教程(英文版本)]
 - [学会HiddifyCli的使用,以便在linux翻墙]
-- [购买ThinkpadX220,并学习更换硬件为以后Build PC做过渡学习]
+- [购买ThinkpadX220,学习更换硬件为Build PC做准备]
 - [玩PVE虚拟机]
 - [出售我的二手闲置物品例如手机]
 - [玩转炒股模拟器，挖矿模拟器.]
