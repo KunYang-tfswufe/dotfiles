@@ -130,9 +130,6 @@ sudo dnf -y install wireshark-cli
 # ghostty
 sudo dnf -y copr enable scottames/ghostty && sudo dnf -y install ghostty
 
-# uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
 # neovim
 sudo dnf -y install neovim python3-neovim
 
@@ -230,6 +227,9 @@ systemctl --user enable --now my-python-server.service
 
 # fish
 sudo dnf -y install fish && chsh -s /usr/bin/fish
+
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # claude-cli
 npm install -g @anthropic-ai/claude-code
