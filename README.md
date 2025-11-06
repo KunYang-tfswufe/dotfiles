@@ -124,24 +124,6 @@ sudo dnf -y install stow
 # qemu
 sudo dnf -y install @virtualization
 
-# claude-cli
-npm install -g @anthropic-ai/claude-code
-
-# copilot-cli
-npm install -g @github/copilot
-
-# gemini-cli
-npm install -g @google/gemini-cli
-
-# codex-cli
-npm install -g @openai/codex
-
-# cursor-cli
-curl https://cursor.com/install -fsS | bash
-
-# prettier
-sudo npm install -g prettier
-
 # wireshark-cli
 sudo dnf -y install wireshark-cli
 
@@ -248,6 +230,24 @@ systemctl --user enable --now my-python-server.service
 
 # fish
 sudo dnf -y install fish && chsh -s /usr/bin/fish
+
+# claude-cli
+npm install -g @anthropic-ai/claude-code
+
+# copilot-cli
+npm install -g @github/copilot
+
+# gemini-cli
+npm install -g @google/gemini-cli
+
+# codex-cli
+npm install -g @openai/codex
+
+# cursor-cli
+curl https://cursor.com/install -fsS | bash
+
+# prettier
+sudo npm install -g prettier
 ```
 
 # MacOS
