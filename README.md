@@ -15,7 +15,6 @@
 - [完成Grind75](https://techinterviewhandbook.org/grind75)
 - [spring boot教程](https://youtube.com/watch?v=gJrjgg1KVL4)
 - [观看优秀的技术栈up主的教程](https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click)
-- [GeekHour教程](https://space.bilibili.com/102438649?spm_id_from=333.788.upinfo.detail.click)
 - [存钱预计9000元用作求职基金]
 - [阅读w3schools.com的DSA教程(英文版本)]
 - [学会HiddifyCli的使用,以便在linux翻墙]
