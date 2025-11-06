@@ -59,7 +59,7 @@
 - [mitce机场](https://mitce.net)
 - [nb机场](https://6.66jc.top)
 - [VPNHotspot](https://github.com/Mygod/VPNHotspot)
-- [LineageOS设置热点VPN分享](https://lineageos.org)
+- [LineageOS热点分享VPN](https://lineageos.org)
 - [GPU租用学习AI绘图,体验MC光追](https://vast.ai)
 
 ## 书签
