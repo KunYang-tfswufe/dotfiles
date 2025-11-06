@@ -79,7 +79,7 @@
 - [临时邮箱](https://linshiguge.com)
 - [在线汇编学习](https://cpulator.01xz.net)
 - [在线格式转换](https://convertio.co)
-- [软件替代品alternativeto](https://alternativeto.net)
+- [软件平替](https://alternativeto.net)
 - [WeActStudio](https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1)
 - [Leetcode](https://leetcode.com)
 - [小白Debug](https://space.bilibili.com/302188068?spm_id_from=333.337.0.0)
