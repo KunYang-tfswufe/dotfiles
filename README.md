@@ -45,7 +45,7 @@
 
 - [闲鱼Cursor,Augment Code,Gemini,windsurf,codex cli,github copilot](https://m.tb.cn/h.SdppiAF?tk=6jo14Fk9LXN)
 - [闲鱼kiro激活码](https://m.tb.cn/h.Sd3S03k?tk=bfal4FnIW70)
-- [闲鱼美国教育邮箱,可过gemini,cursor,jetbrains](https://m.tb.cn/h.SdJIkAL?tk=qX8J4FOM7eI)
+- [闲鱼美国教育邮箱](https://m.tb.cn/h.SdJIkAL?tk=qX8J4FOM7eI)
 - [乐乐课堂](https://pan.baidu.com/s/1Gltyjb9UaBmG7RWEhHupRw?pwd=6z4c)
 - [tiktok运营](https://youtube.com/watch?v=CzVcG6GfuPk)
 - [CET4/6真题](https://pan.baidu.com/share/init?surl=_L6y0xqAq_npuLKYmB_Wmg&pwd=x6tq)
