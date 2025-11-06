@@ -86,6 +86,7 @@
 - [WeActStudio](https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1)
 - [Leetcode](https://leetcode.com)
 - [小白Debug](https://space.bilibili.com/302188068?spm_id_from=333.337.0.0)
+- [minecraft编程](https://fabricmc.net)
 
 # Fedora
 
