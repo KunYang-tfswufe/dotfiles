@@ -100,6 +100,9 @@ sudo dnf -y install broadcom-wl
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 
+# dotfiles python server
+systemctl --user enable --now my-python-server.service
+
 # sshd
 sudo dnf -y install openssh-server && sudo systemctl enable --now sshd
 
@@ -221,9 +224,6 @@ sudo yum list available | grep hashicorp
 sudo dnf -y install vagrant libvirt-devel
 mkdir ~/vagrant-alpine && vagrant init generic/alpine318
 vagrant plugin install vagrant-libvirt
-
-# dotfiles python server
-systemctl --user enable --now my-python-server.service
 
 # fish
 sudo dnf -y install fish && chsh -s /usr/bin/fish
