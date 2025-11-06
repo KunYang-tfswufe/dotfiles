@@ -51,8 +51,8 @@
 - [CET4/6真题](https://pan.baidu.com/share/init?surl=_L6y0xqAq_npuLKYmB_Wmg&pwd=x6tq)
 - [java真实简历](https://pan.baidu.com/s/1RmYOx8E2dYdyyjDiCUyw6Q?pwd=6688#list/path=%2F)
 - [教育邮箱购买](https://shop.edumails.org)
-- [代订阅服务与共享订阅账户平台](https://sorryios.com)
-- [账号合租](https://nf.video)
+- [账户合租1](https://sorryios.com)
+- [账号合租2](https://nf.video)
 - [野卡-虚拟信用卡](https://yeka.ai)
 - [校招列表](https://offer.gfjianli.com)
 - [接码平台](https://sms-activate.org)
@@ -60,7 +60,7 @@
 - [nb机场](https://6.66jc.top)
 - [VPNHotspot](https://github.com/Mygod/VPNHotspot)
 - [LineageOS热点分享VPN](https://lineageos.org)
-- [GPU租用学习AI绘图,体验MC光追](https://vast.ai)
+- [GPU租用学习AI](https://vast.ai)
 
 ## 书签
 
