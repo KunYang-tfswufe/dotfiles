@@ -225,9 +225,6 @@ sudo dnf -y install vagrant libvirt-devel
 mkdir ~/vagrant-alpine && vagrant init generic/alpine318
 vagrant plugin install vagrant-libvirt
 
-# fish
-sudo dnf -y install fish && chsh -s /usr/bin/fish
-
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
@@ -248,6 +245,9 @@ sudo npm install -g @openai/codex
 
 # prettier
 sudo npm install -g prettier
+
+# fish
+sudo dnf -y install fish && chsh -s /usr/bin/fish
 ```
 
 # MacOS
