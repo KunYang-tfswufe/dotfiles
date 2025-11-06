@@ -17,7 +17,7 @@
 - [观看优秀的技术栈up主的教程](https://space.bilibili.com/102438649?spm_id_from=333.1387.follow.user_card.click)
 - [存钱预计9000元用作求职基金]
 - [阅读w3schools.com的DSA教程(英文版本)]
-- [学会HiddifyCli的使用,以便在linux翻墙]
+- [学会HiddifyCli]
 - [购买ThinkpadX220,学习更换硬件为Build PC做准备]
 - [玩PVE虚拟机]
 - [出售我的二手闲置物品例如手机]
