@@ -231,6 +231,9 @@ sudo dnf -y install fish && chsh -s /usr/bin/fish
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+# cursor-cli
+curl https://cursor.com/install -fsS | bash
+
 # claude-cli
 sudo npm install -g @anthropic-ai/claude-code
 
@@ -242,9 +245,6 @@ sudo npm install -g @google/gemini-cli
 
 # codex-cli
 sudo npm install -g @openai/codex
-
-# cursor-cli
-curl https://cursor.com/install -fsS | bash
 
 # prettier
 sudo npm install -g prettier
