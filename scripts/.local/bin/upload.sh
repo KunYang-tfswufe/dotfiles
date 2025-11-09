@@ -14,7 +14,7 @@ set -e
 # 1. 需要备份的项目目录列表
 BACKUP_TARGETS=(
     "$HOME/dotfiles"
-#    "$HOME/FinalProject"
+#暂时不用    "$HOME/FinalProject"
 )
 # 2. 备份文件在云端的目标路径
 BACKUP_REMOTE="GDrive_2TB:GithubRepos"
