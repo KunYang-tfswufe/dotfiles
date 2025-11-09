@@ -17,7 +17,7 @@ BACKUP_TARGETS=(
     "$HOME/FinalProject"
 )
 # 2. 备份文件在云端的目标路径
-BACKUP_REMOTE="GDrive_2TB:GithubRepos"
+BACKUP_REMOTE="ProtonDrive:MyPublic/GithubRepos"
 
 # 3. 在云端保留备份的天数
 DAYS_TO_KEEP=7
