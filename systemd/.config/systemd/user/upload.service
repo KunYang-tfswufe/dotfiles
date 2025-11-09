@@ -1,5 +1,5 @@
 [Unit]
-Description=Run combined backup and sync tasks
+Description=Run upload tasks via upload.sh
 
 [Service]
 Type=oneshot

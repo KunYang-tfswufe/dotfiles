@@ -1,5 +1,5 @@
 [Unit]
-Description=Run combined backup and sync every 4 hours
+Description=Run upload tasks every 4 hours
 
 [Timer]
 # The schedule remains the same
