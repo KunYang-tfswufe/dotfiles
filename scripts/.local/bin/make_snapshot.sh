@@ -32,24 +32,17 @@ ignored_dirs=(
     .direnv
     .envrc
     node_modules
-    target
-    build
-    dist
     __pycache__
 )
 
-# 2. List of files to ignore by default (full filenames or wildcards)
 ignored_files=(
     "*.log"
     "*.swp"
     "*.bak"
     "*.hex"
-    "$output_file" # Ensure the output file itself is not included
-
-    # --- Add these lines to ignore license files ---
-    "LICENSE"       # Ignores the exact file "LICENSE"
+    "$output_file"
+    "LICENSE"
 )
-# --- Script Main Body ---
 
 # Display the plan to the user
 echo "Starting project snapshot generation..."
