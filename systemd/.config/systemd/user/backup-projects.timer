@@ -1,5 +1,5 @@
 [Unit]
-Description=Run upload tasks every 4 hours
+Description=Run backup-projects.sh every hour
 
 [Timer]
 # The schedule remains the same

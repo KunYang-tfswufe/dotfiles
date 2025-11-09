@@ -57,9 +57,9 @@ clean:
 	@echo "🗑️  Clean complete."
 
 upload:
-	@echo "==> Running the combined upload script..."
-	@scripts/.local/bin/upload.sh
-	@echo "☁️  All upload tasks complete."
+	@echo "==> Running the backup script..."
+	@scripts/.local/bin/backup-projects.sh
+	@echo "☁️  Backup complete."
 
 help:
 	@echo "Usage: make [target]"
