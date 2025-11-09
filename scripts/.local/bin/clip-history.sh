@@ -28,36 +28,24 @@ process_item() {
     timestamp=$(date +"%Y-%m-%d %H:%M:%S")
     local separator="--- [${timestamp}] ---"
 
-    # 【优化 1】使用追加模式，性能更高
-    # 我们直接将新条目追加到文件末尾。
+    # 追加新条目
     printf "%s\n%s\n\n" "${separator}" "${item}" >> "$HISTORY_FILE"
 
     echo -n "$item" > "$LAST_ITEM_FILE"
 
     notify-send -a "Clipboard" -i "edit-copy" "内容已复制" "新的内容已保存到剪贴板"
 
-    # 【优化 2】使用更精确的清理逻辑
-    # 我们计算文件中分隔符的数量，如果超过了最大限制，就精确删除最旧的条目。
-    # `grep -c` 计算匹配行的数量。
-    local entry_count
-    entry_count=$(grep -c -- '--- \[' "$HISTORY_FILE")
+    # 【优化】使用更高效的清理逻辑
+    # 每个条目由 分隔符 + 内容 + 两个换行符 构成，大约是 4 行。
+    # 我们计算总行数，如果超过了 MAX_ENTRIES * 4，就用 tail 截取最后的部分。
+    # 这比多次 grep/sed/head/tail 更快，尤其是在文件很大时。
+    local total_lines
+    total_lines=$(wc -l < "$HISTORY_FILE")
+    local max_lines=$((MAX_ENTRIES * 4))
 
-    if [[ $entry_count -gt $MAX_ENTRIES ]]; then
-        # 计算需要删除的条目数
-        local entries_to_delete=$((entry_count - MAX_ENTRIES))
-        # `grep -n` 找到第 N 个分隔符所在的行号
-        local delete_until_line
-        delete_until_line=$(grep -n -- '--- \[' "$HISTORY_FILE" | head -n "$entries_to_delete" | tail -n 1 | cut -d: -f1)
-        
-        # `sed` 从第 N+1 个分隔符的前一行开始删除，直到文件末尾
-        # 为了精确，我们先找到第 (N+1) 个分隔符的行号
-        local start_line_of_next_entry
-        start_line_of_next_entry=$(grep -n -- '--- \[' "$HISTORY_FILE" | head -n $((entries_to_delete + 1)) | tail -n 1 | cut -d: -f1)
-        
-        # 删除从文件开头到第 (N+1) 个条目之前的所有行
-        if [[ -n "$start_line_of_next_entry" ]]; then
-            sed -i "1,$((start_line_of_next_entry - 1))d" "$HISTORY_FILE"
-        fi
+    if [[ $total_lines -gt $max_lines ]]; then
+        # 从文件尾部取回 max_lines 行，并写回原文件，完成清理
+        tail -n "$max_lines" "$HISTORY_FILE" > "${HISTORY_FILE}.tmp" && mv "${HISTORY_FILE}.tmp" "$HISTORY_FILE"
     fi
 }
 
