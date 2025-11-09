@@ -17,5 +17,4 @@ mpv --shuffle "$HOME/Music" &
 
 # Immediately after starting music, send a notification with the current date and time.
 # The date format is consistent with your other scripts.
-current_time=$(date +"%Y-%m-%d %H:%M:%S")
-notify-send "🎶 Now Playing" "Started a new shuffled playlist at:\n$current_time"
+notify-send "Playing Music"
