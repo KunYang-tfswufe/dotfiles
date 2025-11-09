@@ -115,4 +115,10 @@ sync_mypublic
 echo ""
 echo "==> [$(date)] 所有上传任务成功完成！"
 
+# --- 新增: 发送桌面通知 ---
+# 由于脚本开头设置了 set -e, 只有在所有任务都成功后才会执行到这里。
+notify-send -a "Upload Script" -i "emblem-synchronizing" \
+    "✅ All Uploads Complete" \
+    "Dotfiles backed up and MyPublic synced successfully."
+
 exit 0
