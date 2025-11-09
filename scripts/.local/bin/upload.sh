@@ -81,16 +81,19 @@ function sync_mypublic() {
     fi
 
     local DEST_DIR="${PUBLIC_REMOTE_ROOT}MyPublic"
-    local BACKUP_TIMESTAMP=$(date +'%Y-%m-%d')
+    # 【优化】时间戳精确到秒，用于备份后缀，防止一天内多次运行导致覆盖
+    local BACKUP_SUFFIX=$(date +'%Y-%m-%d_%H-%M-%S')
 
     echo "    -> 同步目标: ${DEST_DIR}"
-    echo "    -> 删除的文件将被移动到云端回收站: ${PUBLIC_REMOTE_ROOT}MyPublic_trash/${BACKUP_TIMESTAMP}"
+    echo "    -> 删除的文件将被移动到云端回收站: ${PUBLIC_REMOTE_ROOT}MyPublic_trash/"
 
     # 执行 rclone sync 命令
+    # 使用 --suffix 为每个被删除的文件添加一个时间戳，使其唯一
     rclone sync "${PUBLIC_SOURCE_DIR}" "${DEST_DIR}" \
         --progress \
         --create-empty-src-dirs \
-        --backup-dir "${PUBLIC_REMOTE_ROOT}MyPublic_trash/${BACKUP_TIMESTAMP}"
+        --backup-dir "${PUBLIC_REMOTE_ROOT}MyPublic_trash/" \
+        --suffix ".backup-${BACKUP_SUFFIX}"
 
     echo "--> ✅ MyPublic 目录同步完成。"
 }
