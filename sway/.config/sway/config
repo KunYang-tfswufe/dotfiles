@@ -1,14 +1,5 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
-### Variables
-#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-# Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
@@ -211,68 +202,23 @@ output * bg /usr/share/backgrounds/default.jxl fill
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+grave scratchpad show, resize set 100 ppt 100 ppt, move position center
 
-# ===============================================================
-# >>> 截图快捷键 (Screenshot Keybindings) - 已整合 <<<
-# ===============================================================
-# 依赖: grim, slurp, wl-clipboard, jq
-
-# 快捷键: Mod + P
 # 功能: 选择区域截图到剪贴板 (最常用)
 bindsym $mod+p exec grim -g "$(slurp)" - | wl-copy
 
-# 快捷键: Mod + Shift + P
 # 功能: 全屏截图到剪贴板
 bindsym $mod+Shift+p exec grim - | wl-copy
 
-# 快捷键: Mod + Ctrl + P
 # 功能: 当前活动窗口截图到剪贴板
 bindsym $mod+Control+p exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | wl-copy
 
-# --- 可选：保存为文件而非剪贴板 ---
-# 如果你希望保存为文件，请注释掉上面的绑定，并取消下面行的注释
-# set $screenshot_dir ~/Pictures/Screenshots
-# bindsym $mod+p exec grim -g "$(slurp)" "$screenshot_dir/$(date +'%Y-%m-%d_%H-%M-%S').png"
-# bindsym $mod+Shift+p exec grim "$screenshot_dir/$(date +'%Y-%m-%d_%H-%M-%S').png"
-# ===============================================================
-# >>> 截图快捷键 (Screenshot Keybindings) - 结束 <<<
-# ===============================================================
-
-# ===============================================================
-# >>> 音乐控制快捷键 (新方案) - 开始 <<<
-# ===============================================================
-# 使用 $mod+m (m for music) 替换了原来不好按的 F12 键方案。
-# 这套快捷键更符合直觉，也更容易单手操作。
-
-# 快捷键: Mod + m
 # 功能: 启动/播放音乐
 bindsym $mod+m exec sh -c 'killall mpv &> /dev/null || true; mpv --shuffle "$HOME/Music" & notify-send "Playing Music"'
 
-# 快捷键: Mod + Shift + m
 # 功能: 停止音乐 (使用 Shift 组合键，作为播放的关联操作)
 bindsym $mod+Shift+m exec killall mpv
 
-# --- 备选方案: 使用键盘媒体键 (如果您的键盘有) ---
-# 如果您的键盘有专用的播放/暂停/停止键，使用它们是更好的选择。
-# 您可以取消下面几行的注释来启用它们。
-# bindsym XF86AudioPlay exec ~/.local/bin/play-music.sh
-# bindsym XF86AudioStop exec killall mpv
-# ===============================================================
-# >>> 音乐控制快捷键 - 结束 <<<
-# ===============================================================
-
-## START OF ADDITION ##
-# ===============================================================
-# >>> 自定义工具快捷键 (Custom Utility Keybindings) - 开始 <<<
-# ===============================================================
-
-# 快捷键: Mod + g
 # 功能: 在后台执行 make_snapshot.sh 脚本，生成项目快照
 bindsym $mod+g exec $HOME/.local/bin/make_snapshot.sh
-
-# ===============================================================
-# >>> 自定义工具快捷键 - 结束 <<<
-# ===============================================================
-## END OF ADDITION ##
 
 #
 # Resizing containers:
