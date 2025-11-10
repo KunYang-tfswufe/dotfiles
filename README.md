@@ -75,6 +75,7 @@
 - [GTNH](https://github.com/GTNewHorizons)
 - [GitHub排名](https://github.com/EvanLi/Github-Ranking)
 - [Pixel Magisk VoTEL 模块](https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel)
+- [将本地项目仓库打包单一文件给AI](https://github.com/yamadashy/repomix)
 - [Minecraft wiki](https://minecraft.wiki)
 - [freecodecamp教程](https://freecodecamp.org)
 - [w3schools教程](https://www.w3schools.com)
