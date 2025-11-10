@@ -115,14 +115,15 @@ done
 
 echo "快照生成完毕。"
 
-# 4. 将生成的快照内容复制到剪贴板
-cat "$OUTPUT_FILE" | wl-copy
-echo "✅ 快照内容已复制到剪贴板。"
+# 【关键修改】将文件 URI 复制到剪贴板，而不是文件内容
+# 这样就可以在文件管理器中粘贴文件本身。
+echo "file://$OUTPUT_FILE" | wl-copy --type text/uri-list
+echo "✅ 文件本身 (URI) 已复制到剪贴板。您可以在文件管理器中粘贴它。"
 
-# 5. 发送系统通知
+# 发送系统通知
 notify-send -a "Snapshot Tool" -i "document-save" \
     "✅ 项目快照已生成" \
-    "已保存到 $(basename "$OUTPUT_FILE") 并复制到剪贴板。"
+    "文件 $(basename "$OUTPUT_FILE") 已复制到剪贴板，可直接粘贴。"
 echo "✅ 系统通知已发送。"
 
 echo "所有任务完成！"
