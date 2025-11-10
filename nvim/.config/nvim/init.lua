@@ -1,9 +1,3 @@
--- init.lua (已集成 leap.nvim)
--- Neovim 配置文件入口
-
--- 1. lazy.nvim 插件管理器设置
--- =============================================================================
--- 定义 lazy.nvim 的安装路径
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 -- 如果 lazy.nvim 未安装，则从 GitHub 克隆
 if not vim.loop.fs_stat(lazypath) then
@@ -12,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable",         -- 使用 stable 分支
+        "--branch=stable", -- 使用 stable 分支
         lazypath,
     })
 end
@@ -85,16 +79,11 @@ require("lazy").setup({
         },
     },
 
-    -- =============================================================================
-    -- >>>>> 全新集成的 Leap.nvim 光标瞬移插件 <<<<<
-    -- =============================================================================
-    -- leap.nvim 的依赖，使其支持 `.` 重复操作
     { "tpope/vim-repeat" },
 
-    -- leap.nvim 插件本身
     {
         "ggandor/leap.nvim",
-        event = "VeryLazy",         -- 延迟加载，提高启动速度
+        event = "VeryLazy", -- 延迟加载，提高启动速度
         dependencies = { "tpope/vim-repeat" },
         config = function()
             local leap = require("leap")
@@ -114,10 +103,6 @@ require("lazy").setup({
             -- 而 leap 是一个超高频操作，用 s 键位非常舒适且高效。
         end,
     },
-    -- =============================================================================
-    -- >>>>> Leap.nvim 集成结束 <<<<<
-    -- =============================================================================
-
     -- LSP (语言服务器协议) 快速配置: lsp-zero
     {
         "VonHeikemen/lsp-zero.nvim",
