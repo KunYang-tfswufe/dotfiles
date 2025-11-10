@@ -8,6 +8,7 @@
 - [毕业设计：藏红花培育系统]
 - [技术能力提升 (主攻后端,备战实习/秋招)]
 - [学习GitHub Actions CI/CD]
+  qwq
 
 ### Waiting
 
