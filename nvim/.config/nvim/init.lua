@@ -1,20 +1,18 @@
+-- nvim/.config/nvim/init.lua
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
--- 如果 lazy.nvim 未安装，则从 GitHub 克隆
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- 使用 stable 分支
+        "--branch=stable",
         lazypath,
     })
 end
--- 将 lazy.nvim 添加到运行时路径 (runtimepath) 的头部
 vim.opt.rtp:prepend(lazypath)
--- 使用 lazy.nvim 设置并加载插件
+
 require("lazy").setup({
-    -- 主题方案
     {
         "folke/tokyonight.nvim",
         priority = 1000,
@@ -24,36 +22,47 @@ require("lazy").setup({
             end,
         },
     },
-
-    -- nvim-treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+        },
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = {
-                    "lua",
-                    "vim",
-                    "vimdoc",
-                    "query",
-                    "rust",
-                    "python",
-                    "json",
-                    "bash",
-                    "yaml",
-                    "toml",
-                    "markdown",
-                    "markdown_inline",
+                    "lua", "vim", "vimdoc", "query",
+                    "json", "bash", "yaml", "toml", "markdown", "markdown_inline",
                 },
                 sync_install = false,
                 auto_install = true,
                 highlight = { enable = true },
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@class.outer",
+                            ["ic"] = "@class.inner",
+                        },
+                    },
+                },
             })
         end,
     },
-
-    -- 基础插件
-    { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("telescope").setup({
+                defaults = {
+                    file_ignore_patterns = { "%.git/" },
+                },
+            })
+        end,
+    },
     {
         "folke/which-key.nvim",
         event = "VeryLazy",
@@ -65,9 +74,35 @@ require("lazy").setup({
     },
     {
         "lewis6991/gitsigns.nvim",
-        config = function()
-            require("gitsigns").setup()
-        end,
+        opts = {
+            on_attach = function(bufnr)
+                local gs = package.loaded.gitsigns
+                local function map(mode, l, r, opts)
+                    opts = opts or {}
+                    opts.buffer = bufnr
+                    vim.keymap.set(mode, l, r, opts)
+                end
+
+                -- 导航
+                map("n", "]c", function()
+                    if vim.wo.diff then return "]c" end
+                    vim.schedule(function() gs.next_hunk() end)
+                    return "<Ignore>"
+                end, { expr = true, desc = "Git: Next Hunk" }) -- 英文更短，对齐更好
+
+                map("n", "[c", function()
+                    if vim.wo.diff then return "[c" end
+                    vim.schedule(function() gs.prev_hunk() end)
+                    return "<Ignore>"
+                end, { expr = true, desc = "Git: Prev Hunk" })
+
+                -- [修改] Git 操作单字符映射
+                map("n", "<leader>p", gs.preview_hunk, { desc = "Git: Preview Hunk" })
+                
+                -- [已修改] <leader>B -> <leader>l (Line blame)
+                map("n", "<leader>l", function() gs.blame_line({ full = true }) end, { desc = "Git: Blame Line" })
+            end,
+        },
     },
     {
         "stevearc/conform.nvim",
@@ -75,35 +110,44 @@ require("lazy").setup({
         cmd = { "ConformInfo" },
         opts = {
             formatters_by_ft = { lua = { "stylua" }, markdown = { "prettier" } },
-            format_on_save = { timeout_ms = 1500, lsp_fallback = true },
+            format_on_save = nil,
         },
     },
-
     { "tpope/vim-repeat" },
-
+    { "pocco81/auto-save.nvim", event = "VeryLazy", opts = {} },
     {
         "ggandor/leap.nvim",
-        event = "VeryLazy", -- 延迟加载，提高启动速度
+        event = "VeryLazy",
         dependencies = { "tpope/vim-repeat" },
         config = function()
             local leap = require("leap")
-
-            -- [强烈推荐] 来自官方文档的优化：减少预览时的视觉噪音。
-            -- 这会让界面更清爽，但你仍然可以跳转到任何位置。
             leap.opts.preview = function(ch0, ch1, ch2)
                 return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
             end
-
-            -- 设置核心快捷键 (官方文档推荐)
-            -- s      -> 在当前窗口内瞬移
-            -- S      -> 在所有可见窗口之间瞬移
-            vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)", { desc = "Leap: 瞬移到2字符" })
-            vim.keymap.set("n", "S", "<Plug>(leap-from-window)", { desc = "Leap: 跨窗口瞬移" })
-            -- 解释：原生的 s (cl) 和 S (cc) 都有替代命令，
-            -- 而 leap 是一个超高频操作，用 s 键位非常舒适且高效。
+            vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)", { desc = "Motion: Leap forward" })
+            vim.keymap.set("n", "S", "<Plug>(leap-from-window)", { desc = "Motion: Leap windows" })
         end,
     },
-    -- LSP (语言服务器协议) 快速配置: lsp-zero
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup({})
+        end,
+    },
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({})
+        end,
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+    },
     {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v3.x",
@@ -117,6 +161,7 @@ require("lazy").setup({
             { "hrsh7th/cmp-path" },
             { "saadparwaiz1/cmp_luasnip" },
             { "L3MON4D3/LuaSnip" },
+            { "windwp/nvim-autopairs" },
         },
         config = function()
             local lsp_zero = require("lsp-zero")
@@ -126,38 +171,40 @@ require("lazy").setup({
                         mode,
                         lhs,
                         rhs,
-                        { buffer = bufnr, noremap = true, silent = true, desc = "LSP: " .. desc }
+                        { buffer = bufnr, noremap = true, silent = true, desc = desc }
                     )
                 end
-                map("n", "gd", vim.lsp.buf.definition, "跳转到定义")
-                map("n", "gD", vim.lsp.buf.declaration, "跳转到声明")
-                map("n", "K", vim.lsp.buf.hover, "显示悬浮文档")
-                map("n", "gi", vim.lsp.buf.implementation, "跳转到实现")
-                map("n", "gr", vim.lsp.buf.references, "查找引用")
-                map("n", "<leader>ca", vim.lsp.buf.code_action, "代码操作")
-                map("n", "<leader>rn", vim.lsp.buf.rename, "重命名符号")
-                map({ "n", "v" }, "<leader>df", vim.diagnostic.open_float, "显示诊断信息")
+                -- [保持] 基础 LSP 导航 (去掉 "LSP:" 前缀，因为这些不通过 leader 触发)
+                map("n", "gd", vim.lsp.buf.definition, "Goto Definition")
+                map("n", "gD", vim.lsp.buf.declaration, "Goto Declaration")
+                map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
+                map("n", "gi", vim.lsp.buf.implementation, "Goto Implementation")
+                map("n", "gr", vim.lsp.buf.references, "Goto References")
+
+                -- [修改] Leader 触发的 LSP 功能，加上前缀
+                map("n", "<leader>a", vim.lsp.buf.code_action, "LSP: Code Action")
+                map("n", "<leader>r", vim.lsp.buf.rename, "LSP: Rename Symbol")
+                map({ "n", "v" }, "<leader>e", vim.diagnostic.open_float, "LSP: Show Diagnostics")
             end)
 
             require("mason").setup({})
-
-            local mason_lspconfig = require("mason-lspconfig")
-            mason_lspconfig.setup({
+            require("mason-lspconfig").setup({
                 ensure_installed = {
-                    "rust_analyzer",
                     "jsonls",
                     "bashls",
                     "yamlls",
                     "taplo",
                     "lua_ls",
-                    "pyright",
                 },
+                automatic_installation = true,
                 handlers = {
                     lsp_zero.default_setup,
                 },
             })
 
             local cmp = require("cmp")
+            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
             cmp.setup({
                 sources = { { name = "nvim_lsp" }, { name = "luasnip" }, { name = "buffer" }, { name = "path" } },
                 snippet = {
@@ -174,9 +221,7 @@ require("lazy").setup({
     },
 })
 
--- =============================================================================
--- 2. 通用编辑器选项
--- =============================================================================
+-- ==================== 基础选项 ====================
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -184,67 +229,46 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
-
--- 自动换行设置 (默认关闭)
-vim.opt.wrap = false -- 默认关闭自动换行
-vim.opt.linebreak = true -- 当开启换行时，不在单词中间断行
-vim.opt.showbreak = "↪ " -- 当开启换行时，在行首显示标记
-
+vim.opt.wrap = false
+vim.opt.linebreak = true
+vim.opt.showbreak = "↪ "
 vim.opt.mouse = "a"
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.undofile = true
 vim.o.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
-
--- =============================================================================
--- 3. 全局变量与快捷键映射
--- =============================================================================
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- 让 j 和 k 按照可视行移动，这对于处理自动换行的文本非常重要
-vim.keymap.set({ "n", "v" }, "j", "gj", { desc = "Move down by visual line" })
-vim.keymap.set({ "n", "v" }, "k", "gk", { desc = "Move up by visual line" })
-
+-- ==================== 基础快捷键 ====================
+vim.keymap.set({ "n", "v" }, "j", "gj", { desc = "Motion: Move down visual" })
+vim.keymap.set({ "n", "v" }, "k", "gk", { desc = "Motion: Move up visual" })
 vim.keymap.set({ "n", "v", "i" }, "<Up>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Down>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Left>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>")
 
-vim.keymap.set("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", { desc = "查找文件" })
-vim.keymap.set(
-    "n",
-    "<leader>fg",
-    "<cmd>lua require('telescope.builtin').live_grep()<cr>",
-    { desc = "全局文本搜索" }
-)
-vim.keymap.set("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { desc = "查找缓冲区" })
-vim.keymap.set(
-    "n",
-    "<leader>fh",
-    "<cmd>lua require('telescope.builtin').help_tags()<cr>",
-    { desc = "查找帮助文档" }
-)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "跳转到上一个诊断" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "下一个诊断" })
-vim.keymap.set({ "n", "v" }, "<leader>fm", function()
-    require("conform").format({ async = true, lsp_fallback = true })
-end, { desc = "格式化文件" })
+-- [修改] Telescope 搜索类，统一使用 "Find:" 前缀
+vim.keymap.set("n", "<leader>f", function() require("telescope.builtin").find_files({ hidden = true }) end,
+    { desc = "Find: Files" })
+vim.keymap.set("n", "<leader>b", "<cmd>lua require('telescope.builtin').buffers()<cr>", { desc = "Find: Buffers" })
+vim.keymap.set("n", "<leader>g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = "Find: Text (Grep)" })
+vim.keymap.set("n", "<leader>h", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "Find: Help" })
 
--- 用于切换自动换行的快捷键
-vim.keymap.set("n", "<leader>w", function()
-    vim.opt.wrap = not vim.opt.wrap:get()
-end, { desc = "切换自动换行" })
+-- [修改] 功能性单字符映射
+-- [已修改] <leader>F -> <leader>m (Make/Modify)
+vim.keymap.set({ "n", "v" }, "<leader>m", function() require("conform").format({ async = true, lsp_fallback = true }) end,
+    { desc = "Code: Format File" })
 
-vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "移动到左侧窗口" })
-vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "移动到右侧窗口" })
-vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "移动到上方窗口" })
-vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "移动到下方窗口" })
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "垂直分割窗口" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "水平分割窗口" })
+vim.keymap.set("n", "<leader>w", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
 
--- =============================================================================
--- 4. 应用主题方案
--- =============================================================================
+-- 诊断跳转
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Diagnostic: Prev" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Diagnostic: Next" })
+
+-- 自定义 M/Q
+vim.keymap.set("n", "M", "daw", { desc = "Edit: Delete Word" })
+vim.keymap.set("n", "Q", "ciw", { desc = "Edit: Change Word" })
+
 vim.cmd("colorscheme tokyonight")
