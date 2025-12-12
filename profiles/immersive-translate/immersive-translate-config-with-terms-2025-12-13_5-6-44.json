@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2025-12-12T18:11:53.657Z",
+  "updatedAt": "2025-12-12T21:06:14.457Z",
   "isChangedAlwaysTranslatedUrls": true,
   "targetLanguage": "zh-CN",
-  "localUpdatedAt": "2025-12-12T18:11:53.657Z",
+  "localUpdatedAt": "2025-12-12T21:06:14.457Z",
   "interfaceLanguage": "zh-CN",
   "translationServiceChangedbyUserAt": "2025-11-25T10:56:01.343Z",
   "translationService": "siliconcloud",
@@ -45,8 +45,6 @@
       "meta.stackoverflow.com",
       "news.ycombinator.com",
       "stackoverflow.com",
-      "aistudio.google.com",
-      "gemini.google.com",
       "chatgpt.com",
       "www.perplexity.ai",
       "grok.com",
@@ -54,7 +52,9 @@
       "www.techinterviewhandbook.org"
     ],
     "excludeMatches": [
-      "www.codecademy.com"
+      "www.codecademy.com",
+      "gemini.google.com",
+      "aistudio.google.com"
     ]
   },
   "pcFloatBall": {
@@ -164,7 +164,7 @@
   },
   "terms": {
     "version": 1,
-    "exportedAt": "2025-12-12T18:12:00.809Z",
+    "exportedAt": "2025-12-12T21:06:44.945Z",
     "data": [
       {
         "id": "default",
