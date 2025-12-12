@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2025-12-09T20:07:25.823Z",
+  "updatedAt": "2025-12-12T18:11:53.657Z",
   "isChangedAlwaysTranslatedUrls": true,
   "targetLanguage": "zh-CN",
-  "localUpdatedAt": "2025-12-09T20:07:25.823Z",
+  "localUpdatedAt": "2025-12-12T18:11:53.657Z",
   "interfaceLanguage": "zh-CN",
   "translationServiceChangedbyUserAt": "2025-11-25T10:56:01.343Z",
   "translationService": "siliconcloud",
@@ -27,7 +27,7 @@
     "new-guide": "1764400593226"
   },
   "pcFloatBallMainBtnTooltipShownCount": 37,
-  "enableInputTranslation": true,
+  "enableInputTranslation": false,
   "isShowInputTranslationConsent": false,
   "translationUrlPattern": {
     "matches": [
@@ -164,7 +164,7 @@
   },
   "terms": {
     "version": 1,
-    "exportedAt": "2025-12-09T20:08:34.920Z",
+    "exportedAt": "2025-12-12T18:12:00.809Z",
     "data": [
       {
         "id": "default",
