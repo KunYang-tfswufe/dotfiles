@@ -1,0 +1,4 @@
+scripts/.local/bin/cursor-agent
+secrets.fish
+repomix-output.xml
+dotfiles-repomix-output.xml

@@ -1,0 +1,210 @@
+# 定义 Mod 键 (Win键)
+set $mod Mod4
+
+# 定义 VIM 风格的方向键
+set $left h
+set $down j
+set $up k
+set $right l
+
+# 定义终端
+set $term foot
+
+# 定义程序启动器
+set $rofi_cmd rofi \
+        -terminal '$term'
+set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
+
+# ===============================================================
+# >>> 新增配置开始 (START OF NEW CONFIGURATION) <<<
+# ===============================================================
+
+### Autostart applications
+# 在Sway会话启动时自动运行的程序
+
+# 启动 Fcitx5 输入法框架 (以守护进程/后台模式启动).
+exec fcitx5 -d
+
+# 启动 Firefox
+exec firefox
+
+# 剪贴板监控与通知 (修复版：使用 cat 吃掉 stdin 防止管道破裂)
+exec sh -c 'sleep 5; wl-paste --watch sh -c "cat > /dev/null && notify-send -a Clipboard -i edit-paste \"已复制\""'
+
+### V2P 修改：开机自启动 Foot 并将其发送到暂存区 ###
+# 1. 启动 Foot (使用 -a 指定特殊的 app_id 防止与普通终端混淆) 并运行 zellij 0.8不透明度
+exec foot -a scratch_term -o colors.alpha=0.8 -e zellij
+
+# 2. 匹配特殊 app_id "scratch_term" 的窗口，并将其移动到暂存区
+for_window [app_id="scratch_term"] move scratchpad
+
+### Workspace assignments
+# 将特定的应用程序分配到固定的工作区
+
+# 将所有 Firefox 窗口默认分配到工作区 1
+assign [app_id="firefox"] workspace number 1
+
+# ===============================================================
+# >>> 新增配置结束 (END OF NEW CONFIGURATION) <<<
+# ===============================================================
+
+# 输出/壁纸
+output * bg /usr/share/backgrounds/default.jxl fill
+
+# 锁屏/空闲
+# exec swayidle ...
+
+# 输入设备
+input "..." { ... }
+input type:keyboard {
+    repeat_delay 200
+    repeat_rate 50
+    xkb_options ctrl:swapcaps
+}
+# 按键绑定
+# 基础绑定
+    # 启动终端
+    bindsym $mod+Return exec $term
+
+    # 关闭窗口
+    bindsym $mod+Shift+q kill
+
+    # 程序启动器
+    bindsym $mod+d exec $menu
+
+    # 浮动窗口修改器 (Mod+左键拖动, Mod+右键缩放)
+    floating_modifier $mod normal
+
+    # 重载配置
+    bindsym $mod+Shift+c reload
+
+    # 退出 Sway
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# 移动
+    # 移动焦点
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # 方向键移动焦点
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # 移动窗口
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # 方向键移动窗口
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+# 工作区
+    # 切换工作区
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+    # 移动窗口到工作区
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+
+# 布局
+    # 水平/垂直分割
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # 切换布局样式 (堆叠/标签/分割)
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # 全屏
+    bindsym $mod+f fullscreen
+
+    # 切换平铺/浮动模式
+    bindsym $mod+Shift+space floating toggle
+
+    # 切换平铺/浮动区域焦点
+    bindsym $mod+space focus mode_toggle
+
+    # 焦点移至父容器
+    bindsym $mod+a focus parent
+
+# 暂存区 (Scratchpad)
+    # 移至暂存区
+    bindsym $mod+Shift+grave move scratchpad
+    # 显示/隐藏暂存区窗口
+    bindsym $mod+grave scratchpad show, resize set 100 ppt 100 ppt, move position center
+
+bindsym $mod+minus exec grim -g "$(slurp)" - | wl-copy && notify-send "区域截图" "已复制"
+bindsym $mod+equal exec grim - | wl-copy && notify-send "全屏截图" "已复制"
+bindsym $mod+bracketleft exec sh -c 'mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png && notify-send "区域已保存" "~/Pictures/Screenshots"'
+bindsym $mod+bracketright exec sh -c 'mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png && notify-send "全屏已保存" "~/Pictures/Screenshots"'
+
+bindsym $mod+backslash exec sh -c 'killall mpv &> /dev/null || true; mpv --shuffle "$HOME/Music" & notify-send "Playing Music"'
+
+# 功能: 停止音乐 (使用 Shift 组合键，作为播放的关联操作)
+bindsym $mod+slash exec killall mpv
+
+# 功能: 使用 repomix 打包 dotfiles 并将文件 URI 复制到剪贴板
+bindsym $mod+comma exec sh -c 'repomix $HOME/dotfiles/ -o /tmp/dotfiles-repomix-output.xml && echo "file://$(realpath /tmp/dotfiles-repomix-output.xml)" | wl-copy -t text/uri-list'
+
+# 功能: 使用 repomix 打包远程 fyp 并将文件 URI 复制到剪贴板
+bindsym $mod+period exec sh -c 'repomix --remote https://github.com/free514dom/fyp -o /tmp/fyp-repomix-output.xml && echo "file://$(realpath /tmp/fyp-repomix-output.xml)" | wl-copy -t text/uri-list'
+
+bindsym $mod+semicolon exec sh -c 'bluetoothctl connect 14:06:A7:B8:47:3A && notify-send "🎧 Sony耳机" "连接成功！" || notify-send -u critical "🎧 Sony耳机" "连接失败..."'
+
+# 缩放模式
+mode "resize" {
+    # 调整窗口大小
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # 方向键调整窗口大小
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # 返回默认模式
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# 包含其他配置文件
+include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
+
+
+# === Clipse 设置 ===
+# 1. 开机后台启动
+exec clipse -listen
+
+# 2. 设置浮动窗口规则 (让 clipse 居中显示，而不是铺满屏幕)
+for_window [app_id="clipse"] floating enable, move position center, resize set 80ppt 80ppt
+
+# 3. 绑定快捷键 (Mod+V)
+# 注意：Fedora Sway Spin 默认终端通常是 foot
+bindsym $mod+apostrophe exec foot -a clipse clipse

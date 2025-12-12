@@ -1,0 +1,192 @@
+{
+  "updatedAt": "2025-12-09T20:07:25.823Z",
+  "isChangedAlwaysTranslatedUrls": true,
+  "targetLanguage": "zh-CN",
+  "localUpdatedAt": "2025-12-09T20:07:25.823Z",
+  "interfaceLanguage": "zh-CN",
+  "translationServiceChangedbyUserAt": "2025-11-25T10:56:01.343Z",
+  "translationService": "siliconcloud",
+  "userTranslationServices": {
+    "translationService": "siliconcloud-free",
+    "inputTranslationService": "zhipu-free"
+  },
+  "customAiAssistants": [],
+  "inputTranslationService": "zhipu",
+  "inputTrailingTriggerKey": "space",
+  "generalRule": {
+    "selectionTranslation.add": {
+      "triggerMode": "mini",
+      "enableAutoRead": true,
+      "urlPattern": {
+        "matches": [],
+        "excludeMatches": []
+      }
+    }
+  },
+  "notificationShowTimes": {
+    "new-guide": "1764400593226"
+  },
+  "pcFloatBallMainBtnTooltipShownCount": 37,
+  "enableInputTranslation": true,
+  "isShowInputTranslationConsent": false,
+  "translationUrlPattern": {
+    "matches": [
+      "www.google.com",
+      "www.youtube.com",
+      "alternativeto.net",
+      "github.com",
+      "huggingface.co",
+      "minecraft.wiki",
+      "www.digitalocean.com",
+      "fabricmc.net",
+      "vast.ai",
+      "www.reddit.com",
+      "x.com",
+      "meta.stackoverflow.com",
+      "news.ycombinator.com",
+      "stackoverflow.com",
+      "aistudio.google.com",
+      "gemini.google.com",
+      "chatgpt.com",
+      "www.perplexity.ai",
+      "grok.com",
+      "poe.com",
+      "www.techinterviewhandbook.org"
+    ],
+    "excludeMatches": [
+      "www.codecademy.com"
+    ]
+  },
+  "pcFloatBall": {
+    "enable": true,
+    "enableSidePanel": true,
+    "enablePinSidePanel": true,
+    "transparency": 30,
+    "blockUrls": [
+      "*immersivetranslate.*/preview",
+      "*.immersivetranslate.*/download-subtitle*",
+      "dash.immersivetranslate.*/*"
+    ],
+    "guideBlockUrls": [
+      "https://immersivetranslate.*/accounts/login*",
+      "https://immersivetranslate.*/profile/",
+      "https://onboarding.immersivetranslate.**",
+      "https://*.immersivetranslate.*/*/intro/tutorial/step-1*",
+      "https://*.immersivetranslate.*/*/new-guide/step-1*",
+      "https://*.immersivetranslate.*/*/new-guide/step-2*"
+    ],
+    "guideContentBlockUrls": [
+      "https://*.immersivetranslate.*/*/tutorial/*",
+      "https://*.immersivetranslate.*/*/intro/*",
+      "https://*.immersivetranslate.*/*/init/*",
+      "https://*.immersivetranslate.*/*/new-guide/*"
+    ],
+    "guideArrowPermanentUrls": [
+      "https://*.immersivetranslate.*/*/intro/step-1",
+      "https://*.immersivetranslate.*/*/tutorial/step-2",
+      "https://*.immersivetranslate.*/*/new-guide/step-3"
+    ],
+    "defaultShowGuideNums": 4,
+    "clickType": "translate",
+    "afterInstalledAt": "2023-10-28",
+    "fixedPosition": "right",
+    "upgradeVisible": true,
+    "upgradeShowLimit": 20,
+    "isPc": true
+  },
+  "translationServices": {
+    "google-free": {
+      "visible": false
+    },
+    "bing-free": {
+      "visible": false
+    },
+    "zhipu-air-pro": {
+      "visible": false
+    },
+    "deepseek-pro": {
+      "visible": false
+    },
+    "openai-pro": {
+      "visible": false
+    },
+    "claude-pro": {
+      "visible": false
+    },
+    "gemini-pro": {
+      "visible": false
+    },
+    "zhipu-pro": {
+      "visible": false
+    },
+    "deepl-pro": {
+      "visible": false
+    },
+    "qwen-pro": {
+      "visible": false
+    },
+    "openai-max": {
+      "visible": false
+    },
+    "claude-max": {
+      "visible": false
+    },
+    "gemini-max": {
+      "visible": false
+    },
+    "kimi-max": {
+      "visible": false
+    }
+  },
+  "translationServiceExpanded": {
+    "custom": true
+  },
+  "translationTheme": "grey",
+  "translationThemePatterns": {
+    "grey": {
+      "zoom": "1",
+      "weight": "400",
+      "italics": false,
+      "textColor": "#c0caf5"
+    },
+    "dashedBorder": {
+      "borderRadius": "0",
+      "zoom": "57",
+      "italics": true
+    }
+  },
+  "selectTranslationFont": "Times New Roman",
+  "translationLanguagePattern": {
+    "matches": [
+      "en"
+    ],
+    "excludeMatches": []
+  },
+  "terms": {
+    "version": 1,
+    "exportedAt": "2025-12-09T20:08:34.920Z",
+    "data": [
+      {
+        "id": "default",
+        "name": "默认术语库",
+        "author": "self",
+        "description": "默认常见术语库，包含常见术语",
+        "matches": [
+          "*"
+        ],
+        "glossaries": [
+          {
+            "k": "LLM",
+            "v": ""
+          },
+          {
+            "k": "LLMs",
+            "v": ""
+          }
+        ],
+        "order": 0,
+        "active": true
+      }
+    ]
+  }
+}
