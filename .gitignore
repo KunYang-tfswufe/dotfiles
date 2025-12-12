@@ -2,3 +2,5 @@ scripts/.local/bin/cursor-agent
 secrets.fish
 repomix-output.xml
 dotfiles-repomix-output.xml
+systemd/.config/systemd/user/default.target.wants
+systemd/.config/systemd/user/timers.target.wants
