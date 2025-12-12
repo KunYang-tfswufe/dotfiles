@@ -4,3 +4,5 @@ repomix-output.xml
 dotfiles-repomix-output.xml
 systemd/.config/systemd/user/default.target.wants
 systemd/.config/systemd/user/timers.target.wants
+espanso/.config/espanso/config/default.yml
+systemd/.config/systemd/user/espanso.service
