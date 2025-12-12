@@ -39,6 +39,7 @@ sync_task() {
     echo "🔄 [同步中] $(basename "$SRC")"
     
     # 基础参数: --fast-list(加速), --delete-during(同步删除), --backup-dir(回收站)
+    # 新增: --exclude ".git/" 排除 git 文件夹
     rclone sync "$SRC" "$FULL_DEST" \
         --progress \
         --transfers 32 \
@@ -48,6 +49,7 @@ sync_task() {
         --create-empty-src-dirs \
         --exclude ".DS_Store" \
         --exclude "Thumbs.db" \
+        --exclude ".git/" \
         $SPECIAL_FLAGS
 
     if [ $? -eq 0 ]; then
@@ -69,6 +71,9 @@ sync_task "$HOME/MyPublic" "MyPublic_Backup" "--modify-window 2s"
 # ⚙️ 任务 C: Dotfiles (安全模式, 完整备份)
 sync_task "$HOME/dotfiles" "dotfiles_Backup" "--modify-window 2s"
 
+# ✈️ 任务 D: fly 项目 (新增, 排除 .git)
+sync_task "$HOME/fly" "fly_Backup" "--modify-window 2s"
+
 # ================= 4. 清理与同步 =================
 echo "🧹 清理空目录..."
 rmdir --ignore-fail-on-non-empty -p "$TRASH_DIR_ROOT"/* 2>/dev/null
@@ -77,7 +82,7 @@ rmdir --ignore-fail-on-non-empty "$TRASH_DIR_ROOT" 2>/dev/null
 echo "💾 正在强制写入磁盘 (Syncing)..."
 sync
 
-# ================= 5. 自动卸载与断电 (新增部分) =================
+# ================= 5. 自动卸载与断电 =================
 echo "-----------------------------------------------------"
 echo "⏏️  [自动卸载] 正在尝试卸载硬盘..."
 
