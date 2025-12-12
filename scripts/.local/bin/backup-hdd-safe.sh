@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ================= 配置区域 =================
-DEVICE_PARTITION="/dev/sdb1"   # 硬盘分区 (用于挂载/卸载)
+DEVICE_PARTITION="/dev/sdb1"   # 硬盘分区 (建议后续改为 /dev/disk/by-label/... 以防变动)
 DRIVE_LABEL="MyPassport"       # 硬盘标签
 
 # ================= 系统变量 =================
@@ -36,10 +36,17 @@ sync_task() {
     local FULL_DEST="$MOUNT_POINT/$DEST_NAME"
     local BACKUP_DIR="$TRASH_DIR_ROOT/$DEST_NAME"
 
+    # 检查源目录是否存在，不存在则跳过，防止报错
+    if [ ! -d "$SRC" ]; then
+        echo "⚠️  [跳过] 源目录不存在: $(basename "$SRC")"
+        echo "-----------------------------------------------------"
+        return
+    fi
+
     echo "🔄 [同步中] $(basename "$SRC")"
     
     # 基础参数: --fast-list(加速), --delete-during(同步删除), --backup-dir(回收站)
-    # 新增: --exclude ".git/" 排除 git 文件夹
+    # 核心排除: --exclude ".git/" (排除git文件夹)
     rclone sync "$SRC" "$FULL_DEST" \
         --progress \
         --transfers 32 \
@@ -71,8 +78,8 @@ sync_task "$HOME/MyPublic" "MyPublic_Backup" "--modify-window 2s"
 # ⚙️ 任务 C: Dotfiles (安全模式, 完整备份)
 sync_task "$HOME/dotfiles" "dotfiles_Backup" "--modify-window 2s"
 
-# ✈️ 任务 D: fly 项目 (新增, 排除 .git)
-sync_task "$HOME/fly" "fly_Backup" "--modify-window 2s"
+# 🎓 任务 D: fyp 项目 (已修正路径，且排除 .git)
+sync_task "$HOME/fyp" "fyp_Backup" "--modify-window 2s"
 
 # ================= 4. 清理与同步 =================
 echo "🧹 清理空目录..."
@@ -86,29 +93,23 @@ sync
 echo "-----------------------------------------------------"
 echo "⏏️  [自动卸载] 正在尝试卸载硬盘..."
 
-# 检测当前脚本是否就在硬盘目录下运行（防止自己锁死自己）
 if [[ "$PWD" == *"$MOUNT_POINT"* ]]; then
     echo "⚠️  检测到当前终端位于硬盘目录内，尝试切换回主目录..."
     cd "$HOME" || exit
 fi
 
-# 尝试卸载
 if udisksctl unmount -b "$DEVICE_PARTITION"; then
     echo "✅ 卸载成功！"
-    
     echo "🔌 [自动断电] 正在让硬盘停转 (安全拔出模式)..."
-    # 获取父设备名 (比如 sdb1 -> sdb)，断电通常是对整个磁盘操作
     PARENT_DISK="${DEVICE_PARTITION%[0-9]*}"
     
     if udisksctl power-off -b "$PARENT_DISK"; then
         echo ""
         echo "🎉🎉🎉 硬盘已安全断电，指示灯熄灭后请拔出。"
     else
-        # 有些设备不支持 power-off，只要 unmount 成功也是安全的
         echo "🎉 硬盘已卸载 (断电命令未生效，仍可安全拔出)。"
     fi
 else
     echo "❌ 卸载失败！硬盘正被占用。"
-    echo "👇 谁在占用？(如果是 fish/bash，请检查其他终端窗口)"
     lsof +D "$MOUNT_POINT"
 fi
