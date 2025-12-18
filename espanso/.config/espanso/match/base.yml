@@ -5,7 +5,7 @@ matches:
 
   - trigger: "`2"
     replace: |-
-      xxx方法是什么?快速讲解一下,不要深究.
+      方法是什么?快速讲解一下,不要深究.
 
   - trigger: "`3"
     replace: |-
