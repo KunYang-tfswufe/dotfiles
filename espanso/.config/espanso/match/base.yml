@@ -5,7 +5,7 @@ matches:
 
   - trigger: "`2"
     replace: |-
-      是什么?快速了解一下,不要深究.
+      这是什么?快速了解一下,不要深究.
 
   - trigger: "`3"
     replace: |-
