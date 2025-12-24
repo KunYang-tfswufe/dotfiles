@@ -56,6 +56,12 @@ require("lazy").setup({
                 enable_git_status = true,
                 enable_diagnostics = true,
                 filesystem = {
+                    -- [修改处] 这里添加了过滤项设置，默认显示隐藏文件
+                    filtered_items = {
+                        visible = true, -- 设置为 true 默认显示隐藏文件
+                        hide_dotfiles = false,
+                        hide_gitignored = false,
+                    },
                     follow_current_file = {
                         enabled = true,
                     },
@@ -67,7 +73,7 @@ require("lazy").setup({
             -- Neo-tree 快捷键设置
             vim.keymap.set("n", "<leader>ft", ":Neotree toggle<CR>", { desc = "Explorer: Toggle Neo-tree" })
             vim.keymap.set("n", "<leader>bf", ":Neotree buffers<CR>", { desc = "Explorer: Open Buffers" })
-            
+
             -- [新增] 快速定位当前文件
             vim.keymap.set("n", "<leader>o", ":Neotree reveal<CR>", { desc = "Explorer: Reveal Current File" })
         end,
@@ -136,7 +142,7 @@ require("lazy").setup({
                 execution_message = {
                     message = function()
                         return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
-                    end, -- 修复：添加了逗号
+                    end,
                     dim = 0.18,
                     cleaning_interval = 1000,
                 },
@@ -149,7 +155,7 @@ require("lazy").setup({
                         return true
                     end
                     return false
-                end, -- 修复：添加了逗号
+                end,
                 write_all_buffers = false,
                 debounce_delay = 135,
             })
