@@ -41,9 +41,8 @@ require("lazy").setup({
             vim.cmd("colorscheme tokyonight")
         end,
     },
-    
+
     -- Treesitter (语法高亮)
-    -- 🟢 修改版：删除了 textobjects 依赖和配置，只保留核心高亮功能
     {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPost", "BufNewFile" },
@@ -63,8 +62,8 @@ require("lazy").setup({
                 highlight = { enable = true }, -- 核心功能：高亮
             })
         end,
-    }, 
-    
+    },
+
     -- Telescope (模糊搜索)
     {
         "nvim-telescope/telescope.nvim",
@@ -77,7 +76,8 @@ require("lazy").setup({
             })
         end,
     },
-    
+
+    -- Gitsigns (Git状态提示)
     {
         "lewis6991/gitsigns.nvim",
         opts = {
@@ -94,35 +94,6 @@ require("lazy").setup({
                 map("n", "<leader>gb", function() gs.blame_line({ full = true }) end, { desc = "Git: Blame Line" })
             end,
         },
-    },
-
-    { "tpope/vim-repeat" },
-
-    {
-        "ggandor/leap.nvim",
-        event = "VeryLazy",
-        dependencies = { "tpope/vim-repeat" },
-        config = function()
-            local leap = require("leap")
-            leap.opts.preview = function(ch0, ch1, ch2)
-                return not (ch1:match("%s") or (ch0:match("%a") and ch1:match("%a") and ch2:match("%a")))
-            end
-            vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)", { desc = "Motion: Leap forward" })
-            vim.keymap.set("n", "S", "<Plug>(leap-from-window)", { desc = "Motion: Leap windows" })
-        end,
-    },
-
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function() require("nvim-autopairs").setup({ map_cr = false }) end,
-    },
-
-    {
-        "kylechui/nvim-surround",
-        version = "*",
-        event = "VeryLazy",
-        config = function() require("nvim-surround").setup({}) end,
     },
 
     -- ==================== COC.NVIM ====================
