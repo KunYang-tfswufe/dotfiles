@@ -44,18 +44,21 @@ require("lazy").setup({
             vim.cmd("colorscheme tokyonight")
         end,
     },
--- Treesitter (语法高亮)
+    
+    -- Treesitter (语法高亮) - 【已修复加载顺序问题】
     {
         "nvim-treesitter/nvim-treesitter",
-        lazy = false,    -- 你的设置：强制立即加载
-        priority = 1000, 
+        -- 🔴 修改点：移除 lazy = false，改为打开文件时加载
+        -- 这能解决依赖报错，并极大提升启动速度
+        event = { "BufReadPost", "BufNewFile" },
+        priority = 1000,
         build = ":TSUpdate",
         dependencies = {
             -- 明确声明依赖
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
         config = function()
-            -- 保护性调用：如果 require 失败，不会让整个 nvim 崩溃
+            -- 保护性调用
             local status, configs = pcall(require, "nvim-treesitter.configs")
             if not status then
                 return
@@ -71,7 +74,7 @@ require("lazy").setup({
                 sync_install = false,
                 auto_install = true,
                 highlight = { enable = true },
-                
+
                 -- textobjects 配置
                 textobjects = {
                     select = {
@@ -87,7 +90,9 @@ require("lazy").setup({
                 },
             })
         end,
-    }, -- Telescope (模糊搜索)
+    }, 
+    
+    -- Telescope (模糊搜索)
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
@@ -99,6 +104,7 @@ require("lazy").setup({
             })
         end,
     },
+    
     {
         "lewis6991/gitsigns.nvim",
         opts = {
@@ -116,9 +122,9 @@ require("lazy").setup({
             end,
         },
     },
-    
+
     { "tpope/vim-repeat" },
-    
+
     {
         "ggandor/leap.nvim",
         event = "VeryLazy",
