@@ -42,6 +42,37 @@ require("lazy").setup({
         end,
     },
 
+    -- Neo-tree (文件资源管理器) [新增]
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- 推荐安装 Nerd Font 以显示图标
+            "MunifTanjim/nui.nvim",
+        },
+        config = function()
+            require("neo-tree").setup({
+                close_if_last_window = true, -- 如果 Neo-tree 是最后一个窗口，则自动关闭 Vim
+                popup_border_style = "rounded",
+                enable_git_status = true,
+                enable_diagnostics = true,
+                filesystem = {
+                    follow_current_file = {
+                        enabled = true, -- 打开文件时，自动在左侧树中定位
+                    },
+                    use_libuv_file_watcher = true, -- 自动监听文件系统变化
+                    hijack_netrw_behavior = "open_default",
+                },
+            })
+            
+            -- Neo-tree 快捷键设置
+            -- 注意：你的 <leader>e 已被 Coc 占用，这里使用 <leader>ft (File Tree)
+            vim.keymap.set("n", "<leader>ft", ":Neotree toggle<CR>", { desc = "Explorer: Toggle Neo-tree" })
+            vim.keymap.set("n", "<leader>bf", ":Neotree buffers<CR>", { desc = "Explorer: Open Buffers" })
+        end,
+    },
+
     -- Treesitter (语法高亮)
     {
         "nvim-treesitter/nvim-treesitter",
@@ -74,45 +105,6 @@ require("lazy").setup({
                     file_ignore_patterns = { "%.git/", "target/", "build/", "node_modules/" },
                 },
             })
-        end,
-    },
-
-    -- Nvim Tree (文件资源管理器)
-    {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        config = function()
-            -- 禁用 netrw (nvim-tree 推荐设置)
-            vim.g.loaded_netrw = 1
-            vim.g.loaded_netrwPlugin = 1
-
-            require("nvim-tree").setup({
-                sort = {
-                    sorter = "case_sensitive",
-                },
-                view = {
-                    width = 30,
-                },
-                renderer = {
-                    group_empty = true,
-                },
-                filters = {
-                    dotfiles = false,
-                },
-            })
-
-            -- ==================== 目录树快捷键 ====================
-            -- <leader>t: 打开/关闭目录树
-            vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Explorer: Toggle Tree" })
-            -- <leader>tf: 在目录树中定位当前文件
-            vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "Explorer: Find File" })
-            
-            -- [新增] <leader>o: 强制聚焦到目录树 (解决 Zellij 冲突)
-            vim.keymap.set("n", "<leader>o", ":NvimTreeFocus<CR>", { desc = "Explorer: Focus Tree" })
         end,
     },
 
@@ -247,6 +239,3 @@ vim.keymap.set("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers
 vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = "Find: Text (Grep)" })
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "Find: Help" })
 vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
-
--- 注意：已移除与 Zellij 冲突的 <C-h/j/k/l> 快捷键
--- 现在请使用 <leader>o 跳转到文件树
