@@ -95,16 +95,6 @@ require("lazy").setup({
             })
         end,
     },
-    -- Which Key (按键提示)
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        init = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-        end,
-        opts = {},
-    },
     -- Gitsigns (Git 集成)
     {
         "lewis6991/gitsigns.nvim",
@@ -293,4 +283,3 @@ vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get
 -- [恢复] 自定义 M/Q 映射
 vim.keymap.set("n", "M", "daw", { desc = "Edit: Delete Word" })
 vim.keymap.set("n", "Q", "ciw", { desc = "Edit: Change Word" })
-
