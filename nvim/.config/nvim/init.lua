@@ -45,14 +45,25 @@ require("lazy").setup({
             vim.cmd("colorscheme tokyonight")
         end,
     },
-    -- Treesitter (语法高亮)
+-- Treesitter (语法高亮)
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,    -- 你的设置：强制立即加载
+        priority = 1000, 
         build = ":TSUpdate",
-        dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+        dependencies = {
+            -- 明确声明依赖
+            "nvim-treesitter/nvim-treesitter-textobjects",
+        },
         config = function()
-            require("nvim-treesitter.configs").setup({
-                -- 优化：移除 python，保留 Java 常用四件套 (Java, XML, SQL, Dockerfile)
+            -- 保护性调用：如果 require 失败，不会让整个 nvim 崩溃
+            local status, configs = pcall(require, "nvim-treesitter.configs")
+            if not status then
+                return
+            end
+
+            configs.setup({
+                -- 优化：移除 python，保留 Java 常用四件套
                 ensure_installed = {
                     "lua", "vim", "vimdoc", "query",
                     "java", "xml", "sql", "dockerfile",
@@ -61,6 +72,8 @@ require("lazy").setup({
                 sync_install = false,
                 auto_install = true,
                 highlight = { enable = true },
+                
+                -- textobjects 配置
                 textobjects = {
                     select = {
                         enable = true,
@@ -75,8 +88,7 @@ require("lazy").setup({
                 },
             })
         end,
-    },
-    -- Telescope (模糊搜索)
+    }, -- Telescope (模糊搜索)
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
