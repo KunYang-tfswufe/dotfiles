@@ -133,7 +133,7 @@ require("lazy").setup({
         },
     },
 
-    -- Auto Save (自动保存)
+    -- Auto Save (自动保存) - [已修改策略]
     {
         "pocco81/auto-save.nvim",
         config = function()
@@ -146,7 +146,8 @@ require("lazy").setup({
                     dim = 0.18,
                     cleaning_interval = 1000,
                 },
-                trigger_events = { "InsertLeave", "TextChanged" },
+                -- [核心修改]: 仅在切换 Buffer 或失去窗口焦点时保存
+                trigger_events = { "BufLeave", "FocusLost" },
                 condition = function(buf)
                     local fn = vim.fn
                     local utils = require("auto-save.utils.data")
