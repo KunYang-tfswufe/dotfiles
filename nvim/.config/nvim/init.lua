@@ -132,6 +132,37 @@ require("lazy").setup({
         },
     },
 
+    -- ==================== Auto Save (自动保存) ====================
+    {
+        "pocco81/auto-save.nvim",
+        config = function()
+            require("auto-save").setup({
+                enabled = true,
+                execution_message = {
+                    message = function()
+                        return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
+                    end,
+                    dim = 0.18,
+                    cleaning_interval = 1000,
+                },
+                trigger_events = { "InsertLeave", "TextChanged" },
+                condition = function(buf)
+                    local fn = vim.fn
+                    local utils = require("auto-save.utils.data")
+                    if fn.getbufvar(buf, "&modifiable") == 1 and
+                       utils.not_in(fn.getbufvar(buf, "&filetype"), {}) then
+                        return true
+                    end
+                    return false
+                end,
+                write_all_buffers = false,
+                debounce_delay = 135,
+            })
+            -- 快捷键：开关自动保存 <leader>as
+            vim.keymap.set("n", "<leader>as", ":ASToggle<CR>", { desc = "System: Toggle Auto Save" })
+        end,
+    },
+
     -- ==================== COC.NVIM ====================
     {
         "neoclide/coc.nvim",
@@ -214,9 +245,7 @@ vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_gr
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "Find: Help" })
 vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
 
--- 窗口焦点切换 (核心功能：在代码和目录树之间跳转)
--- Ctrl + h : 跳到左边窗口
--- Ctrl + l : 跳到右边窗口
+-- 窗口焦点切换
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window: Focus Left" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window: Focus Right" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window: Focus Down" })
