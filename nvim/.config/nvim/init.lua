@@ -15,15 +15,15 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- 自动安装 coc 扩展 (Java 极简版)
+-- 自动安装 coc 扩展
 vim.g.coc_global_extensions = {
-    'coc-java',     -- 核心：Eclipse JDT.LS
-    'coc-xml',      -- 核心：Maven (pom.xml) 和 MyBatis (mapper.xml) 支持
-    'coc-yaml',     -- Spring Boot 配置 (application.yml)
-    'coc-json',     -- 通用配置
-    'coc-toml',     -- 偶尔用到
-    'coc-lua',      -- 维护本配置文件用
-    'coc-snippets', -- 代码片段
+    'coc-java',
+    'coc-xml',
+    'coc-yaml',
+    'coc-json',
+    'coc-toml',
+    'coc-lua',
+    'coc-snippets',
 }
 
 require("lazy").setup({
@@ -35,37 +35,24 @@ require("lazy").setup({
         config = function()
             require("tokyonight").setup({
                 style = "storm",
-                transparent = true, -- 保持透明
-                styles = {
-                    sidebars = "transparent",
-                    floats = "transparent",
-                },
+                transparent = true,
+                styles = { sidebars = "transparent", floats = "transparent" },
             })
             vim.cmd("colorscheme tokyonight")
         end,
     },
     
-    -- Treesitter (语法高亮) - 【已修复加载顺序问题】
+    -- Treesitter (语法高亮)
+    -- 🟢 修改版：删除了 textobjects 依赖和配置，只保留核心高亮功能
     {
         "nvim-treesitter/nvim-treesitter",
-        -- 🔴 修改点：移除 lazy = false，改为打开文件时加载
-        -- 这能解决依赖报错，并极大提升启动速度
         event = { "BufReadPost", "BufNewFile" },
-        priority = 1000,
         build = ":TSUpdate",
-        dependencies = {
-            -- 明确声明依赖
-            "nvim-treesitter/nvim-treesitter-textobjects",
-        },
         config = function()
-            -- 保护性调用
             local status, configs = pcall(require, "nvim-treesitter.configs")
-            if not status then
-                return
-            end
+            if not status then return end
 
             configs.setup({
-                -- 优化：移除 python，保留 Java 常用四件套
                 ensure_installed = {
                     "lua", "vim", "vimdoc", "query",
                     "java", "xml", "sql", "dockerfile",
@@ -73,21 +60,7 @@ require("lazy").setup({
                 },
                 sync_install = false,
                 auto_install = true,
-                highlight = { enable = true },
-
-                -- textobjects 配置
-                textobjects = {
-                    select = {
-                        enable = true,
-                        lookahead = true,
-                        keymaps = {
-                            ["af"] = "@function.outer",
-                            ["if"] = "@function.inner",
-                            ["ac"] = "@class.outer",
-                            ["ic"] = "@class.inner",
-                        },
-                    },
-                },
+                highlight = { enable = true }, -- 核心功能：高亮
             })
         end,
     }, 
@@ -138,15 +111,13 @@ require("lazy").setup({
             vim.keymap.set("n", "S", "<Plug>(leap-from-window)", { desc = "Motion: Leap windows" })
         end,
     },
-    -- 自动括号插件
+
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup({ map_cr = false })
-        end,
+        config = function() require("nvim-autopairs").setup({ map_cr = false }) end,
     },
-    -- Surround (修改环绕字符)
+
     {
         "kylechui/nvim-surround",
         version = "*",
@@ -161,26 +132,17 @@ require("lazy").setup({
         config = function()
             local keyset = vim.keymap.set
             local opts = { silent = true, noremap = true, expr = true, replace_keycodes = true }
-
-            -- Tab 键补全选择
             keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
             keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
-
-            -- 回车确认补全
             keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-
             function _G.check_back_space()
                 local col = vim.fn.col('.') - 1
                 return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
             end
-
-            -- LSP 导航
             keyset("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "LSP: Definition" })
             keyset("n", "gD", "<Plug>(coc-declaration)", { silent = true, desc = "LSP: Declaration" })
             keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true, desc = "LSP: Implementation" })
             keyset("n", "gr", "<Plug>(coc-references)", { silent = true, desc = "LSP: References" })
-
-            -- K 显示文档
             function _G.show_docs()
                 local cw = vim.fn.expand('<cword>')
                 if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
@@ -192,25 +154,19 @@ require("lazy").setup({
                 end
             end
             keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true, desc = "LSP: Hover" })
-
-            -- 重命名、代码操作、格式化
             keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true, desc = "LSP: Rename" })
             keyset("n", "<leader>ca", "<Plug>(coc-codeaction-cursor)", { silent = true, desc = "LSP: Code Action" })
             keyset("x", "<leader>ca", "<Plug>(coc-codeaction-selected)", { silent = true, desc = "LSP: Code Action (Selected)" })
             keyset("n", "<leader>cf", "<Plug>(coc-format)", { silent = true, desc = "Code: Format File" })
-
-            -- 诊断
             keyset("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true, desc = "Diagnostic: Prev" })
             keyset("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true, desc = "Diagnostic: Next" })
             keyset("n", "<leader>e", ":CocList diagnostics<CR>", { silent = true, desc = "LSP: Show Diagnostics List" })
-
-            -- 组织导入 (Java常用)
             keyset("n", "<leader>ci", ":call CocActionAsync('runCommand', 'editor.action.organizeImport')<CR>", { silent = true, desc = "Code: Organize Imports" })
         end
     }
 })
 
--- ==================== 基础选项 ====================
+-- 基础设置
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -230,21 +186,16 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 
--- ==================== 基础快捷键 ====================
-vim.keymap.set({ "n", "v" }, "j", "gj", { desc = "Motion: Move down visual" })
-vim.keymap.set({ "n", "v" }, "k", "gk", { desc = "Motion: Move up visual" })
-
--- [保留] 强制禁用方向键 (Hard Mode)
+-- 快捷键
+vim.keymap.set({ "n", "v" }, "j", "gj")
+vim.keymap.set({ "n", "v" }, "k", "gk")
 vim.keymap.set({ "n", "v", "i" }, "<Up>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Down>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Left>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>")
 
--- Telescope 搜索
 vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files({ hidden = true }) end, { desc = "Find: Files" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { desc = "Find: Buffers" })
 vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = "Find: Text (Grep)" })
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "Find: Help" })
-
--- UI Toggle
 vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
