@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- 设置 leader 键
+-- 设置 leader 键 (空格)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -105,11 +105,14 @@ require("lazy").setup({
                 },
             })
 
-            -- 目录树专用快捷键
+            -- ==================== 目录树快捷键 ====================
             -- <leader>t: 打开/关闭目录树
             vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Explorer: Toggle Tree" })
             -- <leader>tf: 在目录树中定位当前文件
             vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "Explorer: Find File" })
+            
+            -- [新增] <leader>o: 强制聚焦到目录树 (解决 Zellij 冲突)
+            vim.keymap.set("n", "<leader>o", ":NvimTreeFocus<CR>", { desc = "Explorer: Focus Tree" })
         end,
     },
 
@@ -132,7 +135,7 @@ require("lazy").setup({
         },
     },
 
-    -- ==================== Auto Save (自动保存) ====================
+    -- Auto Save (自动保存)
     {
         "pocco81/auto-save.nvim",
         config = function()
@@ -245,8 +248,5 @@ vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_gr
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "Find: Help" })
 vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
 
--- 窗口焦点切换
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window: Focus Left" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window: Focus Right" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window: Focus Down" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window: Focus Up" })
+-- 注意：已移除与 Zellij 冲突的 <C-h/j/k/l> 快捷键
+-- 现在请使用 <leader>o 跳转到文件树
