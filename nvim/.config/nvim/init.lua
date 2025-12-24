@@ -77,16 +77,16 @@ require("lazy").setup({
         end,
     },
 
-    -- Nvim Tree (新增：目录树)
+    -- Nvim Tree (文件资源管理器)
     {
         "nvim-tree/nvim-tree.lua",
         version = "*",
         lazy = false,
         dependencies = {
-            "nvim-tree/nvim-web-devicons", -- 如果你需要文件图标
+            "nvim-tree/nvim-web-devicons",
         },
         config = function()
-            -- 禁用 netrw (nvim-tree 推荐)
+            -- 禁用 netrw (nvim-tree 推荐设置)
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
 
@@ -105,7 +105,7 @@ require("lazy").setup({
                 },
             })
 
-            -- 目录树快捷键
+            -- 目录树专用快捷键
             -- <leader>t: 打开/关闭目录树
             vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Explorer: Toggle Tree" })
             -- <leader>tf: 在目录树中定位当前文件
@@ -193,16 +193,31 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes"
 
--- 快捷键
+-- ==========================================
+-- 快捷键设置 (Keymaps)
+-- ==========================================
+
+-- 更好的行内移动 (wrap 时)
 vim.keymap.set({ "n", "v" }, "j", "gj")
 vim.keymap.set({ "n", "v" }, "k", "gk")
+
+-- 禁用方向键 (强制养成肌肉记忆)
 vim.keymap.set({ "n", "v", "i" }, "<Up>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Down>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Left>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>")
 
+-- Telescope 搜索
 vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files({ hidden = true }) end, { desc = "Find: Files" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { desc = "Find: Buffers" })
 vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = "Find: Text (Grep)" })
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "Find: Help" })
 vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
+
+-- 窗口焦点切换 (核心功能：在代码和目录树之间跳转)
+-- Ctrl + h : 跳到左边窗口
+-- Ctrl + l : 跳到右边窗口
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Window: Focus Left" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Window: Focus Right" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Window: Focus Down" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Window: Focus Up" })
