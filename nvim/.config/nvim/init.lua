@@ -59,7 +59,7 @@ require("lazy").setup({
                 },
                 sync_install = false,
                 auto_install = true,
-                highlight = { enable = true }, -- 核心功能：高亮
+                highlight = { enable = true },
             })
         end,
     },
@@ -74,6 +74,42 @@ require("lazy").setup({
                     file_ignore_patterns = { "%.git/", "target/", "build/", "node_modules/" },
                 },
             })
+        end,
+    },
+
+    -- Nvim Tree (新增：目录树)
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        lazy = false,
+        dependencies = {
+            "nvim-tree/nvim-web-devicons", -- 如果你需要文件图标
+        },
+        config = function()
+            -- 禁用 netrw (nvim-tree 推荐)
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
+
+            require("nvim-tree").setup({
+                sort = {
+                    sorter = "case_sensitive",
+                },
+                view = {
+                    width = 30,
+                },
+                renderer = {
+                    group_empty = true,
+                },
+                filters = {
+                    dotfiles = false,
+                },
+            })
+
+            -- 目录树快捷键
+            -- <leader>t: 打开/关闭目录树
+            vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Explorer: Toggle Tree" })
+            -- <leader>tf: 在目录树中定位当前文件
+            vim.keymap.set("n", "<leader>tf", ":NvimTreeFindFile<CR>", { desc = "Explorer: Find File" })
         end,
     },
 
