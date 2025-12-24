@@ -130,8 +130,6 @@ require("lazy").setup({
         },
     },
 
-    -- [已删除] pocco81/auto-save.nvim 插件代码块
-
     -- ==================== COC.NVIM ====================
     {
         "neoclide/coc.nvim",
@@ -210,20 +208,3 @@ vim.keymap.set("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers
 vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = "Find: Text (Grep)" })
 vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", { desc = "Find: Help" })
 vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
-
--- =========================================================
--- [方案三] 原生 Lua 自动保存 (轻量级，无插件，不卡内存)
--- 策略：仅在离开文件 (BufLeave) 或 切换窗口 (FocusLost) 时保存
--- =========================================================
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
-    group = vim.api.nvim_create_augroup("NativeAutoSave", { clear = true }),
-    pattern = "*",
-    callback = function()
-        -- 仅当文件被修改、可写入、且不是特殊 Buffer (如 Neo-tree) 时才保存
-        if vim.bo.modified and vim.bo.modifiable and vim.bo.buftype == "" then
-            vim.cmd("silent! w")
-            -- 可选：取消下一行的注释，可以在保存时看到提示信息
-            -- print("AutoSave: " .. os.date("%H:%M:%S"))
-        end
-    end,
-})
