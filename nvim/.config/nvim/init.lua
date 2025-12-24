@@ -16,13 +16,12 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- 自动安装 coc 扩展
+-- 已移除 coc-toml 和 coc-lua
 vim.g.coc_global_extensions = {
     'coc-java',
     'coc-xml',
     'coc-yaml',
     'coc-json',
-    'coc-toml',
-    'coc-lua',
     'coc-snippets',
 }
 
@@ -42,7 +41,7 @@ require("lazy").setup({
         end,
     },
 
-    -- Neo-tree (文件资源管理器) [新增]
+    -- Neo-tree (文件资源管理器)
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
@@ -65,7 +64,7 @@ require("lazy").setup({
                     hijack_netrw_behavior = "open_default",
                 },
             })
-            
+
             -- Neo-tree 快捷键设置
             -- 注意：你的 <leader>e 已被 Coc 占用，这里使用 <leader>ft (File Tree)
             vim.keymap.set("n", "<leader>ft", ":Neotree toggle<CR>", { desc = "Explorer: Toggle Neo-tree" })
