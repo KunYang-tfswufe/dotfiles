@@ -16,7 +16,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- 自动安装 coc 扩展
--- 已移除 coc-toml 和 coc-lua
 vim.g.coc_global_extensions = {
     'coc-java',
     'coc-xml',
@@ -47,28 +46,30 @@ require("lazy").setup({
         branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- 推荐安装 Nerd Font 以显示图标
+            "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
         config = function()
             require("neo-tree").setup({
-                close_if_last_window = true, -- 如果 Neo-tree 是最后一个窗口，则自动关闭 Vim
+                close_if_last_window = true,
                 popup_border_style = "rounded",
                 enable_git_status = true,
                 enable_diagnostics = true,
                 filesystem = {
                     follow_current_file = {
-                        enabled = true, -- 打开文件时，自动在左侧树中定位
+                        enabled = true,
                     },
-                    use_libuv_file_watcher = true, -- 自动监听文件系统变化
+                    use_libuv_file_watcher = true,
                     hijack_netrw_behavior = "open_default",
                 },
             })
 
             -- Neo-tree 快捷键设置
-            -- 注意：你的 <leader>e 已被 Coc 占用，这里使用 <leader>ft (File Tree)
             vim.keymap.set("n", "<leader>ft", ":Neotree toggle<CR>", { desc = "Explorer: Toggle Neo-tree" })
             vim.keymap.set("n", "<leader>bf", ":Neotree buffers<CR>", { desc = "Explorer: Open Buffers" })
+            
+            -- [新增] 快速定位当前文件
+            vim.keymap.set("n", "<leader>o", ":Neotree reveal<CR>", { desc = "Explorer: Reveal Current File" })
         end,
     },
 
@@ -135,7 +136,7 @@ require("lazy").setup({
                 execution_message = {
                     message = function()
                         return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
-                    end,
+                    end, -- 修复：添加了逗号
                     dim = 0.18,
                     cleaning_interval = 1000,
                 },
@@ -148,11 +149,10 @@ require("lazy").setup({
                         return true
                     end
                     return false
-                end,
+                end, -- 修复：添加了逗号
                 write_all_buffers = false,
                 debounce_delay = 135,
             })
-            -- 快捷键：开关自动保存 <leader>as
             vim.keymap.set("n", "<leader>as", ":ASToggle<CR>", { desc = "System: Toggle Auto Save" })
         end,
     },
@@ -222,17 +222,14 @@ vim.opt.signcolumn = "yes"
 -- 快捷键设置 (Keymaps)
 -- ==========================================
 
--- 更好的行内移动 (wrap 时)
 vim.keymap.set({ "n", "v" }, "j", "gj")
 vim.keymap.set({ "n", "v" }, "k", "gk")
 
--- 禁用方向键 (强制养成肌肉记忆)
 vim.keymap.set({ "n", "v", "i" }, "<Up>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Down>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Left>", "<Nop>")
 vim.keymap.set({ "n", "v", "i" }, "<Right>", "<Nop>")
 
--- Telescope 搜索
 vim.keymap.set("n", "<leader>ff", function() require("telescope.builtin").find_files({ hidden = true }) end, { desc = "Find: Files" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", { desc = "Find: Buffers" })
 vim.keymap.set("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", { desc = "Find: Text (Grep)" })
