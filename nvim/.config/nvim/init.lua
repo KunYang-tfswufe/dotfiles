@@ -16,7 +16,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- 自动安装 coc 扩展 (Java 极简版)
--- 移除了 pyright, vimlsp, sh 等非 Java 核心扩展
 vim.g.coc_global_extensions = {
     'coc-java',     -- 核心：Eclipse JDT.LS
     'coc-xml',      -- 核心：Maven (pom.xml) 和 MyBatis (mapper.xml) 支持
@@ -95,13 +94,11 @@ require("lazy").setup({
         config = function()
             require("telescope").setup({
                 defaults = {
-                    -- 优化：忽略 Java 编译产物和 Git 目录
                     file_ignore_patterns = { "%.git/", "target/", "build/", "node_modules/" },
                 },
             })
         end,
     },
-    -- Gitsigns (轻量级 Git 集成，只看变动，不操作)
     {
         "lewis6991/gitsigns.nvim",
         opts = {
@@ -119,13 +116,9 @@ require("lazy").setup({
             end,
         },
     },
-    -- [已移除] LazyGit (你要求做减法)
-    -- [已移除] auto-save (避免干扰 Java 编译)
-    -- [已移除] indent-blankline (视觉减负)
     
     { "tpope/vim-repeat" },
     
-    -- Leap (快速跳转，保留以维持高效率)
     {
         "ggandor/leap.nvim",
         event = "VeryLazy",
@@ -249,5 +242,3 @@ vim.keymap.set("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_ta
 
 -- UI Toggle
 vim.keymap.set("n", "<leader>uw", function() vim.opt.wrap = not vim.opt.wrap:get() end, { desc = "UI: Toggle Wrap" })
-
--- [已移除] 自定义 M/Q 映射
