@@ -158,6 +158,9 @@ sudo npm install -g @openai/codex
 # prettier
 sudo npm install -g prettier
 
+# code-server
+curl -fsSL https://code-server.dev/install.sh | sh
+
 # repomix
 sudo npm install -g repomix
 
