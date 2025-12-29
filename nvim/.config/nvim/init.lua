@@ -147,6 +147,17 @@ require("lazy").setup({
             end,
         },
     },
+
+    -- [Java 开发] nvim-java
+    -- 严格按照官方 README 的 lazy.nvim 章节配置
+    -- 文档要求 Neovim 0.11.5+
+    {
+        'nvim-java/nvim-java',
+        config = function()
+            require('java').setup()
+            vim.lsp.enable('jdtls')
+        end,
+    },
 })
 
 -- ==========================================
