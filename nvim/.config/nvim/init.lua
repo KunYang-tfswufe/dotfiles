@@ -123,25 +123,6 @@ require("lazy").setup({
         },
     },
 
-    -- LazyGit
-    {
-        "kdheepak/lazygit.nvim",
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        -- 设置打开 LazyGit 的快捷键: <leader>gg
-        keys = {
-            { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Git: Open LazyGit" },
-        },
-    },
-
     -- [已删除] COC.NVIM 插件块及其快捷键配置
 })
 
