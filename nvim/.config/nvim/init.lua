@@ -1,6 +1,7 @@
 -- 禁用 Perl 和 Ruby 提供者 (消除 checkhealth 警告并加快启动)
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -18,14 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- 自动安装 coc 扩展
-vim.g.coc_global_extensions = {
-    'coc-java',
-    'coc-xml',
-    'coc-yaml',
-    'coc-json',
-    'coc-snippets',
-}
+-- [已删除] coc_global_extensions 配置
 
 require("lazy").setup({
     -- 主题
@@ -133,7 +127,7 @@ require("lazy").setup({
         },
     },
 
-    -- LazyGit (新增插件)
+    -- LazyGit
     {
         "kdheepak/lazygit.nvim",
         cmd = {
@@ -152,45 +146,7 @@ require("lazy").setup({
         },
     },
 
-    -- ==================== COC.NVIM ====================
-    {
-        "neoclide/coc.nvim",
-        branch = "release",
-        config = function()
-            local keyset = vim.keymap.set
-            local opts = { silent = true, noremap = true, expr = true, replace_keycodes = true }
-            keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-            keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
-            keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-            function _G.check_back_space()
-                local col = vim.fn.col('.') - 1
-                return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-            end
-            keyset("n", "gd", "<Plug>(coc-definition)", { silent = true, desc = "LSP: Definition" })
-            keyset("n", "gD", "<Plug>(coc-declaration)", { silent = true, desc = "LSP: Declaration" })
-            keyset("n", "gi", "<Plug>(coc-implementation)", { silent = true, desc = "LSP: Implementation" })
-            keyset("n", "gr", "<Plug>(coc-references)", { silent = true, desc = "LSP: References" })
-            function _G.show_docs()
-                local cw = vim.fn.expand('<cword>')
-                if vim.fn.index({ 'vim', 'help' }, vim.bo.filetype) >= 0 then
-                    vim.api.nvim_command('h ' .. cw)
-                elseif vim.api.nvim_eval('coc#rpc#ready()') then
-                    vim.fn.CocActionAsync('doHover')
-                else
-                    vim.api.nvim_command('!' .. vim.o.keywordprg .. ' ' .. cw)
-                end
-            end
-            keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', { silent = true, desc = "LSP: Hover" })
-            keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true, desc = "LSP: Rename" })
-            keyset("n", "<leader>ca", "<Plug>(coc-codeaction-cursor)", { silent = true, desc = "LSP: Code Action" })
-            keyset("x", "<leader>ca", "<Plug>(coc-codeaction-selected)", { silent = true, desc = "LSP: Code Action (Selected)" })
-            keyset("n", "<leader>cf", "<Plug>(coc-format)", { silent = true, desc = "Code: Format File" })
-            keyset("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true, desc = "Diagnostic: Prev" })
-            keyset("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true, desc = "Diagnostic: Next" })
-            keyset("n", "<leader>e", ":CocList diagnostics<CR>", { silent = true, desc = "LSP: Show Diagnostics List" })
-            keyset("n", "<leader>ci", ":call CocActionAsync('runCommand', 'editor.action.organizeImport')<CR>", { silent = true, desc = "Code: Organize Imports" })
-        end
-    }
+    -- [已删除] COC.NVIM 插件块及其快捷键配置
 })
 
 -- 基础设置

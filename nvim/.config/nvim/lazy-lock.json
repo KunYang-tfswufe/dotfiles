@@ -1,5 +1,4 @@
 {
-  "coc.nvim": { "branch": "release", "commit": "c89ed8d5c393c60e0baf796f097598a8da14816d" },
   "gitsigns.nvim": { "branch": "main", "commit": "130beacf8a51f00aede9c31064c749136679a321" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lazygit.nvim": { "branch": "main", "commit": "a04ad0dbc725134edbee3a5eea29290976695357" },
