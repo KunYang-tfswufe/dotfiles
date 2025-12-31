@@ -145,10 +145,10 @@
  /* 基础设置: 等宽字体, 适应宽屏 */
   .todo { font: 16px/1.6 monospace; padding: 30px; }
 
-  /* --- Deadline 部分 (新增) --- */
-  .deadline { color: #ff5f5f; font-weight: bold; margin-bottom: 40px; }
-  .deadline::before { content: "DEADLINE"; display: block; border-bottom: 2px solid; margin-bottom: 15px; }
-  .deadline div::before { content: "!! "; }
+  /* --- Deadline 部分 --- */
+  .deadline { color: #d78700; font-weight: bold; margin-bottom: 40px; }
+  .deadline::before { content: "PRIORITY"; display: block; border-bottom: 2px dashed; margin-bottom: 15px; }
+  .deadline div::before { content: "* "; }
 
   /* --- Running 部分 --- */
   .running { color: #000; font-weight: bold; }
