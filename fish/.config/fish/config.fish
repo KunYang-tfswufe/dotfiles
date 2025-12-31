@@ -5,8 +5,8 @@ end
 if status is-interactive
 end
 
-set -gx EDITOR (command -v vim)
-set -gx VISUAL (command -v vim)
+set -gx EDITOR (command -v vimx)
+set -gx VISUAL (command -v vimx)
 
 fish_add_path $HOME/.local/bin
 
