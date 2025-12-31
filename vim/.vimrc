@@ -16,11 +16,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf.vim'
 
     " Git 集成
-    " 保留了 GitGutter (左侧显示增删改)，删除了 Fugitive
     Plug 'airblade/vim-gitgutter'
 
     " *** 核心修复：Wayland 剪切板原生支持 ***
-    " 这个插件会自动配置 g:clipboard 变量，让 y/p 直接调用 wl-copy/wl-paste
     Plug 'jasonccox/vim-wayland-clipboard'
 
 call plug#end()
@@ -28,18 +26,18 @@ call plug#end()
 " ==========================================
 " 2. 剪切板集成 (关键设置)
 " ==========================================
-" 必须开启此选项，才能让 y/p 操作与系统剪切板（unnamedplus）同步
-" 配合上面的插件，它会自动走 Wayland 通道，而非 X11
 set clipboard+=unnamedplus
 
 " ==========================================
-" 3. 基础设置
+" 3. 基础设置与外观
 " ==========================================
 set nocompatible
 filetype plugin indent on
 syntax on
 
-" Git 标记优化 (配合 vim-gitgutter 使用)
+colorscheme wildcharm
+
+" Git 标记优化
 set updatetime=100
 set signcolumn=yes
 
@@ -55,7 +53,6 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-
 
 " ==========================================
 " 4. 缩进设置
@@ -79,7 +76,7 @@ if has("persistent_undo")
 endif
 
 " ==========================================
-" 7. 快捷键配置
+" 6. 快捷键配置
 " ==========================================
 " NERDTree
 nnoremap <leader>e :NERDTreeToggle<CR>
