@@ -1,18 +1,24 @@
 #!/bin/bash
 
-# 运行时的配置和数据目录
+# 设置配置目录和工作区缓存
 CONFIG="$HOME/.local/share/jdtls/config_linux"
-DATA="$HOME/.cache/jdtls-workspace/$(basename "$PWD")"
+WS_HASH=$(echo "$PWD" | md5sum | cut -d' ' -f1)
+DATA="$HOME/.cache/jdtls-workspace/$WS_HASH"
 
-/usr/lib/jvm/java-21-openjdk/bin/java \
+mkdir -p "$DATA"
+
+exec /usr/lib/jvm/java-21-openjdk/bin/java \
     -Declipse.application=org.eclipse.jdt.ls.core.id1 \
     -Dosgi.bundles.defaultStartLevel=4 \
     -Declipse.product=org.eclipse.jdt.ls.core.product \
     -Dlog.level=ALL \
     -Xmx2G \
+    -XX:+UseG1GC \
+    -XX:+UseStringDeduplication \
     --add-modules=ALL-SYSTEM \
     --add-opens java.base/java.util=ALL-UNNAMED \
     --add-opens java.base/java.lang=ALL-UNNAMED \
     -jar "/home/free514dom/.local/share/jdtls/plugins/org.eclipse.equinox.launcher_1.7.100.v20251111-0406.jar" \
     -configuration "$CONFIG" \
-    -data "$DATA"
+    -data "$DATA" \
+    2>/dev/null
