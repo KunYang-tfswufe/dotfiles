@@ -7,3 +7,6 @@ language-servers = [ "jdtls" ]
 
 [language-server.jdtls]
 command = "jdtls"
+
+[editor]
+timeout = 20    # Helix 23.10+ 的语法，单位是秒

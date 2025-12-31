@@ -1,17 +1,27 @@
 #!/bin/bash
-JAR=$(find ~/.local/share/jdtls/plugins/ -name "org.eclipse.equinox.launcher_*.jar" | head -n 1)
-CONFIG="~/.local/share/jdtls/config_linux"
-DATA="$HOME/.cache/jdtls-workspace/$(basename "$PWD")"
 
-java \
+# 自动定位 Jar 包
+LAUNCHER=$(find $HOME/.local/share/jdtls/plugins/ -name "org.eclipse.equinox.launcher_*.jar" | head -n 1)
+CONFIG="$HOME/.local/share/jdtls/config_linux"
+
+# 为每个项目创建独立的 Workspace，并清理可能的旧锁
+WS_HASH=$(echo "$PWD" | md5sum | cut -d' ' -f1)
+DATA="$HOME/.cache/jdtls-workspace/$WS_HASH"
+mkdir -p "$DATA"
+
+# 启动 Java
+/usr/lib/jvm/java-21-openjdk/bin/java \
     -Declipse.application=org.eclipse.jdt.ls.core.id1 \
     -Dosgi.bundles.defaultStartLevel=4 \
     -Declipse.product=org.eclipse.jdt.ls.core.product \
     -Dlog.level=ALL \
-    -Xmx1G \
+    -noverify \
+    -Xmx2G \
+    -XX:+UseG1GC \
+    -XX:+UseStringDeduplication \
     --add-modules=ALL-SYSTEM \
     --add-opens java.base/java.util=ALL-UNNAMED \
     --add-opens java.base/java.lang=ALL-UNNAMED \
-    -jar "$JAR" \
+    -jar "$LAUNCHER" \
     -configuration "$CONFIG" \
     -data "$DATA"
