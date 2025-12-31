@@ -35,8 +35,6 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-colorscheme elflord
-highlight Normal ctermbg=NONE guibg=NONE
 
 " Git 标记优化
 set updatetime=100
@@ -92,3 +90,6 @@ nnoremap <leader>g :Rg<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <silent> <Esc> :nohlsearch<CR>
+
+colorscheme elflord
+highlight Normal ctermbg=NONE guibg=NONE
