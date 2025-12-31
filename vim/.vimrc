@@ -79,18 +79,6 @@ if has("persistent_undo")
 endif
 
 " ==========================================
-" 6. 禁用方向键 (Hard Mode)
-" ==========================================
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-
-" ==========================================
 " 7. 快捷键配置
 " ==========================================
 " NERDTree
