@@ -140,7 +140,9 @@
         }
     ],
     "enabledByDefault": true,
-    "enabledFor": [],
+    "enabledFor": [
+        "www.google.com"
+    ],
     "disabledFor": [],
     "changeBrowserTheme": false,
     "syncSettings": true,
