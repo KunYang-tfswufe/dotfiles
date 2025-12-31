@@ -43,8 +43,8 @@ sudo dnf -y install @virtualization
 # wireshark-cli
 sudo dnf -y install wireshark-cli
 
-# vim
-sudo dnf install vim vim-X11
+# helix
+sudo dnf -y install helix
 
 # prismlauncher
 sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
@@ -164,9 +164,6 @@ sudo npm install -g prettier
 
 # repomix
 sudo npm install -g repomix
-
-# neoovim node for coc lsp
-sudo npm install -g neovim
 
 # fish
 sudo dnf -y install fish && chsh -s /usr/bin/fish
