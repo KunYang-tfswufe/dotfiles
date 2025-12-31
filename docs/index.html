@@ -1,5 +1,10 @@
 <div class="todo">
 
+  <div class="deadline">
+    <div>Capstone Project Submission [2024-02-01]</div>
+    <div>Renew Server Subscription [3 Days Left]</div>
+  </div>
+
   <div class="running">
     <div>Get one month of access to https://hyperskill.org for sprint learning Java Spring through https://lp.jetbrains.com/free-git-starter-pack</div>
     <div>Use the GitHub student package to access membership benefits of programming learning websites</div>
@@ -141,7 +146,11 @@
 
  /* 基础设置: 等宽字体, 适应宽屏 */
   .todo { font: 16px/1.6 monospace; padding: 30px; }
-  
+
+  /* --- Deadline 部分 (新增) --- */
+  .deadline { color: #ff5f5f; font-weight: bold; margin-bottom: 40px; }
+  .deadline::before { content: "DEADLINE"; display: block; border-bottom: 2px solid; margin-bottom: 15px; }
+  .deadline div::before { content: "!! "; }
 
   /* --- Running 部分 --- */
   .running { color: #000; font-weight: bold; }
