@@ -18,6 +18,7 @@ alias la 'eza -a --git'
 alias lla 'eza -la --git --header'
 alias lt 'eza --tree'
 alias lta 'eza --tree -a'
+alias vim 'vimx'
 
 function check_mypublic_dir --on-variable PWD
     set target_dir "$HOME/MyPublic"
