@@ -35,7 +35,7 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
-colorscheme wildcharm
+colorscheme elflord
 
 " Git 标记优化
 set updatetime=100
