@@ -1,0 +1,17 @@
+#!/bin/bash
+JAR=$(find ~/.local/share/jdtls/plugins/ -name "org.eclipse.equinox.launcher_*.jar" | head -n 1)
+CONFIG="~/.local/share/jdtls/config_linux"
+DATA="$HOME/.cache/jdtls-workspace/$(basename "$PWD")"
+
+java \
+    -Declipse.application=org.eclipse.jdt.ls.core.id1 \
+    -Dosgi.bundles.defaultStartLevel=4 \
+    -Declipse.product=org.eclipse.jdt.ls.core.product \
+    -Dlog.level=ALL \
+    -Xmx1G \
+    --add-modules=ALL-SYSTEM \
+    --add-opens java.base/java.util=ALL-UNNAMED \
+    --add-opens java.base/java.lang=ALL-UNNAMED \
+    -jar "$JAR" \
+    -configuration "$CONFIG" \
+    -data "$DATA"
