@@ -43,8 +43,8 @@ sudo dnf -y install @virtualization
 # wireshark-cli
 sudo dnf -y install wireshark-cli
 
-# neovim
-sudo dnf -y copr enable agriffis/neovim-nightly && sudo dnf -y install neovim python3-neovim
+# vim
+sudo dnf install vim vim-X11
 
 # prismlauncher
 sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
