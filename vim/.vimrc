@@ -36,6 +36,7 @@ filetype plugin indent on
 syntax on
 
 colorscheme elflord
+highlight Normal ctermbg=NONE guibg=NONE
 
 " Git 标记优化
 set updatetime=100
