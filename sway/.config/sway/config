@@ -50,7 +50,7 @@ assign [app_id="firefox"] workspace number 1
 
 # 输出/壁纸
 # 这里已经改成了纯黑色 (#000000)，双引号是为了防止歧义，solid_color 代表纯色填充
-output * bg "#000000" solid_color
+output * bg "#909090" solid_color
 
 # 锁屏/空闲
 # exec swayidle ...
