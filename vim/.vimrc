@@ -91,5 +91,6 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <silent> <Esc> :nohlsearch<CR>
 
+# 主题与透明
 colorscheme elflord
 highlight Normal ctermbg=NONE guibg=NONE
