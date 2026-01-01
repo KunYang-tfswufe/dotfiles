@@ -9,6 +9,10 @@ up = "no_op"
 down = "no_op"
 left = "no_op"
 right = "no_op"
+y = ["yank_main_selection_to_clipboard"]
+p = ["paste_clipboard_after"]
+P = ["paste_clipboard_before"]
+R = ["delete_selection", "paste_clipboard_before"]
 
 [keys.insert]
 up = "no_op"
@@ -21,3 +25,4 @@ up = "no_op"
 down = "no_op"
 left = "no_op"
 right = "no_op"
+y = ["yank_main_selection_to_clipboard"]
