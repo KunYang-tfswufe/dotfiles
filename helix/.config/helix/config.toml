@@ -3,3 +3,21 @@ theme = "tokyo-transparent"
 [editor]
 true-color = true
 line-number = "relative"
+
+[keys.normal]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+
+[keys.insert]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
+
+[keys.select]
+up = "no_op"
+down = "no_op"
+left = "no_op"
+right = "no_op"
