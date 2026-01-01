@@ -26,3 +26,7 @@ down = "no_op"
 left = "no_op"
 right = "no_op"
 y = ["yank_main_selection_to_clipboard"]
+
+[editor.file-picker]
+hidden = false      # 开启：这样你能看到 .github, .config, .zshrc 等文件
+git-ignore = true   # 保持开启：这样 Helix 依然会帮你过滤掉 Java 的 target/ 和 .git/ 目录
