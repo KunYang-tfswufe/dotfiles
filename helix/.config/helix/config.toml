@@ -1,3 +1,5 @@
-theme = "tokyonight"
+theme = "tokyo-transparent"
+
 [editor]
 true-color = true
+line-number = "relative"
