@@ -206,3 +206,10 @@ bindsym $mod+comma exec foot -a quick_snippets sh -c 'cat ~/dotfiles/docs/snippe
 # Mod+m: 打开 commands.txt，使用 fzf 选择并复制命令
 for_window [app_id="quick_commands"] floating enable, move position center, resize set 600 400
 bindsym $mod+period exec foot -a quick_commands sh -c 'cat ~/dotfiles/docs/commands.txt | fzf --reverse --prompt="复制命令 > " | wl-copy -n'
+
+# =========================================================
+# === Foot Editor 回滚历史查看专用配置 ===
+# 配合 foot.ini 中的 pipe-scrollback 功能
+# 当按下 Ctrl+Shift+e 时，让弹出的编辑器窗口浮动并居中
+# =========================================================
+for_window [app_id="foot-editor"] floating enable, move position center, resize set 80ppt 80ppt
