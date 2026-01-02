@@ -1,0 +1,62 @@
+☀️ Everyday
+https://fabricmc.net/develop
+https://bisqwit.iki.fi/
+https://education.github.com/pack
+https://poe.com
+https://huggingface.co/chat
+https://perplexity.ai
+https://educative.io
+https://codecademy.com
+https://hyperskill.org
+https://lp.jetbrains.com/free-git-starter-pack
+https://codedex.io
+https://www.w3schools.com
+https://freecodecamp.org
+https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0
+https://techinterviewhandbook.org/grind75
+
+📖 Books (Local PDF)
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/DockerDeepDive.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/AttentionIsAllYouNeed.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/CalculusEarlyTranscendentals.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/progit.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/SpringinAction5thEdition.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/GitHubForDummies2ndEdition.pdf
+
+🔖 Bookmarks
+https://sorryios.cc
+https://alternativeto.net
+https://nf.video
+https://yeka.ai
+https://offer.gfjianli.com
+https://sms-activate.org
+https://mitce.net
+https://6.66jc.top
+https://flyingbird.cc
+https://artificialanalysis.ai/leaderboards/models
+https://vast.ai
+https://convertio.co
+https://digitalocean.com
+https://minecraft.wiki
+
+🐙 Githubs
+https://github.com/hiddify/hiddify-core
+https://github.com/copilot
+https://github.com/jesseduffield/lazydocker
+https://github.com/browser-use/browser-use
+https://github.com/ollama/ollama
+https://github.com/openwrt
+https://github.com/GTNewHorizons
+https://github.com/EvanLi/Github-Ranking
+https://github.com/agarrharr/awesome-cli-apps
+https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel
+https://github.com/yamadashy/repomix
+https://github.com/Mygod/VPNHotspot
+
+🧩 Extensions
+https://addons.mozilla.org/firefox/addon/ublock-origin/
+https://addons.mozilla.org/firefox/addon/immersive-translate/
+https://addons.mozilla.org/firefox/addon/darkreader/
+https://addons.mozilla.org/firefox/addon/multi-account-containers/
+https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/
+https://addons.mozilla.org/firefox/addon/new-tab-override/
