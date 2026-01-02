@@ -1,161 +1,117 @@
-<div class="todo">
+# 📅 Dashboard
 
-  <div class="deadline">
-    <div>Capstone Project Submission [2024-02-01]</div>
-    <div>Renew Server Subscription [3 Days Left]</div>
-  </div>
+## 📝 TODO
 
-  <div class="running">
-    <div>Get one month of access to https://hyperskill.org for sprint learning Java Spring through https://lp.jetbrains.com/free-git-starter-pack</div>
-    <div>Finish Grind75</div>
-    <div>Learn Python/Java QA Automation</div>
-    <div>Finish Capstone Project</div>
-    <div>Implement AI clipboard translation (to English) in Sway</div>
-    <div>Use mDNS to establish an SSH connection</div>
-    <div>Use https://github.com/gothinkster/realworld || https://github.com/spring-projects/spring-petclinic to write real enterprise-level code</div>
-    <div>Learn how to use Boss Zhipin</div>
-  </div>
+### 🚨 Deadline
+- [ ] Capstone Project Submission `[2024-02-01]`
+- [ ] Renew Server Subscription `[3 Days Left]`
 
-  <div class="waiting">
-    <div>Exit Strategy</div>
-    <div>IELTS Prep</div>
-    <div>Learn Gold Farming</div>
-    <div>Secure global coding gigs for USD</div>
-    <div>Learn TikTok Operations</div>
-    <div>How to write a mod for a game on Steam? What games do you recommend as a starting point?</div>
-    <div>I want to create mods for Minecraft using a small project-driven approach. Could you recommend a project list from basic to advanced for me to learn and complete progressively?</div>
-    <div>Understand your own dotfiles repository, otherwise maintaining it will be very troublesome</div>
-    <div>This is my first time using an macos. Please provide me with a tutorial on how to use it</div>
-    <div>Use the GitHub student package to access membership benefits of programming learning websites</div>
-    <div>Learn Dockerfile</div>
-    <div>Learn VSCode</div>
-    <div>Learn Codespace</div>
-    <div>Learn Github Cli</div>
-  </div>
+### 🏃 Running
+- [ ] Get one month of access to [Hyperskill](https://hyperskill.org) for sprint learning Java Spring through [JetBrains Free Git Starter Pack](https://lp.jetbrains.com/free-git-starter-pack)
+- [ ] Finish Grind75
+- [ ] Learn Python/Java QA Automation
+- [ ] Finish Capstone Project
+- [ ] Implement AI clipboard translation (to English) in Sway
+- [ ] Use mDNS to establish an SSH connection
+- [ ] Use [RealWorld](https://github.com/gothinkster/realworld) || [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) to write real enterprise-level code
+- [ ] Learn how to use Boss Zhipin
 
-</div>
+### ⏳ Waiting
+- [ ] Exit Strategy
+- [ ] IELTS Prep
+- [ ] Learn Gold Farming
+- [ ] Secure global coding gigs for USD
+- [ ] Learn TikTok Operations
+- [ ] How to write a mod for a game on Steam? What games do you recommend as a starting point?
+- [ ] I want to create mods for Minecraft using a small project-driven approach. Could you recommend a project list from basic to advanced?
+- [ ] Understand your own dotfiles repository, otherwise maintaining it will be very troublesome
+- [ ] This is my first time using macOS. Please provide me with a tutorial on how to use it
+- [ ] Use the GitHub student package to access membership benefits of programming learning websites
+- [ ] Learn Dockerfile
+- [ ] Learn VSCode
+- [ ] Learn Codespace
+- [ ] Learn Github Cli
 
-<h4>VOCABULARY</h4>
-<a>corresponding</a>
-<a>appeared</a>
-<a>regard</a>
-<a>numerous</a>
-<a>beyoud</a>
-<a>vocabulary</a>
-<a>recall</a>
-<a>weaken</a>
-<a>comparison</a>
-<a>preserved</a>
-<a>adulthood</a>
-<a>indeed</a>
-<a>emerged</a>
-<a>infants</a>
-<a>aspects</a>
-<a>improve</a>
-<a>adults</a>
-<a>participants</a>
-<a>contrary</a>
-<a>assume</a>
-<a>deteriorate</a>
-<a>equivalent</a>
-<a>literary</a>
-<a>performed</a>
-<a>rarely</a>
-<a>undermined</a>
+---
 
-<h4>EVERYDAY</h4>
-<a href="https://fabricmc.net/develop">FabricModding</a>
-<a href="https://bisqwit.iki.fi/">Bisqwit</a>
-<a href="https://education.github.com/pack">GithubStudentPack</a>
-<a href="https://poe.com">Poe</a>
-<a href="https://huggingface.co/chat">HuggingChat</a>
-<a href="https://perplexity.ai">Perplexity</a>
-<a href="https://educative.io">Educative</a>
-<a href="https://codecademy.com">Codecademy</a>
-<a href="https://hyperskill.org">Hyperskill</a>
-<a href="https://lp.jetbrains.com/free-git-starter-pack">FreeGitStarterPack</a>
-<a href="https://codedex.io">Codedex</a>
-<a href="https://www.w3schools.com">W3s</a>
-<a href="https://freecodecamp.org">FreeCodeCamp</a>
-<a href="https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0">MyPublicDropbox</a>
-<a href="https://techinterviewhandbook.org/grind75">Grind75</a>
+## 📚 Vocabulary
 
-<h4>BOOKS</h4>
-<a href="http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/DockerDeepDive.pdf">DockerDeepDive</a>
-<a href="http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/AttentionIsAllYouNeed.pdf">AttentionIsAllYouNeed</a>
-<a href="http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/CalculusEarlyTranscendentals.pdf">Calculus</a>
-<a href="http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/progit.pdf">ProGit</a>
-<a href="http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/SpringinAction5thEdition.pdf">SpringInAction</a>
-<a href="http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/GitHubForDummies2ndEdition.pdf">GitHubForDummies2ndEdition</a>
+| | | |
+|:---|:---|:---|
+| corresponding | appeared | regard |
+| numerous | beyoud | vocabulary |
+| recall | weaken | comparison |
+| preserved | adulthood | indeed |
+| emerged | infants | aspects |
+| improve | adults | participants |
+| contrary | assume | deteriorate |
+| equivalent | literary | performed |
+| rarely | undermined | |
 
-<h4>BOOKMARKS</h4>
-<a href="https://sorryios.cc">AccountShare1</a>
-<a href="https://alternativeto.net">AppAlternativeto</a>
-<a href="https://nf.video">AccountShare2</a>
-<a href="https://yeka.ai">VirtualCreditCard</a>
-<a href="https://offer.gfjianli.com">CampusRecruitment</a>
-<a href="https://sms-activate.org">VirtualSMS</a>
-<a href="https://mitce.net">mitceJC</a>
-<a href="https://6.66jc.top">niubiJC</a>
-<a href="https://flyingbird.cc">flyingbirdJC</a>
-<a href="https://artificialanalysis.ai/leaderboards/models">ModelsLeaderBoards</a>
-<a href="https://vast.ai">GPUrental</a>
-<a href="https://convertio.co">FormatConverter</a>
-<a href="https://digitalocean.com">DigitalOceanStudent</a>
-<a href="https://minecraft.wiki">MinecraftWiki</a>
+---
 
-<h4>GITHUBS</h4>
-<a href="https://github.com/hiddify/hiddify-core">Hiddify-Cli</a>
-<a href="https://github.com/copilot">GithubCopilot</a>
-<a href="https://github.com/jesseduffield/lazydocker">LazyDocker</a>
-<a href="https://github.com/browser-use/browser-use">BrowserAgentAI</a>
-<a href="https://github.com/ollama/ollama">Ollama</a>
-<a href="https://github.com/openwrt">OpenWrt</a>
-<a href="https://github.com/GTNewHorizons">GTNewHorizons</a>
-<a href="https://github.com/EvanLi/Github-Ranking">GitHubRanking</a>
-<a href="https://github.com/agarrharr/awesome-cli-apps">AwesomeCliApps</a>
-<a href="https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel">PixelVolteModule</a>
-<a href="https://github.com/yamadashy/repomix">RepoToTextAI</a>
-<a href="https://github.com/Mygod/VPNHotspot">VPNHotspot</a>
+## 🔗 Resources & Bookmarks
 
-<h4>EXTENSIONS</h4>
-<a href="https://addons.mozilla.org/firefox/addon/ublock-origin/">Ublock</a>
-<a href="https://addons.mozilla.org/firefox/addon/immersive-translate/">ImmersiveTranslate</a>
-<a href="https://addons.mozilla.org/firefox/addon/darkreader/">DarkMode</a>
-<a href="https://addons.mozilla.org/firefox/addon/multi-account-containers/">MultiAccountContainers</a>
-<a href="https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/">Bitwarden</a>
-<a href="https://addons.mozilla.org/firefox/addon/new-tab-override/">NewTabOverride</a>
+### ☀️ Everyday
+- [FabricModding](https://fabricmc.net/develop)
+- [Bisqwit](https://bisqwit.iki.fi/)
+- [GithubStudentPack](https://education.github.com/pack)
+- [Poe](https://poe.com)
+- [HuggingChat](https://huggingface.co/chat)
+- [Perplexity](https://perplexity.ai)
+- [Educative](https://educative.io)
+- [Codecademy](https://codecademy.com)
+- [Hyperskill](https://hyperskill.org)
+- [FreeGitStarterPack](https://lp.jetbrains.com/free-git-starter-pack)
+- [Codedex](https://codedex.io)
+- [W3s](https://www.w3schools.com)
+- [FreeCodeCamp](https://freecodecamp.org)
+- [MyPublicDropbox](https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0)
+- [Grind75](https://techinterviewhandbook.org/grind75)
 
-<style>
-    a {
-        text-decoration: none;
-        color: #e0e0e0;
-        font-size: 12px;
-        padding: 4px 6px;
-        margin: 0 6px 6px 0;
-        border: 1px solid #444;
-        display: inline-block;
-    }
-    a:hover {
-        background-color: #444;
-        color: #fff;
-    }
+### 📖 Books (Local PDF)
+> **Note:** These links point to your local host (`localhost:8081`).
+- [DockerDeepDive](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/DockerDeepDive.pdf)
+- [AttentionIsAllYouNeed](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/AttentionIsAllYouNeed.pdf)
+- [Calculus](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/CalculusEarlyTranscendentals.pdf)
+- [ProGit](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/progit.pdf)
+- [SpringInAction](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/SpringinAction5thEdition.pdf)
+- [GitHubForDummies2ndEdition](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/GitHubForDummies2ndEdition.pdf)
 
- /* 基础设置: 等宽字体, 适应宽屏 */
-  .todo { font: 16px/1.6 monospace; padding: 30px; }
+### 🔖 Bookmarks
+- [AccountShare1](https://sorryios.cc)
+- [AppAlternativeto](https://alternativeto.net)
+- [AccountShare2](https://nf.video)
+- [VirtualCreditCard](https://yeka.ai)
+- [CampusRecruitment](https://offer.gfjianli.com)
+- [VirtualSMS](https://sms-activate.org)
+- [mitceJC](https://mitce.net)
+- [niubiJC](https://6.66jc.top)
+- [flyingbirdJC](https://flyingbird.cc)
+- [ModelsLeaderBoards](https://artificialanalysis.ai/leaderboards/models)
+- [GPUrental](https://vast.ai)
+- [FormatConverter](https://convertio.co)
+- [DigitalOceanStudent](https://digitalocean.com)
+- [MinecraftWiki](https://minecraft.wiki)
 
-  /* --- Deadline 部分 --- */
-  .deadline { color: #333; font-weight: bold; margin-bottom: 40px; }
-  .deadline::before { content: "TARGETS"; display: block; border-bottom: 1px solid #ccc; margin-bottom: 15px; }
-  .deadline div::before { content: "[] "; }
+### 🐙 Githubs
+- [Hiddify-Cli](https://github.com/hiddify/hiddify-core)
+- [GithubCopilot](https://github.com/copilot)
+- [LazyDocker](https://github.com/jesseduffield/lazydocker)
+- [BrowserAgentAI](https://github.com/browser-use/browser-use)
+- [Ollama](https://github.com/ollama/ollama)
+- [OpenWrt](https://github.com/openwrt)
+- [GTNewHorizons](https://github.com/GTNewHorizons)
+- [GitHubRanking](https://github.com/EvanLi/Github-Ranking)
+- [AwesomeCliApps](https://github.com/agarrharr/awesome-cli-apps)
+- [PixelVolteModule](https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel)
+- [RepoToTextAI](https://github.com/yamadashy/repomix)
+- [VPNHotspot](https://github.com/Mygod/VPNHotspot)
 
-  /* --- Running 部分 --- */
-  .running { color: #000; font-weight: bold; }
-  .running::before { content: "RUNNING"; display: block; border-bottom: 2px solid; margin-bottom: 15px; }
-  .running div::before { content: "-> "; }
-
-  /* --- Waiting 部分 --- */
-  .waiting { color: #888; margin-top: 40px; }
-  .waiting::before { content: "WAITING"; display: block; border-bottom: 1px solid; margin-bottom: 15px; opacity: 0.5; }
-  .waiting div::before { content: "~] "; }
-</style>
+### 🧩 Extensions
+- [Ublock](https://addons.mozilla.org/firefox/addon/ublock-origin/)
+- [ImmersiveTranslate](https://addons.mozilla.org/firefox/addon/immersive-translate/)
+- [DarkMode](https://addons.mozilla.org/firefox/addon/darkreader/)
+- [MultiAccountContainers](https://addons.mozilla.org/firefox/addon/multi-account-containers/)
+- [Bitwarden](https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/)
+- [NewTabOverride](https://addons.mozilla.org/firefox/addon/new-tab-override/)
