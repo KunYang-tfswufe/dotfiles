@@ -91,12 +91,6 @@ sudo dnf -y install tigervnc
 # obs-studio
 sudo dnf -y install obs-studio
 
-# espanso
-sudo dnf -y install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf -y install espanso-wayland
-espanso service register
-espanso start
-
 # rclone
 sudo dnf -y install rclone
 
