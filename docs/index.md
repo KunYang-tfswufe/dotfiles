@@ -52,66 +52,65 @@
 
 ## 🔗 Resources & Bookmarks
 
-### ☀️ Everyday
-- [FabricModding](https://fabricmc.net/develop)
-- [Bisqwit](https://bisqwit.iki.fi/)
-- [GithubStudentPack](https://education.github.com/pack)
-- [Poe](https://poe.com)
-- [HuggingChat](https://huggingface.co/chat)
-- [Perplexity](https://perplexity.ai)
-- [Educative](https://educative.io)
-- [Codecademy](https://codecademy.com)
-- [Hyperskill](https://hyperskill.org)
-- [FreeGitStarterPack](https://lp.jetbrains.com/free-git-starter-pack)
-- [Codedex](https://codedex.io)
-- [W3s](https://www.w3schools.com)
-- [FreeCodeCamp](https://freecodecamp.org)
-- [MyPublicDropbox](https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0)
-- [Grind75](https://techinterviewhandbook.org/grind75)
+☀️ Everyday
+https://fabricmc.net/develop
+https://bisqwit.iki.fi/
+https://education.github.com/pack
+https://poe.com
+https://huggingface.co/chat
+https://perplexity.ai
+https://educative.io
+https://codecademy.com
+https://hyperskill.org
+https://lp.jetbrains.com/free-git-starter-pack
+https://codedex.io
+https://www.w3schools.com
+https://freecodecamp.org
+https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0
+https://techinterviewhandbook.org/grind75
 
-### 📖 Books (Local PDF)
-> **Note:** These links point to your local host (`localhost:8081`).
-- [DockerDeepDive](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/DockerDeepDive.pdf)
-- [AttentionIsAllYouNeed](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/AttentionIsAllYouNeed.pdf)
-- [Calculus](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/CalculusEarlyTranscendentals.pdf)
-- [ProGit](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/progit.pdf)
-- [SpringInAction](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/SpringinAction5thEdition.pdf)
-- [GitHubForDummies2ndEdition](http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/GitHubForDummies2ndEdition.pdf)
+📖 Books (Local PDF)
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/DockerDeepDive.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/AttentionIsAllYouNeed.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/CalculusEarlyTranscendentals.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/progit.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/SpringinAction5thEdition.pdf
+http://localhost:8081/.local/share/pdfjs-dist/web/viewer.html?file=/MyPublic/bookshelf/GitHubForDummies2ndEdition.pdf
 
-### 🔖 Bookmarks
-- [AccountShare1](https://sorryios.cc)
-- [AppAlternativeto](https://alternativeto.net)
-- [AccountShare2](https://nf.video)
-- [VirtualCreditCard](https://yeka.ai)
-- [CampusRecruitment](https://offer.gfjianli.com)
-- [VirtualSMS](https://sms-activate.org)
-- [mitceJC](https://mitce.net)
-- [niubiJC](https://6.66jc.top)
-- [flyingbirdJC](https://flyingbird.cc)
-- [ModelsLeaderBoards](https://artificialanalysis.ai/leaderboards/models)
-- [GPUrental](https://vast.ai)
-- [FormatConverter](https://convertio.co)
-- [DigitalOceanStudent](https://digitalocean.com)
-- [MinecraftWiki](https://minecraft.wiki)
+🔖 Bookmarks
+https://sorryios.cc
+https://alternativeto.net
+https://nf.video
+https://yeka.ai
+https://offer.gfjianli.com
+https://sms-activate.org
+https://mitce.net
+https://6.66jc.top
+https://flyingbird.cc
+https://artificialanalysis.ai/leaderboards/models
+https://vast.ai
+https://convertio.co
+https://digitalocean.com
+https://minecraft.wiki
 
-### 🐙 Githubs
-- [Hiddify-Cli](https://github.com/hiddify/hiddify-core)
-- [GithubCopilot](https://github.com/copilot)
-- [LazyDocker](https://github.com/jesseduffield/lazydocker)
-- [BrowserAgentAI](https://github.com/browser-use/browser-use)
-- [Ollama](https://github.com/ollama/ollama)
-- [OpenWrt](https://github.com/openwrt)
-- [GTNewHorizons](https://github.com/GTNewHorizons)
-- [GitHubRanking](https://github.com/EvanLi/Github-Ranking)
-- [AwesomeCliApps](https://github.com/agarrharr/awesome-cli-apps)
-- [PixelVolteModule](https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel)
-- [RepoToTextAI](https://github.com/yamadashy/repomix)
-- [VPNHotspot](https://github.com/Mygod/VPNHotspot)
+🐙 Githubs
+https://github.com/hiddify/hiddify-core
+https://github.com/copilot
+https://github.com/jesseduffield/lazydocker
+https://github.com/browser-use/browser-use
+https://github.com/ollama/ollama
+https://github.com/openwrt
+https://github.com/GTNewHorizons
+https://github.com/EvanLi/Github-Ranking
+https://github.com/agarrharr/awesome-cli-apps
+https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel
+https://github.com/yamadashy/repomix
+https://github.com/Mygod/VPNHotspot
 
-### 🧩 Extensions
-- [Ublock](https://addons.mozilla.org/firefox/addon/ublock-origin/)
-- [ImmersiveTranslate](https://addons.mozilla.org/firefox/addon/immersive-translate/)
-- [DarkMode](https://addons.mozilla.org/firefox/addon/darkreader/)
-- [MultiAccountContainers](https://addons.mozilla.org/firefox/addon/multi-account-containers/)
-- [Bitwarden](https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/)
-- [NewTabOverride](https://addons.mozilla.org/firefox/addon/new-tab-override/)
+🧩 Extensions
+https://addons.mozilla.org/firefox/addon/ublock-origin/
+https://addons.mozilla.org/firefox/addon/immersive-translate/
+https://addons.mozilla.org/firefox/addon/darkreader/
+https://addons.mozilla.org/firefox/addon/multi-account-containers/
+https://addons.mozilla.org/firefox/addon/bitwarden-password-manager/
+https://addons.mozilla.org/firefox/addon/new-tab-override/
