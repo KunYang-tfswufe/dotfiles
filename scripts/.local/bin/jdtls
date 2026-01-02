@@ -4,6 +4,7 @@
 CONFIG="$HOME/.local/share/jdtls/config_linux"
 WS_HASH=$(echo "$PWD" | md5sum | cut -d' ' -f1)
 DATA="$HOME/.cache/jdtls-workspace/$WS_HASH"
+LOMBOK="$HOME/.local/share/jdtls/lombok.jar"
 
 mkdir -p "$DATA"
 
@@ -15,6 +16,7 @@ exec /usr/lib/jvm/java-21-openjdk/bin/java \
     -Xmx2G \
     -XX:+UseG1GC \
     -XX:+UseStringDeduplication \
+    -javaagent:"$LOMBOK" \
     --add-modules=ALL-SYSTEM \
     --add-opens java.base/java.util=ALL-UNNAMED \
     --add-opens java.base/java.lang=ALL-UNNAMED \
