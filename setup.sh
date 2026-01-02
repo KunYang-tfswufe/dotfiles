@@ -34,9 +34,6 @@ echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 # 7z
 sudo dnf -y install p7zip p7zip-plugins
 
-# stow
-sudo dnf -y install stow
-
 # qemu
 sudo dnf -y install @virtualization
 
@@ -60,9 +57,6 @@ sudo dnf -y install mpv
 
 # zellij
 sudo dnf -y install zellij
-
-# ripgrep
-sudo dnf -y install ripgrep
 
 # bat
 sudo dnf -y install bat
@@ -120,7 +114,7 @@ sudo dnf -y install arp-scan
 sudo dnf -y install sshfs
 
 # Screenshot and Clipboard
-sudo dnf -y install wl-clipboard grim slurp jq dunst fzf
+sudo dnf -y install wl-clipboard grim slurp jq dunst fzf stow ripgrep
 
 # vagrant
 wget -O- https://rpm.releases.hashicorp.com/fedora/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo
