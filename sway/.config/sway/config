@@ -31,7 +31,7 @@ exec firefox
 # 剪贴板监控与通知 (修复版：使用 cat 吃掉 stdin 防止管道破裂)
 exec sh -c 'sleep 5; wl-paste --watch sh -c "cat > /dev/null && notify-send -a Clipboard -i edit-paste \"已复制\""'
 
-# 2. 匹配特殊 app_id "scratch_term" 的窗口，并将其移动到暂存区
+exec foot -a scratch_term -o colors.alpha=0.85
 for_window [app_id="scratch_term"] move scratchpad
 
 ### Workspace assignments
