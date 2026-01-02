@@ -58,9 +58,6 @@ sudo dnf -y copr enable dejan/lazygit && sudo dnf -y install lazygit
 # mpv
 sudo dnf -y install mpv
 
-# zellij
-sudo dnf -y install zellij
-
 # bat
 sudo dnf -y install bat
 
