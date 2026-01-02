@@ -113,7 +113,7 @@ sudo dnf -y install arp-scan
 # sshfs
 sudo dnf -y install sshfs
 
-# Screenshot and Clipboard
+# basic
 sudo dnf -y install wl-clipboard grim slurp jq dunst fzf stow ripgrep
 
 # vagrant
