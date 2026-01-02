@@ -134,25 +134,6 @@ cd vagrant-alpine
 vagrant init generic/alpine318
 vagrant plugin install vagrant-libvirt
 
-# code-server
-curl -fsSL https://code-server.dev/install.sh | sh
-sudo systemctl enable --now code-server@$USER
-
-# cursor-cli
-curl https://cursor.com/install -fsS | bash
-
-# claude-cli
-sudo npm install -g @anthropic-ai/claude-code
-
-# copilot-cli
-sudo npm install -g @github/copilot
-
-# gemini-cli
-sudo npm install -g @google/gemini-cli
-
-# codex-cli
-sudo npm install -g @openai/codex
-
 # prettier
 sudo npm install -g prettier
 
