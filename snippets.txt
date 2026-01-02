@@ -1,0 +1,4 @@
+我的个人邮箱: me@example.com
+常用的测试命令: sudo systemctl status
+收货地址: 北京市海淀区...
+暂存代码段: console.log("debug");
