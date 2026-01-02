@@ -1,1 +1,2 @@
-qwq
+sudo dnf -y update && sudo dnf -y upgrade
+keepassxc-cli show -t MyPublic/kiss.kdbx github2
