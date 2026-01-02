@@ -16,6 +16,9 @@ sudo systemctl disable firewalld
 # dotfiles python server
 systemctl --user enable --now my-python-server.service
 
+# basic
+sudo dnf -y install wl-clipboard grim slurp jq dunst fzf stow ripgrep
+
 # sshd
 sudo dnf -y install openssh-server && sudo systemctl enable --now sshd
 
@@ -112,9 +115,6 @@ sudo dnf -y install arp-scan
 
 # sshfs
 sudo dnf -y install sshfs
-
-# basic
-sudo dnf -y install wl-clipboard grim slurp jq dunst fzf stow ripgrep
 
 # vagrant
 wget -O- https://rpm.releases.hashicorp.com/fedora/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo
