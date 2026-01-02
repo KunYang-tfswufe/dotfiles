@@ -211,4 +211,4 @@ for_window [app_id="clipse"] floating enable, move position center, resize set 8
 bindsym $mod+apostrophe exec foot -a clipse clipse
 
 for_window [app_id="quick_snippets"] floating enable, move position center, resize set 500 300
-bindsym $mod+y exec foot -a quick_snippets sh -c 'cat ~/dotfiles/snippets.txt | fzf --reverse --prompt="复制 > " | wl-copy -n'
+bindsym $mod+y exec foot -a quick_snippets sh -c 'cat ~/dotfiles/docs/snippets.txt | fzf --reverse --prompt="复制 > " | wl-copy -n'
