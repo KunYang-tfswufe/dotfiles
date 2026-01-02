@@ -49,9 +49,6 @@ sudo dnf -y install helix
 # prismlauncher
 sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
 
-# fzf
-sudo dnf -y install fzf
-
 # keepassxc
 sudo dnf -y install keepassxc
 
@@ -123,7 +120,7 @@ sudo dnf -y install arp-scan
 sudo dnf -y install sshfs
 
 # Screenshot and Clipboard
-sudo dnf -y install wl-clipboard grim slurp jq dunst
+sudo dnf -y install wl-clipboard grim slurp jq dunst fzf
 
 # vagrant
 wget -O- https://rpm.releases.hashicorp.com/fedora/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo
