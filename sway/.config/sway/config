@@ -203,7 +203,6 @@ bindsym $mod+apostrophe exec foot -a clipse clipse
 for_window [app_id="quick_snippets"] floating enable, move position center, resize set 500 300
 bindsym $mod+comma exec foot -a quick_snippets sh -c 'cat ~/dotfiles/docs/snippets.txt | fzf --reverse --prompt="复制 > " | wl-copy -n'
 
-# Mod+m: 打开 commands.txt，使用 fzf 选择并复制命令
 for_window [app_id="quick_commands"] floating enable, move position center, resize set 600 400
 bindsym $mod+period exec foot -a quick_commands sh -c 'cat ~/dotfiles/docs/commands.txt | fzf --reverse --prompt="复制命令 > " | wl-copy -n'
 
