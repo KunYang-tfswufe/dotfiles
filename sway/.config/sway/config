@@ -212,3 +212,8 @@ bindsym $mod+period exec foot -a quick_commands sh -c 'cat ~/dotfiles/docs/comma
 # 当按下 Ctrl+Shift+e 时，让弹出的编辑器窗口浮动并居中
 # =========================================================
 for_window [app_id="foot-editor"] floating enable, move position center, resize set 80ppt 80ppt
+
+# === URL 快速访问 (Mod+n) ===
+# 逻辑：读取 urls.txt，通过 fzf 选择，然后直接在默认浏览器中打开
+for_window [app_id="quick_urls"] floating enable, move position center, resize set 600 400
+bindsym $mod+n exec foot -a quick_urls sh -c 'cat ~/dotfiles/docs/urls.txt | fzf --reverse --prompt="访问 URL > " | xargs -r xdg-open'
