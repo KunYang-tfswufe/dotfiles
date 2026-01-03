@@ -214,6 +214,10 @@ bindsym $mod+period exec foot -a quick_commands sh -c 'cat ~/dotfiles/docs/comma
 for_window [app_id="foot-editor"] floating enable, move position center, resize set 80ppt 80ppt
 
 # === URL 快速访问 (Mod+n) ===
-# 逻辑：读取 urls.txt，通过 fzf 选择，然后直接在默认浏览器中打开
 for_window [app_id="quick_urls"] floating enable, move position center, resize set 600 400
 bindsym $mod+n exec foot -a quick_urls sh -c 'cat ~/dotfiles/docs/urls.txt | fzf --reverse --prompt="访问 URL > " | xargs -r xdg-open'
+
+# === Dashboard 快速查看 (Mod+m) ===
+# 逻辑：使用 glow 渲染 Markdown，提供更美观的视觉效果
+for_window [app_id="dashboard"] floating enable, move position center, resize set 80ppt 85ppt
+bindsym $mod+m exec foot -a dashboard glow -p ~/dotfiles/docs/index.md
