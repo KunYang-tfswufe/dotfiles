@@ -1,4 +1,3 @@
 sudo dnf -y update && sudo dnf -y upgrade
-keepassxc-cli show -t $HOME/MyPublic/kiss.kdbx github2
 repomix $HOME/dotfiles/ -o /tmp/dotfiles-repomix-output.xml && echo "file://$(realpath /tmp/dotfiles-repomix-output.xml)" | wl-copy -t text/uri-list
 repomix --remote https://github.com/free514dom/fyp -o /tmp/fyp-repomix-output.xml && echo "file://$(realpath /tmp/fyp-repomix-output.xml)" | wl-copy -t text/uri-list
