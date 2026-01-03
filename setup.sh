@@ -13,9 +13,6 @@ sudo dnf -y install broadcom-wl
 sudo systemctl stop firewalld
 sudo systemctl disable firewalld
 
-# dotfiles python server
-systemctl --user enable --now my-python-server.service
-
 # basic
 sudo dnf -y install wl-clipboard grim slurp jq dunst fzf stow ripgrep
 
