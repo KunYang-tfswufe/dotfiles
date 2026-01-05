@@ -31,6 +31,7 @@
 - [ ] Learn VSCode
 - [ ] Learn Codespace
 - [ ] Learn Github Cli
+- [ ] Learn Junit
 
 ---
 
