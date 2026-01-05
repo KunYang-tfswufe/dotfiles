@@ -16,6 +16,7 @@
 - [ ] Use [RealWorld](https://github.com/gothinkster/realworld) || [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) to write real enterprise-level code
 - [ ] Learn how to use Boss Zhipin
 - [ ] How to separate the embedded scripts in the fish configuration
+- [ ] Change the timed task from systemd to a startup script for sway on startup, run the script
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
