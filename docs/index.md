@@ -15,6 +15,7 @@
 - [ ] Use mDNS to establish an SSH connection
 - [ ] Use [RealWorld](https://github.com/gothinkster/realworld) || [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) to write real enterprise-level code
 - [ ] Learn how to use Boss Zhipin
+- [ ] How to separate the embedded scripts in the fish configuration
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
