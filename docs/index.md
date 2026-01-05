@@ -16,6 +16,7 @@
 - [ ] Use [RealWorld](https://github.com/gothinkster/realworld) || [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) to write real enterprise-level code
 - [ ] Learn how to use Boss Zhipin
 - [ ] How to separate the embedded scripts in the fish configuration
+- [ ] Adjust the Sway key bindings
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
