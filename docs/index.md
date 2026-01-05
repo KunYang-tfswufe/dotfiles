@@ -17,6 +17,7 @@
 - [ ] Learn how to use Boss Zhipin
 - [ ] How to separate the embedded scripts in the fish configuration
 - [ ] Adjust the Sway key bindings
+- [ ] Uninstall lazygit, adopt foot with sway to select commands as alternatives
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
