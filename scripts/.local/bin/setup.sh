@@ -37,9 +37,6 @@ sudo dnf -y install p7zip p7zip-plugins
 # qemu
 sudo dnf -y install @virtualization
 
-# wireshark-cli
-sudo dnf -y install wireshark-cli
-
 # helix
 sudo dnf -y install helix
 
@@ -112,9 +109,6 @@ mkdir ~/vagrant-alpine
 cd vagrant-alpine
 vagrant init generic/alpine318
 vagrant plugin install vagrant-libvirt
-
-# prettier
-sudo npm install -g prettier
 
 # repomix
 sudo npm install -g repomix
