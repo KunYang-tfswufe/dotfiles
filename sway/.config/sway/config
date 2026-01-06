@@ -217,4 +217,4 @@ bindsym $mod+n exec foot -a quick_urls sh -c 'cat ~/dotfiles/docs/urls.txt | fzf
 # === Dashboard 快速查看 (Mod+m) ===
 # 逻辑：使用 glow 渲染 Markdown，提供更美观的视觉效果
 for_window [app_id="dashboard"] floating enable, move position center, resize set 80ppt 85ppt
-bindsym $mod+m exec foot -a dashboard glow -p ~/dotfiles/docs/index.md
+bindsym $mod+m exec foot -a dashboard bat --style=plain --paging=always ~/dotfiles/docs/index.md
