@@ -70,9 +70,6 @@ sudo dnf -y install rpi-imager
 # tigervnc
 sudo dnf -y install tigervnc
 
-# obs-studio
-sudo dnf -y install obs-studio
-
 # rclone
 sudo dnf -y install rclone
 
