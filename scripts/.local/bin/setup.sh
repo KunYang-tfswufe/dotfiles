@@ -82,9 +82,6 @@ sudo dnf -y install rclone
 # github-cli
 sudo dnf -y install gh
 
-# ncdu
-sudo dnf -y install ncdu
-
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
 sudo dnf -y install daed
