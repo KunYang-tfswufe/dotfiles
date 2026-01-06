@@ -203,9 +203,6 @@ bindsym $mod+apostrophe exec foot -a clipse clipse
 for_window [app_id="quick_snippets"] floating enable, move position center, resize set 500 300
 bindsym $mod+comma exec foot -a quick_snippets sh -c 'cat ~/dotfiles/docs/snippets.txt | fzf --reverse --prompt="复制 > " | wl-copy -n'
 
-for_window [app_id="quick_commands"] floating enable, move position center, resize set 600 400
-bindsym $mod+period exec foot -a quick_commands sh -c 'cat ~/dotfiles/docs/commands.txt | fzf --reverse --prompt="复制命令 > " | wl-copy -n'
-
 # =========================================================
 # === Foot Editor 回滚历史查看专用配置 ===
 # 配合 foot.ini 中的 pipe-scrollback 功能
