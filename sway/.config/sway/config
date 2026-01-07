@@ -56,7 +56,7 @@ input "..." { ... }
 input type:keyboard {
     repeat_delay 200
     repeat_rate 50
-    xkb_options ctrl:swapcaps
+    xkb_options ctrl:nocaps
 }
 # 按键绑定
 # 基础绑定
