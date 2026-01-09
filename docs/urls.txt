@@ -27,6 +27,7 @@ https://vast.ai
 https://convertio.co
 https://digitalocean.com
 https://minecraft.wiki
+https://www.reddit.com/r/commandline/
 
 # Githubs
 https://github.com/hiddify/hiddify-core
