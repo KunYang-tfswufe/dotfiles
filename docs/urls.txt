@@ -10,7 +10,6 @@ https://codecademy.com
 https://hyperskill.org
 https://lp.jetbrains.com/free-git-starter-pack
 https://codedex.io
-https://www.w3schools.com
 https://freecodecamp.org
 https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0
 https://techinterviewhandbook.org/grind75
@@ -31,9 +30,7 @@ https://www.reddit.com/r/commandline/
 
 # Githubs
 https://github.com/hiddify/hiddify-core
-https://github.com/copilot
 https://github.com/jesseduffield/lazydocker
-https://github.com/browser-use/browser-use
 https://github.com/ollama/ollama
 https://github.com/openwrt
 https://github.com/GTNewHorizons
