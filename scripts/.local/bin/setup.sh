@@ -43,9 +43,6 @@ sudo dnf -y install helix
 # prismlauncher
 sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
 
-# lazygit
-sudo dnf -y copr enable dejan/lazygit && sudo dnf -y install lazygit
-
 # mpv
 sudo dnf -y install mpv
 
