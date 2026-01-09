@@ -17,7 +17,6 @@
 - [ ] Learn how to use Boss Zhipin
 - [ ] How to separate the embedded scripts in the fish configuration
 - [ ] Adjust the Sway key bindings
-- [ ] Uninstall lazygit, adopt foot with sway to select commands as alternatives
 - [ ] Learn OBS Studio then remove OBS Studio and use command line tools as a replacement
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
 - [ ] Replace clipse with a simple tool combination
