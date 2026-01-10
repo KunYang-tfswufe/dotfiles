@@ -36,6 +36,7 @@
 - [ ] Learn Codespace
 - [ ] Learn Github Cli
 - [ ] Learn Junit
+- [ ] Learn Photoshop
 
 ---
 
