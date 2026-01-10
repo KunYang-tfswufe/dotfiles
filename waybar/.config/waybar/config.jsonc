@@ -6,7 +6,8 @@
     
     // 顶部模块
     "modules-left": [
-        "sway/workspaces"
+        "sway/workspaces",
+        "sway/scratchpad"  // <--- 已添加：暂存器模块
     ],
     
     // 中间留空
@@ -23,6 +24,15 @@
          "disable-scroll": true,
          "all-outputs": true,
          "format": "{name}"
+    },
+
+    // <--- 已添加：暂存器详细配置
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,   // 平时隐藏，保持界面极简
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
     },
 
     "idle_inhibitor": {

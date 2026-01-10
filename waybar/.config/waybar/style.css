@@ -89,3 +89,14 @@ button:hover {
 #idle_inhibitor.deactivated {
     color: #64727D; /* 未激活时稍微暗淡一点 */
 }
+
+/* 7. 暂存器 (Scratchpad) - 新增部分 */
+#scratchpad {
+    background: transparent;
+    padding: 5px 0;
+    color: #88c0d0; /* 使用淡蓝色区分，你可以改成任何你喜欢的颜色 */
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
