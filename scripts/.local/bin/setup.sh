@@ -58,9 +58,6 @@ sudo dnf -y copr enable atim/bottom && sudo dnf -y install bottom
 # yt-dlp
 sudo dnf -y install yt-dlp
 
-# yazi
-sudo dnf -y copr enable lihaohong/yazi && sudo dnf -y install yazi
-
 # rpi-imager
 sudo dnf -y install rpi-imager
 
