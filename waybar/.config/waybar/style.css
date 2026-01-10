@@ -1,102 +1,60 @@
+/* 全局重置：默认去背景、去边框、去阴影 */
 * {
-    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-family: 'Noto Sans Mono', 'Font Awesome 6 Free', monospace;
     font-size: 13px;
-    min-height: 0; /* 修复某些情况下的对齐问题 */
-}
-
-/* 1. Bar 本体：去边框，增加透明度或完全透明 */
-window#waybar {
-    background-color: rgba(43, 48, 59, 0.3); /* 更通透的背景，或者直接 transparent */
-    /* border-right: 3px solid ...;  <-- 删除边框，极简不需要边框 */
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
-}
-
-/* 2. 按钮通用设置 */
-button {
-    box-shadow: none; /* 去除原本的 inset阴影 */
     border: none;
     border-radius: 0;
-}
-
-button:hover {
-    background: inherit;
-    color: #81A1C1; /* 悬停时仅改变文字/图标颜色，不加背景 */
     box-shadow: none;
+    background: transparent; /* 关键：默认全透明 */
+    min-height: 0;
 }
 
-/* 3. 工作区：去色块，改用文字高亮 */
+/* 1. Bar 本体：完全隐形 */
+window#waybar {
+    background: transparent; 
+}
+
+/* 2. 通用交互：悬停时仅文字轻微变亮，不加背景 */
+button:hover {
+    background: transparent;
+    color: #81A1C1; 
+}
+
+/* 3. 工作区：纯文字流 */
 #workspaces button {
     padding: 5px 0;
-    background-color: transparent;
-    color: #64727D; /* 未选中的工作区稍微暗一点，减少视觉干扰 */
-    transition: all 0.3s ease;
-}
-
-#workspaces button:hover {
-    background: transparent;
-    color: #ffffff;
-    box-shadow: none;
+    color: #4C566A; /* 未选中：暗灰色，融入背景 */
+    transition: color 0.3s;
 }
 
 #workspaces button.focused {
-    background-color: transparent; /* 去除背景色块 */
-    color: #ffffff; /* 选中时纯白高亮 */
-    /* 可选：加一个极简的左侧指示条，比背景色块更轻 */
-    box-shadow: inset 2px 0 #ffffff; 
+    color: #ECEFF4; /* 选中：纯白/高亮 */
+    font-weight: bold; /* 仅靠加粗和变色区分，极简 */
 }
 
 #workspaces button.urgent {
-    color: #eb4d4b; /* 仅文字变红，去背景 */
-    background-color: transparent;
+    color: #BF616A; /* 紧急状态：红色 */
 }
 
-/* 4. 底部模块：统一去背景，靠留白分割 */
-#workspaces,
-#idle_inhibitor,
-#tray {
-    padding: 10px 0;
-    background-color: transparent; /* 关键：全部透明 */
-    color: #ffffff;
+/* 4. 暂存器 */
+#scratchpad {
+    color: #88C0D0;
 }
 
-/* 5. 托盘：去蓝色背景 */
-#tray {
-    /* background-color: #2980b9; <-- 删除这行 */
+/* 5. 防休眠：靠颜色区分开关 */
+#idle_inhibitor {
+    color: #4C566A; /* 默认：暗灰 */
 }
 
+#idle_inhibitor.activated {
+    color: #A3BE8C; /* 开启：绿色 */
+}
+
+/* 6. 托盘：微调图标亮度 */
 #tray > .passive {
-    -gtk-icon-effect: dim;
+    opacity: 0.5;
 }
 
 #tray > .needs-attention {
-    color: #eb4d4b; /* 仅图标变色 */
-}
-
-/* 6. 防休眠：去深灰背景，依靠图标颜色区分状态 */
-#idle_inhibitor {
-    /* background-color: #2d3436; <-- 删除这行 */
-    /* padding-left/right 也不需要特殊设置了 */
-}
-
-/* 激活状态：图标变色即可，无需背景变白 */
-#idle_inhibitor.activated {
-    background-color: transparent; 
-    color: #a3be8c; /* 例如变成绿色，或者你喜欢的亮色 */
-}
-
-#idle_inhibitor.deactivated {
-    color: #64727D; /* 未激活时稍微暗淡一点 */
-}
-
-/* 7. 暂存器 (Scratchpad) - 新增部分 */
-#scratchpad {
-    background: transparent;
-    padding: 5px 0;
-    color: #88c0d0; /* 使用淡蓝色区分，你可以改成任何你喜欢的颜色 */
-}
-
-#scratchpad.empty {
-    background-color: transparent;
+    color: #BF616A;
 }
