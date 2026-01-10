@@ -19,8 +19,6 @@
 - [ ] Adjust the Sway key bindings
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
-- [ ] 大幅度简化waybar,并到左侧
-- [ ] 写一个foot面板来显示时间,ip地址,音量,macphone量,cpu占用,内存占用,温度,亮度,键盘,电量,时间,日期等从而全面替代waybar
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
