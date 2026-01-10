@@ -17,9 +17,7 @@
 - [ ] Learn how to use Boss Zhipin
 - [ ] How to separate the embedded scripts in the fish configuration
 - [ ] Adjust the Sway key bindings
-- [ ] Learn OBS Studio then remove OBS Studio and use command line tools as a replacement
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
-- [ ] Replace clipse with a simple tool combination
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
 
 ### ⏳ Waiting
