@@ -219,8 +219,7 @@ bindsym $mod+n exec foot -a quick_urls sh -c 'cat ~/dotfiles/docs/urls.txt | fzf
 for_window [app_id="dashboard"] floating enable, move position center, resize set 80ppt 85ppt
 bindsym $mod+m exec foot -a dashboard bat ~/dotfiles/docs/index.md
 
-# 录屏脚本：无GUI、无外部文件、自动根据时间戳命名、带通知、自动检测音频源
-bindsym $mod+Shift+r exec sh -c ' \
+bindsym $mod+p exec sh -c ' \
     if pgrep -x "wf-recorder" > /dev/null; then \
         pkill -SIGINT -x wf-recorder; \
         notify-send -u low -t 2000 "📼 录屏结束" "文件已保存"; \
