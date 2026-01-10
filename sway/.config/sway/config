@@ -230,3 +230,10 @@ bindsym $mod+p exec sh -c ' \
         notify-send -u normal -t 3000 "🔴 开始录屏" "正在保存到: $FILENAME"; \
         wf-recorder --audio="$AUDIO" -c libopenh264 -f "$FILENAME"; \
     fi'
+
+
+# 1. 窗口规则 (保持不变，用于定位)
+for_window [app_id="sys_hud"] floating enable, border none, move position center, resize set 420 360
+
+# 2. 快捷键：只需调用脚本并传入 "toggle" 参数
+bindsym $mod+i exec ~/.local/bin/sys-hud toggle

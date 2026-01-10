@@ -1,0 +1,105 @@
+#!/bin/bash
+
+# ================= 配置区域 =================
+APP_ID="sys_hud"
+WINDOW_TITLE="System HUD"
+# 窗口样式参数 (传给 foot)
+FOOT_ARGS=(-a "$APP_ID" -T "$WINDOW_TITLE" -o 'colors.background=000000' -o 'colors.alpha=0.9' -o 'font=monospace:size=10')
+# ===========================================
+
+# >>>>> 逻辑分支 1：控制模式 (Toggle) <<<<<
+# 如果传入了 "toggle" 参数，则执行开关逻辑
+if [[ "$1" == "toggle" ]]; then
+    # 检查是否有匹配 APP_ID 的 foot 进程
+    if pgrep -f "foot -a $APP_ID" > /dev/null; then
+        # 存在则关闭
+        pkill -f "foot -a $APP_ID"
+    else
+        # 不存在则启动
+        # 注意：这里 "$0" 代表脚本自身的路径，实现自调用
+        # 我们启动 foot，让 foot 再运行这个脚本的 "daemon" 模式
+        foot "${FOOT_ARGS[@]}" "$0" daemon &
+    fi
+    exit 0
+fi
+
+# >>>>> 逻辑分支 2：显示模式 (Daemon) <<<<<
+# 下面是原本的显示逻辑，只有被上面的 toggle 分支启动时才会执行到这里
+
+# 隐藏光标
+tput civis
+# 退出时恢复光标
+trap 'tput cnorm; clear; exit' SIGINT SIGTERM
+
+# --- 辅助函数 ---
+get_bar() {
+    local percent=$1
+    local num=$(($percent / 5))
+    local bar="####################"
+    local spaces="...................."
+    echo "[${bar:0:num}${spaces:0:20-$num}]"
+}
+
+get_volume() {
+    # 适配 PulseAudio/Pipewire
+    vol=$(pactl get-sink-volume @DEFAULT_SINK@ 2>/dev/null | grep -oP '\d+%' | head -1 | tr -d '%')
+    mute=$(pactl get-sink-mute @DEFAULT_SINK@ 2>/dev/null | cut -d: -f2)
+    if [ "$mute" == " yes" ]; then echo "🔇 Muted"; else echo "🔊 ${vol:-0}%"; fi
+}
+
+get_brightness() {
+    if command -v brightnessctl &> /dev/null; then
+        c=$(brightnessctl g); m=$(brightnessctl m)
+        echo $(( 100 * c / m ))"%"
+    else echo "N/A"; fi
+}
+
+get_battery() {
+    BAT=$(find /sys/class/power_supply/ -name "BAT*" | head -n 1)
+    if [ -n "$BAT" ]; then
+        s=$(cat "$BAT/status"); c=$(cat "$BAT/capacity")
+        [ "$s" == "Charging" ] && icon="⚡" || icon="Pb"
+        echo "$icon $c%"
+    else echo "🔌 AC"; fi
+}
+
+get_temp() {
+    [ -f /sys/class/thermal/thermal_zone0/temp ] && echo $(( $(cat /sys/class/thermal/thermal_zone0/temp) / 1000 ))"°C" || echo "N/A"
+}
+
+# --- 主循环 ---
+prev_total=0; prev_idle=0
+
+while true; do
+    # CPU 计算
+    read -r cpu a b c idle rest < /proc/stat
+    total=$((a+b+c+idle)); diff_total=$((total-prev_total)); diff_idle=$((idle-prev_idle))
+    if [ $diff_total -eq 0 ]; then cpu_usage=0; else cpu_usage=$((100*(diff_total-diff_idle)/diff_total)); fi
+    prev_total=$total; prev_idle=$idle
+
+    # 内存计算
+    mem_used=$(free -m | awk '/Mem:/ {print $3}')
+    mem_total=$(free -m | awk '/Mem:/ {print $2}')
+    mem_percent=$(( 100 * mem_used / mem_total ))
+
+    # 绘图
+    tput cup 0 0
+    BOLD=$(tput bold); NORM=$(tput sgr0)
+    G=$(tput setaf 2); Y=$(tput setaf 3); C=$(tput setaf 6); R=$(tput setaf 1)
+
+    echo "${BOLD}${C}╔════════════ SYSTEM HUD ════════════╗${NORM}"
+    printf "║ ${Y}Time:${NORM} %-28s ║\n" "$(date '+%H:%M:%S')"
+    printf "║ ${Y}Date:${NORM} %-28s ║\n" "$(date '+%Y-%m-%d %a')"
+    echo "║ ---------------------------------- ║"
+    printf "║ ${G}Bat :${NORM} %-10s ${G}Brit:${NORM} %-10s ║\n" "$(get_battery)" "$(get_brightness)"
+    printf "║ ${G}Net :${NORM} %-28s ║\n" "$(hostname -I | awk '{print $1}')"
+    echo "║ ---------------------------------- ║"
+    printf "║ ${R}CPU :${NORM} %-4s %s ║\n" "${cpu_usage}%" "$(get_bar $cpu_usage)"
+    printf "║ ${R}RAM :${NORM} %-4s %s ║\n" "${mem_percent}%" "$(get_bar $mem_percent)"
+    printf "║ ${R}Temp:${NORM} %-28s ║\n" "$(get_temp)"
+    echo "║ ---------------------------------- ║"
+    printf "║ ${C}Vol :${NORM} %-28s ║\n" "$(get_volume)"
+    echo "${BOLD}${C}╚════════════════════════════════════╝${NORM}"
+
+    sleep 1
+done
