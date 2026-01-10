@@ -19,6 +19,7 @@
 - [ ] Adjust the Sway key bindings
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
+- [ ] 大幅度简化waybar,并到右侧
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
