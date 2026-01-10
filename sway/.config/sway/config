@@ -126,6 +126,13 @@ input type:keyboard {
     bindsym $mod+Shift+0 move container to workspace number 10
 
 # 布局
+    # =========================================================
+    # >>> 修改位置在这里：去掉标题栏 <<<
+    # pixel 2 代表只显示 2 像素的线条，不显示文字标题
+    default_border pixel 2
+    default_floating_border pixel 2
+    # =========================================================
+
     # 水平/垂直分割
     bindsym $mod+b splith
     bindsym $mod+v splitv
