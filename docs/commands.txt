@@ -2,3 +2,4 @@ sudo dnf -y update && sudo dnf -y upgrade
 repomix $HOME/dotfiles/ -o /tmp/dotfiles-repomix-output.xml && echo "file://$(realpath /tmp/dotfiles-repomix-output.xml)" | wl-copy -t text/uri-list
 repomix --remote https://github.com/free514dom/fyp -o /tmp/fyp-repomix-output.xml && echo "file://$(realpath /tmp/fyp-repomix-output.xml)" | wl-copy -t text/uri-list
 du -h --max-depth=1 | sort -rh
+sh -c 'DIR="$HOME/Videos"; mkdir -p "$DIR"; AUDIO="$(pactl get-default-sink).monitor"; pactl set-source-mute "$AUDIO" 0; FILENAME="$DIR/Rec_$(date +%Y%m%d_%H%M%S).mp4"; echo -e "\n🔴 \033[1;31m正在录制...\033[0m 按 \033[1;33mCtrl+C\033[0m 结束"; notify-send "🔴 开始录屏" "按 Ctrl+C 停止"; wf-recorder --audio="$AUDIO" -c libopenh264 -f "$FILENAME"; notify-send "📼 录屏结束" "文件已保存"'
