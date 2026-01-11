@@ -3,3 +3,4 @@ repomix $HOME/dotfiles/ -o /tmp/dotfiles-repomix-output.xml && echo "file://$(re
 repomix --remote https://github.com/free514dom/fyp -o /tmp/fyp-repomix-output.xml && echo "file://$(realpath /tmp/fyp-repomix-output.xml)" | wl-copy -t text/uri-list
 du -h --max-depth=1 | sort -rh
 date && echo -n "Bat: " && cat /sys/class/power_supply/BAT*/capacity && hostname -I
+cat ~/dotfiles/docs/urls.txt | fzf --reverse --prompt="访问 URL > " | xargs -r xdg-open
