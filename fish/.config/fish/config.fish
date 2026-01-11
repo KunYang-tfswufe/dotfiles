@@ -21,6 +21,7 @@ alias lta 'eza --tree -a'
 alias vim vimx
 alias xx 'eval $(cat ~/dotfiles/docs/commands.txt | fzf --reverse)'
 alias gg 'eval $(cat ~/dotfiles/docs/commands-git.txt | fzf --reverse)'
+alias ii 'date && echo -n "Bat: " && cat /sys/class/power_supply/BAT*/capacity && hostname -I'
 
 function check_mypublic_dir --on-variable PWD
     set target_dir "$HOME/MyPublic"
