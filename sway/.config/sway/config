@@ -225,15 +225,3 @@ bindsym $mod+n exec foot -a quick_urls sh -c 'cat ~/dotfiles/docs/urls.txt | fzf
 # 逻辑：使用 glow 渲染 Markdown，提供更美观的视觉效果
 for_window [app_id="dashboard"] floating enable, move position center, resize set 80ppt 85ppt
 bindsym $mod+m exec foot -a dashboard bat ~/dotfiles/docs/index.md
-
-bindsym $mod+p exec sh -c ' \
-    if pgrep -x "wf-recorder" > /dev/null; then \
-        pkill -SIGINT -x wf-recorder; \
-        notify-send -u low -t 2000 "📼 录屏结束" "文件已保存"; \
-    else \
-        AUDIO="$(pactl get-default-sink).monitor"; \
-        pactl set-source-mute "$AUDIO" 0; \
-        FILENAME="$HOME/Videos/Rec_$(date +%Y%m%d_%H%M%S).mp4"; \
-        notify-send -u normal -t 3000 "🔴 开始录屏" "正在保存到: $FILENAME"; \
-        wf-recorder --audio="$AUDIO" -c libopenh264 -f "$FILENAME"; \
-    fi'
