@@ -24,20 +24,12 @@ tput civis
 # 退出时恢复光标
 trap 'tput cnorm; clear; exit' SIGINT SIGTERM
 
-# --- 辅助函数 (已移除图标) ---
-get_bar() {
-    local percent=$1
-    local num=$(($percent / 5))
-    local bar="####################"
-    local spaces="...................."
-    echo "[${bar:0:num}${spaces:0:20-$num}]"
-}
+# --- 辅助函数 ---
 
 get_volume() {
     # 适配 PulseAudio/Pipewire
     vol=$(pactl get-sink-volume @DEFAULT_SINK@ 2>/dev/null | grep -oP '\d+%' | head -1 | tr -d '%')
     mute=$(pactl get-sink-mute @DEFAULT_SINK@ 2>/dev/null | cut -d: -f2)
-    # 修改：移除 🔇/🔊，改为文字
     if [ "$mute" == " yes" ]; then echo "[Muted]"; else echo "${vol:-0}%"; fi
 }
 
@@ -52,58 +44,30 @@ get_battery() {
     BAT=$(find /sys/class/power_supply/ -name "BAT*" | head -n 1)
     if [ -n "$BAT" ]; then
         s=$(cat "$BAT/status"); c=$(cat "$BAT/capacity")
-        # 修改：移除 ⚡/Pb，改为 CHR/BAT
         [ "$s" == "Charging" ] && icon="CHR" || icon="BAT"
         echo "$icon $c%"
     else 
-        # 修改：移除 🔌，改为 AC
         echo "AC-Pwr"; 
     fi
 }
 
-get_temp() {
-    # 修改：移除 ° 符号，防止编码问题
-    [ -f /sys/class/thermal/thermal_zone0/temp ] && echo $(( $(cat /sys/class/thermal/thermal_zone0/temp) / 1000 ))"C" || echo "N/A"
-}
-
 # --- 主循环 ---
-prev_total=0; prev_idle=0
 
 while true; do
-    # CPU 计算
-    read -r cpu a b c idle rest < /proc/stat
-    total=$((a+b+c+idle)); diff_total=$((total-prev_total)); diff_idle=$((idle-prev_idle))
-    if [ $diff_total -eq 0 ]; then cpu_usage=0; else cpu_usage=$((100*(diff_total-diff_idle)/diff_total)); fi
-    prev_total=$total; prev_idle=$idle
-
-    # 内存计算
-    mem_used=$(free -m | awk '/Mem:/ {print $3}')
-    mem_total=$(free -m | awk '/Mem:/ {print $2}')
-    mem_percent=$(( 100 * mem_used / mem_total ))
-
     # 绘图
     tput cup 0 0
-    BOLD=$(tput bold); NORM=$(tput sgr0)
-    G=$(tput setaf 2); Y=$(tput setaf 3); C=$(tput setaf 6); R=$(tput setaf 1)
+    B=$(tput bold); N=$(tput sgr0)
+    G=$(tput setaf 2); Y=$(tput setaf 3); C=$(tput setaf 6); W=$(tput setaf 7)
 
-    # 边框字符说明：
-    # 虽然这里保留了双线框(╔═╗)，但这些是标准 IBM PC 字符集，
-    # 几乎所有终端（包括 Windows CMD）都原生支持，不需要 Nerd Fonts。
-    # 只要不出现 Emoji 彩色图标，就不会有兼容性问题。
-    
-    echo "${BOLD}${C}╔════════════ SYSTEM HUD ════════════╗${NORM}"
-    printf "║ ${Y}Time:${NORM} %-28s ║\n" "$(date '+%H:%M:%S')"
-    printf "║ ${Y}Date:${NORM} %-28s ║\n" "$(date '+%Y-%m-%d %a')"
+    echo "${B}${C}╔════════════ SYSTEM HUD ════════════╗${N}"
+    printf "║ ${Y}Time:${N} %-28s ║\n" "$(date '+%H:%M:%S')"
+    printf "║ ${Y}Date:${N} %-28s ║\n" "$(date '+%Y-%m-%d %a')"
     echo "║ ---------------------------------- ║"
-    printf "║ ${G}Bat :${NORM} %-10s ${G}Brit:${NORM} %-10s  ║\n" "$(get_battery)" "$(get_brightness)"
-    printf "║ ${G}Net :${NORM} %-28s ║\n" "$(hostname -I | awk '{print $1}')"
+    printf "║ ${G}Bat :${N} %-10s ${G}Brit:${N} %-10s  ║\n" "$(get_battery)" "$(get_brightness)"
+    printf "║ ${G}Net :${N} %-28s ║\n" "$(hostname -I | awk '{print $1}')"
     echo "║ ---------------------------------- ║"
-    printf "║ ${R}CPU :${NORM} %-4s %s  ║\n" "${cpu_usage}%" "$(get_bar $cpu_usage)"
-    printf "║ ${R}RAM :${NORM} %-4s %s  ║\n" "${mem_percent}%" "$(get_bar $mem_percent)"
-    printf "║ ${R}Temp:${NORM} %-28s ║\n" "$(get_temp)"
-    echo "║ ---------------------------------- ║"
-    printf "║ ${C}Vol :${NORM} %-28s ║\n" "$(get_volume)"
-    echo "${BOLD}${C}╚════════════════════════════════════╝${NORM}"
+    printf "║ ${C}Vol :${N} %-28s ║\n" "$(get_volume)"
+    echo "${B}${C}╚════════════════════════════════════╝${N}"
 
     sleep 1
 done
