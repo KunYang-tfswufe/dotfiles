@@ -158,7 +158,7 @@ input type:keyboard {
     # 移至暂存区
     bindsym $mod+Shift+grave move scratchpad
     # 显示/隐藏暂存区窗口
-    bindsym $mod+grave scratchpad show, resize set 100 ppt 100 ppt, move position center
+    bindsym $mod+grave workspace number 1; [app_id="scratch_term"] scratchpad show, resize set 100 ppt 100 ppt, move position center
 
 bindsym $mod+minus exec grim -g "$(slurp)" - | wl-copy && notify-send "区域截图" "已复制"
 bindsym $mod+equal exec grim - | wl-copy && notify-send "全屏截图" "已复制"
