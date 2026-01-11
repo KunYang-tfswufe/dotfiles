@@ -19,7 +19,7 @@ alias lla 'eza -la --git --header'
 alias lt 'eza --tree'
 alias lta 'eza --tree -a'
 alias vim vimx
-alias ss 'eval $(cat ~/dotfiles/docs/commands.txt | fzf --reverse)'
+alias xx 'eval $(cat ~/dotfiles/docs/commands.txt | fzf --reverse)'
 alias gg 'eval $(cat ~/dotfiles/docs/commands-git.txt | fzf --reverse)'
 
 function check_mypublic_dir --on-variable PWD
