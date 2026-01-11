@@ -238,11 +238,4 @@ bindsym $mod+p exec sh -c ' \
         wf-recorder --audio="$AUDIO" -c libopenh264 -f "$FILENAME"; \
     fi'
 
-
-# 1. 窗口规则 (保持不变，用于定位)
-for_window [app_id="sys_hud"] floating enable, move position center, resize set 310 210
-
-# 2. 快捷键：只需调用脚本并传入 "toggle" 参数
-bindsym $mod+i exec ~/.local/bin/sys-hud toggle
-
 bindsym $mod+t exec sh -c 'notify-send -r 999 -u low -t 3000 "$(date "+%H:%M")" "$(date "+%Y-%m-%d %a")\nBat $(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null || echo -)%\nIP $(hostname -I | cut -d" " -f1)"'
