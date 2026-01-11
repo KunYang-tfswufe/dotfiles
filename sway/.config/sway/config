@@ -240,7 +240,7 @@ bindsym $mod+p exec sh -c ' \
 
 
 # 1. 窗口规则 (保持不变，用于定位)
-for_window [app_id="sys_hud"] floating enable, move position center, resize set 310 295
+for_window [app_id="sys_hud"] floating enable, move position center, resize set 310 210
 
 # 2. 快捷键：只需调用脚本并传入 "toggle" 参数
 bindsym $mod+i exec ~/.local/bin/sys-hud toggle
