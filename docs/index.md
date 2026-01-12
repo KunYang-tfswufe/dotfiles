@@ -19,7 +19,6 @@
 - [ ] Adjust the Sway key bindings
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
-- [ ] 将系统hud移植成通知
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
