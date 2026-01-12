@@ -16,7 +16,6 @@
 - [ ] Use [RealWorld](https://github.com/gothinkster/realworld) || [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) to write real enterprise-level code
 - [ ] Learn how to use Boss Zhipin
 - [ ] How to separate the embedded scripts in the fish configuration
-- [ ] Adjust the Sway key bindings
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
 
@@ -27,14 +26,13 @@
 - [ ] Secure global coding gigs for USD
 - [ ] Learn TikTok Operations
 - [ ] How to write a mod for a game on Steam? What games do you recommend as a starting point?
-- [ ] Understand your own dotfiles repository, otherwise maintaining it will be very troublesome
-- [ ] This is my first time using macOS. Please provide me with a tutorial on how to use it
 - [ ] Use the GitHub student package to access membership benefits of programming learning websites
 - [ ] Learn Dockerfile
 - [ ] Learn Codespace
 - [ ] Learn Github Cli
 - [ ] Learn Junit
 - [ ] Learn Photoshop
+- [ ] Learn MacOS
 
 ---
 
