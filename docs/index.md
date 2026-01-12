@@ -32,7 +32,6 @@
 - [ ] This is my first time using macOS. Please provide me with a tutorial on how to use it
 - [ ] Use the GitHub student package to access membership benefits of programming learning websites
 - [ ] Learn Dockerfile
-- [ ] Learn VSCode
 - [ ] Learn Codespace
 - [ ] Learn Github Cli
 - [ ] Learn Junit
