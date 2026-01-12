@@ -27,7 +27,6 @@
 - [ ] Secure global coding gigs for USD
 - [ ] Learn TikTok Operations
 - [ ] How to write a mod for a game on Steam? What games do you recommend as a starting point?
-- [ ] I want to create mods for Minecraft using a small project-driven approach. Could you recommend a project list from basic to advanced?
 - [ ] Understand your own dotfiles repository, otherwise maintaining it will be very troublesome
 - [ ] This is my first time using macOS. Please provide me with a tutorial on how to use it
 - [ ] Use the GitHub student package to access membership benefits of programming learning websites
