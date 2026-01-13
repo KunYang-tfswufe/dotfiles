@@ -12,6 +12,8 @@ sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O 
   && sudo apt update \
   && sudo apt install prismlauncher
 
+# fish
+sudo apt -y install fish && chsh -s $(which fish)
 
 
 
@@ -88,5 +90,3 @@ vagrant plugin install vagrant-libvirt
 # repomix
 sudo npm install -g repomix
 
-# fish
-sudo dnf -y install fish && chsh -s /usr/bin/fish
