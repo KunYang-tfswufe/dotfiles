@@ -31,10 +31,13 @@ sudo apt install starship
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst fzf stow ripgrep oathtool pass pass-otp gnupg
 
 # basic-commands
-sudo apt -y install fzf stow ripgrep gnupg pass pass-otp oathtool mpv bat
+sudo apt -y install fzf stow gnupg pass pass-otp oathtool mpv bat
 
 # bottom
 cargo install bottom --locked
+
+# ripgrep
+cargo install ripgrep
 
 # bat
 sudo apt -y install bat
