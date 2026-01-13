@@ -9,3 +9,6 @@ systemd/.config/systemd/user/espanso.service
 scripts/.local/bin/.vagrant
 scripts/.local/bin/Vagrantfile
 scripts/.local/bin/eza
+fish/.config/fish/conf.d/fish_frozen_key_bindings.fish
+fish/.config/fish/conf.d/rustup.fish
+fish/.config/fish/fish_variables
