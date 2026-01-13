@@ -36,3 +36,5 @@ cargo install bottom --locked
 # bat
 sudo apt -y install bat
 ln -s /usr/bin/batcat ~/.local/bin/bat
+
+#fcixt5 pinyin:
