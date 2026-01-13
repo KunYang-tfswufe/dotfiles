@@ -77,14 +77,11 @@ sudo apt update
 sudo apt install v2raya v2ray ## you can install xray package instead of if you want
 sudo systemctl enable --now v2raya
 
-
-
+# daed
+wget -P /tmp https://github.com/daeuniverse/daed/releases/latest/download/installer-daed-linux-$(arch).deb
+sudo dpkg -i /tmp/installer-daed-linux-$(arch).deb
+sudo systemctl enable --now daed
 
 # basic
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst
-
-# daed
-sudo dnf -y copr enable zhullyb/v2rayA
-sudo dnf -y install daed
-sudo systemctl enable --now daed
 
