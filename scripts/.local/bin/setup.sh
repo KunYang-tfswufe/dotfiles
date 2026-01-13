@@ -48,6 +48,12 @@ if ! vagrant plugin list | grep -q "vagrant-libvirt"; then
     vagrant plugin install vagrant-libvirt
 fi
 
+# clipse
+curl -L https://github.com/savedra1/clipse/releases/download/v1.2.0/clipse_v1.2.0_linux_x11_amd64.tar.gz > /tmp/clipse.tar.gz \
+  && tar -xvf /tmp/clipse.tar.gz -C /tmp \
+  && mkdir -p $HOME/.local/bin \
+  && install /tmp/clipse-linux-x11-amd64 $HOME/.local/bin/clipse \
+  && rm /tmp/clipse.tar.gz /tmp/clipse-linux-x11-amd64
 
 
 
@@ -89,9 +95,6 @@ sudo systemctl enable --now daed
 sudo dnf -y copr enable zhullyb/v2rayA
 sudo dnf -y install v2ray v2raya
 sudo systemctl enable --now v2raya
-
-# clipse
-sudo dnf -y copr enable azandure/clipse && sudo dnf -y install clipse
 
 # sshfs
 sudo dnf -y install sshfs
