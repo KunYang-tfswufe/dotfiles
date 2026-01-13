@@ -86,11 +86,12 @@ sudo dnf -y copr enable azandure/clipse && sudo dnf -y install clipse
 sudo dnf -y install sshfs
 
 # vagrant
-wget -O- https://rpm.releases.hashicorp.com/fedora/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo
-sudo yum list available | grep hashicorp
-sudo dnf -y install vagrant libvirt-devel
-mkdir ~/vagrant-alpine
-cd vagrant-alpine
-vagrant init generic/alpine318
-vagrant plugin install vagrant-libvirt
-
+sudo apt -y install vagrant
+mkdir -p ~/vagrant-alpine
+cd ~/vagrant-alpine
+if [ ! -f Vagrantfile ]; then
+    vagrant init generic/alpine318
+fi
+if ! vagrant plugin list | grep -q "vagrant-libvirt"; then
+    vagrant plugin install vagrant-libvirt
+fi
