@@ -16,6 +16,10 @@ sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O 
   && sudo apt update \
   && sudo apt install prismlauncher
 
+# bat
+sudo apt -y install bat
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
 # fish
 sudo apt -y install fish && chsh -s $(which fish)
 
@@ -64,9 +68,6 @@ echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 
 # qemu
 sudo dnf -y install @virtualization
-
-# bat
-sudo dnf -y install bat
 
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
