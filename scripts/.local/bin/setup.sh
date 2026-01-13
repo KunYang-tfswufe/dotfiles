@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship rust-eza
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship rust-eza tigervnc
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -42,9 +42,6 @@ sudo dnf -y copr enable atim/bottom && sudo dnf -y install bottom
 
 # rpi-imager
 sudo dnf -y install rpi-imager
-
-# tigervnc
-sudo dnf -y install tigervnc
 
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
