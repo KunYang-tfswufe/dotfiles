@@ -4,7 +4,7 @@
 sudo apt -y update && sudo apt -y upgrade
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -95,7 +95,3 @@ sudo systemctl enable --now daed
 sudo dnf -y copr enable zhullyb/v2rayA
 sudo dnf -y install v2ray v2raya
 sudo systemctl enable --now v2raya
-
-# sshfs
-sudo dnf -y install sshfs
-
