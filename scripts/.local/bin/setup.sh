@@ -73,19 +73,6 @@ printf "\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIE
 
 
 
-
-
-
-
-
-
-# close firewalld
-sudo systemctl stop firewalld
-sudo systemctl disable firewalld
-
-# close sddm
-sudo systemctl disable sddm
-
 # basic
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst
 
