@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -27,9 +27,6 @@ echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
 echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
-
-# 7z
-sudo dnf -y install p7zip p7zip-plugins
 
 # qemu
 sudo dnf -y install @virtualization
