@@ -76,4 +76,4 @@ sudo dpkg -i /tmp/installer-daed-linux-$(arch).deb
 sudo systemctl enable --now daed
 
 # fish
-sudo apt -y install fish && chsh -s $(which fish)
+sudo apt -y install fish && sudo chsh -s $(which fish) $USER
