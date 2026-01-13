@@ -15,6 +15,8 @@ sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O 
 # fish
 sudo apt -y install fish && chsh -s $(which fish)
 
+# rpi-imager
+wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imager_2.0.3_amd64.deb && sudo apt -y install ./rpi-imager_2.0.3_amd64.deb && rm rpi-imager_2.0.3_amd64.deb
 
 
 
@@ -58,9 +60,6 @@ sudo dnf -y install bat
 
 # bottom
 sudo dnf -y copr enable atim/bottom && sudo dnf -y install bottom
-
-# rpi-imager
-sudo dnf -y install rpi-imager
 
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
