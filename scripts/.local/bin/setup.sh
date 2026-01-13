@@ -39,7 +39,8 @@ wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imag
 sudo npm install -g repomix
 
 # bottom
-cargo install bottom --locked
+wget https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_amd64.deb && sudo apt -y install ./bottom_0.12.3-1_amd64.deb && rm bottom_0.12.3-1_amd64.deb
+
 
 # qemu
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
