@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -36,9 +36,6 @@ sudo dnf -y install @virtualization
 
 # prismlauncher
 sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
-
-# mpv
-sudo dnf -y install mpv
 
 # bat
 sudo dnf -y install bat
