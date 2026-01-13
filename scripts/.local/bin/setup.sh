@@ -29,9 +29,6 @@ sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O 
 sudo apt -y install bat
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
-# fish
-sudo apt -y install fish && chsh -s $(which fish)
-
 # rpi-imager
 wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imager_2.0.3_amd64.deb && sudo apt -y install ./rpi-imager_2.0.3_amd64.deb && rm rpi-imager_2.0.3_amd64.deb
 
@@ -81,3 +78,6 @@ sudo systemctl enable --now v2raya
 wget -P /tmp https://github.com/daeuniverse/daed/releases/latest/download/installer-daed-linux-$(arch).deb
 sudo dpkg -i /tmp/installer-daed-linux-$(arch).deb
 sudo systemctl enable --now daed
+
+# fish
+sudo apt -y install fish && chsh -s $(which fish)
