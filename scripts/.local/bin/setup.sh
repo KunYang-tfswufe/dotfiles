@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -57,9 +57,6 @@ sudo dnf -y install rpi-imager
 
 # tigervnc
 sudo dnf -y install tigervnc
-
-# github-cli
-sudo dnf -y install gh
 
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
