@@ -64,6 +64,11 @@ curl -L https://github.com/savedra1/clipse/releases/download/v1.2.0/clipse_v1.2.
   && install /tmp/clipse-linux-x11-amd64 $HOME/.local/bin/clipse \
   && rm /tmp/clipse.tar.gz /tmp/clipse-linux-x11-amd64
 
+# fcitx5 # Restart Required
+sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3 fcitx5-frontend-qt5 im-config
+im-config -n fcitx5
+printf "\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIERS=@im=fcitx\n" >> ~/.xprofile
+
 
 
 
@@ -83,15 +88,6 @@ sudo systemctl disable sddm
 
 # basic
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst
-
-# fcitx5 # Restart Required
-sudo dnf -y install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons fcitx5-rime
-mkdir -p ~/.config/environment.d
-echo "GTK_IM_MODULE=fcitx" > ~/.config/environment.d/im.conf
-echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
-echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
-echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
-echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
