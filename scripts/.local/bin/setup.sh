@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan
 
 # tigervnc
 sudo apt -y install tigervnc
@@ -58,9 +58,6 @@ sudo systemctl enable --now v2raya
 
 # clipse
 sudo dnf -y copr enable azandure/clipse && sudo dnf -y install clipse
-
-# arp-scan
-sudo dnf -y install arp-scan
 
 # sshfs
 sudo dnf -y install sshfs
