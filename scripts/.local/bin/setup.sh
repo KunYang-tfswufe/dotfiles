@@ -70,6 +70,12 @@ sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3 fcitx5-fronte
 im-config -n fcitx5
 printf "\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIERS=@im=fcitx\n" >> ~/.xprofile
 
+# v2rayA
+wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc
+echo "deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
+sudo apt update
+sudo apt install v2raya v2ray ## you can install xray package instead of if you want
+sudo systemctl enable --now v2raya
 
 
 
@@ -82,9 +88,3 @@ sudo dnf -y copr enable zhullyb/v2rayA
 sudo dnf -y install daed
 sudo systemctl enable --now daed
 
-# v2rayA
-wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc
-echo "deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
-sudo apt update
-sudo apt install v2raya v2ray ## you can install xray package instead of if you want
-sudo systemctl enable --now v2raya
