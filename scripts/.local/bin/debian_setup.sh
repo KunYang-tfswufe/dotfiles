@@ -27,8 +27,8 @@ sudo apt install starship
 # basic-fedora
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst fzf stow ripgrep oathtool pass pass-otp gnupg
 
-# basic
-sudo apt -y install fzf stow ripgrep gnupg pass pass-otp oathtool mpv
+# basic-commands
+sudo apt -y install fzf stow ripgrep gnupg pass pass-otp oathtool mpv bat
 
 # bottom
 cargo install bottom --locked
