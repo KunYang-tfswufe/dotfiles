@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# basic-debian
+sudo apt -y install fzf
+
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
 
@@ -14,7 +17,7 @@ sudo systemctl disable firewalld
 sudo systemctl disable sddm
 
 # basic
-sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst fzf stow ripgrep oathtool pass pass-otp gnupg
+sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst stow ripgrep oathtool pass pass-otp gnupg
 
 # nodejs
 sudo dnf -y install nodejs
