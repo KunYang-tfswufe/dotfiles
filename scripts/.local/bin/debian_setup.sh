@@ -5,11 +5,9 @@ sudo apt -y update && sudo apt -y upgrade
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source "$HOME/.cargo/env.fish"
 
 # nodejs
 curl -o- https://fnm.vercel.app/install | bash
-source $HOME/.config/fish/conf.d/fnm.fish
 fnm install 24
 
 # github-cli
