@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install hx fzf pass pass-otp oathtool stow gnupg ripgrep 
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep 
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -18,9 +18,6 @@ sudo systemctl disable sddm
 
 # basic
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst
-
-# nodejs
-sudo dnf -y install nodejs
 
 # fcitx5 # Restart Required
 sudo dnf -y install fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-chinese-addons fcitx5-rime
