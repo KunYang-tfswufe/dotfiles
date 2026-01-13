@@ -25,6 +25,9 @@ wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imag
 # repomix
 sudo npm install -g repomix
 
+# bottom
+cargo install bottom --locked
+
 
 
 
@@ -64,9 +67,6 @@ sudo dnf -y install @virtualization
 
 # bat
 sudo dnf -y install bat
-
-# bottom
-sudo dnf -y copr enable atim/bottom && sudo dnf -y install bottom
 
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
