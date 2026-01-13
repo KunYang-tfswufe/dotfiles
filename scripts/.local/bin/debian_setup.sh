@@ -42,4 +42,7 @@ cargo install bottom --locked
 sudo apt -y install bat
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
+# repomix
+npm install -g repomix
+
 #fcixt5 pinyin:
