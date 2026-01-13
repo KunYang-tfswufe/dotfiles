@@ -23,3 +23,6 @@ cargo install eza
 
 # starship
 sudo apt install starship
+
+# basic
+sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst fzf stow ripgrep oathtool pass pass-otp gnupg
