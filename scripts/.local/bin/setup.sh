@@ -10,6 +10,15 @@ sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 . "$HOME/.cargo/env"
 
+# broadcom # Restart Required
+sudo sed -i 's/ main / main contrib non-free /g' /etc/apt/sources.list
+sudo apt update && lspci -nn | grep -q "Broadcom" && {
+    sudo apt install -y linux-headers-amd64 broadcom-sta-dkms
+    sudo modprobe -r b43 b44 b43legacy ssb brcmsmac bcma 2>/dev/null
+    sudo modprobe wl
+    echo "MBA 2015 网卡驱动已就绪！"
+} || echo "未检测到 Broadcom 硬件，跳过驱动安装。"
+
 # prismlauncher
 sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
   && echo "deb [signed-by=/usr/share/keyrings/prismlauncher-archive-keyring.gpg] https://prism-launcher-for-debian.github.io/repo $(. /etc/os-release; echo "${UBUNTU_CODENAME:-${DEBIAN_CODENAME:-${VERSION_CODENAME}}}") main" | sudo tee /etc/apt/sources.list.d/prismlauncher.list \
@@ -64,8 +73,6 @@ curl -L https://github.com/savedra1/clipse/releases/download/v1.2.0/clipse_v1.2.
 
 
 
-# broadcom-wl # Restart Required
-sudo dnf -y install broadcom-wl
 
 # close firewalld
 sudo systemctl stop firewalld
