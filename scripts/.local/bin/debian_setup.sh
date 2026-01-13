@@ -53,3 +53,6 @@ sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O 
 npm install -g repomix
 
 #fcixt5 pinyin:
+
+# bat
+cargo install --locked bat
