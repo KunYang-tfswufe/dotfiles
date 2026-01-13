@@ -4,7 +4,7 @@
 sudo apt -y update && sudo apt -y upgrade
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs jq dunst
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs jq dunst xclip ffmpeg maim
 
 # rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -81,7 +81,3 @@ sudo systemctl enable --now v2raya
 wget -P /tmp https://github.com/daeuniverse/daed/releases/latest/download/installer-daed-linux-$(arch).deb
 sudo dpkg -i /tmp/installer-daed-linux-$(arch).deb
 sudo systemctl enable --now daed
-
-# basic
-sudo dnf -y install wl-clipboard wf-recorder grim slurp
-
