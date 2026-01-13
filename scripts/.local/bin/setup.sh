@@ -32,7 +32,10 @@ sudo npm install -g repomix
 # bottom
 cargo install bottom --locked
 
-
+# qemu
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+sudo adduser $USER libvirt
+sudo adduser $USER kvm
 
 
 
@@ -65,9 +68,6 @@ echo "QT_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "XMODIFIERS=@im=fcitx" >> ~/.config/environment.d/im.conf
 echo "SDL_IM_MODULE=fcitx" >> ~/.config/environment.d/im.conf
 echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
-
-# qemu
-sudo dnf -y install @virtualization
 
 # daed
 sudo dnf -y copr enable zhullyb/v2rayA
