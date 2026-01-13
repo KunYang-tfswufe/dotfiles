@@ -3,9 +3,6 @@
 # basic-debian
 sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan
 
-# tigervnc
-sudo apt -y install tigervnc
-
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
 
