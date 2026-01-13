@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan
-
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
+
+# basic-debian
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan
 
 # broadcom-wl # Restart Required
 sudo dnf -y install broadcom-wl
