@@ -32,3 +32,7 @@ sudo apt -y install fzf stow ripgrep gnupg pass pass-otp oathtool mpv bat
 
 # bottom
 cargo install bottom --locked
+
+# bat
+sudo apt -y install bat
+ln -s /usr/bin/batcat ~/.local/bin/bat

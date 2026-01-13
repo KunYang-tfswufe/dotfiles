@@ -12,3 +12,4 @@ scripts/.local/bin/eza
 fish/.config/fish/conf.d/fish_frozen_key_bindings.fish
 fish/.config/fish/conf.d/rustup.fish
 fish/.config/fish/fish_variables
+scripts/.local/bin/bat
