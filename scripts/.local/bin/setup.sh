@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -36,9 +36,6 @@ sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlaunch
 
 # bat
 sudo dnf -y install bat
-
-# starship
-sudo dnf -y copr enable atim/starship && sudo dnf -y install starship
 
 # bottom
 sudo dnf -y copr enable atim/bottom && sudo dnf -y install bottom
