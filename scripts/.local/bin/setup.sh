@@ -18,6 +18,9 @@ sudo apt -y install fish && chsh -s $(which fish)
 # rpi-imager
 wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imager_2.0.3_amd64.deb && sudo apt -y install ./rpi-imager_2.0.3_amd64.deb && rm rpi-imager_2.0.3_amd64.deb
 
+# repomix
+sudo npm install -g repomix
+
 
 
 
@@ -85,7 +88,4 @@ mkdir ~/vagrant-alpine
 cd vagrant-alpine
 vagrant init generic/alpine318
 vagrant plugin install vagrant-libvirt
-
-# repomix
-sudo npm install -g repomix
 
