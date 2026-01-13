@@ -16,9 +16,6 @@ sudo systemctl disable sddm
 # basic
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst fzf stow ripgrep oathtool pass pass-otp gnupg
 
-# sshd
-sudo dnf -y install openssh-server && sudo systemctl enable --now sshd
-
 # nodejs
 sudo dnf -y install nodejs
 
