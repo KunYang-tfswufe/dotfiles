@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship rust-eza
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -58,9 +58,6 @@ sudo systemctl enable --now v2raya
 
 # clipse
 sudo dnf -y copr enable azandure/clipse && sudo dnf -y install clipse
-
-# eza
-sudo dnf -y install eza
 
 # arp-scan
 sudo dnf -y install arp-scan
