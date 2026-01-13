@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv
+sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -45,9 +45,6 @@ sudo dnf -y copr enable atim/starship && sudo dnf -y install starship
 
 # bottom
 sudo dnf -y copr enable atim/bottom && sudo dnf -y install bottom
-
-# yt-dlp
-sudo dnf -y install yt-dlp
 
 # rpi-imager
 sudo dnf -y install rpi-imager
