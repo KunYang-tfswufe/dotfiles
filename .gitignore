@@ -14,3 +14,4 @@ fish/.config/fish/conf.d/rustup.fish
 fish/.config/fish/fish_variables
 scripts/.local/bin/bat
 scripts/.local/bin/clipse
+fcitx5/.config/fcitx5/conf/cached_layouts
