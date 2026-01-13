@@ -24,5 +24,8 @@ cargo install eza
 # starship
 sudo apt install starship
 
-# basic
+# basic-fedora
 sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst fzf stow ripgrep oathtool pass pass-otp gnupg
+
+# basic
+sudo apt -y install fzf stow ripgrep gnupg pass pass-otp
