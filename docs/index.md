@@ -18,6 +18,7 @@
 - [ ] How to separate the embedded scripts in the fish configuration
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
+- [ ] Learn linux Distrobox
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
