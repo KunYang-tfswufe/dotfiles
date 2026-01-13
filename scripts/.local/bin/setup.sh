@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # basic-debian
-sudo apt -y install fzf pass pass-otp oathtool stow gnupg 
+sudo apt -y install hx fzf pass pass-otp oathtool stow gnupg ripgrep 
 
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
@@ -17,7 +17,7 @@ sudo systemctl disable firewalld
 sudo systemctl disable sddm
 
 # basic
-sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst ripgrep 
+sudo dnf -y install wl-clipboard wf-recorder grim slurp jq dunst
 
 # nodejs
 sudo dnf -y install nodejs
@@ -36,9 +36,6 @@ sudo dnf -y install p7zip p7zip-plugins
 
 # qemu
 sudo dnf -y install @virtualization
-
-# helix
-sudo dnf -y install helix
 
 # prismlauncher
 sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
