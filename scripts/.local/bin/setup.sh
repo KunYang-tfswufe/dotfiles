@@ -6,10 +6,6 @@ sudo apt -y update && sudo apt -y upgrade
 # basic-debian
 sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs jq dunst xclip ffmpeg maim
 
-# rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-. "$HOME/.cargo/env"
-
 # broadcom # Restart Required
 sudo sed -i 's/ main / main contrib non-free /g' /etc/apt/sources.list
 sudo apt update && lspci -nn | grep -q "Broadcom" && {
