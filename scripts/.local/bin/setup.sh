@@ -6,6 +6,26 @@ sudo apt -y update && sudo apt -y upgrade
 # basic-debian
 sudo apt -y install nodejs npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan
 
+# prismlauncher
+sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
+  && echo "deb [signed-by=/usr/share/keyrings/prismlauncher-archive-keyring.gpg] https://prism-launcher-for-debian.github.io/repo $(. /etc/os-release; echo "${UBUNTU_CODENAME:-${DEBIAN_CODENAME:-${VERSION_CODENAME}}}") main" | sudo tee /etc/apt/sources.list.d/prismlauncher.list \
+  && sudo apt update \
+  && sudo apt install prismlauncher
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # broadcom-wl # Restart Required
 sudo dnf -y install broadcom-wl
 
@@ -30,9 +50,6 @@ echo "GLFW_IM_MODULE=ibus" >> ~/.config/environment.d/im.conf
 
 # qemu
 sudo dnf -y install @virtualization
-
-# prismlauncher
-sudo dnf -y copr enable g3tchoo/prismlauncher && sudo dnf -y install prismlauncher
 
 # bat
 sudo dnf -y install bat
