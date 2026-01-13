@@ -37,6 +37,17 @@ sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils 
 sudo adduser $USER libvirt
 sudo adduser $USER kvm
 
+# vagrant
+sudo apt -y install vagrant
+mkdir -p ~/vagrant-alpine
+cd ~/vagrant-alpine
+if [ ! -f Vagrantfile ]; then
+    vagrant init generic/alpine318
+fi
+if ! vagrant plugin list | grep -q "vagrant-libvirt"; then
+    vagrant plugin install vagrant-libvirt
+fi
+
 
 
 
@@ -85,13 +96,3 @@ sudo dnf -y copr enable azandure/clipse && sudo dnf -y install clipse
 # sshfs
 sudo dnf -y install sshfs
 
-# vagrant
-sudo apt -y install vagrant
-mkdir -p ~/vagrant-alpine
-cd ~/vagrant-alpine
-if [ ! -f Vagrantfile ]; then
-    vagrant init generic/alpine318
-fi
-if ! vagrant plugin list | grep -q "vagrant-libvirt"; then
-    vagrant plugin install vagrant-libvirt
-fi
