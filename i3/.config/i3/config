@@ -26,7 +26,6 @@ tiling_drag modifier titlebar
 
 # 核心应用
 bindsym $mod+Return exec kitty
-bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+Shift+q kill
 
 # 焦点移动 (方向键)
