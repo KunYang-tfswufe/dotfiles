@@ -19,8 +19,6 @@
 - [ ] AI-Assisted Reading of WIKI: Must-Reads
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
 - [ ] Learn linux Distrobox
-- [ ] 维护fcitx的配置不采用加入到dotfiles仓库而改成用awk等命令去修改指定的键值对,因为我要该的内容太少了
-- [ ] 换zen浏览器
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
