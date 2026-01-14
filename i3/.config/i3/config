@@ -23,7 +23,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # --- 窗口操作 ---
 # 鼠标拖拽
 floating_modifier $mod
-tiling_drag modifier titlebar
+default_border pixel 1
+default_floating_border pixel 1
 
 # 核心应用
 bindsym $mod+Return exec kitty
@@ -86,17 +87,9 @@ bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
 bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
 
-# --- 状态栏 (按住 Mod 键显示) ---
 bar {
     status_command i3status
-    
-    # 设置为隐藏模式
     mode hide
-    
-    # 默认状态是隐藏的
     hidden_state hide
-    
-    # 设置触发键：按住此键时显示状态栏
-    # 这里使用的是 $mod (即你的 Win 键/Mod4)
     modifier $mod
 }
