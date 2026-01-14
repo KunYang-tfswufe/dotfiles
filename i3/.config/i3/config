@@ -1,4 +1,5 @@
 # i3 config file (Simplified & Optimized & Fullscreen Scratchpad)
+# [Modified]: Workspaces reduced to 3
 
 set $mod Mod4
 
@@ -67,23 +68,21 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
-# --- 工作区 (1-4) ---
+# --- 工作区 (1-3) ---
+# [修改] 这里已削减为3个工作区
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
-set $ws4 "4"
 
 # 切换工作区
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
 
 # 移动窗口到工作区
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
 
 # --- i3 系统控制 ---
 bindsym $mod+Shift+c reload
