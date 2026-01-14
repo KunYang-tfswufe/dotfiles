@@ -20,6 +20,7 @@
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
 - [ ] Learn linux Distrobox
 - [ ] Learn tmux
+- [ ] 把ssh当作vpn尝试使用
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
