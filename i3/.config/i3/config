@@ -1,4 +1,4 @@
-# i3 config file (Simplified & Optimized)
+# i3 config file (Simplified & Optimized & Fullscreen Scratchpad)
 
 set $mod Mod4
 
@@ -9,11 +9,16 @@ font pango:monospace 8
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
-assign [class="^TmuxAuto$"] 2
+
+# [修改] TmuxAuto 专属配置 (全屏沉浸版)
+# 解释：浮动 -> 去掉边框 -> 调整为100%宽高 -> 居中 -> 移入暂存区
+for_window [class="^TmuxAuto$"] floating enable, border pixel 0, resize set 100 ppt 100 ppt, move position center, move scratchpad
+
+# 启动 Kitty 并赋予 class 名字 "TmuxAuto"
 exec --no-startup-id kitty --class "TmuxAuto" $HOME/.local/bin/my-workspace.sh
+
 exec --no-startup-id $HOME/.local/bin/zen
 exec --no-startup-id sleep 3 && setxkbmap -option ctrl:nocaps && xset r rate 200 50
-# 自定义脚本
 
 # --- 音量控制 (PulseAudio) ---
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -31,6 +36,11 @@ default_floating_border pixel 1
 # 核心应用
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
+
+# [修改] 唯一的暂存区快捷键 (已移除通用键位)
+# 专属一键呼出 Tmux 开发环境 (Mod + ` 反引号键)
+# 按一下全屏覆盖，再按一下隐藏
+bindsym $mod+grave [class="^TmuxAuto$"] scratchpad show
 
 # 焦点移动 (方向键)
 bindsym $mod+Left focus left
@@ -81,9 +91,6 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # --- 调整窗口大小 (无模态改良版) ---
-# 逻辑：Mod (Win) + Ctrl + 方向键
-# 不再需要进入/退出模式，所按即所得
-
 bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
 bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
 bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
