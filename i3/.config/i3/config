@@ -1,4 +1,4 @@
-# i3 config file (Simplified)
+# i3 config file (Simplified & Optimized)
 
 set $mod Mod4
 
@@ -76,18 +76,14 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# --- 调整窗口大小模式 ---
-mode "resize" {
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+# --- 调整窗口大小 (无模态改良版) ---
+# 逻辑：Mod (Win) + Ctrl + 方向键
+# 不再需要进入/退出模式，所按即所得
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-bindsym $mod+r mode "resize"
+bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
 
 # --- 状态栏 ---
 bar {
