@@ -4,7 +4,7 @@
 sudo apt -y update && sudo apt -y upgrade
 
 # basic-debian
-sudo apt -y install nodejs wget npm hx fzf pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs jq dunst xclip ffmpeg maim kitty i3-wm i3status i3lock
+sudo apt -y install nodejs wget npm hx fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs jq dunst xclip ffmpeg maim kitty i3-wm i3status i3lock
 
 # termurin jdk
 wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
