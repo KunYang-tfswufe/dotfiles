@@ -45,6 +45,8 @@ sudo npm install -g repomix
 # bottom
 wget https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12.3-1_amd64.deb && sudo apt -y install ./bottom_0.12.3-1_amd64.deb && rm bottom_0.12.3-1_amd64.deb
 
+# helix
+wget https://github.com/helix-editor/helix/releases/download/25.07.1/helix_25.7.1-1_amd64.deb && sudo apt -y install ./helix_25.7.1-1_amd64.deb && rm helix_25.7.1-1_amd64.deb
 
 # qemu
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
