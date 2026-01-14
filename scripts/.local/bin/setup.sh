@@ -6,6 +6,11 @@ sudo apt -y update && sudo apt -y upgrade
 # basic-debian
 sudo apt -y install nodejs wget npm hx fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs jq dunst xclip ffmpeg maim kitty i3-wm i3status i3lock
 
+# fish
+sudo apt -y install fish && sudo chsh -s $(which fish) $USER
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install reitzig/sdkman-for-fish@v2.1.0
+
 # sdkman
 curl -s "https://get.sdkman.io" | bash
 source "/home/free514dom/.sdkman/bin/sdkman-init.sh"
@@ -84,5 +89,3 @@ sudo systemctl enable --now daed
 # zen
 curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh
 
-# fish
-sudo apt -y install fish && sudo chsh -s $(which fish) $USER
