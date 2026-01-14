@@ -5,7 +5,8 @@ set $mod Mod4
 # --- 字体与外观 ---
 font pango:monospace 8
 
-# --- 自启动程序 ---
+exec --no-startup-id picom --backend glx -b
+
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
@@ -14,8 +15,7 @@ exec --no-startup-id nm-applet
 # 解释：浮动 -> 去掉边框 -> 调整为100%宽高 -> 居中 -> 移入暂存区
 for_window [class="^TmuxAuto$"] floating enable, border pixel 0, resize set 100 ppt 100 ppt, move position center, move scratchpad
 
-# 启动 Kitty 并赋予 class 名字 "TmuxAuto"
-exec --no-startup-id kitty --class "TmuxAuto" $HOME/.local/bin/my-workspace.sh
+exec --no-startup-id kitty --class "TmuxAuto" -o background_opacity=0.85 $HOME/.local/bin/my-workspace.sh
 
 exec --no-startup-id $HOME/.local/bin/zen
 exec --no-startup-id sleep 3 && setxkbmap -option ctrl:nocaps && xset r rate 200 50
