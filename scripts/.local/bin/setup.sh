@@ -75,5 +75,8 @@ wget -P /tmp https://github.com/daeuniverse/daed/releases/latest/download/instal
 sudo dpkg -i /tmp/installer-daed-linux-$(arch).deb
 sudo systemctl enable --now daed
 
+# zen
+curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh
+
 # fish
 sudo apt -y install fish && sudo chsh -s $(which fish) $USER
