@@ -93,3 +93,5 @@ bar {
     hidden_state hide
     modifier $mod
 }
+
+bindsym Print exec --no-startup-id maim | tee $screenshot_path | xclip -selection clipboard -t image/png
