@@ -13,7 +13,7 @@ y = ["yank_main_selection_to_clipboard"]
 p = ["paste_clipboard_after"]
 P = ["paste_clipboard_before"]
 R = ["delete_selection", "paste_clipboard_before"]
-C-r = ":reload"
+C-r = ":reload-all"
 
 [keys.insert]
 up = "no_op"
