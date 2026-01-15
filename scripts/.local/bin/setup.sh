@@ -26,12 +26,6 @@ sudo apt update && lspci -nn | grep -q "Broadcom" && {
     echo "MBA 2015 网卡驱动已就绪！"
 } || echo "未检测到 Broadcom 硬件，跳过驱动安装。"
 
-# prismlauncher
-sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
-  && echo "deb [signed-by=/usr/share/keyrings/prismlauncher-archive-keyring.gpg] https://prism-launcher-for-debian.github.io/repo $(. /etc/os-release; echo "${UBUNTU_CODENAME:-${DEBIAN_CODENAME:-${VERSION_CODENAME}}}") main" | sudo tee /etc/apt/sources.list.d/prismlauncher.list \
-  && sudo apt update \
-  && sudo apt install prismlauncher
-
 # bat
 sudo apt -y install bat
 ln -s /usr/bin/batcat ~/.local/bin/bat
