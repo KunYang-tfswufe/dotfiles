@@ -35,7 +35,7 @@ default_border pixel 1
 default_floating_border pixel 1
 
 # 核心应用
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec st -f "Monospace:size=11" -e tmux
 bindsym $mod+Shift+q kill
 
 # [修改] 唯一的暂存区快捷键 (已移除通用键位)
