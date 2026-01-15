@@ -13,7 +13,6 @@ https://codedex.io
 https://freecodecamp.org
 https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0
 https://techinterviewhandbook.org/grind75
-
 # Bookmarks
 https://sorryios.cc
 https://alternativeto.net
@@ -23,15 +22,12 @@ https://offer.gfjianli.com
 https://sms-activate.org
 https://artificialanalysis.ai/leaderboards/models
 https://vast.ai
-https://convertio.co
 https://digitalocean.com
 https://minecraft.wiki
 https://www.reddit.com/r/commandline/
 https://repology.org
-
 # Githubs
 https://github.com/hiddify/hiddify-core
-https://github.com/jesseduffield/lazydocker
 https://github.com/ollama/ollama
 https://github.com/openwrt
 https://github.com/GTNewHorizons
@@ -40,7 +36,6 @@ https://github.com/agarrharr/awesome-cli-apps
 https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel
 https://github.com/yamadashy/repomix
 https://github.com/Mygod/VPNHotspot
-
 # Extensions
 https://addons.mozilla.org/firefox/addon/ublock-origin/
 https://addons.mozilla.org/firefox/addon/immersive-translate/
