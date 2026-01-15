@@ -15,10 +15,6 @@ set $rofi_cmd rofi \
         -terminal '$term'
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
-# ===============================================================
-# >>> 新增配置开始 (START OF NEW CONFIGURATION) <<<
-# ===============================================================
-
 ### Autostart applications
 # 在Sway会话启动时自动运行的程序
 
