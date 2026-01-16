@@ -4,7 +4,7 @@
 sudo apt -y update && sudo apt -y upgrade
 
 # basic-debian
-sudo apt -y install nodejs wget npm picom fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship alacritty eza arp-scan sshfs jq dunst xclip ffmpeg maim i3-wm i3status i3lock
+sudo apt -y install nodejs wget npm picom fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone gh mpv yt-dlp 7zip starship eza arp-scan sshfs jq ffmpeg
 
 # fish
 sudo apt -y install fish && sudo chsh -s $(which fish) $USER
@@ -29,7 +29,6 @@ wget https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12
 
 # helix
 wget https://github.com/helix-editor/helix/releases/download/25.07.1/helix_25.7.1-1_amd64.deb && sudo apt -y install ./helix_25.7.1-1_amd64.deb && rm helix_25.7.1-1_amd64.deb
-
 
 # clipse
 curl -L https://github.com/savedra1/clipse/releases/download/v1.2.0/clipse_v1.2.0_linux_x11_amd64.tar.gz > /tmp/clipse.tar.gz \
