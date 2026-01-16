@@ -7,35 +7,27 @@ tmux kill-session -t $SESSION 2>/dev/null
 
 # 2. 新建会话 (左侧主面板)
 # -c: 指定该窗口的工作目录为 ~/dotfiles
-# -d: 后台运行，不立即进入
+# -d: 后台运行
 tmux new-session -d -s $SESSION -n $WINDOW_NAME -c "$HOME/dotfiles"
 
 # 3. 运行编辑器 (左侧)
-# 此时只有一个面板，直接发送命令
+# 发送 helix 命令
 tmux send-keys -t $SESSION:$WINDOW_NAME 'hx .' C-m
 
 # 4. 左右切分 (创建右侧栏)
 # -h: 水平切分
-# -p 20: 新切出来的面板(右侧)占 20% 宽度 -> 左侧保留 80%
-# -c "$HOME": 右侧工具栏通常不需要在 dotfiles 目录，重置回 HOME (根据喜好可删去此参数)
-tmux split-window -h -t $SESSION:$WINDOW_NAME -p 20 -c "$HOME"
+# -p 30: 新切出来的面板(右侧)占 30% 宽度 -> 意味着左侧保留 70%
+# -c "$HOME/dotfiles": 这里也设为 dotfiles 目录，方便你在右侧直接使用 git
+tmux split-window -h -t $SESSION:$WINDOW_NAME -p 30 -c "$HOME/dotfiles"
 
-# 5. 右侧上下切分
-# 此时焦点自动在刚才切出来的右侧面板上
-# -v: 垂直切分
-# -p 30: 新切出来的面板(右下)占 30% 高度 -> 右上保留 70% (稍高)
-tmux split-window -v -t $SESSION:$WINDOW_NAME -p 30 -c "$HOME"
+# 5. 右侧保持空闲
+# (原脚本的 split-window -v 和 send-keys btm 已删除)
+# 此时右侧就是一个完整的空闲终端，可以直接输入命令
 
-# 6. 运行 btm (右上)
-# 刚才切分完，焦点在"右下"。我们需要先选到"右上"。
-tmux select-pane -U -t $SESSION:$WINDOW_NAME
-tmux send-keys -t $SESSION:$WINDOW_NAME 'btm' C-m
-
-# 7. 右下角留空
-# (不需要发送任何按键命令，只需保留 Shell 即可)
-
-# 8. 最后光标回到左侧主工作区
+# 6. 最后光标回到左侧主工作区 (可选)
+# 如果你希望启动后光标直接在编辑器里，保留下面这行
+# 如果你希望启动后光标在右侧准备输入 git 命令，注释掉下面这行
 tmux select-pane -L -t $SESSION:$WINDOW_NAME
 
-# 9. 进入会话
+# 7. 进入会话
 tmux attach -t $SESSION
