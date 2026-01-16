@@ -1,63 +1,7 @@
-# 定义 Mod 键 (Win键)
-set $mod Mod4
-
-# 定义 VIM 风格的方向键
-set $left h
-set $down j
-set $up k
-set $right l
-
-# 定义终端
-set $term foot
-
-# 定义程序启动器
-set $rofi_cmd rofi \
-        -terminal '$term'
-set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
-
-### Autostart applications
-# 在Sway会话启动时自动运行的程序
-
-# 启动 Fcitx5 输入法框架 (以守护进程/后台模式启动).
 exec fcitx5 -d
-
-# 启动 Firefox
-exec firefox
-
-# 剪贴板监控与通知 (修复版：使用 cat 吃掉 stdin 防止管道破裂)
 exec sh -c 'sleep 5; wl-paste --watch sh -c "cat > /dev/null && notify-send -a Clipboard -i edit-paste \"已复制\""'
 
-exec foot -a scratch_term -o colors.alpha=0.85
-for_window [app_id="scratch_term"] move scratchpad
-
-### Workspace assignments
-# 将特定的应用程序分配到固定的工作区
-
-# 将所有 Firefox 窗口默认分配到工作区 1
-assign [app_id="firefox"] workspace number 1
-
-# ===============================================================
-# >>> 新增配置结束 (END OF NEW CONFIGURATION) <<<
-# ===============================================================
-
-# 输出/壁纸
-# 这里已经改成了纯黑色 (#000000)，双引号是为了防止歧义，solid_color 代表纯色填充
 output * bg "#000000" solid_color
-
-# 锁屏/空闲
-# exec swayidle ...
-
-# 输入设备
-input "..." { ... }
-input type:keyboard {
-    repeat_delay 200
-    repeat_rate 50
-    xkb_options ctrl:nocaps
-}
-# 按键绑定
-# 基础绑定
-    # 启动终端
-    bindsym $mod+Return exec $term
 
     # 关闭窗口
     bindsym $mod+Shift+q kill
