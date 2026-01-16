@@ -30,7 +30,3 @@ bindsym $mod+apostrophe exec foot -a clipse clipse
 for_window [app_id="quick_snippets"] floating enable, move position center, resize set 500 300
 bindsym $mod+comma exec foot -a quick_snippets sh -c 'cat ~/dotfiles/docs/snippets.txt | fzf --reverse --prompt="复制 > " | wl-copy -n'
 
-# === URL 快速访问 (Mod+n) ===
-for_window [app_id="quick_urls"] floating enable, move position center, resize set 600 400
-bindsym $mod+n exec foot -a quick_urls sh -c 'cat ~/dotfiles/docs/urls.txt | fzf --reverse --prompt="访问 URL > " | xargs -r xdg-open'
-
