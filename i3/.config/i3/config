@@ -21,6 +21,14 @@ exec --no-startup-id alacritty --class "TmuxAuto" -o window.opacity=0.89 -e $HOM
 exec --no-startup-id $HOME/.local/bin/zen
 exec --no-startup-id sleep 3 && setxkbmap -option ctrl:nocaps && xset r rate 200 50
 
+# --- 快速代码片段 (Quick Snippets) ---
+# 解释：识别 class 为 quick_snippets 的窗口 -> 浮动 -> 设置尺寸 -> 居中
+for_window [class="^quick_snippets$"] floating enable, resize set 500 300, move position center
+
+# 快捷键 Mod + , (comma)
+# 逻辑：启动 Alacritty (设置 class) -> 运行 sh -> 读取文件 -> fzf 选择 -> 删掉换行符 -> 复制到系统剪贴板
+bindsym $mod+comma exec alacritty --class "quick_snippets" -e sh -c 'cat ~/dotfiles/docs/snippets.txt | fzf --reverse --prompt="复制 > " | tr -d "\n" | xclip -selection clipboard'
+
 # --- 音量控制 (PulseAudio) ---
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
