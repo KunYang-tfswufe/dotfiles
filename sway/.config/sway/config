@@ -217,7 +217,3 @@ for_window [app_id="foot-editor"] floating enable, move position center, resize 
 for_window [app_id="quick_urls"] floating enable, move position center, resize set 600 400
 bindsym $mod+n exec foot -a quick_urls sh -c 'cat ~/dotfiles/docs/urls.txt | fzf --reverse --prompt="访问 URL > " | xargs -r xdg-open'
 
-# === Dashboard 快速查看 (Mod+m) ===
-# 逻辑：使用 glow 渲染 Markdown，提供更美观的视觉效果
-for_window [app_id="dashboard"] floating enable, move position center, resize set 80ppt 85ppt
-bindsym $mod+m exec foot -a dashboard bat ~/dotfiles/docs/index.md
