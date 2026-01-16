@@ -30,11 +30,4 @@ wget https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_0.12
 # helix
 wget https://github.com/helix-editor/helix/releases/download/25.07.1/helix_25.7.1-1_amd64.deb && sudo apt -y install ./helix_25.7.1-1_amd64.deb && rm helix_25.7.1-1_amd64.deb
 
-# clipse
-curl -L https://github.com/savedra1/clipse/releases/download/v1.2.0/clipse_v1.2.0_linux_x11_amd64.tar.gz > /tmp/clipse.tar.gz \
-  && tar -xvf /tmp/clipse.tar.gz -C /tmp \
-  && mkdir -p $HOME/.local/bin \
-  && install /tmp/clipse-linux-x11-amd64 $HOME/.local/bin/clipse \
-  && rm /tmp/clipse.tar.gz /tmp/clipse-linux-x11-amd64
-
 
