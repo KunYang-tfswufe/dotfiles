@@ -3,102 +3,6 @@ exec sh -c 'sleep 5; wl-paste --watch sh -c "cat > /dev/null && notify-send -a C
 
 output * bg "#000000" solid_color
 
-    # 关闭窗口
-    bindsym $mod+Shift+q kill
-
-    # 程序启动器
-    bindsym $mod+d exec $menu
-
-    # 浮动窗口修改器 (Mod+左键拖动, Mod+右键缩放)
-    floating_modifier $mod normal
-
-    # 重载配置
-    bindsym $mod+Shift+c reload
-
-    # 退出 Sway
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-
-# 移动
-    # 移动焦点
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # 方向键移动焦点
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-
-    # 移动窗口
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # 方向键移动窗口
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-
-# 工作区
-    # 切换工作区
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
-    # 移动窗口到工作区
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
-
-# 布局
-    # =========================================================
-    # >>> 修改位置在这里：去掉标题栏 <<<
-    # pixel 2 代表只显示 2 像素的线条，不显示文字标题
-    default_border pixel 2
-    default_floating_border pixel 2
-    # =========================================================
-
-    # 水平/垂直分割
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
-    # 切换布局样式 (堆叠/标签/分割)
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # 全屏
-    bindsym $mod+f fullscreen
-
-    # 切换平铺/浮动模式
-    bindsym $mod+Shift+space floating toggle
-
-    # 切换平铺/浮动区域焦点
-    bindsym $mod+space focus mode_toggle
-
-    # 焦点移至父容器
-    bindsym $mod+a focus parent
-
-# 暂存区 (Scratchpad)
-    # 移至暂存区
-    bindsym $mod+Shift+grave move scratchpad
-    # 显示/隐藏暂存区窗口
-    bindsym $mod+grave workspace number 1; [app_id="scratch_term"] scratchpad show, resize set 100 ppt 100 ppt, move position center
 
 bindsym $mod+minus exec grim -g "$(slurp)" - | wl-copy && notify-send "区域截图" "已复制"
 bindsym $mod+equal exec grim - | wl-copy && notify-send "全屏截图" "已复制"
@@ -111,30 +15,6 @@ bindsym $mod+backslash exec sh -c 'killall mpv &> /dev/null || true; mpv --shuff
 bindsym $mod+slash exec killall mpv
 
 bindsym $mod+semicolon exec sh -c 'bluetoothctl connect 14:06:A7:B8:47:3A && notify-send "🎧 Sony耳机" "连接成功！" || notify-send -u critical "🎧 Sony耳机" "连接失败..."'
-
-# 缩放模式
-mode "resize" {
-    # 调整窗口大小
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # 方向键调整窗口大小
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-
-    # 返回默认模式
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+r mode "resize"
-
-# 包含其他配置文件
-include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "/etc/sway/config.d/*.conf" "${XDG_CONFIG_HOME:-$HOME/.config}/sway/config.d/*.conf")'
-
 
 # === Clipse 设置 ===
 # 1. 开机后台启动
@@ -149,13 +29,6 @@ bindsym $mod+apostrophe exec foot -a clipse clipse
 
 for_window [app_id="quick_snippets"] floating enable, move position center, resize set 500 300
 bindsym $mod+comma exec foot -a quick_snippets sh -c 'cat ~/dotfiles/docs/snippets.txt | fzf --reverse --prompt="复制 > " | wl-copy -n'
-
-# =========================================================
-# === Foot Editor 回滚历史查看专用配置 ===
-# 配合 foot.ini 中的 pipe-scrollback 功能
-# 当按下 Ctrl+Shift+e 时，让弹出的编辑器窗口浮动并居中
-# =========================================================
-for_window [app_id="foot-editor"] floating enable, move position center, resize set 80ppt 80ppt
 
 # === URL 快速访问 (Mod+n) ===
 for_window [app_id="quick_urls"] floating enable, move position center, resize set 600 400
