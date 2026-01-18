@@ -3,4 +3,4 @@ repomix $HOME/dotfiles/ -o /tmp/dotfiles-repomix-output.xml && echo "file://$(re
 repomix --remote https://github.com/free514dom/fyp -o /tmp/fyp-repomix-output.xml && echo "file://$(realpath /tmp/fyp-repomix-output.xml)" | xclip -selection clipboard -t text/uri-list
 du -h --max-depth=1 | sort -rh
 mkdir -p ~/Videos && wf-recorder --audio="$(pactl get-default-sink).monitor" -c libopenh264 -f "$HOME/Videos/Rec_$(date +%Y%m%d_%H%M%S).mp4"
-xxx > /dev/null 2>&1 &
+echo "xxx > /dev/null 2>&1 &"
