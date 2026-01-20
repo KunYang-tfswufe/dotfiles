@@ -3,7 +3,7 @@
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
 
-sudo apt -y alacritty copyq dunst xclip maim i3-wm i3status i3lock
+sudo apt -y install alacritty copyq dunst xclip maim i3-wm i3status i3lock
 
 sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
   && echo "deb [signed-by=/usr/share/keyrings/prismlauncher-archive-keyring.gpg] https://prism-launcher-for-debian.github.io/repo $(. /etc/os-release; echo "${UBUNTU_CODENAME:-${DEBIAN_CODENAME:-${VERSION_CODENAME}}}") main" | sudo tee /etc/apt/sources.list.d/prismlauncher.list \
@@ -20,7 +20,7 @@ sudo apt update && lspci -nn | grep -q "Broadcom" && {
 } || echo "未检测到 Broadcom 硬件，跳过驱动安装。"
 
 # rpi-imager
-wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imager_2.0.3_amd64.deb && sudo apt -y install ./rpi-imager_2.0.3_amd64.deb && rm rpi-imager_2.0.3_amd64.deb
+command -v rpi-imager > /dev/null || { wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imager_2.0.3_amd64.deb && sudo apt -y install ./rpi-imager_2.0.3_amd64.deb && rm rpi-imager_2.0.3_amd64.deb; }
 
 # qemu
 sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
@@ -56,4 +56,4 @@ sudo dpkg -i /tmp/installer-daed-linux-$(arch).deb
 sudo systemctl enable --now daed
 
 # zen
-curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh
+ command -v zen > /dev/null || curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh

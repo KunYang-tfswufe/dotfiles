@@ -10,7 +10,7 @@ sudo apt -y install curl wget unzip picom fzf tmux pass pass-otp oathtool stow g
 sudo apt -y install fish && sudo chsh -s $(which fish) $USER
 
 # repomix
-command -v repomix >/dev/null || sudo npm install -g repomix
+command -v repomix > /dev/null || sudo npm install -g repomix
 
 # helix
-command -v hx >/dev/null || (wget https://github.com/helix-editor/helix/releases/download/25.07.1/helix_25.7.1-1_amd64.deb && sudo apt -y install ./helix_25.7.1-1_amd64.deb && rm helix_25.7.1-1_amd64.deb)
+command -v hx > /dev/null || (wget https://github.com/helix-editor/helix/releases/download/25.07.1/helix_25.7.1-1_amd64.deb && sudo apt -y install ./helix_25.7.1-1_amd64.deb && rm helix_25.7.1-1_amd64.deb)
