@@ -4,7 +4,7 @@
 sudo apt -y update && sudo apt -y upgrade
 
 # basic-debian
-sudo apt -y install curl wget unzip picom fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone mpv yt-dlp 7zip starship eza arp-scan sshfs jq pandoc ffmpeg
+sudo apt -y install curl wget unzip picom fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone mpv yt-dlp 7zip starship eza arp-scan sshfs jq pandoc ffmpeg openjdk-21-jdk
 
 # nodejs npm fnm
 curl -fsSL https://fnm.vercel.app/install | bash
@@ -12,8 +12,6 @@ source $HOME/.config/fish/conf.d/fnm.fish
 
 # fish
 sudo apt -y install fish && sudo chsh -s $(which fish) $USER
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-fisher install reitzig/sdkman-for-fish@v2.1.0
 
 # github cli
 (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
@@ -25,12 +23,6 @@ fisher install reitzig/sdkman-for-fish@v2.1.0
 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 	&& sudo apt update \
 	&& sudo apt install gh -y
-
-# sdkman
-curl -s "https://get.sdkman.io" | bash
-source "/home/free514dom/.sdkman/bin/sdkman-init.sh"
-sdk install java 21.0.9-tem
-sdk install gradle 9.2.1
 
 # bat
 sudo apt -y install bat
