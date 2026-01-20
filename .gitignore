@@ -16,3 +16,4 @@ scripts/.local/bin/bat
 scripts/.local/bin/clipse
 fcitx5/.config/fcitx5/conf/cached_layouts
 scripts/.local/bin/zen
+fish/.config/fish/fish_variables
