@@ -12,7 +12,7 @@ set -gx VISUAL (command -v hx)
 fish_add_path $HOME/.local/bin
 fish_add_path ~/go/bin
 
-alias cat 'bat --paging=never --style="plain"'
+alias cat 'batcat --paging=never --style="plain"'
 alias ls 'eza --git'
 alias l 'eza --git'
 alias ll 'eza -l --git --header'
