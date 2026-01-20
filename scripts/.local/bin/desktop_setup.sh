@@ -5,15 +5,19 @@ sudo apt -y update && sudo apt -y upgrade
 
 sudo apt -y install alacritty copyq dunst xclip maim i3-wm i3status i3lock
 
+# Prism Launcher
 sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
   && echo "deb [signed-by=/usr/share/keyrings/prismlauncher-archive-keyring.gpg] https://prism-launcher-for-debian.github.io/repo $(. /etc/os-release; echo "${UBUNTU_CODENAME:-${DEBIAN_CODENAME:-${VERSION_CODENAME}}}") main" | sudo tee /etc/apt/sources.list.d/prismlauncher.list \
   && sudo apt update \
   && sudo apt install prismlauncher
 
-# broadcom # Restart Required
-sudo sed -i 's/ main / main contrib non-free /g' /etc/apt/sources.list
+# Broadcom # Restart Required
+# 优化：防止重复替换 sources.list
+grep -q "non-free" /etc/apt/sources.list || sudo sed -i 's/ main / main contrib non-free /g' /etc/apt/sources.list
+
 sudo apt update && lspci -nn | grep -q "Broadcom" && {
-    sudo apt install -y linux-headers-amd64 broadcom-sta-dkms
+    # 建议：使用 uname -r 匹配当前内核版本，比固定 amd64 更安全
+    sudo apt install -y linux-headers-$(uname -r) broadcom-sta-dkms
     sudo modprobe -r b43 b44 b43legacy ssb brcmsmac bcma 2>/dev/null
     sudo modprobe wl
     echo "MBA 2015 网卡驱动已就绪！"
@@ -30,30 +34,38 @@ sudo adduser $USER kvm
 # vagrant
 sudo apt -y install vagrant
 mkdir -p ~/vagrant-alpine
-cd ~/vagrant-alpine
-if [ ! -f Vagrantfile ]; then
-    vagrant init generic/alpine318
-fi
-if ! vagrant plugin list | grep -q "vagrant-libvirt"; then
-    vagrant plugin install vagrant-libvirt
-fi
+# 优化：使用子 Shell 避免改变脚本当前目录
+(
+    cd ~/vagrant-alpine
+    if [ ! -f Vagrantfile ]; then
+        vagrant init generic/alpine318
+    fi
+    if ! vagrant plugin list | grep -q "vagrant-libvirt"; then
+        vagrant plugin install vagrant-libvirt
+    fi
+)
 
 # fcitx5 # Restart Required
 sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3 fcitx5-frontend-qt5 im-config
 im-config -n fcitx5
-printf "\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIERS=@im=fcitx\n" >> ~/.xprofile
+# 优化：防止重复写入 .xprofile
+if ! grep -q "GTK_IM_MODULE=fcitx" ~/.xprofile; then
+    printf "\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIERS=@im=fcitx\n" >> ~/.xprofile
+fi
 
 # v2rayA
 wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc
 echo "deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
 sudo apt update
-sudo apt install v2raya v2ray ## you can install xray package instead of if you want
+sudo apt install v2raya v2ray 
 sudo systemctl enable --now v2raya
 
-# daed
+# daed (Official script)
 wget -P /tmp https://github.com/daeuniverse/daed/releases/latest/download/installer-daed-linux-$(arch).deb
 sudo dpkg -i /tmp/installer-daed-linux-$(arch).deb
 sudo systemctl enable --now daed
 
 # zen
- command -v zen > /dev/null || curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh
+command -v zen > /dev/null || curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh
+
+echo "✅ 所有安装任务已完成！建议重启系统以应用组权限和驱动更改。"
