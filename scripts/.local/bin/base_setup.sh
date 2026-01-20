@@ -4,7 +4,7 @@
 sudo apt -y update && sudo apt -y upgrade
 
 # basic-debian
-sudo apt -y install curl wget unzip picom fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone mpv yt-dlp 7zip starship eza arp-scan sshfs jq pandoc ffmpeg golang-go
+sudo apt -y install curl wget unzip picom fzf tmux pass pass-otp oathtool stow gnupg ripgrep rclone mpv yt-dlp 7zip starship eza arp-scan sshfs jq pandoc ffmpeg golang-go libx11-dev libxtst-dev libx11-xcb-dev
 
 # clipse
 go install github.com/savedra1/clipse@v1.2.0
