@@ -10,6 +10,7 @@ set -gx EDITOR (command -v hx)
 set -gx VISUAL (command -v hx)
 
 fish_add_path $HOME/.local/bin
+fish_add_path ~/go/bin
 
 alias cat 'bat --paging=never --style="plain"'
 alias ls 'eza --git'
