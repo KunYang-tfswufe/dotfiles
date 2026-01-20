@@ -3,6 +3,7 @@ if test -f ~/.config/fish/secrets.fish
 end
 
 if status is-interactive
+    fzf_key_bindings
 end
 
 set -gx EDITOR (command -v hx)
