@@ -3,12 +3,6 @@ exec sh -c 'sleep 5; wl-paste --watch sh -c "cat > /dev/null && notify-send -a C
 
 output * bg "#000000" solid_color
 
-
-bindsym $mod+minus exec grim -g "$(slurp)" - | wl-copy && notify-send "区域截图" "已复制"
-bindsym $mod+equal exec grim - | wl-copy && notify-send "全屏截图" "已复制"
-bindsym $mod+bracketleft exec sh -c 'mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png && notify-send "区域已保存" "~/Pictures/Screenshots"'
-bindsym $mod+bracketright exec sh -c 'mkdir -p ~/Pictures/Screenshots && grim ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png && notify-send "全屏已保存" "~/Pictures/Screenshots"'
-
 bindsym $mod+semicolon exec sh -c 'bluetoothctl connect 14:06:A7:B8:47:3A && notify-send "🎧 Sony耳机" "连接成功！" || notify-send -u critical "🎧 Sony耳机" "连接失败..."'
 
 # === Clipse 设置 ===
