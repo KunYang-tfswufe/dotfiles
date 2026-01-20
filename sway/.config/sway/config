@@ -1,15 +1,2 @@
-exec fcitx5 -d
 exec sh -c 'sleep 5; wl-paste --watch sh -c "cat > /dev/null && notify-send -a Clipboard -i edit-paste \"已复制\""'
-
 bindsym $mod+semicolon exec sh -c 'bluetoothctl connect 14:06:A7:B8:47:3A && notify-send "🎧 Sony耳机" "连接成功！" || notify-send -u critical "🎧 Sony耳机" "连接失败..."'
-
-# === Clipse 设置 ===
-# 1. 开机后台启动
-exec clipse -listen
-
-# 2. 设置浮动窗口规则 (让 clipse 居中显示，而不是铺满屏幕)
-for_window [app_id="clipse"] floating enable, move position center, resize set 80ppt 80ppt
-
-# 3. 绑定快捷键 (Mod+V)
-# 注意：Fedora Sway Spin 默认终端通常是 foot
-bindsym $mod+apostrophe exec foot -a clipse clipse
