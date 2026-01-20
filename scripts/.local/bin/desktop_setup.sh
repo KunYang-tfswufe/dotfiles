@@ -3,7 +3,7 @@
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
 
-sudo apt -y alacritty dunst xclip maim i3-wm i3status i3lock
+sudo apt -y alacritty copyq dunst xclip maim i3-wm i3status i3lock
 
 sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
   && echo "deb [signed-by=/usr/share/keyrings/prismlauncher-archive-keyring.gpg] https://prism-launcher-for-debian.github.io/repo $(. /etc/os-release; echo "${UBUNTU_CODENAME:-${DEBIAN_CODENAME:-${VERSION_CODENAME}}}") main" | sudo tee /etc/apt/sources.list.d/prismlauncher.list \
@@ -57,11 +57,3 @@ sudo systemctl enable --now daed
 
 # zen
 curl -fsSL https://github.com/zen-browser/updates-server/raw/refs/heads/main/install.sh | sh
-
-# clipse
-curl -L https://github.com/savedra1/clipse/releases/download/v1.2.0/clipse_v1.2.0_linux_x11_amd64.tar.gz > /tmp/clipse.tar.gz \
-  && tar -xvf /tmp/clipse.tar.gz -C /tmp \
-  && mkdir -p $HOME/.local/bin \
-  && install /tmp/clipse-linux-x11-amd64 $HOME/.local/bin/clipse \
-  && rm /tmp/clipse.tar.gz /tmp/clipse-linux-x11-amd64
-
