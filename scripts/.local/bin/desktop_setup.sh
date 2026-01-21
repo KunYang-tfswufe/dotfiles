@@ -8,14 +8,14 @@ sudo apt -y install alacritty copyq dunst xclip maim dbus-x11 xinit xserver-xorg
 # Prism Launcher
 sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
   && echo "deb [signed-by=/usr/share/keyrings/prismlauncher-archive-keyring.gpg] https://prism-launcher-for-debian.github.io/repo $(. /etc/os-release; echo "${UBUNTU_CODENAME:-${DEBIAN_CODENAME:-${VERSION_CODENAME}}}") main" | sudo tee /etc/apt/sources.list.d/prismlauncher.list \
-  && sudo apt update \
-  && sudo apt install prismlauncher
+  && sudo apt -y update \
+  && sudo apt -y install prismlauncher
 
 # Broadcom # Restart Required
 # 优化：防止重复替换 sources.list
 grep -q "non-free" /etc/apt/sources.list || sudo sed -i 's/ main / main contrib non-free /g' /etc/apt/sources.list
 
-sudo apt update && lspci -nn | grep -q "Broadcom" && {
+sudo apt -y update && lspci -nn | grep -q "Broadcom" && {
     # 建议：使用 uname -r 匹配当前内核版本，比固定 amd64 更安全
     sudo apt install -y linux-headers-$(uname -r) broadcom-sta-dkms
     sudo modprobe -r b43 b44 b43legacy ssb brcmsmac bcma 2>/dev/null
@@ -27,7 +27,7 @@ sudo apt update && lspci -nn | grep -q "Broadcom" && {
 command -v rpi-imager > /dev/null || { wget https://github.com/raspberrypi/rpi-imager/releases/download/v2.0.3/rpi-imager_2.0.3_amd64.deb && sudo apt -y install ./rpi-imager_2.0.3_amd64.deb && rm rpi-imager_2.0.3_amd64.deb; }
 
 # qemu
-sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+sudo apt -y install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
 sudo adduser $USER libvirt
 sudo adduser $USER kvm
 
@@ -46,14 +46,14 @@ mkdir -p ~/vagrant-alpine
 )
 
 # fcitx5 # Restart Required
-sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3 fcitx5-frontend-qt5 im-config
+sudo apt -y install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3 fcitx5-frontend-qt5 im-config
 im-config -n fcitx5
 
 # v2rayA
 wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc
 echo "deb [signed-by=/etc/apt/keyrings/v2raya.asc] https://apt.v2raya.org/ v2raya main" | sudo tee /etc/apt/sources.list.d/v2raya.list
-sudo apt update
-sudo apt install v2raya v2ray 
+sudo apt -y update
+sudo apt -y install v2raya v2ray 
 sudo systemctl enable --now v2raya
 
 # daed (Official script)
