@@ -1,0 +1,26 @@
+tfiles on  main [+]
+❯ sudo apt install xserver-xorg
+[sudo] password for free514dom:
+xserver-xorg is already the newest version (1:7.7+24+deb13u1).
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 0
+
+dotfiles on  main [+] took 2s
+❯ i3
+i3: Cannot open display
+
+dotfiles on  main [+]
+❯ cat ~/.xinitrc
+#!/bin/sh
+
+# 1. 加载 X 资源
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+
+# 2. 加载环境变量 (输入法等)
+[ -f ~/.xprofile ] && . ~/.xprofile
+
+# 3. 启动 i3 (带 dbus 支持)
+exec dbus-launch --exit-with-session i3
+
+dotfiles on  main [+]
+❯
