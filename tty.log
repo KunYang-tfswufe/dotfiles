@@ -1,26 +1,12 @@
-tfiles on  main [+]
-❯ sudo apt install xserver-xorg
-[sudo] password for free514dom:
-xserver-xorg is already the newest version (1:7.7+24+deb13u1).
-Summary:
-  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 0
 
-dotfiles on  main [+] took 2s
-❯ i3
-i3: Cannot open display
+dotfiles on  main took 22s
+❯ startx
 
-dotfiles on  main [+]
-❯ cat ~/.xinitrc
-#!/bin/sh
+/usr/lib/xorg/Xorg.wrap: Only console users are allowed to run the X server
+xinit: giving up
+xinit: unable to connect to X server: Connection refused
+xinit: server error
+Couldn't get a file descriptor referring to the console.
 
-# 1. 加载 X 资源
-[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
-
-# 2. 加载环境变量 (输入法等)
-[ -f ~/.xprofile ] && . ~/.xprofile
-
-# 3. 启动 i3 (带 dbus 支持)
-exec dbus-launch --exit-with-session i3
-
-dotfiles on  main [+]
+dotfiles on  main
 ❯
