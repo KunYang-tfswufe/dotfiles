@@ -48,10 +48,6 @@ mkdir -p ~/vagrant-alpine
 # fcitx5 # Restart Required
 sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-frontend-gtk3 fcitx5-frontend-qt5 im-config
 im-config -n fcitx5
-# 优化：防止重复写入 .xprofile
-if ! grep -q "GTK_IM_MODULE=fcitx" ~/.xprofile; then
-    printf "\nexport GTK_IM_MODULE=fcitx\nexport QT_IM_MODULE=fcitx\nexport XMODIFIERS=@im=fcitx\n" >> ~/.xprofile
-fi
 
 # v2rayA
 wget -qO - https://apt.v2raya.org/key/public-key.asc | sudo tee /etc/apt/keyrings/v2raya.asc
