@@ -3,7 +3,7 @@
 # update && upgrade
 sudo apt -y update && sudo apt -y upgrade
 
-sudo apt -y install alacritty copyq dunst xclip maim i3-wm i3status i3lock
+sudo apt -y install alacritty copyq dunst xclip maim dbus-x11 xinit xserver-xorg i3-wm i3status i3lock
 
 # Prism Launcher
 sudo wget https://prism-launcher-for-debian.github.io/repo/prismlauncher.gpg -O /usr/share/keyrings/prismlauncher-archive-keyring.gpg \
