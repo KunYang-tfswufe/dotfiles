@@ -1,5 +1,6 @@
 # i3 config file (Simplified & Optimized & Fullscreen Scratchpad)
 # [Modified]: Workspaces reduced to 3
+# [Updated]: Mod+1 now toggles workspace 1 AND the scratchpad terminal
 
 set $mod Mod4
 
@@ -38,10 +39,8 @@ default_floating_border pixel 1
 bindsym $mod+Return exec alacritty -e tmux
 bindsym $mod+Shift+q kill
 
-# [修改] 唯一的暂存区快捷键 (已移除通用键位)
-# 专属一键呼出 Tmux 开发环境 (Mod + ` 反引号键)
-# 按一下全屏覆盖，再按一下隐藏
-bindsym $mod+grave workspace number $ws1; [class="^TmuxAuto$"] scratchpad show
+# [注意] 旧的暂存区快捷键 ($mod+grave) 已移除
+# 现在功能已合并至下方的 $mod+1 中
 
 # 焦点移动 (方向键)
 bindsym $mod+Left focus left
@@ -75,7 +74,9 @@ set $ws2 "2"
 set $ws3 "3"
 
 # 切换工作区
-bindsym $mod+1 workspace number $ws1
+# [修改] Mod+1：切换到工作区1，并立即切换 TmuxAuto 暂存窗口的显示/隐藏状态
+bindsym $mod+1 workspace number $ws1; [class="^TmuxAuto$"] scratchpad show
+
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 
