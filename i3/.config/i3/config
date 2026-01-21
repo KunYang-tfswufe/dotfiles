@@ -43,7 +43,7 @@ bindsym $mod+Shift+q kill
 # [修改] 唯一的暂存区快捷键 (已移除通用键位)
 # 专属一键呼出 Tmux 开发环境 (Mod + ` 反引号键)
 # 按一下全屏覆盖，再按一下隐藏
-bindsym $mod+grave [class="^TmuxAuto$"] scratchpad show
+bindsym $mod+grave workspace number $ws1; [class="^TmuxAuto$"] scratchpad show
 
 # 焦点移动 (方向键)
 bindsym $mod+Left focus left
