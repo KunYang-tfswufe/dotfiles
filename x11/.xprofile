@@ -4,4 +4,6 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export EDITOR=nvim
-fcitx5 -d &
+fcitx5 &
+clash-verge &
+copyq &
