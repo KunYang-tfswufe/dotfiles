@@ -21,6 +21,7 @@
 - [ ] Learn linux Distrobox
 - [ ] 把ssh当作vpn尝试使用
 - [ ] 学习c语言宏和c语言头文件 
+- [ ] 学习计算机网络
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
