@@ -23,6 +23,7 @@
 - [ ] 学习c语言宏和c语言头文件 
 - [ ] 学习计算机网络
 - [ ] Learn Maven
+- [ ] 寻找提取网页的内容作为LLM的上下文的命令行工具或者代码库
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
