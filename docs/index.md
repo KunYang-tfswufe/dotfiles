@@ -20,7 +20,6 @@
 - [ ] fzf可以与其他工具组成实用的工具?对于linux用户
 - [ ] Learn linux Distrobox
 - [ ] 把ssh当作vpn尝试使用
-- [ ] 学习c语言宏和c语言头文件 
 - [ ] 学习计算机网络
 - [ ] Learn Maven
 
