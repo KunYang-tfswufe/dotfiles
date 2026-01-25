@@ -22,6 +22,7 @@
 - [ ] 把ssh当作vpn尝试使用
 - [ ] 学习计算机网络
 - [ ] Learn Maven
+- [ ] 为cet4做局
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
