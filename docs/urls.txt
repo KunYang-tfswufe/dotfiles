@@ -30,7 +30,6 @@ https://github.com/hiddify/hiddify-core
 https://github.com/ollama/ollama
 https://github.com/openwrt
 https://github.com/GTNewHorizons
-https://github.com/EvanLi/Github-Ranking
 https://github.com/agarrharr/awesome-cli-apps
 https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel
 https://github.com/yamadashy/repomix
