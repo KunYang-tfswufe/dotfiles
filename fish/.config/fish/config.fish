@@ -4,6 +4,7 @@ end
 
 if status is-interactive
     fzf_key_bindings
+    bind \co 'set -l cmd (command cat ~/dotfiles/docs/commands.txt | fzf --reverse); if test -n "$cmd"; commandline -r -- $cmd; end; commandline -f repaint'
 end
 
 set -gx EDITOR (command -v hx)
