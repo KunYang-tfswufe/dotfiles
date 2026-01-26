@@ -35,6 +35,7 @@ https://github.com/agarrharr/awesome-cli-apps
 https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel
 https://github.com/yamadashy/repomix
 https://github.com/Mygod/VPNHotspot
+https://github.com/localstack/localstack
 # Extensions
 https://addons.mozilla.org/firefox/addon/ublock-origin/
 https://addons.mozilla.org/firefox/addon/immersive-translate/
