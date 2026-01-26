@@ -23,6 +23,7 @@
 - [ ] 学习计算机网络
 - [ ] Learn Maven
 - [ ] 为cet4做局
+- [ ] Learn MCP
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
