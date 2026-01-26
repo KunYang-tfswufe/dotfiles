@@ -22,8 +22,6 @@ alias lla 'eza -la --git --header'
 alias lt 'eza --tree'
 alias lta 'eza --tree -a'
 alias nano hx
-alias xx 'eval $(cat ~/dotfiles/docs/commands.txt | fzf --reverse)'
-alias gg 'eval $(cat ~/dotfiles/docs/commands-git.txt | fzf --reverse)'
 alias ii 'date && echo -n "Bat: " && cat /sys/class/power_supply/BAT*/capacity && hostname -I'
 
 function check_mypublic_dir --on-variable PWD
