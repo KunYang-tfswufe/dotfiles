@@ -24,6 +24,7 @@
 - [ ] Learn Maven
 - [ ] 为cet4做局
 - [ ] Learn MCP
+- [ ] try ble.sh
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
