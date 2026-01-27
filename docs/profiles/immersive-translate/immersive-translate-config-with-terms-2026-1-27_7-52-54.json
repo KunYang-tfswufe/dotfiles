@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2025-12-12T21:06:14.457Z",
+  "updatedAt": "2026-01-27T12:52:46.588Z",
   "isChangedAlwaysTranslatedUrls": true,
   "targetLanguage": "zh-CN",
-  "localUpdatedAt": "2025-12-12T21:06:14.457Z",
+  "localUpdatedAt": "2026-01-27T12:52:46.588Z",
   "interfaceLanguage": "zh-CN",
   "translationServiceChangedbyUserAt": "2025-11-25T10:56:01.343Z",
   "translationService": "siliconcloud",
@@ -147,7 +147,7 @@
       "zoom": "1",
       "weight": "400",
       "italics": false,
-      "textColor": "#c0caf5"
+      "textColor": "#FF69B4"
     },
     "dashedBorder": {
       "borderRadius": "0",
@@ -164,7 +164,7 @@
   },
   "terms": {
     "version": 1,
-    "exportedAt": "2025-12-12T21:06:44.945Z",
+    "exportedAt": "2026-01-27T12:52:54.774Z",
     "data": [
       {
         "id": "default",
