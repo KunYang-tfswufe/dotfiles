@@ -7,7 +7,6 @@ https://poe.com
 https://huggingface.co/chat
 https://perplexity.ai
 https://educative.io
-https://codecademy.com
 https://hyperskill.org
 https://lp.jetbrains.com/free-git-starter-pack
 https://codedex.io
