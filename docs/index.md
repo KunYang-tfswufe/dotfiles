@@ -28,6 +28,7 @@
 - [ ] 丢弃bash,玩转fzf官方仓库里面的一些实用的小工具和脚本
 - [ ] Learn maven值得学习的常见的插件和依赖
 - [ ] Learn 软路由
+- [ ] Learn 提示词工程
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
