@@ -25,6 +25,7 @@
 - [ ] 为cet4做局
 - [ ] Learn MCP
 - [ ] try ble.sh
+- [ ] 丢弃bash,玩转fzf官方仓库里面的一些实用的小工具和脚本
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
