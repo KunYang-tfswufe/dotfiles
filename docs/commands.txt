@@ -5,3 +5,4 @@ repomix --remote https://github.com/free514dom/fyp -o /tmp/fyp-repomix-output.xm
 du -h --max-depth=1 | sort -rh
 mkdir -p ~/Videos && wf-recorder --audio="$(pactl get-default-sink).monitor" -c libopenh264 -f "$HOME/Videos/Rec_$(date +%Y%m%d_%H%M%S).mp4"
 echo "xxx > /dev/null 2>&1 &"
+mvn exec:java -Dexec.mainClass="com.learning.Main"
