@@ -40,3 +40,4 @@ https://f-droid.org/packages/com.github.metacubex.clash.meta
 https://f-droid.org/packages/io.nekohasekai.sfa
 https://f-droid.org/packages/be.mygod.vpnhotspot_foss
 https://f-droid.org/packages/org.mozilla.fennec_fdroid
+https://f-droid.org/packages/exa.lnx.a
