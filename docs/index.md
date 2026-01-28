@@ -28,6 +28,8 @@
 - [ ] Learn maven值得学习的常见的插件和依赖
 - [ ] Learn 软路由
 - [ ] Learn 提示词工程
+- [ ] try arch live cd grml-zsh-config
+- [ ] 领取谷歌ai pro订阅的10美金谷歌cloud点数
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
