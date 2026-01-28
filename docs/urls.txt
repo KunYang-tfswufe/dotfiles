@@ -31,8 +31,9 @@ https://github.com/CHN-MuXin/MagiskModuleEnableChinaForVoTELtoPIxel
 https://github.com/yamadashy/repomix
 https://github.com/Mygod/VPNHotspot
 https://github.com/localstack/localstack
-# Extensions
+# Store
 https://addons.mozilla.org/firefox/addon/ublock-origin/
 https://addons.mozilla.org/firefox/addon/immersive-translate/
 https://addons.mozilla.org/firefox/addon/darkreader/
 https://addons.mozilla.org/firefox/addon/multi-account-containers/
+https://play.google.com/store/apps/details?id=com.immersivetranslate.transtify
