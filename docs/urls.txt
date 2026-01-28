@@ -37,3 +37,4 @@ https://addons.mozilla.org/firefox/addon/immersive-translate/
 https://addons.mozilla.org/firefox/addon/darkreader/
 https://addons.mozilla.org/firefox/addon/multi-account-containers/
 https://play.google.com/store/apps/details?id=com.immersivetranslate.transtify
+https://f-droid.org/packages/com.github.metacubex.clash.meta
