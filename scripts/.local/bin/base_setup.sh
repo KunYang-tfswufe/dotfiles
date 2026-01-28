@@ -9,8 +9,8 @@ sudo apt -y install curl wget unzip picom fzf tmux pass pass-otp oathtool stow g
 # trafilatura
 pipx install trafilatura
 
-# fish
-sudo apt -y install fish && sudo chsh -s $(which fish) $USER
+# zsh
+sudo apt -y install zsh && sudo chsh -s "$(which zsh)" "$USER"
 
 # repomix
 command -v repomix > /dev/null || sudo npm install -g repomix
