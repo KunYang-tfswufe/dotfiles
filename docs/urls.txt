@@ -42,3 +42,4 @@ https://f-droid.org/packages/be.mygod.vpnhotspot_foss
 https://f-droid.org/packages/org.mozilla.fennec_fdroid
 https://f-droid.org/packages/exa.lnx.a
 https://f-droid.org/packages/com.termux
+https://f-droid.org/packages/org.forkgram.messenger
