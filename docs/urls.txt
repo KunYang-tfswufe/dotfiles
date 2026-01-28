@@ -39,3 +39,4 @@ https://play.google.com/store/apps/details?id=com.immersivetranslate.transtify
 https://f-droid.org/packages/com.github.metacubex.clash.meta
 https://f-droid.org/packages/io.nekohasekai.sfa
 https://f-droid.org/packages/be.mygod.vpnhotspot_foss
+https://f-droid.org/packages/org.mozilla.fennec_fdroid
