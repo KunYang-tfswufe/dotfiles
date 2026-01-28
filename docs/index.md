@@ -31,6 +31,7 @@
 - [ ] try arch live cd grml-zsh-config
 - [ ] 领取谷歌ai pro订阅的10美金谷歌cloud点数
 - [ ] 尝试咸鱼购买国际信用卡验证或者已经充值的预扣余额去尝试领取免费google cloud方案
+- [ ] Learn browser f12
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
