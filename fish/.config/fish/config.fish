@@ -3,6 +3,21 @@ if test -f ~/.config/fish/secrets.fish
 end
 
 if status is-interactive
+    # --- Vi 模式设置开始 ---
+    # 开启 Vi 按键绑定
+    fish_vi_key_bindings
+
+    # 设置光标形状 (类似 Helix/Vim 的视觉反馈)
+    # 默认/普通模式显示为方块 (Block)
+    set fish_cursor_default block
+    # 插入模式显示为竖线 (Line)
+    set fish_cursor_insert line
+    # 替换模式显示为下划线
+    set fish_cursor_replace_one underscore
+    # 可视模式显示为方块
+    set fish_cursor_visual block
+    # --- Vi 模式设置结束 ---
+
     fzf_key_bindings
     bind \co 'set -l cmd (command cat ~/dotfiles/docs/commands.txt | fzf --reverse); if test -n "$cmd"; commandline -r -- $cmd; end; commandline -f repaint'
 end
@@ -139,6 +154,7 @@ end
 function u_all --description "Unmount all custom mount points"
     echo "正在尝试卸载..."
     fusermount -u ~/mnt_points/pi_mnt_point 2>/dev/null && echo "✓ 树莓派已卸载" || echo 树莓派未挂载或卸载失败
-    fusermount -u ~/mnt_points/phone1_mnt 2>/dev/null && echo "✓ 手机1已卸载" || echo 手机1未挂载或卸载失败
+    fusermount -u ~/mnt_points/phone1_mnt 2>/dev/null && echo "✓ 手机1已卸 载" || echo 手机1未挂载或卸载失败
 end
+
 starship init fish | source
