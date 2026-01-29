@@ -110,4 +110,3 @@ bindsym $mod+bracketright exec --no-startup-id sh -c 'mkdir -p ~/Pictures/Screen
 
 exec --no-startup-id fcitx5 -d
 exec --no-startup-id copyq
-exec --no-startup-id clash-verge
