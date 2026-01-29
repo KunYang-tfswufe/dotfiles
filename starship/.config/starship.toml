@@ -6,12 +6,24 @@ vimcmd_symbol = "[<](bold green)"
 [git_commit]
 tag_symbol = " tag "
 
+#####
 [git_status]
-ahead = ">"
-behind = "<"
-diverged = "<>"
-renamed = "r"
-deleted = "x"
+# 格式化字符串：这里去掉了特殊符号，直接显示状态文本
+format = '([$all_status$ahead_behind]($style) )'
+
+# 把符号全部换成直观的单词 (注意单词后面加个空格，为了排版好看)
+conflicted = "Conflicted "   # 冲突
+ahead = "Ahead "             # 领先远程分支
+behind = "Behind "           # 落后远程分支
+diverged = "Diverged "       # 分叉（既领先又落后）
+untracked = "Untracked "     # 未追踪的文件
+stashed = "Stashed "         # 暂存的内容
+modified = "Modified "       # 修改过但没暂存
+staged = "Staged "           # 已暂存待提交
+renamed = "Renamed "         # 重命名的文件
+deleted = "Deleted "         # 删除的文件
+type_changed = "TypeChanged " # 类型改变
+#####
 
 [aws]
 symbol = "aws "
