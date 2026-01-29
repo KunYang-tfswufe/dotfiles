@@ -14,6 +14,8 @@ p = ["paste_clipboard_after"]
 P = ["paste_clipboard_before"]
 R = ["delete_selection", "paste_clipboard_before"]
 C-r = ":reload-all"
+x = "delete_selection"
+X = "extend_line_below"
 
 [keys.insert]
 up = "no_op"
