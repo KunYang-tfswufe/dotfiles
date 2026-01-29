@@ -1,5 +1,6 @@
 # i3 config file (Simplified & Optimized)
 # [Modified]: Workspaces reduced to 3
+# [Modified]: Focus navigation changed to Alt+Esc cycle
 
 set $mod Mod4
 
@@ -32,13 +33,11 @@ default_floating_border pixel 1
 bindsym $mod+Return exec alacritty -e tmux
 bindsym $mod+Shift+q kill
 
-# 焦点移动 (方向键)
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# --- 焦点切换 (Alt + Esc 循环) ---
+# [修改] 删除了 Mod+方向键，替换为 Alt(Mod1)+Esc 循环切换
+bindsym Mod1+Escape focus next
 
-# 窗口移动 (方向键)
+# 窗口移动 (方向键) - 保持原样，用于移动窗口位置
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
