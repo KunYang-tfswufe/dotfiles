@@ -16,7 +16,9 @@ if status is-interactive
     set fish_cursor_replace_one underscore
     # 可视模式显示为方块
     set fish_cursor_visual block
-    # --- Vi 模式设置结束 ---
+
+    bind -M default d delete-char
+    bind -M visual d kill-selection
 
     fzf_key_bindings
     bind \co 'set -l cmd (command cat ~/dotfiles/docs/commands.txt | fzf --reverse); if test -n "$cmd"; commandline -r -- $cmd; end; commandline -f repaint'
