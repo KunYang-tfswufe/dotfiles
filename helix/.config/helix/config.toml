@@ -14,12 +14,14 @@ p = ["paste_clipboard_after"]
 P = ["paste_clipboard_before"]
 R = ["delete_selection", "paste_clipboard_before"]
 C-r = ":reload-all"
+"A-q" = ["move_char_right", "move_prev_word_end", "move_next_word_start", "delete_selection"]
 
 [keys.insert]
 up = "no_op"
 down = "no_op"
 left = "no_op"
 right = "no_op"
+"A-q" = ["normal_mode", "move_char_right", "move_prev_word_end", "move_next_word_start", "delete_selection", "insert_mode"]
 
 [keys.select]
 up = "no_op"
