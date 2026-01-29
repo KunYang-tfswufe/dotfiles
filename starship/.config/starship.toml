@@ -18,7 +18,7 @@ modified = "Modified "         # 已修改但未暂存
 staged = "Staged "             # 已暂存待提交
 renamed = "Renamed "           # 重命名的文件
 deleted = "Deleted "           # 已删除的文件
-type_changed = "TypeChanged "  # 文件类型改变
+typechanged = "TypeChanged "  # 文件类型改变
 style = "bold red"
 
 [aws]
