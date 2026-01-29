@@ -30,7 +30,7 @@ default_border pixel 1
 default_floating_border pixel 1
 
 # 核心应用
-bindsym $mod+Return exec alacritty -e tmux
+bindsym $mod+Return exec alacritty -e tmux new-session -A -s main
 bindsym $mod+Shift+q kill
 
 # --- 焦点切换 (Alt + Esc 循环) ---
