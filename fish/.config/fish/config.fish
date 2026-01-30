@@ -19,13 +19,13 @@ if status is-interactive
     # FZF 官方按键绑定
     fzf_key_bindings
 
-    # --- 修复 Ctrl+O 的绑定 ---
-    # 定义具体执行的命令为一个变量，方便复用
-    set -l fzf_custom_cmd "set -l cmd (command cat ~/dotfiles/docs/commands.txt | fzf --reverse); if test -n \"\$cmd\"; commandline -r -- \$cmd; end; commandline -f repaint"
+    # # --- 修复 Ctrl+O 的绑定 ---
+    # # 定义具体执行的命令为一个变量，方便复用
+    # set -l fzf_custom_cmd "set -l cmd (command cat ~/dotfiles/docs/commands.txt | fzf --reverse); if test -n \"\$cmd\"; commandline -r -- \$cmd; end; commandline -f repaint"
 
-    # 关键修改：分别绑定到 Insert 模式 和 Default (Normal) 模式
-    bind -M insert \co $fzf_custom_cmd
-    bind -M default \co $fzf_custom_cmd
+    # # 关键修改：分别绑定到 Insert 模式 和 Default (Normal) 模式
+    # bind -M insert \co $fzf_custom_cmd
+    # bind -M default \co $fzf_custom_cmd
 end
 
 set -gx EDITOR (command -v hx)
