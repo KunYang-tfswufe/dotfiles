@@ -101,24 +101,6 @@ function s_pi --description "SSH to Raspberry Pi"
     end
 end
 
-function vnc_pi --description "VNC to Raspberry Pi"
-    echo "提示: 请确保树莓派已启用 VNC 服务，并且您已安装 vncviewer (tigervnc)。"
-    read --prompt-str "按 Enter 继续, Ctrl+C 取消..."
-    echo ""
-    if set --local pi_ip (get_ip pi)
-        echo "✅ 发现树莓派 IP: $pi_ip, 正在启动 VNC 查看器..."
-        vncviewer $pi_ip &
-        if test $status -eq 0
-            echo "👍 VNC 客户端已启动。"
-        else
-            echo "❌ 错误: 启动 vncviewer 失败。" >&2
-        end
-    else
-        echo "❌ VNC 失败：无法获取 IP 地址。" >&2
-        return 1
-    end
-end
-
 function s_phone1 --description "SSH to Phone 1 (Static IP)"
     read --prompt-str "确保手机 Termux 的 sshd 已启动。按 Enter 连接..."
     echo ""
