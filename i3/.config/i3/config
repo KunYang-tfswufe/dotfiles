@@ -1,6 +1,8 @@
 # i3 config file (Simplified & Optimized)
 # [Modified]: Workspaces reduced to 3
 # [Modified]: Focus navigation changed to Alt+Esc cycle
+# [Modified]: Resize mapped to Mod+hjkl (No Ctrl)
+# [Modified]: Move mapped to Mod+Shift+hjkl
 
 set $mod Mod4
 
@@ -37,13 +39,14 @@ bindsym $mod+Shift+q kill
 # [修改] 删除了 Mod+方向键，替换为 Alt(Mod1)+Esc 循环切换
 bindsym Mod1+Escape focus next
 
-# 窗口移动 (方向键) - 保持原样，用于移动窗口位置
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# --- 窗口移动 (Neovim h/j/k/l) ---
+# [修改] 将原来的 Mod+Shift+方向键 改为 Mod+Shift+hjkl
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
-# 布局与模式切换
+# --- 布局与模式切换 ---
 bindsym $mod+f fullscreen toggle
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
@@ -73,11 +76,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# --- 调整窗口大小 (无模态改良版) ---
-bindsym $mod+Ctrl+Left resize shrink width 10 px or 10 ppt
-bindsym $mod+Ctrl+Down resize grow height 10 px or 10 ppt
-bindsym $mod+Ctrl+Up resize shrink height 10 px or 10 ppt
-bindsym $mod+Ctrl+Right resize grow width 10 px or 10 ppt
+bindsym $mod+h resize shrink width 10 px or 10 ppt
+bindsym $mod+j resize grow height 10 px or 10 ppt
+bindsym $mod+k resize shrink height 10 px or 10 ppt
+bindsym $mod+l resize grow width 10 px or 10 ppt
 
 bar {
     status_command i3status
