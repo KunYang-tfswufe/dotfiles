@@ -101,22 +101,6 @@ function s_pi --description "SSH to Raspberry Pi"
     end
 end
 
-function f_pi --description "Mount Raspberry Pi via sshfs"
-    mkdir -p ~/mnt_points/pi_mnt_point
-    if set --local pi_ip (get_ip pi)
-        echo "✅ 发现树莓派 IP: $pi_ip, 正在挂载..."
-        sshfs "pi@$pi_ip": ~/mnt_points/pi_mnt_point/
-        if test $status -eq 0
-            echo "👍 成功! 树莓派已挂载。"
-        else
-            echo "❌ 错误: sshfs 挂载失败。" >&2
-        end
-    else
-        echo "❌ 挂载失败：无法获取 IP 地址。" >&2
-        return 1
-    end
-end
-
 function vnc_pi --description "VNC to Raspberry Pi"
     echo "提示: 请确保树莓派已启用 VNC 服务，并且您已安装 vncviewer (tigervnc)。"
     read --prompt-str "按 Enter 继续, Ctrl+C 取消..."
@@ -139,24 +123,6 @@ function s_phone1 --description "SSH to Phone 1 (Static IP)"
     read --prompt-str "确保手机 Termux 的 sshd 已启动。按 Enter 连接..."
     echo ""
     ssh -p 8022 "9.9.9.9"
-end
-
-function f_phone1 --description "Mount Phone 1 via sshfs"
-    mkdir -p ~/mnt_points/phone1_mnt
-    read --prompt-str "确保手机 Termux 的 sshd 已启动。按 Enter 挂载..."
-    echo ""
-    sshfs -p 8022 "9.9.9.9:/data/data/com.termux/files/home" ~/mnt_points/phone1_mnt
-    if test $status -eq 0
-        echo "✅ 成功! 手机1已挂载。"
-    else
-        echo "❌ 错误: sshfs 挂载失败。" >&2
-    end
-end
-
-function u_all --description "Unmount all custom mount points"
-    echo "正在尝试卸载..."
-    fusermount -u ~/mnt_points/pi_mnt_point 2>/dev/null && echo "✓ 树莓派已卸载" || echo 树莓派未挂载或卸载失败
-    fusermount -u ~/mnt_points/phone1_mnt 2>/dev/null && echo "✓ 手机1已卸 载" || echo 手机1未挂载或卸载失败
 end
 
 starship init fish | source
