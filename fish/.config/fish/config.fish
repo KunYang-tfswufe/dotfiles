@@ -3,25 +3,29 @@ if test -f ~/.config/fish/secrets.fish
 end
 
 if status is-interactive
-    # --- Vi 模式设置开始 ---
-    # 开启 Vi 按键绑定
+    # --- Vi 模式设置 ---
     fish_vi_key_bindings
 
-    # 设置光标形状 (类似 Helix/Vim 的视觉反馈)
-    # 默认/普通模式显示为方块 (Block)
+    # 设置光标形状
     set fish_cursor_default block
-    # 插入模式显示为竖线 (Line)
     set fish_cursor_insert line
-    # 替换模式显示为下划线
     set fish_cursor_replace_one underscore
-    # 可视模式显示为方块
     set fish_cursor_visual block
 
+    # Vi 模式下的删除行为修正
     bind -M default d delete-char
     bind -M visual d 'commandline -f kill-selection; commandline -f end-selection; commandline -f repaint'
 
+    # FZF 官方按键绑定
     fzf_key_bindings
-    bind \co 'set -l cmd (command cat ~/dotfiles/docs/commands.txt | fzf --reverse); if test -n "$cmd"; commandline -r -- $cmd; end; commandline -f repaint'
+
+    # --- 修复 Ctrl+O 的绑定 ---
+    # 定义具体执行的命令为一个变量，方便复用
+    set -l fzf_custom_cmd "set -l cmd (command cat ~/dotfiles/docs/commands.txt | fzf --reverse); if test -n \"\$cmd\"; commandline -r -- \$cmd; end; commandline -f repaint"
+
+    # 关键修改：分别绑定到 Insert 模式 和 Default (Normal) 模式
+    bind -M insert \co $fzf_custom_cmd
+    bind -M default \co $fzf_custom_cmd
 end
 
 set -gx EDITOR (command -v hx)
