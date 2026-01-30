@@ -1,8 +1,4 @@
 # i3 config file (Simplified & Optimized)
-# [Modified]: Workspaces reduced to 3
-# [Modified]: Focus navigation changed to Alt+Esc cycle
-# [Modified]: Resize mapped to Mod+hjkl (No Ctrl)
-# [Modified]: Move mapped to Mod+Shift+hjkl
 
 set $mod Mod4
 
