@@ -34,6 +34,7 @@
 - [ ] Learn browser f12
 - [ ] try trans 加上发音
 - [ ] 建立盲的操作逻辑，将开机自启动添加一个终端和一个浏览器到工作区1,用mod+f解决窗口过小的难题
+- [ ] try vim helix shift+a切换到行末尾并进入插入模式
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
