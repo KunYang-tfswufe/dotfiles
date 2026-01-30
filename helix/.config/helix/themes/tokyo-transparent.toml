@@ -1,5 +1,0 @@
-inherits = "tokyonight"
-
-"ui.background" = { bg = "none" }
-"ui.gutter" = { bg = "none" }
-"ui.statusline" = { bg = "none" }
