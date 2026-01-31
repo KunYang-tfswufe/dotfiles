@@ -38,6 +38,8 @@
 - [ ] Learn v2ray shadowsocks clash
 - [ ] Learn 云
 - [ ] Learn LLM API开发
+- [ ] Gemini App能通过Activity删除某次对话不想要的上下文
+- [ ] Learn 若依
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
