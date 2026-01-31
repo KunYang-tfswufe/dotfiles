@@ -37,7 +37,7 @@
 - [ ] 修复网络工具,放弃移动设备供网
 - [ ] Learn v2ray shadowsocks clash
 - [ ] Learn 云
-- [ ] Learn LLM API开发
+- [ ] 租借算力通过ollama搭建Llama模型学习OpenAI API开发
 - [ ] Gemini App能通过Activity删除某次对话不想要的上下文
 - [ ] Learn 若依
 
