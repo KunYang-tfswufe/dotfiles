@@ -36,6 +36,7 @@
 - [ ] 大语言模型时代必备的网站
 - [ ] 修复网络工具,放弃移动设备供网
 - [ ] Learn v2ray shadowsocks clash
+- [ ] Learn 云
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
