@@ -37,6 +37,7 @@
 - [ ] 修复网络工具,放弃移动设备供网
 - [ ] Learn v2ray shadowsocks clash
 - [ ] Learn 云
+- [ ] Gemini App能通过Activity删除某次对话不想要的上下文
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
