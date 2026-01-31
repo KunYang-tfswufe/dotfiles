@@ -35,6 +35,7 @@
 - [ ] try vim helix shift+a切换到行末尾并进入插入模式
 - [ ] 大语言模型时代必备的网站
 - [ ] 修复网络工具,放弃移动设备供网
+- [ ] Learn v2ray shadowsocks clash
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
