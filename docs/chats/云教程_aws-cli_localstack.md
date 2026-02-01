@@ -312,81 +312,291 @@ aws --endpoint-url=http://localhost:4566 s3 ls
 
 User-4:
 ``````text
+
+~/cloud-study via py v3.13.5 (venv) on aws (us-east-1)
+> aws --endpoint=http://localhost:4566 s3 mb s3://my-wallet
+make_bucket: my-wallet
+
+~/cloud-study via py v3.13.5 (venv) on aws (us-east-1) took 2s
+> aws --endpoint=http://localhost:4566 s3 ls
+2026-01-31 13:48:47 my-wallet
+
+~/cloud-study via py v3.13.5 (venv) on aws (us-east-1)
+>
 ``````
 Model-4:
 ``````markdown
+太棒了！你成功了！🎉
+你现在正式拥有了一个运行在你哥哥电脑里的“私有云存储”，而且你已经成功创建了你的第一个存储桶 `my-wallet`。
+
+哪怕是很多入行的初学者，在这一步都会因为网络配置或者端口问题卡住，你一次就过了，非常有天赋！
+
+现在我们要进行下一步。虽然你做到了，但你有没有发现每次都要打 `--endpoint-url=http://localhost:4566` 这串长长的尾巴非常麻烦？如果不小心打错一个字母，命令就会失败。
+
+这一节，我们要干两件事：
+
+1. 往你的桶里放点东西。
+2. 安装一个“魔法工具”，让我们以后再也不用打那串长长的尾巴。
+
+---
+
+## 第 4 课：上传文件与安装“魔法工具”
+
+### 🎓 概念讲解
+
+1. **对象 (Object)**：在云存储(S3)里，文件不叫文件，叫“对象”。
+2. **cp (Copy)**：这是 Linux 和 AWS 里通用的命令，意思是“复制”。我们要把本地的文件“复制”到云端。
+3. **awslocal**：这是一个专门为 LocalStack 设计的小工具。它会自动帮你在后台加上 `http://localhost:4566`，这样你打命令时就感觉像在用真的 AWS 一样简洁。
+
+---
+
+### 🛠️ 实战作业
+
+#### ✅ Checkpoint 1: 制作一个假文件
+
+我们要先在本地造一个文件，用来测试上传。
+输入以下命令：
+
+```bash
+echo "Hello Cloud!" > money.txt
+
+```
+
+*(解释：这句话的意思是，把 "Hello Cloud!" 这句话写入到 money.txt 这个文件里。如果文件不存在，它会自动创建。)*
+
+#### ✅ Checkpoint 2: 把文件“扔”进云里
+
+现在，把这个 `money.txt` 上传到你上一节建好的 `my-wallet` 桶里。
+*(我们再最后忍受一次长命令)*
+
+```bash
+aws --endpoint-url=http://localhost:4566 s3 cp money.txt s3://my-wallet
+
+```
+
+> **注意：** 如果你上一节用 `--endpoint` 也能跑通，那很神奇（可能是新版特性），但标准写法是 `--endpoint-url`，建议养成标准习惯。
+
+#### ✅ Checkpoint 3: 安装“魔法工具” (awslocal)
+
+现在我们要解放双手了。请在你的沙箱里安装这个神器：
+
+```bash
+pip install awscli-local
+
+```
+
+#### ✅ Checkpoint 4: 见证魔法
+
+安装好后，我们以后所有的 `aws` 命令都可以换成 `awslocal`，并且**再也不用**写 endpoint 那一长串了！
+
+试着用新命令查看你的桶里有什么：
+
+```bash
+awslocal s3 ls s3://my-wallet
+
+```
+
+---
+
+### 📤 提交作业
+
+请把 Checkpoint 4 的输出结果复制给我。
+
+> **预期结果：** 你应该能看到类似 `2026-01-31 ... money.txt` 的字样。这就证明你的文件已经稳稳地躺在“云端”了。
+
+(如果这一步成功，下一节我们将学习如何在这个“云”里搭建一个极简的静态网站！)
 ``````
 
 ---
 
 User-5:
 ``````text
+
+~/cloud-study via py v3.13.5 (venv) on aws (us-east-1) took 29s
+> awslocal s3 ls s3://my-wallet
+2026-01-31 13:58:49         13 money.txt
+
+~/cloud-study via py v3.13.5 (venv) on aws (us-east-1)
+>
 ``````
 Model-5:
 ``````markdown
+太棒了！你的进度非常快，而且 `awslocal` 已经完全工作正常。现在的你，打起命令来应该感觉轻松多了吧？
+
+接下来我们要玩个大的。我们将要把你的这个“云盘”变成一个**网站服务器**。
+
+---
+
+## 第 5 课：把存储桶变成网站 (Static Website)
+
+### 🎓 概念讲解
+
+1. **静态网站 (Static Website)**：这是最古老也是最快的一种网站。它只包含纯展示的内容（HTML），就像一张贴在公告栏上的海报，每个人看到的都是一样的。
+2. **S3 网站托管**：S3 有个神奇的功能，只要你开启它，你的存储桶就会变成一个网站服务器，外界就可以通过网址访问里面的文件了。
+3. **curl**：这是一个命令行版的“浏览器”。它没有图形界面，但是可以帮我们抓取网页的内容。
+
+---
+
+### 🛠️ 实战作业：上线你的第一个网页
+
+#### ✅ Checkpoint 1: 编写网页代码
+
+虽然我们不教写网页，但我们需要一个极其简单的页面。
+在终端输入：
+
+```bash
+echo "<h1>Hello from LocalStack!</h1>" > index.html
+
+```
+
+*(解释：这行代码创建了一个包含标题的 HTML 文件)*
+
+#### ✅ Checkpoint 2: 创建一个新的桶
+
+我们为了区分刚才的钱包，新建一个专门放网站的桶，叫 `my-site`。
+
+```bash
+awslocal s3 mb s3://my-site
+
+```
+
+#### ✅ Checkpoint 3: 开启“网站模式”
+
+这是最关键的一步。我们要告诉云：“嘿，这个桶不仅仅是用来存文件的，它是用来做网站的，首页是 `index.html`。”
+
+```bash
+awslocal s3 website s3://my-site --index-document index.html
+
+```
+
+*(如果没有报错，通常不会有任何输出，这就是好消息)*
+
+#### ✅ Checkpoint 4: 上传网页
+
+把刚才写的 `index.html` 上传进去。
+
+```bash
+awslocal s3 cp index.html s3://my-site
+
+```
+
+#### ✅ Checkpoint 5: 访问你的网站！
+
+激动人心的时刻到了。
+在真正的 AWS 里，你会得到一个很长的网址。在 LocalStack 里，我们的网址是本地的。
+我们用 `curl` 这个命令行浏览器来访问它：
+
+```bash
+curl http://my-site.s3-website.us-east-1.localhost.localstack.cloud:4566/
+
+```
+
+> **如果上面的命令太长报错或者无法解析**，请尝试这个备用命令（LocalStack 的不同版本有时候网址规则不同）：
+> `curl http://localhost:4566/my-site/index.html`
+
+---
+
+### 📤 提交作业
+
+请把 **Checkpoint 5** 的输出结果复制给我。
+
+> **预期结果：** 你应该会在那个黑框框里看到这行代码被“吐”了出来：
+> `<h1>Hello from LocalStack!</h1>`
+
+如果你看到了这句话，恭喜你，你已经成功部署了一个网站！
+(如果成功，下一节我们来清理战场，学习如何“销毁”资源，这是云工程师省钱的关键！)
 ``````
 
 ---
 
 User-6:
 ``````text
+
+~/cloud-study via py v3.13.5 (venv) on aws (us-east-1)
+> curl http://localhost:4566/my-site/index.html
+<h1>Hello from LocalStack!</h1>
+
+~/cloud-study via py v3.13.5 (venv) on aws (us-east-1)
+>
+
 ``````
 Model-6:
 ``````markdown
-``````
+恭喜！看到那行 `<h1>Hello from LocalStack!</h1>`，意味着你已经成功完成了一次完整的云端部署。
+
+在真实的 AWS 世界里，你刚才开启的每一秒钟都在计费。虽然 LocalStack 是免费的，但**“随手关灯（清理资源）”**是云工程师最重要的素养之一。如果不清理，你的信用卡账单可能会像坐火箭一样起飞。
+
+这也是我们 Level 1 的最后一课：**销毁**。
 
 ---
 
-User-7:
-``````text
-``````
-Model-7:
-``````markdown
-``````
+## 第 6 课：清理战场 (销毁资源)
+
+### 🎓 概念讲解
+
+1. **RB (Remove Bucket)**：这是删除存储桶的命令。
+2. **非空保护**：这是云厂商为了防止你手滑误删数据做的一个机制。如果一个桶里还有文件，云是不允许你直接把桶删掉的。你必须先清空文件，再删桶。
 
 ---
 
-User-8:
-``````text
-``````
-Model-8:
-``````markdown
-``````
+### 🛠️ 实战作业：有始有终
+
+#### ✅ Checkpoint 1: 尝试暴力删除 (并观察失败)
+
+我们要先故意犯个错，看看云是怎么保护数据的。
+尝试直接删除 `my-site` 这个桶：
+
+```bash
+awslocal s3 rb s3://my-site
+
+```
+
+> **预期结果：** 你应该会看到一个报错，包含 `BucketNotEmpty` 的字样。这是正常的！
+
+#### ✅ Checkpoint 2: 清空文件
+
+既然它嫌桶不空，那我们就把里面的 `index.html` 删掉。
+使用 `rm` (remove) 命令：
+
+```bash
+awslocal s3 rm s3://my-site/index.html
+
+```
+
+#### ✅ Checkpoint 3: 再次删除桶
+
+现在桶是空的了，再次尝试删除：
+
+```bash
+awslocal s3 rb s3://my-site
+
+```
+
+> **预期结果：** 这次应该会显示 `remove_bucket: my-site`。
+
+#### ✅ Checkpoint 4: 最终核查
+
+确认一下它真的消失了。
+
+```bash
+awslocal s3 ls
+
+```
+
+> **预期结果：** 你应该只看得到 `my-wallet` (那个钱包桶还在)，但看不到 `my-site` 了。
 
 ---
 
-User-9:
-``````text
-``````
-Model-9:
-``````markdown
-``````
+### 🎓 毕业典礼：Level 1 结业
 
----
+等你提交这最后一次作业（Checkpoint 4 的输出），我就正式宣布你 **Level 1 毕业**。
 
-User-10:
-``````text
-``````
-Model-10:
-``````markdown
-``````
+**请提交：**
 
----
+1. Checkpoint 1 的报错信息（这很重要，我想确认你看到了那个错误）。
+2. Checkpoint 4 的最终列表。
 
-User-11:
-``````text
-``````
-Model-11:
-``````markdown
-``````
-
----
-
-User-12:
-``````text
-``````
-Model-12:
-``````markdown
+提交后，我会给你做一个简短的总结，并为你颁发这一阶段的“云工程师徽章”。我们就可以结束今天的课程，让你休息一下了！
 ``````
 
 ---
