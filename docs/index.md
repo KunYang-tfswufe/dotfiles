@@ -9,6 +9,7 @@
 ### Tips
 - [ ] Gemini App能通过Activity删除某次对话不想要的上下文
 - [ ] try vim helix shift+a切换到行末尾并进入插入模式
+- [ ] 可以用alt+e进入fish的编辑模式如果要写长命令的话非常方便
 
 ### 🏃 Running
 - [ ] Get one month of access to [Hyperskill](https://hyperskill.org) for sprint learning Java Spring through [JetBrains Free Git Starter Pack](https://lp.jetbrains.com/free-git-starter-pack)
