@@ -43,7 +43,7 @@
 - [ ] Learn 云
 - [ ] 租借算力通过ollama搭建Llama模型学习OpenAI API开发
 - [ ] Learn 若依
-- [ ] Learn openssl
+- [ ] Learn openssh(补充重点学习密钥管理)
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
@@ -61,6 +61,8 @@
 - [ ] Learn 磁盘分区与启动模式，挂载 (Mounting) 与 Chroot，引导加载程序，命令行联网或者底层工具联网，systemctl，时间
 - [ ] Learn arch linux install on VM
 - [ ] Learn aws-cli/gcloud
+- [ ] Learn openssl
+
 
 ---
 
