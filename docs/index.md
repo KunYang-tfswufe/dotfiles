@@ -6,6 +6,10 @@
 - [ ] Capstone Project Submission `[2024-02-01]`
 - [ ] Renew Server Subscription `[3 Days Left]`
 
+### Tips
+- [ ] Gemini App能通过Activity删除某次对话不想要的上下文
+- [ ] try vim helix shift+a切换到行末尾并进入插入模式
+
 ### 🏃 Running
 - [ ] Get one month of access to [Hyperskill](https://hyperskill.org) for sprint learning Java Spring through [JetBrains Free Git Starter Pack](https://lp.jetbrains.com/free-git-starter-pack)
 - [ ] Finish Grind75.
@@ -32,13 +36,11 @@
 - [ ] Learn browser f12
 - [ ] try trans 加上发音
 - [ ] 建立盲的操作逻辑，将开机自启动添加一个终端和一个浏览器到工作区1,用mod+f解决窗口过小的难题
-- [ ] try vim helix shift+a切换到行末尾并进入插入模式
 - [ ] 大语言模型时代必备的网站
 - [ ] 修复网络工具,放弃移动设备供网
 - [ ] Learn v2ray shadowsocks clash
 - [ ] Learn 云
 - [ ] 租借算力通过ollama搭建Llama模型学习OpenAI API开发
-- [ ] Gemini App能通过Activity删除某次对话不想要的上下文
 - [ ] Learn 若依
 
 ### ⏳ Waiting
