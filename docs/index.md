@@ -43,6 +43,7 @@
 - [ ] Learn 云
 - [ ] 租借算力通过ollama搭建Llama模型学习OpenAI API开发
 - [ ] Learn 若依
+- [ ] Learn openssl
 
 ### ⏳ Waiting
 - [ ] Exit Strategy
