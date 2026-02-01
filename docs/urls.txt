@@ -1,13 +1,13 @@
 # GenAI
 https://huggingface.co/chat
+https://poe.com
+https://perplexity.ai
 
 # Bookmarks
 https://www.dropbox.com/scl/fo/mzqbrqj9qaquo8iycnq5h/AJl_DXmlmchpoKoOjRliY9w?rlkey=0foypwdkof8447qeqej4r6ara&st=fzkq137f&dl=0
 https://fabricmc.net/develop
 https://bisqwit.iki.fi/
 https://education.github.com/pack
-https://poe.com
-https://perplexity.ai
 https://educative.io
 https://hyperskill.org
 https://lp.jetbrains.com/free-git-starter-pack
